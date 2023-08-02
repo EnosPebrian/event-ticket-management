@@ -11,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Eventdisplay />} />
+        <Rout path="/:eventname" element={<Eventdisplay />} />
       </Routes>
     </>
   );
