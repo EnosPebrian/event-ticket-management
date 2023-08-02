@@ -1,0 +1,14 @@
+#logo-text {
+  font-family: "Libre Baskerville", serif;
+  font-family: "Pacifico", cursive;
+}
+
+#nav-container {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.img-carousel {
+  width: 100%;
+}

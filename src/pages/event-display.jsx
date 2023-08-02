@@ -8,11 +8,12 @@ function Eventdisplay() {
   return (
     <>
       <Container>
-        <Carousel>
+        <Carousel id="carousel-container">
           <Carousel.Item>
             <img
               src="https://api.yesplis.com/images/slider/8044935f5ad212cb8c3d74cb8d8fefdb158025d6.png.webp"
               referrerPolicy="no-referrer"
+              className="img-carousel"
             />
             <Carousel.Caption>
               <h3>First slide label</h3>
@@ -23,6 +24,7 @@ function Eventdisplay() {
             <img
               src="https://api.yesplis.com/images/slider/3baeaeeb8b92bdc3e02940d91dd4b68a204b7d52.png.webp"
               referrerPolicy="no-referrer"
+              className="img-carousel"
             />
             <Carousel.Caption>
               <h3>Second slide label</h3>
@@ -33,6 +35,7 @@ function Eventdisplay() {
             <img
               src="https://api.yesplis.com/images/slider/521ccf964196249b8b09a63819dad8db5f0b4d5b.png.webp"
               referrerPolicy="no-referrer"
+              className="img-carousel"
             />
             <Carousel.Caption>
               <h3>Third slide label</h3>
