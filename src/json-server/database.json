@@ -1,5 +1,5 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
       "username": "Admin",
@@ -15,7 +15,7 @@
       "event": [2]
     }
   ],
-  "event": [
+  "events": [
     {
       "id": 1,
       "name": "Masak aeer",
