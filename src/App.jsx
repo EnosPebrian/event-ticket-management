@@ -8,6 +8,7 @@ import api from "./json-server/api";
 import { useState } from "react";
 
 function App() {
+  const [search, setSearch] = useState([]);
   const [events, setEvents] = useState([]);
   const [users, setUsers] = useState([]);
   const fetchEvent = async () => {
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<Eventdisplay />} />
         <Route path="/:eventname" element={<Eventdisplay />} />
