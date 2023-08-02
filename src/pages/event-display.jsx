@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 
-function Eventdisplay({ search, events, setEvents, users }) {
+function Eventdisplay({ search, events=[], setEvents, users }) {
   const navigate = useNavigate();
   return (
     <>
@@ -59,7 +59,7 @@ function Eventdisplay({ search, events, setEvents, users }) {
               type="button"
               onClick={() => navigate(`/${event.id}`)}
             >
-              {console.log(`event`, event)}
+              
               <img
                 referrerPolicy="no-referrer"
                 src={event.photo}
