@@ -1,0 +1,23 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "Admin",
+      "email": "admin@mail.com",
+      "password": "admin123"
+    }
+  ],
+  "event": [
+    {
+      "id": 1,
+      "name": "Masak aeer",
+      "location": "lalaland",
+      "date": "20230920",
+      "description": "Rekor muri memasak air",
+      "photo": [
+        "https://assets-a1.kompasiana.com/items/album/2021/11/03/air-618258c4b4ab2e185a476433.jpg"
+      ],
+      "poster": "1"
+    }
+  ]
+}
