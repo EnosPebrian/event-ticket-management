@@ -51,6 +51,10 @@ function Eventdisplay() {
               width={"100%"}
               alt=""
             />
+            <div>Event Name</div>
+            <div>Location</div>
+            <div>Event Date</div>
+            <div>Even Description</div>
           </Col>
           <Col xs={12} md={6} lg={4} xl={3}>
             <img
@@ -74,7 +78,7 @@ function Eventdisplay() {
             />
           </Col>
         </Row>
-        <Row>
+        <Row className="mt-5">
           <Col xs={12} md={6} lg={4} xl={3}>
             <img
               src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
@@ -134,7 +138,7 @@ function Eventdisplay() {
             />
           </Col>
         </Row>
-        <Row>
+        <Row className="mt-5">
           <Col xs={12} md={6} lg={4} xl={3}>
             <img
               src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
