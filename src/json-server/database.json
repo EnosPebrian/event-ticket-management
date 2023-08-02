@@ -42,10 +42,32 @@
       "id": 3,
       "name": "Festival Balon Terbang",
       "location": "Capadocia",
-      "date": "20230923",
-      "description": "Rekor muri mencangkul",
+      "date": "20231023",
+      "description": "Terbang bersama dengan 1000 balon udara",
       "photo": [
-        "https://statik.tempo.co/data/2016/04/26/id_501460/501460_620.jpg"
+        "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
+      ],
+      "poster": 2
+    },
+    {
+      "id": 4,
+      "name": "Tandem Free Fall",
+      "location": "Garut",
+      "date": "20231023",
+      "description": "Rasakan sensasi free fall dari ketinggian 7 ribu kaki bersama profesional",
+      "photo": [
+        "https://wisconsinskydivingcenter.com/wp-content/uploads/2019/07/skydiving-freefall.jpg"
+      ],
+      "poster": 2
+    },
+    {
+      "id": 5,
+      "name": "Night on the Museum",
+      "location": "Bandung",
+      "date": "20231023",
+      "description": "Berpetualang di museum malam hari dengan minim cahaya",
+      "photo": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBvMC9N2QMzBM9Lgy2YuAoo4IJQ1m5pQsDw&usqp=CAU"
       ],
       "poster": 2
     }
