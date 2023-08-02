@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header-navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import Eventdisplay from "./pages/event-display";
 import api from "./json-server/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [search, setSearch] = useState([]);
@@ -17,12 +16,19 @@ function App() {
     setEvents([...res_users]);
     setUsers([...res_events]);
   };
+  useEffect(() => {
+    fetchEvent();
+  }, []);
+
+  useEffect(() => {
+    fetchEvent();
+  }, [search]);
 
   return (
     <>
       <Header setSearch={setSearch} />
       <Routes>
-        <Route path="/" element={<Eventdisplay />} />
+        <Route path="/" element={<Eventdisplay search={search} />} />
         <Route path="/:eventname" element={<Eventdisplay />} />
       </Routes>
     </>
