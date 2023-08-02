@@ -12,3 +12,11 @@
 .img-carousel {
   width: 100%;
 }
+
+#event-name {
+  font-weight: bold;
+}
+
+.image-event {
+  max-height: 250px;
+}

@@ -13,12 +13,15 @@ function App() {
   const [users, setUsers] = useState([]);
   //kalo berhasil login, pass datanya ke login
   const [login, setLogin] = useState("");
+
   const fetchEvent = async () => {
     try {
       const res_users = await api.get("/users");
       const res_events = await api.get("/events");
-      setEvents([...res_users]);
-      setUsers([...res_events]);
+      console.log(res_users);
+      console.log(res_events);
+      setEvents([...res_events.data]);
+      setUsers([...res_users.data]);
     } catch (err) {
       console.log(err);
     }
@@ -28,7 +31,8 @@ function App() {
   useEffect(() => {
     fetchEvent();
   }, []);
-
+  console.log(`events`, events);
+  console.log(`users`, users);
   // update Events dan Users setelah nilai search diupdate
   useEffect(() => {
     fetchEvent();
@@ -38,7 +42,17 @@ function App() {
     <>
       <Header setSearch={setSearch} />
       <Routes>
-        <Route path="/" element={<Eventdisplay search={search} />} />
+        <Route
+          path="/"
+          element={
+            <Eventdisplay
+              search={search}
+              events={[...events]}
+              setEvents={setEvents}
+              users={[...users]}
+            />
+          }
+        />
         <Route path="/:eventname" element={<Eventdisplay />} />
       </Routes>
     </>

@@ -37,6 +37,17 @@
         "https://statik.tempo.co/data/2016/04/26/id_501460/501460_620.jpg"
       ],
       "poster": 2
+    },
+    {
+      "id": 3,
+      "name": "Festival Balon Terbang",
+      "location": "Capadocia",
+      "date": "20230923",
+      "description": "Rekor muri mencangkul",
+      "photo": [
+        "https://statik.tempo.co/data/2016/04/26/id_501460/501460_620.jpg"
+      ],
+      "poster": 2
     }
   ]
 }

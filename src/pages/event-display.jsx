@@ -2,9 +2,11 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
+import { useNavigate } from "react-router-dom";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 
-function Eventdisplay() {
+function Eventdisplay({ search, events, setEvents, users }) {
+  const navigate = useNavigate();
   return (
     <>
       <Container>
@@ -46,130 +48,31 @@ function Eventdisplay() {
           </Carousel.Item>
         </Carousel>
       </Container>
-      <Container>
-        <Row className="mt-5">
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-            <div>Event Name</div>
-            <div>Location</div>
-            <div>Event Date</div>
-            <div>Even Description</div>
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-        </Row>
-        <Row className="mt-5">
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-        </Row>
-        <Row className="mt-5">
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-        </Row>
-        <Row className="mt-5">
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
-          <Col xs={12} md={6} lg={4} xl={3}>
-            <img
-              src="https://w7.pngwing.com/pngs/620/280/png-transparent-one-circle-orange-white-number-1-orange-numbers-orange-circle.png"
-              width={"100%"}
-              alt=""
-            />
-          </Col>
+      <Container className="mt-5">
+        <Row>
+          {events.map((event, index) => (
+            <Col
+              md={6}
+              lg={3}
+              className="my-2"
+              key={index}
+              type="button"
+              onClick={() => navigate(`/${event.id}`)}
+            >
+              {console.log(`event`, event)}
+              <img
+                referrerPolicy="no-referrer"
+                src={event.photo}
+                width={"100%"}
+                alt=""
+                className="image-event"
+              />
+              <div className="event-name">{event.name}</div>
+              <div className="location">{event.location}</div>
+              <div className="date">{event.date}</div>
+              <div className="description">{event.description}</div>
+            </Col>
+          ))}
         </Row>
       </Container>
     </>
