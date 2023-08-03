@@ -60,14 +60,14 @@ function Eventdisplay({ search, events = [], setEvents, users }) {
               className="my-2 d-flex justify-content-center col-card"
               key={index}
               type="button"
-              onClick={() => navigate(`/${event.id}`)}
+              onClick={() => navigate(`/${event.id}/${event.name}`)}
             >
               <Card style={{ width: "18rem" }}>
                 <Card.Img
                   variant="top"
                   referrerPolicy="no-referrer"
                   src={event.photo}
-                  alt=""
+                  alt={event.name}
                   className="image-event"
                 />
                 <Card.Body>

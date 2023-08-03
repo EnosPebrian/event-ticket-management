@@ -19,8 +19,6 @@ function App() {
     try {
       const res_users = await api.get("/users");
       const res_events = await api.get("/events");
-      console.log(res_users);
-      console.log(res_events);
       setEvents([...res_events.data]);
       setUsers([...res_users.data]);
     } catch (err) {
@@ -32,8 +30,7 @@ function App() {
   useEffect(() => {
     fetchEvent();
   }, []);
-  console.log(`events`, events);
-  console.log(`users`, users);
+
   // update Events dan Users setelah nilai search diupdate
   useEffect(() => {
     fetchEvent();
@@ -55,7 +52,7 @@ function App() {
           }
         />
         <Route
-          path="/:eventname"
+          path="/:eventid/:eventname"
           element={
             <SingleEventDisplay
               search={search}

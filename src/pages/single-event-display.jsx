@@ -1,40 +1,51 @@
-import { Container } from "react-bootstrap";
+import { Carousel, Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
 import api from "../json-server/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function SingleEventDisplay({ search, events = [], setEvents, users }) {
   //get params id for querrying db
-  const { event_id } = useParams();
-  const [an_event, setAn_event] = useState({});
-  const fetchThisEvent = async (an_event) => {
-    const res = await api.get(`/events?id=${event_id}`);
-    console.log(res);
-    setAn_event(...res.data);
+  const { eventid, eventname } = useParams();
+  // console.log(`eventid`, eventid);
+  const [an_event, setAn_event] = useState([]);
+  const fetchThisEvent = async () => {
+    try {
+      const res = await api.get(`/events/${eventid}`);
+      const temp = { ...res.data };
+      setAn_event(temp);
+      console.log(`res.data`, res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  useState(() => {
+  useEffect(() => {
     fetchThisEvent();
-  });
+  }, []);
 
+  console.log(`here`, an_event.photo);
   return (
     <Container style={{ padding: "10px" }}>
       <Card>
         <Card.Header as="h5">Featured</Card.Header>
-        <Card.Img
-          variant="top"
-          referrerPolicy="no-referrer"
-          src={an_event.photo}
-          alt=""
-          className="image-event"
-        />
+        <Carousel>
+          {an_event &&
+            an_event.photo.map((photo, idx) => (
+              <Carousel.Item key={idx}>
+                <Card.Img
+                  variant="top"
+                  referrerPolicy="no-referrer"
+                  src={photo}
+                  alt={an_event.name}
+                />
+              </Carousel.Item>
+            ))}
+        </Carousel>
+
         <Card.Body>
-          <Card.Title>Special title treatment</Card.Title>
-          <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
-          </Card.Text>
+          <Card.Title>{an_event.name}</Card.Title>
+          <Card.Text>{an_event.description}</Card.Text>
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
       </Card>
@@ -43,3 +54,17 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
 }
 
 export default SingleEventDisplay;
+
+function PhotoMapper({ an_event }) {
+  console.log(an_event);
+  return an_event.map((photo, idx) => (
+    <Carousel.Item key={idx}>
+      <Card.Img
+        variant="top"
+        referrerPolicy="no-referrer"
+        src={photo}
+        alt={an_event.name}
+      />
+    </Carousel.Item>
+  ));
+}
