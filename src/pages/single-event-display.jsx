@@ -24,13 +24,14 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
     fetchThisEvent();
   }, []);
 
+  if (!an_event.photo) fetchThisEvent();
   console.log(`here`, an_event.photo);
   return (
     <Container style={{ padding: "10px" }}>
       <Card>
         <Card.Header as="h5">Featured</Card.Header>
         <Carousel>
-          {an_event &&
+          {an_event.photo &&
             an_event.photo.map((photo, idx) => (
               <Carousel.Item key={idx}>
                 <Card.Img
