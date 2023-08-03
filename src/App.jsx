@@ -6,6 +6,8 @@ import Eventdisplay from "./pages/event-display";
 import api from "./json-server/api";
 import { useEffect, useState } from "react";
 import SingleEventDisplay from "./pages/single-event-display";
+import Register from "./components/register";
+import { Login } from "./components/login";
 
 function App() {
   //untuk set search, event-event, dan user-user
@@ -65,6 +67,8 @@ function App() {
             />
           }
         />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </>
   );

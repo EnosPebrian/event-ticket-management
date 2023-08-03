@@ -26,3 +26,17 @@
   height: 72px;
   overflow: auto;
 }
+
+.register-box {
+  width: 450px;
+  height: 500px;
+  border: 2px solid grey;
+  padding: 20px;
+}
+
+.judul {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 40px;
+  border: 1px solid grey;
+}
