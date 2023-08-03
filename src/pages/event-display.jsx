@@ -3,9 +3,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 
-function Eventdisplay({ search, events=[], setEvents, users }) {
+function Eventdisplay({ search, events = [], setEvents, users }) {
   const navigate = useNavigate();
   return (
     <>
@@ -53,24 +55,31 @@ function Eventdisplay({ search, events=[], setEvents, users }) {
           {events.map((event, index) => (
             <Col
               md={6}
-              lg={3}
-              className="my-2"
+              lg={4}
+              xl={3}
+              className="my-2 d-flex justify-content-center col-card"
               key={index}
               type="button"
               onClick={() => navigate(`/${event.id}`)}
             >
-              
-              <img
-                referrerPolicy="no-referrer"
-                src={event.photo}
-                width={"100%"}
-                alt=""
-                className="image-event"
-              />
-              <div className="event-name">{event.name}</div>
-              <div className="location">{event.location}</div>
-              <div className="date">{event.date}</div>
-              <div className="description">{event.description}</div>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img
+                  variant="top"
+                  referrerPolicy="no-referrer"
+                  src={event.photo}
+                  alt=""
+                  className="image-event"
+                />
+                <Card.Body>
+                  <Card.Title className="event-name">{event.name}</Card.Title>
+                  <Card.Text className="location">{event.location}</Card.Text>
+                  <Card.Text className="date">{event.date}</Card.Text>
+                  <Card.Text className="description">
+                    {event.description}
+                  </Card.Text>
+                  <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+              </Card>
             </Col>
           ))}
         </Row>

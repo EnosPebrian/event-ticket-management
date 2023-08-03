@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Eventdisplay from "./pages/event-display";
 import api from "./json-server/api";
 import { useEffect, useState } from "react";
+import SingleEventDisplay from "./pages/single-event-display";
 
 function App() {
   //untuk set search, event-event, dan user-user
@@ -53,7 +54,17 @@ function App() {
             />
           }
         />
-        <Route path="/:eventname" element={<Eventdisplay />} />
+        <Route
+          path="/:eventname"
+          element={
+            <SingleEventDisplay
+              search={search}
+              events={[...events]}
+              setEvents={setEvents}
+              users={[...users]}
+            />
+          }
+        />
       </Routes>
     </>
   );

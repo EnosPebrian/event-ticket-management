@@ -18,5 +18,11 @@
 }
 
 .image-event {
-  max-height: 250px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.description {
+  height: 72px;
+  overflow: auto;
 }
