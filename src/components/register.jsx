@@ -24,7 +24,7 @@ const Register = () => {
         email: user.email,
       },
     });
-    console.log(check);
+    // console.log(check);
 
     if (check.data.length) return alert("email sudah terdaftar");
 
@@ -119,6 +119,7 @@ const Register = () => {
           </div>
         </form>
       </center>
+      <button onClick={register}>get data</button>
     </>
   );
 };
