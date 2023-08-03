@@ -12,12 +12,29 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
-  const register = (e) => {
+  const register = async (e) => {
     e.preventDefault();
     console.log("input Handler", user);
-    api.post()
+
+    const check = await api.get("/users", {
+      params: {
+        email: user.email,
+      },
+    });
+    console.log(check);
+
+    if (check.data.length) return alert("email sudah terdaftar");
+
+    if (user.confirmPassword == user.password) {
+      const tmp = { ...user };
+      delete tmp.confirmPassword;
+      await api.post("/users", tmp);
+      // alert("berhasil Register!");
+      nav("/login");
+    } else alert("password dan confirm password tidak sesuai");
   };
 
   const inputHandler = (key, value) => {
@@ -44,6 +61,7 @@ const Register = () => {
                 </span>
               </p>
             </div>
+            {/* INPUT */}
             <div style={{ marginBottom: "20px" }}>
               <FloatingLabel
                 controlId="floatingInput"
@@ -52,7 +70,7 @@ const Register = () => {
               >
                 <Form.Control
                   type="text"
-                  placeholder="yourfullname"
+                  placeholder="username"
                   required
                   onChange={(e) => inputHandler("username", e.target.value)}
                 />

@@ -5,14 +5,36 @@
       "username": "Admin",
       "email": "admin@mail.com",
       "password": "admin123",
-      "event": [1]
+      "event": [
+        1
+      ]
     },
     {
       "id": 1,
       "username": "Blank",
       "email": "blank@mail.com",
       "password": "blank123",
-      "event": [2]
+      "event": [
+        2
+      ]
+    },
+    {
+      "username": "adam",
+      "email": "adam@mail.com",
+      "password": "adamair",
+      "id": 2
+    },
+    {
+      "username": "andre",
+      "email": "andre@mail.com",
+      "password": "andre",
+      "id": 3
+    },
+    {
+      "username": "angga",
+      "email": "angga@mail.com",
+      "password": "angga",
+      "id": 4
     }
   ],
   "events": [
