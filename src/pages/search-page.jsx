@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import {
+  Card,
+  Col,
+  Container,
+  Dropdown,
+  Form,
+  InputGroup,
+  Row,
+} from "react-bootstrap";
 import api from "../json-server/api";
 import { useNavigate, useParams } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
@@ -31,24 +39,71 @@ export const SearchPage = () => {
     <>
       <Row>
         <Col lg={2} className="vh-100">
-          <Button variant="primary" className="d-lg-none" onClick={handleShow}>
-            Launch
-          </Button>
+          <Row>
+            <Button
+              variant="primary"
+              className="d-lg-none"
+              onClick={handleShow}
+            >
+              Launch
+            </Button>
+          </Row>
 
           <Offcanvas
             show={show}
             onHide={handleClose}
             responsive="lg"
-            className="bg-secondary p-2 vh-100"
+            className="bg-secondary p-2"
             style={{ borderRadius: "15px" }}
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Responsive offcanvas</Offcanvas.Title>
+              <Offcanvas.Title>Detailed Search</Offcanvas.Title>
             </Offcanvas.Header>
-            <Offcanvas.Body>
-              <p className="mb-0">
-                This is content within an <code>.offcanvas-lg</code>.
-              </p>
+
+            <Offcanvas.Body
+              className="d-flex flex-column justify-content-between"
+              style={{ gap: "10px" }}
+            >
+              <Row>
+                <h5>Detailed Search</h5>
+              </Row>
+              <Row>
+                <Form className="d-flex">
+                  <Form.Control
+                    id="search-form"
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                    // onKeyPress={(e) => inputHandler(e)}
+                  />
+
+                  <Button
+                    xl={1}
+                    variant="primary"
+                    // onClick={searchButtonHandler}
+                  >
+                    Find
+                  </Button>
+                </Form>
+              </Row>
+              <Row>
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Location
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    {/* Query location */}
+                    <Dropdown.Item href="#/action-1">
+                      <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                      <p>Location</p>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Row>
+              <Row></Row>
+              <Row></Row>
             </Offcanvas.Body>
           </Offcanvas>
         </Col>
