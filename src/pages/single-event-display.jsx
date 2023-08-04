@@ -27,30 +27,35 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
   if (!an_event.photo) fetchThisEvent();
   console.log(`here`, an_event.photo);
   return (
-    <Container style={{ padding: "10px" }}>
-      <Card>
-        <Card.Header as="h5">Featured</Card.Header>
-        <Carousel>
-          {an_event.photo &&
-            an_event.photo.map((photo, idx) => (
-              <Carousel.Item key={idx}>
-                <Card.Img
-                  variant="top"
-                  referrerPolicy="no-referrer"
-                  src={photo}
-                  alt={an_event.name}
-                />
-              </Carousel.Item>
-            ))}
-        </Carousel>
+    <>
+      <Container style={{ padding: "10px" }}>
+        <Card>
+          <Card.Header as="h5">Featured</Card.Header>
+          <Carousel>
+            {an_event.photo &&
+              an_event.photo.map((photo, idx) => (
+                <Carousel.Item key={idx}>
+                  <Card.Img
+                    variant="top"
+                    referrerPolicy="no-referrer"
+                    src={photo}
+                    alt={an_event.name}
+                  />
+                </Carousel.Item>
+              ))}
+          </Carousel>
 
-        <Card.Body>
-          <Card.Title>{an_event.name}</Card.Title>
-          <Card.Text>{an_event.description}</Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
-    </Container>
+          <Card.Body>
+            <Card.Title>{an_event.name}</Card.Title>
+            <Card.Text>{an_event.description}</Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
+      </Container>
+      <Container>
+        
+      </Container>
+    </>
   );
 }
 

@@ -8,10 +8,11 @@ import { useEffect, useState } from "react";
 import SingleEventDisplay from "./pages/single-event-display";
 import Register from "./components/register";
 import { Login } from "./components/login";
+import { SearchPage } from "./pages/search-page";
 
 function App() {
   //untuk set search, event-event, dan user-user
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
   const [events, setEvents] = useState([]);
   const [users, setUsers] = useState([]);
   //kalo berhasil login, pass datanya ke login
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <>
+      {/* navbarnya (Header) diluar routes jadi satu navbar untuk semua*/}
       <Header setSearch={setSearch} />
       <Routes>
         <Route
@@ -64,6 +66,7 @@ function App() {
             />
           }
         />
+        <Route path="//search-:searchkey" element={<SearchPage />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
       </Routes>
