@@ -66,7 +66,7 @@ function App() {
             />
           }
         />
-        <Route path="//search-:searchkey" element={<SearchPage />} />
+        <Route path="search/:searchkey" element={<SearchPage />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
       </Routes>

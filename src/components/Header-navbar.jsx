@@ -14,12 +14,13 @@ function HeaderNavbar({ setSearch }) {
       console.log(`search form enter key`, e.target.value);
       setSearch(e.target.value);
       e.preventDefault();
-      nav(`/search-${e.target.value}`);
+      nav(`/search/${e.target.value}`);
     }
   };
   const searchButtonHandler = () => {
     setSearch(document.getElementById("search-form").value);
     console.log(`search form`, document.getElementById("search-form").value);
+    nav(`/search/${document.getElementById("search-form").value}`);
   };
   return (
     <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">

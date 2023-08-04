@@ -4,35 +4,31 @@ import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
 import api from "../json-server/api";
 import { useEffect, useState } from "react";
+import SpinnerLoading from "../components/SpinnerLoading";
 function SingleEventDisplay({ search, events = [], setEvents, users }) {
   //get params id for querrying db
   const { eventid, eventname } = useParams();
-  // console.log(`eventid`, eventid);
   const [an_event, setAn_event] = useState([]);
   const fetchThisEvent = async () => {
     try {
       const res = await api.get(`/events/${eventid}`);
       const temp = { ...res.data };
       setAn_event(temp);
-      console.log(`res.data`, res.data);
     } catch (err) {
       console.log(err);
     }
   };
-
   useEffect(() => {
     fetchThisEvent();
   }, []);
 
-  if (!an_event.photo) fetchThisEvent();
-  console.log(`here`, an_event.photo);
   return (
     <>
       <Container style={{ padding: "10px" }}>
         <Card>
           <Card.Header as="h5">Featured</Card.Header>
           <Carousel>
-            {an_event.photo &&
+            {an_event.photo ? (
               an_event.photo.map((photo, idx) => (
                 <Carousel.Item key={idx}>
                   <Card.Img
@@ -42,7 +38,10 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
                     alt={an_event.name}
                   />
                 </Carousel.Item>
-              ))}
+              ))
+            ) : (
+              <SpinnerLoading />
+            )}
           </Carousel>
 
           <Card.Body>
@@ -52,9 +51,7 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
           </Card.Body>
         </Card>
       </Container>
-      <Container>
-        
-      </Container>
+      <Container></Container>
     </>
   );
 }

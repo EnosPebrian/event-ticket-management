@@ -66,7 +66,7 @@ function Eventdisplay({ search, events = [], setEvents, users }) {
                 <Card.Img
                   variant="top"
                   referrerPolicy="no-referrer"
-                  src={event.photo}
+                  src={event.photo[0]}
                   alt={event.name}
                   className="image-event"
                 />
