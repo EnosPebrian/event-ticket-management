@@ -35,6 +35,18 @@
       "email": "angga@mail.com",
       "password": "angga",
       "id": 4
+    },
+    {
+      "username": "ari",
+      "email": "ari@mail.com",
+      "password": "ari",
+      "id": 5
+    },
+    {
+      "username": "",
+      "email": "",
+      "password": "",
+      "id": 6
     }
   ],
   "events": [
