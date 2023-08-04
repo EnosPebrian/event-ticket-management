@@ -15,14 +15,31 @@ function App() {
   const [search, setSearch] = useState("");
   const [events, setEvents] = useState([]);
   const [users, setUsers] = useState([]);
+  const [users_map, setUsers_map] = useState(new Map());
+  const [events_map, setEvents_map] = useState(new Map());
   //kalo berhasil login, pass datanya ke login
   const [login, setLogin] = useState("");
 
-  const fetchEvent = async () => {
+  const fetchEvents = async () => {
+    try {
+      const res_events = await api.get("/events");
+      const temp_events_map = new Map();
+      res_events.data.map((an_event) =>
+        temp_events_map.set(an_event.id, an_event)
+      );
+      setEvents_map(temp_events_map);
+      setEvents([...res_events.data]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const fetchUsers = async () => {
     try {
       const res_users = await api.get("/users");
-      const res_events = await api.get("/events");
-      setEvents([...res_events.data]);
+      const temp_users_map = new Map();
+      res_users.data.map((user) => temp_users_map.set(user.id, user));
+      setUsers_map(temp_users_map);
       setUsers([...res_users.data]);
     } catch (err) {
       console.log(err);
@@ -31,13 +48,18 @@ function App() {
 
   //update Events dan Users pertama kali setelah document terload
   useEffect(() => {
-    fetchEvent();
+    fetchEvents();
+    fetchUsers();
   }, []);
 
   // update Events dan Users setelah nilai search diupdate
   useEffect(() => {
-    fetchEvent();
+    fetchEvents();
   }, [search]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [users]);
 
   return (
     <>

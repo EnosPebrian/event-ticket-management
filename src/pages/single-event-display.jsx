@@ -26,7 +26,7 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
     <>
       <Container style={{ padding: "10px" }}>
         <Card>
-          <Card.Header as="h5">Featured</Card.Header>
+          <Card.Header as="h5">{an_event.name}</Card.Header>
           <Carousel>
             {an_event.photo ? (
               an_event.photo.map((photo, idx) => (

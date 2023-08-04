@@ -36,7 +36,7 @@ function HeaderNavbar({ setSearch }) {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#action2">Find Your Event</Nav.Link>
+            <Nav.Link href="/search/any">Find Events</Nav.Link>
             <NavDropdown title="Action" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">
                 Create an Event

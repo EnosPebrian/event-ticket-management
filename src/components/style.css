@@ -40,3 +40,13 @@
   margin-bottom: 40px;
   border: 1px solid grey;
 }
+
+@media screen and (max-width: 992px) {
+  #side-bar {
+    height: auto !important;
+    width: auto;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+  }
+}

@@ -1,55 +1,138 @@
 {
   "users": [
     {
-      "id": 1,
       "username": "Admin",
       "email": "admin@mail.com",
       "password": "admin123",
-      "event": [1]
+      "id": 1,
+      "points": 0,
+      "referralcode": "zxciqbr12111",
+      "events": [14]
     },
     {
-      "id": 1,
       "username": "Blank",
       "email": "blank@mail.com",
       "password": "blank123",
-      "event": [2]
+      "id": 2,
+      "points": 0,
+      "referralcode": "zxciqbr12333",
+      "events": [13]
     },
     {
       "username": "adam",
       "email": "adam@mail.com",
       "password": "adamair",
-      "id": 2
+      "id": 3,
+      "points": 0,
+      "referralcode": "zxciqbr12444",
+      "events": [12]
     },
     {
       "username": "andre",
       "email": "andre@mail.com",
       "password": "andre",
-      "id": 3
-    },
-    {
-      "username": "angga",
-      "email": "angga@mail.com",
-      "password": "angga",
-      "id": 4
+      "id": 4,
+      "points": 0,
+      "referralcode": "zxciqbr12555",
+      "events": [11]
     },
     {
       "username": "ari",
       "email": "ari@mail.com",
       "password": "ari",
-      "id": 5
+      "id": 5,
+      "points": 0,
+      "referralcode": "zxciqbr12666",
+      "events": [10]
     },
     {
-      "username": "",
-      "email": "",
-      "password": "",
-      "id": 6
+      "username": "Aaron",
+      "email": "Aaron@mail.com",
+      "password": "aaron",
+      "id": 6,
+      "points": 0,
+      "referralcode": "zxciqbr12777",
+      "events": [9]
+    },
+    {
+      "username": "Mamaron",
+      "email": "Mamaron@mail.com",
+      "password": "Mamaron",
+      "id": 7,
+      "points": 0,
+      "referralcode": "zxciqbr12888",
+      "events": [8]
+    },
+    {
+      "username": "Kakaron",
+      "email": "Kakaron@mail.com",
+      "password": "Kakaron",
+      "id": 8,
+      "points": 0,
+      "referralcode": "zxciqbr12999",
+      "events": [7]
+    },
+    {
+      "username": "Paparon",
+      "email": "Paparon@mail.com",
+      "password": "Paparon",
+      "id": 9,
+      "points": 0,
+      "referralcode": "zxciqbr12121",
+      "events": [6]
+    },
+    {
+      "username": "Bibiron",
+      "email": "Bibiron@mail.com",
+      "password": "Bibiron",
+      "id": 10,
+      "points": 0,
+      "referralcode": "zxciqbr12322",
+      "events": [5]
+    },
+    {
+      "username": "Vegetta",
+      "email": "Vegetta@mail.com",
+      "password": "Vegetta",
+      "id": 11,
+      "points": 0,
+      "referralcode": "zxciqbr12245",
+      "events": [4]
+    },
+    {
+      "username": "Saint Saturn",
+      "email": "Saintsaturn@mail.com",
+      "password": "Saintsaturn",
+      "id": 12,
+      "points": 0,
+      "referralcode": "zxciqbr12321",
+      "events": [3]
+    },
+    {
+      "username": "Zoro",
+      "email": "Zoro@mail.com",
+      "password": "Zoro",
+      "id": 13,
+      "points": 0,
+      "referralcode": "zxciqbr12446",
+      "events": [2]
+    },
+    {
+      "username": "angga",
+      "email": "angga@mail.com",
+      "password": "angga",
+      "id": 14,
+      "points": 0,
+      "referralcode": "zxciqbr12789",
+      "events": [1]
     }
   ],
   "events": [
     {
       "id": 1,
       "name": "Masak aeer",
-      "location": "lalaland",
+      "location": "Jakarta",
+      "venue": "Mall of Indonesia",
       "category": "Food",
       "date-start": "2023-09-20",
       "date-end": "2023-09-23",
@@ -64,7 +147,8 @@
     {
       "id": 2,
       "name": "Mencangkul masal",
-      "location": "lalaland",
+      "location": "Brebes",
+      "venue": "Sawah Pak Kumat",
       "category": "Sport",
       "date-start": "2023-09-23",
       "date-end": "2023-09-30",
@@ -80,6 +164,7 @@
       "id": 3,
       "name": "Festival Balon Terbang",
       "location": "Capadocia",
+      "venue": "Skyland",
       "category": "Travel",
       "date-start": "2023-10-23",
       "date-end": "2023-10-25",
@@ -95,6 +180,7 @@
       "id": 4,
       "name": "Tandem Free Fall",
       "location": "Garut",
+      "venue": "Wisma Atlet Free Fall",
       "category": "Sport",
       "date-start": "2023-10-23",
       "date-end": "2023-10-24",
@@ -109,7 +195,8 @@
     {
       "id": 5,
       "name": "Rhapsodie with Scraft 2023",
-      "location": "Bekasi Convention Center | Bekasi Convention Center",
+      "location": "Bekasi",
+      "venue": "Bekasi Convention Center",
       "category": "Music",
       "date-start": "2023-08-20",
       "date-end": "",
@@ -141,7 +228,8 @@
     {
       "id": 6,
       "name": "HARMONY GROWTH FEST 2023",
-      "location": "Tri Bhakti | GEDUNG TRIBAKTI MAGELANG",
+      "location": "Magelang",
+      "venue": "Gedung Tri Bhakti",
       "category": "Music",
       "date-start": "2023-10-21",
       "date-end": "",
@@ -173,7 +261,8 @@
     {
       "id": 7,
       "name": "Radio Komunikasi 2023",
-      "location": "Phinisi Point Mall | Makassar",
+      "location": "Makassar",
+      "venue": "Phinisi Point Mall",
       "category": "Music",
       "date-start": "2023-09-14",
       "date-end": "",
@@ -205,8 +294,8 @@
     {
       "id": 8,
       "name": "Narayafest Season 3",
-      "location": "Phinisi Point Mall | Makassar",
-      "category": "Music",
+      "location": "Makassar",
+      "venue": "Phinisi Point Mall",
       "date-start": "2023-09-30",
       "date-end": "",
       "time-start": "16:00:00",
@@ -237,7 +326,8 @@
     {
       "id": 9,
       "name": "MUSIC OF GENERATION",
-      "location": "Jl. Brigjend Dharsono | Korem 063/Sunan Gunung Jati",
+      "location": "Jawa Barat",
+      "venue": "Jl. Brigjend Dharsono, Korem 063/Sunan Gunung Jati",
       "category": "Music",
       "date-start": "2023-09-02",
       "date-end": "",
@@ -269,7 +359,8 @@
     {
       "id": 10,
       "name": "Muntuk Gayeng Fest",
-      "location": "Muntuk | Lapangan Sepak Bola Muntuk",
+      "location": "Yogyakarta",
+      "venue": "Lapangan Sepak Bola Muntuk - Bantul",
       "category": "Music",
       "date-start": "2023-08-15",
       "date-end": "2023-08-15",
@@ -301,7 +392,8 @@
     {
       "id": 11,
       "name": "Carasel Celestia",
-      "location": "Gambir Expo - Arena PRJ Kemayoran | Gambir Expo, Jiexpo Kemayoran",
+      "location": "Jarakta",
+      "venue": "Gambir Expo - Arena PRJ Kemayoran",
       "category": "Music",
       "date-start": "2023-10-21",
       "date-end": "",
@@ -333,7 +425,8 @@
     {
       "id": 12,
       "name": "Chemistry Art Festival#9",
-      "location": "GOR Lembah UGM | GOR Lembah UGM",
+      "location": "Yogyakarta",
+      "venue": "GOR Lembah UGM",
       "category": "Music",
       "date-start": "2023-10-21",
       "date-end": "",
@@ -365,7 +458,8 @@
     {
       "id": 13,
       "name": "START FEST 2023",
-      "location": "Stadion Mandala Krida | Parkiran Mandala Krida",
+      "location": "Yogyakarta",
+      "venue": "Parkiran Stadion Mandala Krida",
       "category": "Music",
       "date-start": "2023-10-21",
       "date-end": "",
@@ -398,6 +492,7 @@
       "id": 14,
       "name": "Night on the Museum",
       "location": "Bandung",
+      "venue": "Museum Geology",
       "category": "Education",
       "date-start": "2023-10-23",
       "date-end": "",
@@ -420,7 +515,9 @@
       "time-end": "16:00:00",
       "description": "Perluas network-mu, kejar mimpimu!",
       "photo": [
-        "https://i0.wp.com/borobudurnews.com/wp-content/uploads/2021/11/ilustrasi-job-fair-bagi-masyarakat-yang-hendak-jadi-pelamar-lowongan-kerja.jpg?fit=882%2C604&ssl=1"
+        "https://i0.wp.com/borobudurnews.com/wp-content/uploads/2021/11/ilustrasi-job-fair-bagi-masyarakat-yang-hendak-jadi-pelamar-lowongan-kerja.jpg?fit=882%2C604&ssl=1",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxULm_esftjfyORLiuiGWELoDVHTBaaO3fw&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W-79slVpQYPJeVisbhADfp-n52ip_6f89Q&usqp=CAU"
       ],
       "poster": 2
     }

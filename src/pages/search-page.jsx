@@ -38,14 +38,14 @@ export const SearchPage = () => {
   return (
     <>
       <Row>
-        <Col lg={2} className="vh-100">
+        <Col lg={2} className="vh-100" id="side-bar">
           <Row>
             <Button
               variant="primary"
               className="d-lg-none"
               onClick={handleShow}
             >
-              Launch
+              Detailed Search Menu
             </Button>
           </Row>
 
@@ -92,12 +92,18 @@ export const SearchPage = () => {
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Location
                   </Dropdown.Toggle>
-
                   <Dropdown.Menu>
                     {/* Query location */}
-                    <Dropdown.Item href="#/action-1">
+                    <Dropdown.Item>
+                      <InputGroup.Checkbox
+                        aria-label="Checkbox for following text input"
+                        value="aa"
+                        name="city"
+                      />
+                    </Dropdown.Item>
+                    <Dropdown.Item>
                       <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                      <p>Location</p>
+                      aaa
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
@@ -139,7 +145,7 @@ export const SearchPage = () => {
                           {this_event.location}
                         </Card.Text>
                         <Card.Text className="date">
-                          {this_event.date}
+                          {this_event["date-start"]}
                         </Card.Text>
                         <Card.Text className="description">
                           {this_event.description}
