@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import api from "../json-server/api";
 import { useEffect, useState } from "react";
 import SpinnerLoading from "../components/SpinnerLoading";
+import FetchReviews from "../components/Fetchreviews";
 function SingleEventDisplay({ search, events = [], setEvents, users }) {
   //get params id for querrying db
   const { eventid, eventname } = useParams();
@@ -52,7 +53,12 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
         </Card>
       </Container>
       <Container>
-        
+        <Card>
+          <Card.Header as="h5">Comments and Review</Card.Header>
+          <Card.Body>
+            <FetchReviews />
+          </Card.Body>
+        </Card>
       </Container>
     </>
   );
