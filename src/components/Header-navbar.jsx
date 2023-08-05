@@ -14,13 +14,13 @@ function HeaderNavbar({ setSearch }) {
       console.log(`search form enter key`, e.target.value);
       setSearch(e.target.value);
       e.preventDefault();
-      nav(`/search/${e.target.value}`);
+      nav(`/search/q=${e.target.value}`);
     }
   };
   const searchButtonHandler = () => {
     setSearch(document.getElementById("search-form").value);
     console.log(`search form`, document.getElementById("search-form").value);
-    nav(`/search/${document.getElementById("search-form").value}`);
+    nav(`/search/q=${document.getElementById("search-form").value}`);
   };
   return (
     <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">
@@ -36,7 +36,13 @@ function HeaderNavbar({ setSearch }) {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/search/any">Find Events</Nav.Link>
+            <Nav.Link
+              onClick={searchButtonHandler}
+              className="bg-primary"
+              style={{ borderRadius: "10px" }}
+            >
+              Find Events
+            </Nav.Link>
             <NavDropdown title="Action" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">
                 Create an Event

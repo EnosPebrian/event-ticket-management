@@ -51,7 +51,9 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
           </Card.Body>
         </Card>
       </Container>
-      <Container></Container>
+      <Container>
+        
+      </Container>
     </>
   );
 }

@@ -17,6 +17,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [users_map, setUsers_map] = useState(new Map());
   const [events_map, setEvents_map] = useState(new Map());
+
   //kalo berhasil login, pass datanya ke login
   const [login, setLogin] = useState("");
 
@@ -52,15 +53,6 @@ function App() {
     fetchUsers();
   }, []);
 
-  // update Events dan Users setelah nilai search diupdate
-  useEffect(() => {
-    fetchEvents();
-  }, [search]);
-
-  useEffect(() => {
-    fetchUsers();
-  }, [users]);
-
   return (
     <>
       {/* navbarnya (Header) diluar routes jadi satu navbar untuk semua*/}
@@ -88,7 +80,18 @@ function App() {
             />
           }
         />
-        <Route path="search/:searchkey" element={<SearchPage />} />
+        <Route
+          path="search/:searchkey"
+          element={
+            <SearchPage
+              search={search}
+              users_map={users_map}
+              events_map={events_map}
+              events={events}
+              setSearch={setSearch}
+            />
+          }
+        />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
       </Routes>

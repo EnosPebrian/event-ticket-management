@@ -296,6 +296,7 @@
       "name": "Narayafest Season 3",
       "location": "Makassar",
       "venue": "Phinisi Point Mall",
+      "category": "Music",
       "date-start": "2023-09-30",
       "date-end": "",
       "time-start": "16:00:00",
@@ -392,7 +393,7 @@
     {
       "id": 11,
       "name": "Carasel Celestia",
-      "location": "Jarakta",
+      "location": "Jakarta",
       "venue": "Gambir Expo - Arena PRJ Kemayoran",
       "category": "Music",
       "date-start": "2023-10-21",
@@ -510,6 +511,23 @@
       "location": "Bandung",
       "category": "Job Fair",
       "date-start": "2023-10-23",
+      "date-end": "",
+      "time-start": "09:00:00",
+      "time-end": "16:00:00",
+      "description": "Perluas network-mu, kejar mimpimu!",
+      "photo": [
+        "https://i0.wp.com/borobudurnews.com/wp-content/uploads/2021/11/ilustrasi-job-fair-bagi-masyarakat-yang-hendak-jadi-pelamar-lowongan-kerja.jpg?fit=882%2C604&ssl=1",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxULm_esftjfyORLiuiGWELoDVHTBaaO3fw&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W-79slVpQYPJeVisbhADfp-n52ip_6f89Q&usqp=CAU"
+      ],
+      "poster": 2
+    },
+    {
+      "id": 16,
+      "name": "Old Dummy Event",
+      "location": "Bandung",
+      "category": "Job Fair",
+      "date-start": "2023-07-23",
       "date-end": "",
       "time-start": "09:00:00",
       "time-end": "16:00:00",
