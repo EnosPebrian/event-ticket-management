@@ -8,8 +8,14 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
+import { useState } from "react";
 
 function HeaderNavbar({ setSearch, events, setEvents }) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const nav = useNavigate();
   const inputHandler = (e) => {
     if (e.key == "Enter") {
@@ -25,7 +31,6 @@ function HeaderNavbar({ setSearch, events, setEvents }) {
     nav(`/search/q=${document.getElementById("search-form").value}`);
   };
 
-  const { onOpen, isOpen, onClose } = useDisclosure();
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">
@@ -49,8 +54,10 @@ function HeaderNavbar({ setSearch, events, setEvents }) {
                 Find Events
               </Nav.Link>
               <NavDropdown title="Action" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3" onClick={onOpen}>
-                  Create an Event
+                <NavDropdown.Item>
+                  <Button variant="primary" onClick={handleShow}>
+                    Create new event
+                  </Button>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
                   Manage Your Event
@@ -87,11 +94,10 @@ function HeaderNavbar({ setSearch, events, setEvents }) {
         </Container>
       </Navbar>
       <ModalCreate
-        isOpen={isOpen}
-        onClose={onClose}
-        onOpen={onOpen}
         events={[...events]}
         setEvents={setEvents}
+        handleClose={handleClose}
+        show={show}
       />
     </>
   );
