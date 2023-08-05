@@ -53,6 +53,7 @@ function App() {
     fetchUsers();
   }, []);
 
+  useEffect(() => {}, []);
   return (
     <>
       {/* navbarnya (Header) diluar routes jadi satu navbar untuk semua*/}
@@ -60,6 +61,7 @@ function App() {
         setSearch={setSearch}
         events={[...events]}
         setEvents={setEvents}
+        fetchEvents={fetchEvents}
       />
       <Routes>
         <Route

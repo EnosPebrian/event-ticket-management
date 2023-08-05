@@ -10,7 +10,7 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
 
-function HeaderNavbar({ setSearch, events, setEvents }) {
+function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -98,6 +98,7 @@ function HeaderNavbar({ setSearch, events, setEvents }) {
         setEvents={setEvents}
         handleClose={handleClose}
         show={show}
+        fetchEvents={fetchEvents}
       />
     </>
   );

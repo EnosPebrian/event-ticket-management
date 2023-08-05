@@ -8,14 +8,22 @@ import { useEffect, useState } from "react";
 import { useFormik } from "formik/dist";
 import { Input } from "@chakra-ui/input";
 import { values } from "lodash";
-export const ModalCreate = ({ events, setEvents, handleClose, show }) => {
+import api from "../json-server/api";
+export const ModalCreate = ({
+  events,
+  setEvents,
+  handleClose,
+  show,
+  fetchEvents,
+}) => {
   const formik = useFormik({
     initialValues: {
       id: "",
       photo: "",
       name: "",
       location: "",
-      date: "",
+      "date-start": "",
+      "date-end": "",
       time: "",
       description: "",
       ticketcategory: [],
@@ -27,14 +35,20 @@ export const ModalCreate = ({ events, setEvents, handleClose, show }) => {
       tempPhoto.push(values.photo);
       values["photo"] = tempPhoto;
       console.log(values, tempPhoto);
+      const tmp = [...events];
+      tmp.push(values);
+      api.post("/events", values);
+      setEvents(tmp);
+      handleClose();
+      fetchEvents();
+      window.location.reload(false);
     },
   });
   console.log("ini formik", formik.values);
-  useEffect(() => {}, []);
 
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -59,12 +73,26 @@ export const ModalCreate = ({ events, setEvents, handleClose, show }) => {
             mb={"20px"}
             onChange={(e) => formik.setFieldValue(e.target.id, e.target.value)}
           ></Input>
-          <Input
-            id="date"
-            placeholder="Date"
-            mb={"20px"}
-            onChange={(e) => formik.setFieldValue(e.target.id, e.target.value)}
-          ></Input>
+          <Form.Group controlId="startdate">
+            start date
+            <Form.Control
+              id="date-start"
+              type="date"
+              name="date-start"
+              placeholder="Start date"
+              onChange={formik.handleChange}
+            />
+          </Form.Group>
+          end date
+          <Form.Group controlId="enddate">
+            <Form.Control
+              id="date-end"
+              type="date"
+              name="date-end"
+              placeholder="Start date"
+              onChange={formik.handleChange}
+            />
+          </Form.Group>
           <Input
             id="time"
             placeholder="Time"
@@ -97,10 +125,8 @@ export const ModalCreate = ({ events, setEvents, handleClose, show }) => {
           ></Input>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onSubmit={formik.handleSubmit}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="secondary">Close</Button>
+          <Button variant="primary" onClick={formik.handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

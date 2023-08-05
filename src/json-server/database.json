@@ -7,7 +7,9 @@
       "id": 1,
       "points": 0,
       "referralcode": "zxciqbr12111",
-      "events": [14]
+      "events": [
+        14
+      ]
     },
     {
       "username": "Blank",
@@ -16,7 +18,9 @@
       "id": 2,
       "points": 0,
       "referralcode": "zxciqbr12333",
-      "events": [13]
+      "events": [
+        13
+      ]
     },
     {
       "username": "adam",
@@ -25,7 +29,9 @@
       "id": 3,
       "points": 0,
       "referralcode": "zxciqbr12444",
-      "events": [12]
+      "events": [
+        12
+      ]
     },
     {
       "username": "andre",
@@ -34,7 +40,9 @@
       "id": 4,
       "points": 0,
       "referralcode": "zxciqbr12555",
-      "events": [11]
+      "events": [
+        11
+      ]
     },
     {
       "username": "ari",
@@ -43,7 +51,9 @@
       "id": 5,
       "points": 0,
       "referralcode": "zxciqbr12666",
-      "events": [10]
+      "events": [
+        10
+      ]
     },
     {
       "username": "Aaron",
@@ -52,7 +62,9 @@
       "id": 6,
       "points": 0,
       "referralcode": "zxciqbr12777",
-      "events": [9]
+      "events": [
+        9
+      ]
     },
     {
       "username": "Mamaron",
@@ -61,7 +73,9 @@
       "id": 7,
       "points": 0,
       "referralcode": "zxciqbr12888",
-      "events": [8]
+      "events": [
+        8
+      ]
     },
     {
       "username": "Kakaron",
@@ -70,7 +84,9 @@
       "id": 8,
       "points": 0,
       "referralcode": "zxciqbr12999",
-      "events": [7]
+      "events": [
+        7
+      ]
     },
     {
       "username": "Paparon",
@@ -79,7 +95,9 @@
       "id": 9,
       "points": 0,
       "referralcode": "zxciqbr12121",
-      "events": [6]
+      "events": [
+        6
+      ]
     },
     {
       "username": "Bibiron",
@@ -88,7 +106,9 @@
       "id": 10,
       "points": 0,
       "referralcode": "zxciqbr12322",
-      "events": [5]
+      "events": [
+        5
+      ]
     },
     {
       "username": "Vegetta",
@@ -97,7 +117,9 @@
       "id": 11,
       "points": 0,
       "referralcode": "zxciqbr12245",
-      "events": [4]
+      "events": [
+        4
+      ]
     },
     {
       "username": "Saint Saturn",
@@ -106,7 +128,9 @@
       "id": 12,
       "points": 0,
       "referralcode": "zxciqbr12321",
-      "events": [3]
+      "events": [
+        3
+      ]
     },
     {
       "username": "Zoro",
@@ -115,7 +139,9 @@
       "id": 13,
       "points": 0,
       "referralcode": "zxciqbr12446",
-      "events": [2]
+      "events": [
+        2
+      ]
     },
     {
       "username": "angga",
@@ -124,7 +150,9 @@
       "id": 14,
       "points": 0,
       "referralcode": "zxciqbr12789",
-      "events": [1]
+      "events": [
+        1
+      ]
     }
   ],
   "events": [
@@ -222,7 +250,6 @@
           ]
         }
       ],
-
       "event-creator": 1
     },
     {
@@ -255,7 +282,6 @@
           ]
         }
       ],
-
       "event-creator": 2
     },
     {
@@ -276,19 +302,18 @@
         {
           "vip-ticket": [
             {
-              "price": 135.0,
+              "price": 135,
               "stock": 12
             }
           ],
           "presale-ticket": [
             {
-              "price": 85.0,
+              "price": 85,
               "stock": 8
             }
           ]
         }
       ],
-
       "event-creator": 3
     },
     {
@@ -309,19 +334,18 @@
         {
           "vip-ticket": [
             {
-              "price": 110.0,
+              "price": 110,
               "stock": 12
             }
           ],
           "presale-ticket": [
             {
-              "price": 69.0,
+              "price": 69,
               "stock": 8
             }
           ]
         }
       ],
-
       "event-creator": 4
     },
     {
@@ -342,19 +366,18 @@
         {
           "vip-ticket": [
             {
-              "price": 110.0,
+              "price": 110,
               "stock": 12
             }
           ],
           "presale-ticket": [
             {
-              "price": 50.0,
+              "price": 50,
               "stock": 8
             }
           ]
         }
       ],
-
       "event-creator": 5
     },
     {
@@ -375,19 +398,18 @@
         {
           "vip-ticket": [
             {
-              "price": 150.0,
+              "price": 150,
               "stock": 12
             }
           ],
           "presale-ticket": [
             {
-              "price": 40.0,
+              "price": 40,
               "stock": 8
             }
           ]
         }
       ],
-
       "event-creator": 7
     },
     {
@@ -408,19 +430,18 @@
         {
           "vip-ticket": [
             {
-              "price": 150.0,
+              "price": 150,
               "stock": 12
             }
           ],
           "presale-ticket": [
             {
-              "price": 40.0,
+              "price": 40,
               "stock": 8
             }
           ]
         }
       ],
-
       "event-creator": 8
     },
     {
@@ -441,19 +462,18 @@
         {
           "vip-ticket": [
             {
-              "price": 205.0,
+              "price": 205,
               "stock": 12
             }
           ],
           "presale-ticket": [
             {
-              "price": 140.0,
+              "price": 140,
               "stock": 8
             }
           ]
         }
       ],
-
       "event-creator": 9
     },
     {
@@ -474,19 +494,18 @@
         {
           "vip-ticket": [
             {
-              "price": 205.0,
+              "price": 205,
               "stock": 12
             }
           ],
           "presale-ticket": [
             {
-              "price": 65.0,
+              "price": 65,
               "stock": 8
             }
           ]
         }
       ],
-
       "event-creator": 10
     },
     {
@@ -538,6 +557,115 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W-79slVpQYPJeVisbhADfp-n52ip_6f89Q&usqp=CAU"
       ],
       "poster": 2
+    },
+    {
+      "id": 17,
+      "photo": [
+        [
+          "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp"
+        ]
+      ],
+      "name": "BERKAH COMPUTER",
+      "location": "Jakarta",
+      "date-start": "2023-08-12",
+      "date-end": "2023-08-14",
+      "time": "13:00:00",
+      "description": "Dalam Rangka Gelaran Jambore Nasional IMI Rx-KING di selenggarakan event konser bertajuk Festival Indonesia Gemilang untuk bisa diikuti oleh semua kalangan baik komunitas atau masyarakat umum",
+      "ticketcategory": "VIP",
+      "price": "475.000",
+      "stock": "12",
+      "startdate": "2023-08-24"
+    },
+    {
+      "id": 18,
+      "photo": [
+        "https://api.yesplis.com/images/banner/e881c350136fa511c38feb64f3f6fa065bf54f34.png.webp"
+      ],
+      "name": "MUSIC OF GENERATION",
+      "location": "Jl. Brigjend Dharsono | Korem 063/Sunan Gunung Jati",
+      "date-start": "",
+      "date-end": "",
+      "time": "13:00:00",
+      "description": "“MUSIC OF GENERATION” adalah serangkaian kegiatan yang diselenggarakan D’tONes Pro Organizer untuk menghibur Masyarakat dengan beberapa konten diantaranya adalah Bazar UMKM dan Musik Entertainment bekerjasama dengan Beberapa Artist dan Band Guna membangun dan membangkitkan semangat Masyarakat pecinta musik.",
+      "ticketcategory": "Music",
+      "price": "125000",
+      "stock": "12",
+      "startdate": "2023-09-06"
+    },
+    {
+      "id": 19,
+      "photo": [
+        "https://api.yesplis.com/images/banner/9b766a05fa8345cc727860e5ba8a47b5da0e23c5.png.webp"
+      ],
+      "name": "Keroncong Plesiran Vol. 7",
+      "location": "Jakarta",
+      "date-start": "2023-08-07",
+      "date-end": "2023-08-17",
+      "time": "13:00:00",
+      "description": "Term Of Reference Keroncong Plesiran Vol. 7 :  - Bagi Penonton yang berusia diatas 7 tahun dikenakan tiket.  - Tiket wajib ditukarkan dengan Gelang Lanyard di lokasi dengan menunjukan e-tiket melalui handphone beserta kartu identitas.  - Booking penginapan di Asram Edupark langsung hubungi CP : 0882-0202-02028 ( Iqbal )  - Tiket tidak dapat dikembalikan atau di refund dengan alasan yang timbul dari pembeli.  - Dalam keadaan force majeur yang telah resmi di umumkan oleh pemerintah, panitia dan promotor acara berhak untuk membatalkan dan/atau merubah waktu acara dan tata letak tempat tanpa pemberitahuan sebelumnya.",
+      "ticketcategory": "Music",
+      "price": "299999",
+      "stock": "22"
+    },
+    {
+      "id": 20,
+      "photo": [
+        "https://api.yesplis.com/images/banner/763ca0d1291e49e8587d6899ad1df02d7ba765d9.png.webp"
+      ],
+      "name": "jangkrik",
+      "location": "Lapangan Kujon | LAPANGAN KUJON",
+      "date-start": "2023-08-16",
+      "date-end": "2023-08-25",
+      "time": "08:30:00",
+      "description": "ayam betina",
+      "ticketcategory": "Music",
+      "price": "100000",
+      "stock": "11"
+    },
+    {
+      "id": 21,
+      "photo": [
+        "https://api.yesplis.com/images/banner/0602419a6fb0488b71d9674997d8154d66cfe035.png.webp"
+      ],
+      "name": "satu",
+      "location": "Lapangan Kujon | LAPANGAN KUJON",
+      "date-start": "2023-08-24",
+      "date-end": "2023-08-29",
+      "time": "08:30:00",
+      "description": "sss",
+      "ticketcategory": "Music",
+      "price": "120000",
+      "stock": "22"
+    },
+    {
+      "id": 22,
+      "photo": [
+        "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
+      ],
+      "name": "TrueCuks",
+      "location": "",
+      "date-start": "2023-08-09",
+      "date-end": "2023-08-19",
+      "time": "",
+      "description": "ayamssss",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 23,
+      "photo": [
+        "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp"
+      ],
+      "name": "yuppppp",
+      "location": "",
+      "date-start": "2023-08-06",
+      "date-end": "2023-08-15",
+      "time": "",
+      "description": "aasdasdsawwwwwww",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
     }
   ],
   "reviews": [
@@ -548,8 +676,16 @@
         "bagaikan air di daun talas... event selesai menghilang tanpa bekas",
         "situ yang benar lah kalau bikin event"
       ],
-      "userid": [1, 2, 3],
-      "ratings": [4.6, 5, 4]
+      "userid": [
+        1,
+        2,
+        3
+      ],
+      "ratings": [
+        4.6,
+        5,
+        4
+      ]
     },
     {
       "eventid": 2,
@@ -558,8 +694,16 @@
         "Cinlok is reaaaaal",
         "Tertipu janji manis"
       ],
-      "userid": [4, 5, 6],
-      "ratings": [3, 4, 2.5]
+      "userid": [
+        4,
+        5,
+        6
+      ],
+      "ratings": [
+        3,
+        4,
+        2.5
+      ]
     }
   ]
 }
