@@ -6,7 +6,14 @@ import api from "../json-server/api";
 import { useEffect, useState } from "react";
 import SpinnerLoading from "../components/SpinnerLoading";
 import FetchReviews from "../components/Fetchreviews";
-function SingleEventDisplay({ search, events = [], setEvents, users }) {
+function SingleEventDisplay({
+  search,
+  events = [],
+  setEvents,
+  users,
+  users_map,
+  events_map,
+}) {
   //get params id for querrying db
   const { eventid, eventname } = useParams();
   const [an_event, setAn_event] = useState([]);
@@ -56,7 +63,11 @@ function SingleEventDisplay({ search, events = [], setEvents, users }) {
         <Card>
           <Card.Header as="h5">Comments and Review</Card.Header>
           <Card.Body>
-            <FetchReviews />
+            <FetchReviews
+              users_map={users_map}
+              events_map={events_map}
+              eventid={eventid}
+            />
           </Card.Body>
         </Card>
       </Container>

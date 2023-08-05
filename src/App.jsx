@@ -83,6 +83,8 @@ function App() {
               events={[...events]}
               setEvents={setEvents}
               users={[...users]}
+              users_map={users_map}
+              events_map={events_map}
             />
           }
         />
