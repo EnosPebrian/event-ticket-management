@@ -6,8 +6,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { useDisclosure } from "@chakra-ui/hooks";
+import { ModalCreate } from "./modal-create";
 
-function HeaderNavbar({ setSearch }) {
+function HeaderNavbar({ setSearch, events, setEvents }) {
   const nav = useNavigate();
   const inputHandler = (e) => {
     if (e.key == "Enter") {
@@ -22,61 +24,76 @@ function HeaderNavbar({ setSearch }) {
     console.log(`search form`, document.getElementById("search-form").value);
     nav(`/search/q=${document.getElementById("search-form").value}`);
   };
+
+  const { onOpen, isOpen, onClose } = useDisclosure();
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">
-      <Container fluid>
-        <Navbar.Brand href="#">
-          <span id="logo-text">FOMOPHOBIA</span>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link
-              onClick={searchButtonHandler}
-              className="bg-primary"
-              style={{ borderRadius: "10px" }}
+    <>
+      <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">
+        <Container fluid>
+          <Navbar.Brand href="#">
+            <span id="logo-text">FOMOPHOBIA</span>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
             >
-              Find Events
-            </Nav.Link>
-            <NavDropdown title="Action" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">
-                Create an Event
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Manage Your Event
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Contact sales</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Subscription</NavDropdown.Item>
-            </NavDropdown>
-            {/* <Nav.Link href="#" disabled>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link
+                onClick={searchButtonHandler}
+                className="bg-primary"
+                style={{ borderRadius: "10px" }}
+              >
+                Find Events
+              </Nav.Link>
+              <NavDropdown title="Action" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="#action3" onClick={onOpen}>
+                  Create an Event
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action4">
+                  Manage Your Event
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action4">
+                  Contact sales
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">
+                  Subscription
+                </NavDropdown.Item>
+              </NavDropdown>
+              {/* <Nav.Link href="#" disabled>
               Link
             </Nav.Link> */}
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              id="search-form"
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              onKeyPress={(e) => inputHandler(e)}
-            />
-            <Button variant="outline-success" onClick={searchButtonHandler}>
-              Search
+            </Nav>
+            <Form className="d-flex">
+              <Form.Control
+                id="search-form"
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                onKeyPress={(e) => inputHandler(e)}
+              />
+              <Button variant="outline-success" onClick={searchButtonHandler}>
+                Search
+              </Button>
+            </Form>
+            <Button variant="outline-success" style={{ marginLeft: "20px" }}>
+              Sign In
             </Button>
-          </Form>
-          <Button variant="outline-success" style={{ marginLeft: "20px" }}>
-            Sign In
-          </Button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <ModalCreate
+        isOpen={isOpen}
+        onClose={onClose}
+        onOpen={onOpen}
+        events={[...events]}
+        setEvents={setEvents}
+      />
+    </>
   );
 }
 

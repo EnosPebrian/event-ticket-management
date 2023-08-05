@@ -56,7 +56,11 @@ function App() {
   return (
     <>
       {/* navbarnya (Header) diluar routes jadi satu navbar untuk semua*/}
-      <Header setSearch={setSearch} />
+      <Header
+        setSearch={setSearch}
+        events={[...events]}
+        setEvents={setEvents}
+      />
       <Routes>
         <Route
           path="/"
