@@ -37,7 +37,6 @@ export const SearchPage = ({ users_map, events_map, events }) => {
       category: [],
     },
     onSubmit: (values) => {
-      console.log(`aaa`, values.searchform);
       setValue(values);
     },
   });
@@ -141,8 +140,6 @@ export const SearchPage = ({ users_map, events_map, events }) => {
     fetchEvents();
   }, [searchkey]);
 
-  console.log(formik.values);
-
   useEffect(() => {
     updatefilter();
   }, [value]);
@@ -188,8 +185,11 @@ export const SearchPage = ({ users_map, events_map, events }) => {
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
-                    onKeyPress={(e) =>
-                      formik.setFieldValue(e.target.name, e.target.value)
+                    onChange={(e) =>
+                      formik.setFieldValue(
+                        e.target.name,
+                        document.getElementById("searchform").value
+                      )
                     }
                   />
                   <Button
