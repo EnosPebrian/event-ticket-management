@@ -7,7 +7,9 @@
       "id": 1,
       "points": 0,
       "referralcode": "zxciqbr12111",
-      "events": [14]
+      "events": [
+        14
+      ]
     },
     {
       "username": "Blank",
@@ -16,7 +18,9 @@
       "id": 2,
       "points": 0,
       "referralcode": "zxciqbr12333",
-      "events": [13]
+      "events": [
+        13
+      ]
     },
     {
       "username": "adam",
@@ -25,7 +29,9 @@
       "id": 3,
       "points": 0,
       "referralcode": "zxciqbr12444",
-      "events": [12]
+      "events": [
+        12
+      ]
     },
     {
       "username": "andre",
@@ -34,7 +40,9 @@
       "id": 4,
       "points": 0,
       "referralcode": "zxciqbr12555",
-      "events": [11]
+      "events": [
+        11
+      ]
     },
     {
       "username": "ari",
@@ -43,7 +51,9 @@
       "id": 5,
       "points": 0,
       "referralcode": "zxciqbr12666",
-      "events": [10]
+      "events": [
+        10
+      ]
     },
     {
       "username": "Aaron",
@@ -52,7 +62,9 @@
       "id": 6,
       "points": 0,
       "referralcode": "zxciqbr12777",
-      "events": [9]
+      "events": [
+        9
+      ]
     },
     {
       "username": "Mamaron",
@@ -61,7 +73,9 @@
       "id": 7,
       "points": 0,
       "referralcode": "zxciqbr12888",
-      "events": [8]
+      "events": [
+        8
+      ]
     },
     {
       "username": "Kakaron",
@@ -70,7 +84,9 @@
       "id": 8,
       "points": 0,
       "referralcode": "zxciqbr12999",
-      "events": [7]
+      "events": [
+        7
+      ]
     },
     {
       "username": "Paparon",
@@ -79,7 +95,9 @@
       "id": 9,
       "points": 0,
       "referralcode": "zxciqbr12121",
-      "events": [6]
+      "events": [
+        6
+      ]
     },
     {
       "username": "Bibiron",
@@ -88,7 +106,9 @@
       "id": 10,
       "points": 0,
       "referralcode": "zxciqbr12322",
-      "events": [5]
+      "events": [
+        5
+      ]
     },
     {
       "username": "Vegetta",
@@ -97,7 +117,9 @@
       "id": 11,
       "points": 0,
       "referralcode": "zxciqbr12245",
-      "events": [4]
+      "events": [
+        4
+      ]
     },
     {
       "username": "Saint Saturn",
@@ -106,7 +128,9 @@
       "id": 12,
       "points": 0,
       "referralcode": "zxciqbr12321",
-      "events": [3]
+      "events": [
+        3
+      ]
     },
     {
       "username": "Zoro",
@@ -115,7 +139,9 @@
       "id": 13,
       "points": 0,
       "referralcode": "zxciqbr12446",
-      "events": [2]
+      "events": [
+        2
+      ]
     },
     {
       "username": "angga",
@@ -124,7 +150,21 @@
       "id": 14,
       "points": 0,
       "referralcode": "zxciqbr12789",
-      "events": [1]
+      "events": [
+        1
+      ]
+    },
+    {
+      "username": "angga",
+      "email": "zoro@mail.com",
+      "password": "pass",
+      "id": 15
+    },
+    {
+      "username": "angga",
+      "email": "angga1@mail.com",
+      "password": "pass",
+      "id": 16
     }
   ],
   "events": [
@@ -659,8 +699,38 @@
         "See you in 2021.",
         "Attending PTIM 2019 has been a great experience for me. It was so nicely organised and scientifically strong conference in the field with a lot of networking opportunities. Many congratulations to you and your team for the overall success of the conference."
       ],
-      "userid": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-      "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5]
+      "userid": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "ratings": [
+        4,
+        5,
+        4,
+        3,
+        4,
+        5,
+        5,
+        4,
+        4,
+        3,
+        4,
+        3,
+        4,
+        5
+      ]
     },
     {
       "eventid": 2,
@@ -680,8 +750,38 @@
         "aing gitu",
         "aing gitu"
       ],
-      "userid": [10, 11, 12, 13, 14, 5, 6, 7, 8, 9, 1, 2, 3, 4],
-      "ratings": [2, 4, 2, 2, 3, 4, 4, 3, 3, 4, 4, 2, 4, 2]
+      "userid": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        5,
+        6,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ratings": [
+        2,
+        4,
+        2,
+        2,
+        3,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        2,
+        4,
+        2
+      ]
     }
   ],
   "discussions": [
@@ -693,14 +793,29 @@
         "apakah ada lowongan pekerjaan?",
         "apakah ada lowongan pekerjaan?"
       ],
-      "question_id": [1, 5, 6, 7],
+      "question_id": [
+        1,
+        5,
+        6,
+        7
+      ],
       "reply": {
-        "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
-        "2": ["ada nih jadi kang parkir di event ini"]
+        "1": [
+          "tidak ada kaka",
+          "ada ada aja pertanyaanmu ndo"
+        ],
+        "2": [
+          "ada nih jadi kang parkir di event ini"
+        ]
       },
       "reply_id": {
-        "1": [14, 2],
-        "2": [14]
+        "1": [
+          14,
+          2
+        ],
+        "2": [
+          14
+        ]
       }
     }
   ]

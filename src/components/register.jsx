@@ -17,7 +17,7 @@ const Register = () => {
 
   const register = async (e) => {
     e.preventDefault();
-    console.log("input Handler", user);
+    // console.log("input Handler", user);
 
     const check = await api.get("/users", {
       params: {
@@ -101,6 +101,7 @@ const Register = () => {
               <FloatingLabel
                 controlId="floatingPassword"
                 label="Confirm Password"
+                style={{marginTop:"4px"}}
               >
                 <Form.Control
                   type="password"
@@ -119,7 +120,6 @@ const Register = () => {
           </div>
         </form>
       </center>
-      <button onClick={register}>get data</button>
     </>
   );
 };
