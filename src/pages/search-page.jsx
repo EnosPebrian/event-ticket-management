@@ -42,35 +42,29 @@ export const SearchPage = ({ users_map, events_map, events }) => {
   });
 
   const updatefilter = async () => {
-    console.log(`1`, value);
     const filter_hashmap = new Set();
     const new_filtered = [];
     let temp = [...filtered];
 
-    console.log(2, temp);
     if (value.searchform) {
-      console.log(value.searchform);
       const res = await api.get(`events?q=${value.searchform}`);
       temp = [...res.data];
-      console.log(temp);
     } else {
       const res = await api.get(`events`);
       temp = [...res.data];
     }
-    console.log(3, temp);
+
     if (value.startdate && !value.completed_event) {
       value["date-start"] = today;
     }
     if (value.startdate) {
       temp = temp.filter((val) => val["date-start"] > value.startdate);
-      console.log(temp);
     }
-    console.log(4, temp);
+
     if (value.enddate) {
       temp = temp.filter((val) => val["date-end"] <= value.enddate);
-      console.log(temp);
     }
-    console.log(5, temp);
+
     try {
       if (value?.location.length) {
         for (let i of value.location) {
@@ -81,8 +75,7 @@ export const SearchPage = ({ users_map, events_map, events }) => {
           }
         }
       }
-      console.log(6, temp);
-      console.log(7, filter_hashmap);
+
       if (value?.category.length) {
         for (let i of value.category) {
           for (let item of temp) {
@@ -92,8 +85,7 @@ export const SearchPage = ({ users_map, events_map, events }) => {
           }
         }
       }
-      console.log(8, filter_hashmap);
-      console.log("events_map", events_map);
+
       if (!value?.location.length && !value?.category.length) {
         for (let item of temp) filter_hashmap.add(item.id);
       }
@@ -102,7 +94,6 @@ export const SearchPage = ({ users_map, events_map, events }) => {
         new_filtered.push(events_map.get(id));
       }
 
-      console.log(9, new_filtered);
       setFiltered(new_filtered);
     } catch (err) {
       console.log(err);

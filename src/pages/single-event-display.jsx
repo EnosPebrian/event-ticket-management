@@ -1,4 +1,4 @@
-import { Carousel, Container } from "react-bootstrap";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
@@ -55,21 +55,37 @@ function SingleEventDisplay({
           <Card.Body>
             <Card.Title>{an_event.name}</Card.Title>
             <Card.Text>{an_event.description}</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary">Add ticket to Cart</Button>
           </Card.Body>
         </Card>
       </Container>
       <Container>
-        <Card>
-          <Card.Header as="h5">Comments and Review</Card.Header>
-          <Card.Body>
-            <FetchReviews
-              users_map={users_map}
-              events_map={events_map}
-              eventid={eventid}
-            />
-          </Card.Body>
-        </Card>
+        <Row>
+          <Col lg={6} md={12}>
+            <Card>
+              <Card.Header as="h5">Comments and Review</Card.Header>
+              <Card.Body>
+                <FetchReviews
+                  users_map={users_map}
+                  events_map={events_map}
+                  eventid={eventid}
+                />
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col lg={6} md={12}>
+            <Card>
+              <Card.Header as="h5">Ask anything about event here:</Card.Header>
+              <Card.Body>
+                <FetchReviews
+                  users_map={users_map}
+                  events_map={events_map}
+                  eventid={eventid}
+                />
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Container>
     </>
   );
@@ -78,7 +94,7 @@ function SingleEventDisplay({
 export default SingleEventDisplay;
 
 function PhotoMapper({ an_event }) {
-  console.log(an_event);
+  // console.log(an_event);
   return an_event.map((photo, idx) => (
     <Carousel.Item key={idx}>
       <Card.Img

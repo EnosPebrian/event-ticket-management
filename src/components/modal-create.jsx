@@ -34,7 +34,7 @@ export const ModalCreate = ({
       const tempPhoto = [];
       tempPhoto.push(values.photo);
       values["photo"] = tempPhoto;
-      console.log(values, tempPhoto);
+      // console.log(values, tempPhoto);
       const tmp = [...events];
       tmp.push(values);
       api.post("/events", values);
@@ -44,7 +44,7 @@ export const ModalCreate = ({
       window.location.reload(false);
     },
   });
-  console.log("ini formik", formik.values);
+  // console.log("ini formik", formik.values);
 
   return (
     <>

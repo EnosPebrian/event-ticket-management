@@ -50,3 +50,7 @@
     z-index: 1;
   }
 }
+
+.star-checked {
+  color: gold;
+}
