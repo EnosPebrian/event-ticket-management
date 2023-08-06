@@ -22,7 +22,7 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
       console.log(`search form enter key`, e.target.value);
       setSearch(e.target.value);
       e.preventDefault();
-      nav(`/search/q=${e.target.value}`);
+      document.getElementById("search-button").click();
     }
   };
   const searchButtonHandler = () => {
@@ -83,7 +83,11 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
                 aria-label="Search"
                 onKeyPress={(e) => inputHandler(e)}
               />
-              <Button variant="outline-success" onClick={searchButtonHandler}>
+              <Button
+                id="search-button"
+                variant="outline-success"
+                onClick={searchButtonHandler}
+              >
                 Search
               </Button>
             </Form>

@@ -185,6 +185,14 @@ export const SearchPage = ({ users_map, events_map, events }) => {
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        document
+                          .getElementById("detailed-search-button")
+                          .click();
+                      }
+                    }}
                     onChange={(e) =>
                       formik.setFieldValue(
                         e.target.name,
@@ -194,6 +202,7 @@ export const SearchPage = ({ users_map, events_map, events }) => {
                   />
                   <Button
                     xl={1}
+                    id="detailed-search-button"
                     variant="primary"
                     onClick={formik.handleSubmit}
                   >

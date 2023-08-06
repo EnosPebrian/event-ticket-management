@@ -3,7 +3,7 @@ import api from "../json-server/api";
 import { useEffect, useState } from "react";
 import { async } from "q";
 
-function FetchReviews({ eventid }) {
+function FetchReviews({ eventid, users_map, events_map }) {
   const [comments, setComments] = useState([]);
   const load_review = async () => {
     const res = await api.get(`reviews`);
@@ -17,6 +17,8 @@ function FetchReviews({ eventid }) {
   useEffect(() => {
     setComments([...load_review()]);
   }, [comments]);
+
+  
 
   return (
     <>
