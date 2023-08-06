@@ -684,22 +684,24 @@
       "ratings": [2, 4, 2, 2, 3, 4, 4, 3, 3, 4, 4, 2, 4, 2]
     }
   ],
-  "discussion": {
-    "eventid": 1,
-    "question": [
-      [1, "apakah ada unsur berbau kampanye politik di sini?"],
-      [2, "apakah ada lowongan pekerjaan?"],
-      [3, "apakah ada lowongan pekerjaan?"],
-      [4, "apakah ada lowongan pekerjaan?"]
-    ],
-    "question_id": [1, 5, 6, 7],
-    "reply": {
-      "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
-      "2": ["ada nih jadi kang parkir di event ini"]
-    },
-    "reply_id": {
-      "1": [14, 2],
-      "2": [14]
+  "discussions": [
+    {
+      "eventid": 1,
+      "question": [
+        "apakah ada unsur berbau kampanye politik di sini?",
+        "apakah ada lowongan pekerjaan?",
+        "apakah ada lowongan pekerjaan?",
+        "apakah ada lowongan pekerjaan?"
+      ],
+      "question_id": [1, 5, 6, 7],
+      "reply": {
+        "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
+        "2": ["ada nih jadi kang parkir di event ini"]
+      },
+      "reply_id": {
+        "1": [14, 2],
+        "2": [14]
+      }
     }
-  }
+  ]
 }

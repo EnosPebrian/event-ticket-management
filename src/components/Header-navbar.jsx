@@ -19,7 +19,6 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
   const nav = useNavigate();
   const inputHandler = (e) => {
     if (e.key == "Enter") {
-      console.log(`search form enter key`, e.target.value);
       setSearch(e.target.value);
       e.preventDefault();
       document.getElementById("search-button").click();
@@ -27,7 +26,6 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
   };
   const searchButtonHandler = () => {
     setSearch(document.getElementById("search-form").value);
-    console.log(`search form`, document.getElementById("search-form").value);
     nav(`/search/q=${document.getElementById("search-form").value}`);
   };
 
