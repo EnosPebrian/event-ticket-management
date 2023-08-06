@@ -31,6 +31,10 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
     nav(`/search/q=${document.getElementById("search-form").value}`);
   };
 
+  function signIn() {
+    nav("/login");
+  }
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">
@@ -91,7 +95,11 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
                 Search
               </Button>
             </Form>
-            <Button variant="outline-success" style={{ marginLeft: "20px" }}>
+            <Button
+              variant="outline-success"
+              style={{ marginLeft: "20px" }}
+              onClick={signIn}
+            >
               Sign In
             </Button>
           </Navbar.Collapse>
