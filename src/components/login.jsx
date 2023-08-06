@@ -10,10 +10,8 @@ import axios from "axios";
 export const Login = () => {
   const nav = useNavigate();
   const [user, setUser] = useState({
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const inputHandler = (key, value) => {
@@ -21,22 +19,20 @@ export const Login = () => {
   };
 
   const login = async () => {
-    const auth = await axios.get("http://localhost:2000/users", {
+    const auth = await await api.get("/users", {
       params: {
         email: user.email,
+        password: user.password,
       },
     });
-    console.log(auth);
+    console.log("auth.data", auth.data);
 
-    if (!auth.data) {
-      return alert("email/password salah");
-    } else {
-      // delete auth.data[0].password;
+    if (!auth.data) return alert("email/password salah");
 
-      localStorage.setItem("auth", JSON.stringify(auth.data[0]));
-      alert(`hello ${user.username}`);
-      nav("/");
-    }
+    delete auth.data[0].password;
+
+    localStorage.setItem("auth", JSON.stringify(auth.data[0]));
+    nav("/");
   };
   return (
     <>
@@ -82,7 +78,12 @@ export const Login = () => {
             </FloatingLabel>
 
             <FloatingLabel controlId="floatingPassword" label="Password">
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                required
+                onChange={(e) => inputHandler("password", e.target.value)}
+              />
             </FloatingLabel>
           </div>
 
