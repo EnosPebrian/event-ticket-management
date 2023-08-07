@@ -4,11 +4,23 @@ import { useEffect, useState } from "react";
 
 function FetchReviews({ eventid, users_map, events_map }) {
   const [commentscontainer, setCommentscontainer] = useState([]);
+  const [allComment, setAllComment] = useState([]);
   const [activitycounter, setActivitycounter] = useState(0);
+  const userid = JSON.parse(localStorage.getItem("auth")).id;
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+  const [newcomment, setNewcomment] = useState({
+    id: 0,
+    eventid: 0,
+    comments: [],
+    userid: [],
+    ratings: [],
+  });
   const load_review = async () => {
     const res = await api.get(`reviews`);
     const thiseventreview = [...res.data];
     const temp_fil = thiseventreview.filter((rev) => rev.eventid == eventid)[0];
+    setAllComment(temp_fil);
     const temp = [];
     if (temp_fil) {
       for (let i = 0; i < temp_fil.comments.length; i++) {
@@ -20,6 +32,50 @@ function FetchReviews({ eventid, users_map, events_map }) {
       }
     }
     setCommentscontainer(temp);
+  };
+
+  function StarRating() {
+    return (
+      <span className="star-rating">
+        {[...Array(5)].map((star, index) => {
+          index += 1;
+          return (
+            <Button
+              key={index}
+              style={{
+                backgroundColor: "transparent",
+                border: "none",
+                outline: "none",
+                cursor: "pointer",
+                padding: "0",
+              }}
+              className={index <= (hover || rating) ? "on" : "off"}
+              onClick={() => setRating(index)}
+              onMouseEnter={() => setHover(index)}
+              onMouseLeave={() => setHover(rating)}
+            >
+              <span className={index <= (hover || rating) ? "on" : "off"}>
+                &#9733;
+              </span>
+            </Button>
+          );
+        })}
+      </span>
+    );
+  }
+
+  const submitNewComment = async () => {
+    setNewcomment({
+      id: allComment.id,
+      eventid: { eventid },
+      comments: [
+        ...allComment?.comments,
+        document.getElementById("addcomment").value,
+      ],
+      userid: [...allComment?.userid, userid],
+      ratings: [...allComment?.ratings, rating],
+    });
+    await api.patch(`/reviews/${allComment.id}`).then(load_review());
   };
 
   useEffect(() => {
@@ -57,6 +113,33 @@ function FetchReviews({ eventid, users_map, events_map }) {
       ) : (
         <span>This event has no review / comment</span>
       )}
+      <Card.Body>
+        <Card className="p-3">
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>
+                <b>Add your reviews/comments here</b>
+              </Form.Label>
+              <Form.Control
+                id="addcomment"
+                type="text"
+                placeholder="Write your comments"
+              />
+              <Form.Text className="text-muted">
+                Ratings: <StarRating />
+              </Form.Text>
+              <Button
+                className="mt-2"
+                style={{ float: "right" }}
+                variant="secondary"
+                onClick={submitNewComment}
+              >
+                Submit
+              </Button>
+            </Form.Group>
+          </Form>
+        </Card>
+      </Card.Body>
     </>
   );
 }

@@ -54,3 +54,10 @@
 .star-checked {
   color: gold;
 }
+
+.on {
+  color: gold;
+}
+.off {
+  color: black;
+}

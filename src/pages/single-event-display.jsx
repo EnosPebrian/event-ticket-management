@@ -8,13 +8,15 @@ import SpinnerLoading from "../components/SpinnerLoading";
 import FetchReviews from "../components/Fetchreviews";
 import FetchDiscussion from "../components/Fetchdiscussion";
 import { useSelector } from "react-redux";
+import "../components/style.css";
+import { color } from "framer-motion";
+
 function SingleEventDisplay() {
   //get params id for querrying db
   const { eventid, eventname } = useParams();
   const [an_event, setAn_event] = useState([]);
   const [users_map, setUsers_map] = useState(new Map());
   const [events_map, setEvents_map] = useState(new Map());
-  const userid = JSON.parse(localStorage.getItem("auth")).id;
 
   const fetchEventsMap = async () => {
     try {
@@ -56,11 +58,7 @@ function SingleEventDisplay() {
     fetchThisEvent();
   }, []);
 
-  // useEffect(() => {
-  //   fetchEventsMap();
-  //   fetchThisEvent();
-  //   fetchUsersMap();
-  // }, []);
+  console.log("here");
 
   return (
     <>
@@ -102,31 +100,6 @@ function SingleEventDisplay() {
                   events_map={events_map}
                   eventid={eventid}
                 />
-              </Card.Body>
-              <Card.Body>
-                <Card className="p-3">
-                  <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                      <Form.Label>
-                        <b>Add your reviews/comments here</b>
-                      </Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Write your comments"
-                      />
-                      <Form.Text className="text-muted">
-                        Your review helps other and also adds your points
-                      </Form.Text>
-                      <Button
-                        className="mt-2"
-                        style={{ float: "right" }}
-                        variant="secondary"
-                      >
-                        Submit
-                      </Button>
-                    </Form.Group>
-                  </Form>
-                </Card>
               </Card.Body>
             </Card>
           </Col>
@@ -176,17 +149,3 @@ function SingleEventDisplay() {
 }
 
 export default SingleEventDisplay;
-
-function PhotoMapper({ an_event }) {
-  // console.log(an_event);
-  return an_event.map((photo, idx) => (
-    <Carousel.Item key={idx}>
-      <Card.Img
-        variant="top"
-        referrerPolicy="no-referrer"
-        src={photo}
-        alt={an_event.name}
-      />
-    </Carousel.Item>
-  ));
-}

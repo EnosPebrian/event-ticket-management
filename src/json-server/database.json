@@ -642,6 +642,7 @@
   ],
   "reviews": [
     {
+      "id": 1,
       "eventid": 1,
       "comments": [
         "Menarik joega ini lurrr",
@@ -663,6 +664,7 @@
       "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5]
     },
     {
+      "id": 2,
       "eventid": 2,
       "comments": [
         "Cape woi disiksa pagi siang sore",
@@ -686,6 +688,7 @@
   ],
   "discussions": [
     {
+      "id": 1,
       "eventid": 1,
       "question": [
         "apakah ada unsur berbau kampanye politik di sini?",
