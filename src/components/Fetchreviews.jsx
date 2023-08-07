@@ -29,7 +29,7 @@ function FetchReviews({ eventid, users_map, events_map }) {
   useEffect(() => {
     load_review();
   }, [activitycounter]);
-  console.log(`comment`, commentscontainer);
+
   return (
     <>
       {commentscontainer.length ? (

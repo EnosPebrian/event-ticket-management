@@ -116,9 +116,12 @@ function SingleEventDisplay({
                   <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Label>
-                        <b>Write your question here</b>
+                        <b>Write a new question</b>
                       </Form.Label>
-                      <Form.Control type="text" placeholder=".............." />
+                      <Form.Control
+                        type="text"
+                        placeholder="Write your question here"
+                      />
                       <Form.Text className="text-muted">
                         More spesific question helps alot
                       </Form.Text>
