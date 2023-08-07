@@ -20,23 +20,12 @@ export const DashboardProfile = ({
   users_map,
   setUsers_map,
 }) => {
-  const [users, setUsers] = useState();
-  const [events, setEvents] = useState();
-
-  const findPhoto = async () => {
-    for (let [key, value] of users_map.entries()) {
-      setUsers(value);
-    }
-    for (let [key, value] of events_map.entries()) {
-      setEvents(value);
-    }
-  };
-  console.log(users);
-  console.log(events);
-
-  useEffect(() => {
-    findPhoto();
-  }, [events_map]);
-
-  return <Profile />;
+  return (
+    <Profile
+      events_map={events_map}
+      setEvents_map={setEvents_map}
+      users_map={users_map}
+      setUsers_map={setUsers_map}
+    />
+  );
 };
