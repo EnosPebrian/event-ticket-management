@@ -20,6 +20,7 @@ export const routes = [
       </ProtectedPage>
     )
   ),
+  
   new RouteClass(
     "/:eventid/:eventname",
     (

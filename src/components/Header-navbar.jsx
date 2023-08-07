@@ -47,9 +47,9 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
             >
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link
-                onClick={searchButtonHandler}
                 className="bg-primary"
                 style={{ borderRadius: "10px" }}
+                href={`/search/q=`}
               >
                 Find Events
               </Nav.Link>
