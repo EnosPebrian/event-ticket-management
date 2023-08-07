@@ -104,7 +104,6 @@ function FetchReviews({ eventid, users_map, events_map }) {
       userid: [...allComment?.userid, userid],
       ratings: [...allComment?.ratings, rating],
     });
-    console.log(`rating`, rating);
     await api
       .patch(`/reviews/${eventid}`, newcomment)
       .then(() => load_review());
