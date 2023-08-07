@@ -5,22 +5,43 @@ import { Route, Routes } from "react-router-dom";
 import Eventdisplay from "./pages/event-display";
 import api from "./json-server/api";
 import { useEffect, useState } from "react";
+import SingleEventDisplay from "./pages/single-event-display";
+import Register from "./components/register";
+import { Login } from "./components/login";
+import { SearchPage } from "./pages/search-page";
+import { DashboardProfile } from "./pages/dashboardprofile";
 
 function App() {
   //untuk set search, event-event, dan user-user
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
   const [events, setEvents] = useState([]);
   const [users, setUsers] = useState([]);
+  const [users_map, setUsers_map] = useState(new Map());
+  const [events_map, setEvents_map] = useState(new Map());
+
   //kalo berhasil login, pass datanya ke login
   const [login, setLogin] = useState("");
 
-  const fetchEvent = async () => {
+  const fetchEvents = async () => {
+    try {
+      const res_events = await api.get("/events");
+      const temp_events_map = new Map();
+      res_events.data.map((an_event) =>
+        temp_events_map.set(an_event.id, an_event)
+      );
+      setEvents_map(temp_events_map);
+      setEvents([...res_events.data]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const fetchUsers = async () => {
     try {
       const res_users = await api.get("/users");
-      const res_events = await api.get("/events");
-      console.log(res_users);
-      console.log(res_events);
-      setEvents([...res_events.data]);
+      const temp_users_map = new Map();
+      res_users.data.map((user) => temp_users_map.set(user.id, user));
+      setUsers_map(temp_users_map);
       setUsers([...res_users.data]);
     } catch (err) {
       console.log(err);
@@ -29,18 +50,20 @@ function App() {
 
   //update Events dan Users pertama kali setelah document terload
   useEffect(() => {
-    fetchEvent();
+    fetchEvents();
+    fetchUsers();
   }, []);
-  console.log(`events`, events);
-  console.log(`users`, users);
-  // update Events dan Users setelah nilai search diupdate
-  useEffect(() => {
-    fetchEvent();
-  }, [search]);
 
+  useEffect(() => {}, []);
   return (
     <>
-      <Header setSearch={setSearch} />
+      {/* navbarnya (Header) diluar routes jadi satu navbar untuk semua*/}
+      <Header
+        setSearch={setSearch}
+        events={[...events]}
+        setEvents={setEvents}
+        fetchEvents={fetchEvents}
+      />
       <Routes>
         <Route
           path="/"
@@ -53,7 +76,44 @@ function App() {
             />
           }
         />
-        <Route path="/:eventname" element={<Eventdisplay />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+
+        <Route
+          path="/:eventid/:eventname"
+          element={
+            <SingleEventDisplay
+              search={search}
+              events={[...events]}
+              setEvents={setEvents}
+              users={[...users]}
+            />
+          }
+        />
+        <Route
+          path="search/:searchkey"
+          element={
+            <SearchPage
+              search={search}
+              users_map={users_map}
+              events_map={events_map}
+              events={events}
+              setSearch={setSearch}
+            />
+          }
+        />
+        <Route
+          path="/dashboardprofile"
+          element={
+            <DashboardProfile
+              events_map={events_map}
+              setEvents_map={setEvents_map}
+              users_map={users_map}
+              setUsers_map={setEvents_map}
+            />
+          }
+        ></Route>
+        <Route path="*" element={""}></Route>
       </Routes>
     </>
   );

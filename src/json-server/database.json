@@ -1,26 +1,171 @@
 {
   "users": [
     {
-      "id": 1,
       "username": "Admin",
       "email": "admin@mail.com",
       "password": "admin123",
-      "event": [1]
+      "id": 1,
+      "points": 0,
+      "referralcode": "zxciqbr12111",
+      "events": [
+        14
+      ]
     },
     {
-      "id": 1,
       "username": "Blank",
       "email": "blank@mail.com",
       "password": "blank123",
-      "event": [2]
+      "id": 2,
+      "points": 0,
+      "referralcode": "zxciqbr12333",
+      "events": [
+        13
+      ]
+    },
+    {
+      "username": "adam",
+      "email": "adam@mail.com",
+      "password": "adamair",
+      "id": 3,
+      "points": 0,
+      "referralcode": "zxciqbr12444",
+      "events": [
+        12
+      ]
+    },
+    {
+      "username": "andre",
+      "email": "andre@mail.com",
+      "password": "andre",
+      "id": 4,
+      "points": 0,
+      "referralcode": "zxciqbr12555",
+      "events": [
+        11
+      ]
+    },
+    {
+      "username": "ari",
+      "email": "ari@mail.com",
+      "password": "ari",
+      "id": 5,
+      "points": 0,
+      "referralcode": "zxciqbr12666",
+      "events": [
+        10
+      ]
+    },
+    {
+      "username": "Aaron",
+      "email": "Aaron@mail.com",
+      "password": "aaron",
+      "id": 6,
+      "points": 0,
+      "referralcode": "zxciqbr12777",
+      "events": [
+        9
+      ]
+    },
+    {
+      "username": "Mamaron",
+      "email": "Mamaron@mail.com",
+      "password": "Mamaron",
+      "id": 7,
+      "points": 0,
+      "referralcode": "zxciqbr12888",
+      "events": [
+        8
+      ]
+    },
+    {
+      "username": "Kakaron",
+      "email": "Kakaron@mail.com",
+      "password": "Kakaron",
+      "id": 8,
+      "points": 0,
+      "referralcode": "zxciqbr12999",
+      "events": [
+        7
+      ]
+    },
+    {
+      "username": "Paparon",
+      "email": "Paparon@mail.com",
+      "password": "Paparon",
+      "id": 9,
+      "points": 0,
+      "referralcode": "zxciqbr12121",
+      "events": [
+        6
+      ]
+    },
+    {
+      "username": "Bibiron",
+      "email": "Bibiron@mail.com",
+      "password": "Bibiron",
+      "id": 10,
+      "points": 0,
+      "referralcode": "zxciqbr12322",
+      "events": [
+        5
+      ]
+    },
+    {
+      "username": "Vegetta",
+      "email": "Vegetta@mail.com",
+      "password": "Vegetta",
+      "id": 11,
+      "points": 0,
+      "referralcode": "zxciqbr12245",
+      "events": [
+        4
+      ]
+    },
+    {
+      "username": "Saint Saturn",
+      "email": "Saintsaturn@mail.com",
+      "password": "Saintsaturn",
+      "id": 12,
+      "points": 0,
+      "referralcode": "zxciqbr12321",
+      "events": [
+        3
+      ]
+    },
+    {
+      "username": "Zoro",
+      "email": "Zoro@mail.com",
+      "password": "Zoro",
+      "id": 13,
+      "points": 0,
+      "referralcode": "zxciqbr12446",
+      "events": [
+        2
+      ]
+    },
+    {
+      "username": "angga",
+      "email": "angga@mail.com",
+      "password": "angga",
+      "id": 14,
+      "points": 0,
+      "referralcode": "zxciqbr12789",
+      "events": [
+        1
+      ]
     }
   ],
   "events": [
     {
       "id": 1,
       "name": "Masak aeer",
-      "location": "lalaland",
-      "date": "20230920",
+      "location": "Jakarta",
+      "venue": "Mall of Indonesia",
+      "category": "Food",
+      "date-start": "2023-09-20",
+      "date-end": "2023-09-23",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
       "description": "Rekor muri memasak air",
       "photo": [
         "https://assets-a1.kompasiana.com/items/album/2021/11/03/air-618258c4b4ab2e185a476433.jpg"
@@ -30,8 +175,13 @@
     {
       "id": 2,
       "name": "Mencangkul masal",
-      "location": "lalaland",
-      "date": "20230923",
+      "location": "Brebes",
+      "venue": "Sawah Pak Kumat",
+      "category": "Sport",
+      "date-start": "2023-09-23",
+      "date-end": "2023-09-30",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
       "description": "Rekor muri mencangkul",
       "photo": [
         "https://statik.tempo.co/data/2016/04/26/id_501460/501460_620.jpg"
@@ -42,7 +192,12 @@
       "id": 3,
       "name": "Festival Balon Terbang",
       "location": "Capadocia",
-      "date": "20231023",
+      "venue": "Skyland",
+      "category": "Travel",
+      "date-start": "2023-10-23",
+      "date-end": "2023-10-25",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
       "description": "Terbang bersama dengan 1000 balon udara",
       "photo": [
         "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
@@ -53,7 +208,12 @@
       "id": 4,
       "name": "Tandem Free Fall",
       "location": "Garut",
-      "date": "20231023",
+      "venue": "Wisma Atlet Free Fall",
+      "category": "Sport",
+      "date-start": "2023-10-23",
+      "date-end": "2023-10-24",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
       "description": "Rasakan sensasi free fall dari ketinggian 7 ribu kaki bersama profesional",
       "photo": [
         "https://wisconsinskydivingcenter.com/wp-content/uploads/2019/07/skydiving-freefall.jpg"
@@ -62,14 +222,638 @@
     },
     {
       "id": 5,
+      "name": "Rhapsodie with Scraft 2023",
+      "location": "Bekasi",
+      "venue": "Bekasi Convention Center",
+      "category": "Music",
+      "date-start": "2023-08-20",
+      "date-end": "",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
+      "description": "Rhapsodie with Scraft merupakan acara pentas kesenian yang diselenggarakan oleh SMAN 61 JAKARTA yang dilengkapi dengan penampilan-penampilan dari SMAN 61 JAKARTA dan bintang tamu yang akan diundang. Tahun ini Rhapsodie With Scraft kembali diselenggarakan dengan mengusung tema ‘Nayanika Pancarona Nusantara’'",
+      "photo": [
+        "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 125000,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 65000,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 1
+    },
+    {
+      "id": 6,
+      "name": "HARMONY GROWTH FEST 2023",
+      "location": "Magelang",
+      "venue": "Gedung Tri Bhakti",
+      "category": "Music",
+      "date-start": "2023-10-21",
+      "date-end": "",
+      "time-start": "13:00:00",
+      "time-end": "21:00:00",
+      "description": "event konser di kota magelang dengan menampilkan guestar artis nasional NDXAKA Dan WORO WIDOWATI",
+      "photo": [
+        "https://api.yesplis.com/images/banner/bb5cce866380e74ddb3fe96d6adb8388ef961800.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 125000,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 65000,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 2
+    },
+    {
+      "id": 7,
+      "name": "Radio Komunikasi 2023",
+      "location": "Makassar",
+      "venue": "Phinisi Point Mall",
+      "category": "Music",
+      "date-start": "2023-09-14",
+      "date-end": "",
+      "time-start": "15:00:00",
+      "time-end": "18:00:00",
+      "description": "Himpunan Mahasiswa Ilmu Komunikasi Universitas Fajar dengan bangga mempersembahkan Radio Komunikasi 2023 yang hadir untuk memberikan kalian kesempatan untuk merasakan sensasi festival yang berbeda dari sebelumnya.",
+      "photo": [
+        "https://api.yesplis.com/images/banner/c70e7c400805f3f769d3871511e32f7add63301d.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 135,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 85,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 3
+    },
+    {
+      "id": 8,
+      "name": "Narayafest Season 3",
+      "location": "Makassar",
+      "venue": "Phinisi Point Mall",
+      "category": "Music",
+      "date-start": "2023-09-30",
+      "date-end": "",
+      "time-start": "16:00:00",
+      "time-end": "22:00:00",
+      "description": "Narayafest Adalah Event Musik Konser Terbesar di Kabupaten Tegal. Perhelatan di Season 1 dan Season 2 yang Sukses menembus Market Millenial di Kabupaten Tegal , Kini Narayafest hadir kembali di Season ketiga di Bulan September - Oktober. LineUp Narayafest season 3 terdiri dari AfterShine , The Changcuters , NDX AKA , Vierratale dan juga masih Ada Mistery Guest Star yang tentunya akan menambah vibes Spektakuler event di Narayafest season 3 ini.",
+      "photo": [
+        "https://api.yesplis.com/images/banner/ec874e3e8da2c487370d11a5a8957bcfb0018ac7.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 110,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 69,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 4
+    },
+    {
+      "id": 9,
+      "name": "MUSIC OF GENERATION",
+      "location": "Jawa Barat",
+      "venue": "Jl. Brigjend Dharsono, Korem 063/Sunan Gunung Jati",
+      "category": "Music",
+      "date-start": "2023-09-02",
+      "date-end": "",
+      "time-start": "15:00:00",
+      "time-end": "22:00:00",
+      "description": "“MUSIC OF GENERATION” adalah serangkaian kegiatan yang diselenggarakan D’tONes Pro Organizer untuk menghibur Masyarakat dengan beberapa konten diantaranya adalah Bazar UMKM dan Musik Entertainment bekerjasama dengan Beberapa Artist dan Band Guna membangun dan membangkitkan semangat Masyarakat pecinta musik.",
+      "photo": [
+        "https://api.yesplis.com/images/banner/e881c350136fa511c38feb64f3f6fa065bf54f34.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 110,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 50,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 5
+    },
+    {
+      "id": 10,
+      "name": "Muntuk Gayeng Fest",
+      "location": "Yogyakarta",
+      "venue": "Lapangan Sepak Bola Muntuk - Bantul",
+      "category": "Music",
+      "date-start": "2023-08-15",
+      "date-end": "2023-08-15",
+      "time-start": "17:00:00",
+      "time-end": "22:00:00",
+      "description": "Yuk siapkan hati dan pikiran kamu untuk menikmati serunya nonton konser Aftershine di temani dengan nuansa desa yang pastinya akan menambah suasana menjadi lebih indah di kota kesayangan kita yaitu Yogyakarta. Muntuk Gayeng akan hadir pada tanggal 5 Agustus 2023 di Lapangan Sepak Bola Muntuk. Jangan lewatkan kesempatan ini untuk menikmati serunya nonton konser di suasana desa dengan orang tersayang. Dapatkan tiketmu sekarang juga ya !!!",
+      "photo": [
+        "https://api.yesplis.com/images/banner/b3cc57510604e9a7c8ff1d7fe0cf1446d5beff7d.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 150,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 40,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 7
+    },
+    {
+      "id": 11,
+      "name": "Carasel Celestia",
+      "location": "Jakarta",
+      "venue": "Gambir Expo - Arena PRJ Kemayoran",
+      "category": "Music",
+      "date-start": "2023-10-21",
+      "date-end": "",
+      "time-start": "14:30:00",
+      "time-end": "21:30:00",
+      "description": "CARASEL (Cipta Karya Seni Enam Lapan) merupakan sebuah pentas seni yang diselenggarakan oleh SMAN 68 Jakarta. Pentas seni tahun ini bertajuk CARASEL CELESTIA dengan mengangkat sebuah Cҽɾιƚα Lҽʅαɳα Sυαɾα Eυϝσɾια. Sama seperti tahun sebelumnya, 𝐂𝐀𝐑𝐀𝐒𝐄𝐋 𝐂𝐄𝐋𝐄𝐒𝐓𝐈𝐀 akan diramaikan oleh berbagai penampilan dari murid SMA 68 Jakarta hingga para 𝒈𝒖𝒆𝒔𝒕 𝒔𝒕𝒂𝒓 yang selalu meriah dengan suaranya yang membawa kegembiraan kepada Punggawan. 𝐂𝐀𝐑𝐀𝐒𝐄𝐋 𝐂𝐄𝐋𝐄𝐒𝐓𝐈𝐀 akan hadir pada tanggal 𝟮𝟭 𝗢𝗸𝘁𝗼𝗯𝗲𝗿 𝟮𝟬𝟮𝟯 𝗝𝗜𝗘𝗫𝗣𝗢 𝗚𝗮𝗺𝗯𝗶𝗿 𝗞𝗲𝗺𝗮𝘆𝗼𝗿𝗮𝗻.",
+      "photo": [
+        "https://api.yesplis.com/images/banner/38a4b7540e85184a1ee737a01574ad3b0aba7c64.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 150,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 40,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 8
+    },
+    {
+      "id": 12,
+      "name": "Chemistry Art Festival#9",
+      "location": "Yogyakarta",
+      "venue": "GOR Lembah UGM",
+      "category": "Music",
+      "date-start": "2023-10-21",
+      "date-end": "",
+      "time-start": "18:30:00",
+      "time-end": "21:30:00",
+      "description": "Chemistry Art Festival#9 adalah event musik yang diselenggarakan oleh Himpunan Mahasiswa Kimia FMIPA UNY. Tahun ini CAF#9 bertemakan Germanium Rhythmical yang berarti paduan antara suatu unsur dari kimia dan unsur di dalam musik. CAF#9 akan hadir menemani teman-teman semua dengan keseruan acaranya dan ditemani oleh Guest Star yang sangat spektakuler yaitu Aftershine dan Guest Star Nasional lainnya yang akan berdendang bersama di panggung Chemistry Art Festival# 9. Stay tuned and grab your ticket now!",
+      "photo": [
+        "https://api.yesplis.com/images/banner/763ca0d1291e49e8587d6899ad1df02d7ba765d9.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 205,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 140,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 9
+    },
+    {
+      "id": 13,
+      "name": "START FEST 2023",
+      "location": "Yogyakarta",
+      "venue": "Parkiran Stadion Mandala Krida",
+      "category": "Music",
+      "date-start": "2023-10-21",
+      "date-end": "",
+      "time-start": "15:30:00",
+      "time-end": "20:00:00",
+      "description": "Merupakan sebuah event yang di selengarakan oleh BEM FISIP UPN “VETERAN” Yogyakarta. Event ini merupakan serangkaian kegiatan yang terdiri dari 2 sub event yaitu FISIP Olympic dan FISIP Festival. START.Fest 2023 kali ini mengusung tema “Hawaiian Summer Party : Circle Of Youth”",
+      "photo": [
+        "https://api.yesplis.com/images/banner/c03b080e1ed6180adc6709670ec601294a112ab8.png.webp"
+      ],
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 205,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 65,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 10
+    },
+    {
+      "id": 14,
       "name": "Night on the Museum",
       "location": "Bandung",
-      "date": "20231023",
+      "venue": "Museum Geology",
+      "category": "Education",
+      "date-start": "2023-10-23",
+      "date-end": "",
+      "time-start": "18:00:00",
+      "time-end": "21:00:00",
       "description": "Berpetualang di museum malam hari dengan minim cahaya",
       "photo": [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBvMC9N2QMzBM9Lgy2YuAoo4IJQ1m5pQsDw&usqp=CAU"
       ],
       "poster": 2
+    },
+    {
+      "id": 15,
+      "name": "Galaxy Job Fair",
+      "location": "Bandung",
+      "category": "Job Fair",
+      "date-start": "2023-10-23",
+      "date-end": "",
+      "time-start": "09:00:00",
+      "time-end": "16:00:00",
+      "description": "Perluas network-mu, kejar mimpimu!",
+      "photo": [
+        "https://i0.wp.com/borobudurnews.com/wp-content/uploads/2021/11/ilustrasi-job-fair-bagi-masyarakat-yang-hendak-jadi-pelamar-lowongan-kerja.jpg?fit=882%2C604&ssl=1",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxULm_esftjfyORLiuiGWELoDVHTBaaO3fw&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W-79slVpQYPJeVisbhADfp-n52ip_6f89Q&usqp=CAU"
+      ],
+      "poster": 2
+    },
+    {
+      "id": 16,
+      "name": "Old Dummy Event",
+      "location": "Bandung",
+      "category": "Job Fair",
+      "date-start": "2023-07-23",
+      "date-end": "",
+      "time-start": "09:00:00",
+      "time-end": "16:00:00",
+      "description": "Perluas network-mu, kejar mimpimu!",
+      "photo": [
+        "https://i0.wp.com/borobudurnews.com/wp-content/uploads/2021/11/ilustrasi-job-fair-bagi-masyarakat-yang-hendak-jadi-pelamar-lowongan-kerja.jpg?fit=882%2C604&ssl=1",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxULm_esftjfyORLiuiGWELoDVHTBaaO3fw&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W-79slVpQYPJeVisbhADfp-n52ip_6f89Q&usqp=CAU"
+      ],
+      "poster": 2
+    },
+    {
+      "id": 17,
+      "photo": [
+        [
+          "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp"
+        ]
+      ],
+      "name": "BERKAH COMPUTER",
+      "location": "Jakarta",
+      "date-start": "2023-08-12",
+      "date-end": "2023-08-14",
+      "time": "13:00:00",
+      "description": "Dalam Rangka Gelaran Jambore Nasional IMI Rx-KING di selenggarakan event konser bertajuk Festival Indonesia Gemilang untuk bisa diikuti oleh semua kalangan baik komunitas atau masyarakat umum",
+      "ticketcategory": "VIP",
+      "price": "475.000",
+      "stock": "12",
+      "startdate": "2023-08-24"
+    },
+    {
+      "id": 18,
+      "photo": [
+        "https://api.yesplis.com/images/banner/e881c350136fa511c38feb64f3f6fa065bf54f34.png.webp"
+      ],
+      "name": "MUSIC OF GENERATION",
+      "location": "Jl. Brigjend Dharsono | Korem 063/Sunan Gunung Jati",
+      "date-start": "",
+      "date-end": "",
+      "time": "13:00:00",
+      "description": "“MUSIC OF GENERATION” adalah serangkaian kegiatan yang diselenggarakan D’tONes Pro Organizer untuk menghibur Masyarakat dengan beberapa konten diantaranya adalah Bazar UMKM dan Musik Entertainment bekerjasama dengan Beberapa Artist dan Band Guna membangun dan membangkitkan semangat Masyarakat pecinta musik.",
+      "ticketcategory": "Music",
+      "price": "125000",
+      "stock": "12",
+      "startdate": "2023-09-06"
+    },
+    {
+      "id": 19,
+      "photo": [
+        "https://api.yesplis.com/images/banner/9b766a05fa8345cc727860e5ba8a47b5da0e23c5.png.webp"
+      ],
+      "name": "Keroncong Plesiran Vol. 7",
+      "location": "Jakarta",
+      "date-start": "2023-08-07",
+      "date-end": "2023-08-17",
+      "time": "13:00:00",
+      "description": "Term Of Reference Keroncong Plesiran Vol. 7 :  - Bagi Penonton yang berusia diatas 7 tahun dikenakan tiket.  - Tiket wajib ditukarkan dengan Gelang Lanyard di lokasi dengan menunjukan e-tiket melalui handphone beserta kartu identitas.  - Booking penginapan di Asram Edupark langsung hubungi CP : 0882-0202-02028 ( Iqbal )  - Tiket tidak dapat dikembalikan atau di refund dengan alasan yang timbul dari pembeli.  - Dalam keadaan force majeur yang telah resmi di umumkan oleh pemerintah, panitia dan promotor acara berhak untuk membatalkan dan/atau merubah waktu acara dan tata letak tempat tanpa pemberitahuan sebelumnya.",
+      "ticketcategory": "Music",
+      "price": "299999",
+      "stock": "22"
+    },
+    {
+      "id": 20,
+      "photo": [
+        "https://api.yesplis.com/images/banner/763ca0d1291e49e8587d6899ad1df02d7ba765d9.png.webp"
+      ],
+      "name": "jangkrik",
+      "location": "Lapangan Kujon | LAPANGAN KUJON",
+      "date-start": "2023-08-16",
+      "date-end": "2023-08-25",
+      "time": "08:30:00",
+      "description": "ayam betina",
+      "ticketcategory": "Music",
+      "price": "100000",
+      "stock": "11"
+    },
+    {
+      "id": 21,
+      "photo": [
+        "https://api.yesplis.com/images/banner/0602419a6fb0488b71d9674997d8154d66cfe035.png.webp"
+      ],
+      "name": "satu",
+      "location": "Lapangan Kujon | LAPANGAN KUJON",
+      "date-start": "2023-08-24",
+      "date-end": "2023-08-29",
+      "time": "08:30:00",
+      "description": "sss",
+      "ticketcategory": "Music",
+      "price": "120000",
+      "stock": "22"
+    },
+    {
+      "id": 22,
+      "photo": [
+        "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
+      ],
+      "name": "TrueCuks",
+      "location": "",
+      "date-start": "2023-08-09",
+      "date-end": "2023-08-19",
+      "time": "",
+      "description": "ayamssss",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 23,
+      "photo": [
+        "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp"
+      ],
+      "name": "yuppppp",
+      "location": "",
+      "date-start": "2023-08-06",
+      "date-end": "2023-08-15",
+      "time": "",
+      "description": "aasdasdsawwwwwww",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 24,
+      "photo": [
+        ""
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 25,
+      "photo": [
+        "dasdas"
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 26,
+      "photo": [
+        "dasdsada"
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 27,
+      "photo": [
+        ""
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "2023-08-17",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 28,
+      "photo": [
+        ""
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "sadasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 29,
+      "photo": [
+        ""
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 30,
+      "photo": [
+        "adsad"
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "dasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 31,
+      "photo": [
+        ""
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 32,
+      "photo": [
+        ""
+      ],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "ajncokkkkkkkkkksdasdasd",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 33,
+      "photo": [
+        ""
+      ],
+      "name": "satuduatida",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    }
+  ],
+  "reviews": [
+    {
+      "eventid": 1,
+      "comments": [
+        "Menarik joega ini lurrr",
+        "bagaikan air di daun talas... event selesai menghilang tanpa bekas",
+        "situ yang benar lah kalau bikin event"
+      ],
+      "userid": [
+        1,
+        2,
+        3
+      ],
+      "ratings": [
+        4.6,
+        5,
+        4
+      ]
+    },
+    {
+      "eventid": 2,
+      "comments": [
+        "Cape woi disiksa pagi siang sore",
+        "Cinlok is reaaaaal",
+        "Tertipu janji manis"
+      ],
+      "userid": [
+        4,
+        5,
+        6
+      ],
+      "ratings": [
+        3,
+        4,
+        2.5
+      ]
     }
   ]
 }

@@ -18,5 +18,35 @@
 }
 
 .image-event {
-  max-height: 250px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.description {
+  height: 72px;
+  overflow: auto;
+}
+
+.register-box {
+  width: 450px;
+  height: 500px;
+  border: 2px solid grey;
+  padding: 20px;
+}
+
+.judul {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 40px;
+  border: 1px solid grey;
+}
+
+@media screen and (max-width: 992px) {
+  #side-bar {
+    height: auto !important;
+    width: auto;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+  }
 }
