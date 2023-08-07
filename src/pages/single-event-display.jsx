@@ -7,9 +7,7 @@ import { useEffect, useState } from "react";
 import SpinnerLoading from "../components/SpinnerLoading";
 import FetchReviews from "../components/Fetchreviews";
 import FetchDiscussion from "../components/Fetchdiscussion";
-import { useSelector } from "react-redux";
 import "../components/style.css";
-import { color } from "framer-motion";
 
 function SingleEventDisplay() {
   //get params id for querrying db
@@ -58,8 +56,6 @@ function SingleEventDisplay() {
     fetchThisEvent();
   }, []);
 
-  console.log("here");
-
   return (
     <>
       <Container style={{ padding: "10px" }}>
@@ -94,7 +90,7 @@ function SingleEventDisplay() {
           <Col lg={6} md={12}>
             <Card>
               <Card.Header as="h5">Comments and Review</Card.Header>
-              <Card.Body style={{ overflowY: "scroll", maxHeight: "100vh" }}>
+              <Card.Body>
                 <FetchReviews
                   users_map={users_map}
                   events_map={events_map}
@@ -108,13 +104,11 @@ function SingleEventDisplay() {
               <Card.Header as="h5">
                 Ask anything about the event below
               </Card.Header>
-              <Card.Body style={{ overflowY: "scroll", maxHeight: "100vh" }}>
-                <FetchDiscussion
-                  users_map={users_map}
-                  events_map={events_map}
-                  eventid={eventid}
-                />
-              </Card.Body>
+              <FetchDiscussion
+                users_map={users_map}
+                events_map={events_map}
+                eventid={eventid}
+              />
               <Card.Body>
                 <Card className="p-3">
                   <Form>
