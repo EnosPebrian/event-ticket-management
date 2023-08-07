@@ -45,7 +45,7 @@ function FetchReviews({ eventid, users_map, events_map }) {
                   />
                 </span>
                 {users_map.size ? (
-                  users_map.get(comment[0])["username"]
+                  users_map.get(comment[0])?.username
                 ) : (
                   <Spinner />
                 )}

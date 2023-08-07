@@ -38,7 +38,7 @@ function FetchDiscussion({ eventid, users_map, events_map }) {
                     </span>
                     {discussionscontainer.question_id[index] ? (
                       users_map.get(discussionscontainer.question_id[index])
-                        .username
+                        ?.username
                     ) : (
                       <Spinner />
                     )}
@@ -76,7 +76,7 @@ function FetchDiscussion({ eventid, users_map, events_map }) {
                                   {
                                     users_map.get(
                                       discussionscontainer.reply_id[index][idx]
-                                    ).username
+                                    )?.username
                                   }
                                 </span>
                               </div>

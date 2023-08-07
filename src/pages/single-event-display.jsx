@@ -7,17 +7,37 @@ import { useEffect, useState } from "react";
 import SpinnerLoading from "../components/SpinnerLoading";
 import FetchReviews from "../components/Fetchreviews";
 import FetchDiscussion from "../components/Fetchdiscussion";
-function SingleEventDisplay({
-  search,
-  events = [],
-  setEvents,
-  users,
-  users_map,
-  events_map,
-}) {
+function SingleEventDisplay() {
   //get params id for querrying db
   const { eventid, eventname } = useParams();
   const [an_event, setAn_event] = useState([]);
+  const [users_map, setUsers_map] = useState(new Map());
+  const [events_map, setEvents_map] = useState(new Map());
+
+  const fetchEventsMap = async () => {
+    try {
+      const res_events = await api.get("/events");
+      const temp_events_map = new Map();
+      res_events.data.map((an_event) =>
+        temp_events_map.set(an_event.id, an_event)
+      );
+      setEvents_map(temp_events_map);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const fetchUsersMap = async () => {
+    try {
+      const res_users = await api.get("/users");
+      const temp_users_map = new Map();
+      res_users.data.map((user) => temp_users_map.set(user.id, user));
+      setUsers_map(temp_users_map);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const fetchThisEvent = async () => {
     try {
       const res = await api.get(`/events/${eventid}`);
@@ -27,9 +47,18 @@ function SingleEventDisplay({
       console.log(err);
     }
   };
+
   useEffect(() => {
+    fetchEventsMap();
+    fetchUsersMap();
     fetchThisEvent();
   }, []);
+
+  // useEffect(() => {
+  //   fetchEventsMap();
+  //   fetchThisEvent();
+  //   fetchUsersMap();
+  // }, []);
 
   return (
     <>
