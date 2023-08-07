@@ -7,12 +7,14 @@ import { useEffect, useState } from "react";
 import SpinnerLoading from "../components/SpinnerLoading";
 import FetchReviews from "../components/Fetchreviews";
 import FetchDiscussion from "../components/Fetchdiscussion";
+import { useSelector } from "react-redux";
 function SingleEventDisplay() {
   //get params id for querrying db
   const { eventid, eventname } = useParams();
   const [an_event, setAn_event] = useState([]);
   const [users_map, setUsers_map] = useState(new Map());
   const [events_map, setEvents_map] = useState(new Map());
+  const userid = JSON.parse(localStorage.getItem("auth")).id;
 
   const fetchEventsMap = async () => {
     try {

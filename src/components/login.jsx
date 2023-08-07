@@ -5,9 +5,11 @@ import "./style.css";
 import { useState } from "react";
 import api from "../json-server/api";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { types } from "../redux/types";
 
 export const Login = () => {
+  const dispatch = useDispatch();
   const nav = useNavigate();
   const [user, setUser] = useState({
     email: "",
@@ -19,7 +21,7 @@ export const Login = () => {
   };
 
   const login = async () => {
-    const auth = await await api.get("/users", {
+    const auth = await api.get("/users", {
       params: {
         email: user.email,
         password: user.password,
@@ -30,6 +32,8 @@ export const Login = () => {
     if (!auth.data) return alert("email/password salah");
 
     delete auth.data[0].password;
+
+    dispatch({ type: types.login, payload: { ...auth.data[0] } });
 
     localStorage.setItem("auth", JSON.stringify(auth.data[0]));
     nav("/");
