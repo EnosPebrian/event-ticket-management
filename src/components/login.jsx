@@ -5,15 +5,15 @@ import "./style.css";
 import { useState } from "react";
 import api from "../json-server/api";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { types } from "../redux/types";
 
 export const Login = () => {
+  const dispatch = useDispatch();
   const nav = useNavigate();
   const [user, setUser] = useState({
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const inputHandler = (key, value) => {
@@ -21,22 +21,22 @@ export const Login = () => {
   };
 
   const login = async () => {
-    const auth = await axios.get("http://localhost:2000/users", {
+    const auth = await api.get("/users", {
       params: {
         email: user.email,
+        password: user.password,
       },
     });
-    console.log(auth);
+    console.log("auth.data", auth.data);
 
-    if (!auth.data) {
-      return alert("email/password salah");
-    } else {
-      // delete auth.data[0].password;
+    if (!auth.data) return alert("email/password salah");
 
-      localStorage.setItem("auth", JSON.stringify(auth.data[0]));
-      alert(`hello ${user.username}`);
-      nav("/");
-    }
+    delete auth.data[0].password;
+
+    dispatch({ type: types.login, payload: { ...auth.data[0] } });
+
+    localStorage.setItem("auth", JSON.stringify(auth.data[0]));
+    nav("/");
   };
   return (
     <>
@@ -46,10 +46,12 @@ export const Login = () => {
             <span style={{ fontWeight: "bold", fontSize: "18px" }}>
               Sign In
             </span>
-            <p>
-              Don’t have yesplis account ?
+            <p style={{ fontWeight: "400", fontSize: "13px" }}>
+              Don’t have fomophobia account ? &nbsp;
               <span>
-                <a href="register">Sign Up</a>
+                <a href="register" style={{ color: "#2A3FB2" }}>
+                  Sign Up
+                </a>
               </span>
             </p>
           </div>
@@ -82,7 +84,12 @@ export const Login = () => {
             </FloatingLabel>
 
             <FloatingLabel controlId="floatingPassword" label="Password">
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                required
+                onChange={(e) => inputHandler("password", e.target.value)}
+              />
             </FloatingLabel>
           </div>
 

@@ -9,9 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
-import { DashboardProfile } from "./dashboardprofile";
 
-function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
+function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,17 +19,17 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
   const nav = useNavigate();
   const inputHandler = (e) => {
     if (e.key == "Enter") {
-      console.log(`search form enter key`, e.target.value);
-      setSearch(e.target.value);
       e.preventDefault();
-      nav(`/search/q=${e.target.value}`);
+      document.getElementById("search-button").click();
     }
   };
   const searchButtonHandler = () => {
-    setSearch(document.getElementById("search-form").value);
-    console.log(`search form`, document.getElementById("search-form").value);
     nav(`/search/q=${document.getElementById("search-form").value}`);
   };
+
+  function signIn() {
+    nav("/login");
+  }
 
   return (
     <>
@@ -46,11 +45,11 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link
-                onClick={searchButtonHandler}
                 className="bg-primary"
                 style={{ borderRadius: "10px" }}
+                href={`/search/q=`}
               >
                 Find Events
               </Nav.Link>
@@ -84,24 +83,25 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
                 aria-label="Search"
                 onKeyPress={(e) => inputHandler(e)}
               />
-              <Button variant="outline-success" onClick={searchButtonHandler}>
+              <Button
+                id="search-button"
+                variant="outline-success"
+                onClick={searchButtonHandler}
+              >
                 Search
               </Button>
-              <Button variant="outline-success">Profile</Button>
             </Form>
-            <Button variant="outline-success" style={{ marginLeft: "20px" }}>
-              <Nav.Link href="/dashboardprofile">Profile</Nav.Link>
+            <Button
+              variant="outline-success"
+              style={{ marginLeft: "20px" }}
+              onClick={signIn}
+            >
+              Sign In
             </Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <ModalCreate
-        events={[...events]}
-        setEvents={setEvents}
-        handleClose={handleClose}
-        show={show}
-        fetchEvents={fetchEvents}
-      />
+      <ModalCreate handleClose={handleClose} show={show} />
     </>
   );
 }

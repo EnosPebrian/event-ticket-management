@@ -5,9 +5,24 @@ import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import api from "../json-server/api";
+import { useEffect, useState } from "react";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 
-function Eventdisplay({ search, events = [], setEvents, users }) {
+function Eventdisplay() {
+  const [events, setEvents] = useState([]);
+  const fetchEvents = async () => {
+    try {
+      const res_events = await api.get("/events");
+      setEvents([...res_events.data]);
+      console.log(events);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchEvents();
+  }, []);
   const navigate = useNavigate();
   return (
     <>
