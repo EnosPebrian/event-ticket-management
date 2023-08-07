@@ -124,7 +124,21 @@
       "id": 14,
       "points": 0,
       "referralcode": "zxciqbr12789",
-      "events": [1]
+      "events": [
+        1
+      ]
+    },
+    {
+      "username": "angga",
+      "email": "zoro@mail.com",
+      "password": "pass",
+      "id": 15
+    },
+    {
+      "username": "angga",
+      "email": "angga1@mail.com",
+      "password": "pass",
+      "id": 16
     }
   ],
   "events": [

@@ -10,7 +10,7 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
 
-function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
+function HeaderNavbar({ setSearch, events, setEvents, fetchEvents, hideButton }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);

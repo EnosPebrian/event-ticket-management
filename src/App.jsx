@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header-navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Eventdisplay from "./pages/event-display";
 import api from "./json-server/api";
 import { useEffect, useState } from "react";
@@ -9,6 +9,7 @@ import SingleEventDisplay from "./pages/single-event-display";
 import Register from "./components/register";
 import { Login } from "./components/login";
 import { SearchPage } from "./pages/search-page";
+import { routes } from "./routes/routes";
 
 function App() {
   //untuk set search, event-event, dan user-user
@@ -20,6 +21,10 @@ function App() {
 
   //kalo berhasil login, pass datanya ke login
   const [login, setLogin] = useState("");
+
+  //hide navbar while register n login
+  const location = useLocation();
+  const currentRoute = location.pathname;
 
   const fetchEvents = async () => {
     try {
@@ -58,13 +63,14 @@ function App() {
     <>
       {/* navbarnya (Header) diluar routes jadi satu navbar untuk semua*/}
       <Header
-        setSearch={setSearch}
-        events={[...events]}
-        setEvents={setEvents}
-        fetchEvents={fetchEvents}
+      // setSearch={setSearch}
+      // events={[...events]}
+      // setEvents={setEvents}
+      // fetchEvents={fetchEvents}
+      // hideButton={currentRoute === "/register" || currentRoute === "/login"}
       />
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={
             <Eventdisplay
@@ -101,7 +107,11 @@ function App() {
           }
         />
         <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login />} /> */}
+
+        {routes.map((route) => (
+          <Route {...route} />
+        ))}
       </Routes>
     </>
   );
