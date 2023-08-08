@@ -42,6 +42,8 @@ const Register = () => {
   };
 
   useEffect(() => {
+    const localData = localStorage.getItem("auth");
+    if (localData) nav("/home");
     inputHandler();
   }, []);
 

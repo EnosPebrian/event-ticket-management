@@ -31,6 +31,15 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     nav("/login");
   }
 
+  const logout = () => {
+    localStorage.removeItem("auth");
+    nav("/login");
+  };
+
+  const profile = () => {
+    nav("/profile");
+  };
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">
@@ -97,6 +106,22 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               onClick={signIn}
             >
               Sign In
+            </Button>
+
+            <Button
+              variant="outline-danger"
+              style={{ marginLeft: "20px" }}
+              onClick={logout}
+            >
+              Logout
+            </Button>
+
+            <Button
+              variant="outline-info"
+              style={{ marginLeft: "20px" }}
+              onClick={profile}
+            >
+              Profile
             </Button>
           </Navbar.Collapse>
         </Container>

@@ -2,15 +2,18 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./style.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../json-server/api";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { types } from "../redux/types";
+import HeaderNavbar from "./Header-navbar";
 
 export const Login = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
+  const location = useLocation();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -29,15 +32,22 @@ export const Login = () => {
     });
     console.log("auth.data", auth.data);
 
-    if (!auth.data) return alert("email/password salah");
-
-    delete auth.data[0].password;
+    if (auth.data == 0) return alert("email/password salah");
+    alert("berhasil login");
 
     dispatch({ type: types.login, payload: { ...auth.data[0] } });
 
     localStorage.setItem("auth", JSON.stringify(auth.data[0]));
-    nav("/");
+    delete auth.data[0].password;
+    nav("/home");
   };
+
+  useEffect(() => {
+    const localData = JSON.parse(localStorage.getItem("auth"));
+    console.log("localData", localData);
+    if (localData) nav("/home");
+  }, []);
+
   return (
     <>
       <center>
@@ -96,6 +106,7 @@ export const Login = () => {
           <Button variant="primary" size="lg" onClick={login}>
             Sign In
           </Button>
+          {location.pathname !== "/login" && <HeaderNavbar />}
         </div>
       </center>
     </>
