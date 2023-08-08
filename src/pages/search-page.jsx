@@ -16,7 +16,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import SpinnerLoading from "../components/SpinnerLoading";
 import { useFormik } from "formik";
 
-export const SearchPage = ({ users_map, events_map, events }) => {
+export const SearchPage = () => {
   const navigate = useNavigate();
   const { searchkey } = useParams();
   const [filtered, setFiltered] = useState([]);
@@ -27,6 +27,53 @@ export const SearchPage = ({ users_map, events_map, events }) => {
   const [category, setCategory] = useState([]);
   const today = new Date().toISOString().split("T")[0];
   const [value, setValue] = useState({});
+  const [events, setEvents] = useState([]);
+  const [users_map, setUsers_map] = useState(new Map());
+  const [events_map, setEvents_map] = useState(new Map());
+
+  const fetchEventsMap = async () => {
+    try {
+      const res_events = await api.get("/events");
+      const temp_events_map = new Map();
+      res_events.data.map((an_event) =>
+        temp_events_map.set(an_event.id, an_event)
+      );
+      setEvents_map(temp_events_map);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const fetchUsersMap = async () => {
+    try {
+      const res_users = await api.get("/users");
+      const temp_users_map = new Map();
+      res_users.data.map((user) => temp_users_map.set(user.id, user));
+      setUsers_map(temp_users_map);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  //update Events dan Users pertama kali setelah document terload
+  useEffect(() => {
+    fetchEventsMap();
+    fetchUsersMap();
+  }, []);
+
+  const fetchAllEvents = async () => {
+    try {
+      const res_events = await api.get("/events");
+      setEvents([...res_events.data]);
+      console.log(events);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchAllEvents();
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       searchform: "",
@@ -66,28 +113,43 @@ export const SearchPage = ({ users_map, events_map, events }) => {
     }
 
     try {
-      if (value?.location.length) {
-        for (let i of value.location) {
+      if (value.location.length && value.category.length) {
+        const temp_set = new Set();
+        let a = [];
+        for (let i of value?.location) {
           for (let item of temp) {
-            if (item.location == i) {
+            if (item.location == i) temp_set.add(item.id);
+          }
+        }
+        for (let i of value?.category) {
+          for (let item of temp) {
+            if (item.category == i && temp_set.has(item.id)) {
               filter_hashmap.add(item.id);
             }
           }
         }
-      }
-
-      if (value?.category.length) {
-        for (let i of value.category) {
-          for (let item of temp) {
-            if (item.category == i) {
-              filter_hashmap.add(item.id);
-            }
-          }
-        }
-      }
-
-      if (!value?.location.length && !value?.category.length) {
+      } else if (!value?.location.length && !value?.category.length) {
         for (let item of temp) filter_hashmap.add(item.id);
+      } else {
+        if (value?.location.length) {
+          for (let i of value.location) {
+            for (let item of temp) {
+              if (item.location == i) {
+                filter_hashmap.add(item.id);
+              }
+            }
+          }
+        }
+
+        if (value?.category.length) {
+          for (let i of value.category) {
+            for (let item of temp) {
+              if (item.category == i) {
+                filter_hashmap.add(item.id);
+              }
+            }
+          }
+        }
       }
 
       for (let id of filter_hashmap) {
@@ -126,7 +188,8 @@ export const SearchPage = ({ users_map, events_map, events }) => {
 
   useEffect(() => {
     fetchEvents();
-  }, []);
+  }, [events]);
+
   useEffect(() => {
     fetchEvents();
   }, [searchkey]);

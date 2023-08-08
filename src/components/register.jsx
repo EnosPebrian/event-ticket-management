@@ -50,14 +50,16 @@ const Register = () => {
       <center>
         <form onSubmit={register}>
           <div className="register-box">
-            <div className="judul">
+            <div className="judul-register">
               <span style={{ fontWeight: "bold", fontSize: "18px" }}>
                 Sign Up
               </span>
-              <p>
-                Already Have Fomophobia Account?
+              <p style={{ fontWeight: "400", fontSize: "13px" }}>
+                Already Have Fomophobia Account? &nbsp;
                 <span>
-                  <a href="login">login</a>
+                  <a href="login" style={{ color: "#2A3FB2" }}>
+                    login
+                  </a>
                 </span>
               </p>
             </div>
@@ -93,6 +95,7 @@ const Register = () => {
                 <Form.Control
                   type="password"
                   placeholder="Password"
+                  style={{ marginBottom: "5px" }}
                   required
                   onChange={(e) => inputHandler("password", e.target.value)}
                 />

@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap");
+
 #logo-text {
-  font-family: "Libre Baskerville", serif;
-  font-family: "Pacifico", cursive;
+  font-family: "Exo", sans-serif;
+  font-weight: 600;
 }
 
 #nav-container {
@@ -11,6 +13,8 @@
 
 .img-carousel {
   width: 100%;
+  height: 40vh;
+  object-fit: cover;
 }
 
 #event-name {
@@ -33,14 +37,30 @@
   border: 2px solid grey;
   border-radius: 10px;
   padding: 20px;
+  border-radius: 10px;
   margin-top: 10vh;
 }
 
 .judul {
   width: 100%;
   height: 100px;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
   border: 1px solid grey;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.judul-register {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 50px;
+  border: 1px solid grey;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 992px) {
@@ -55,4 +75,11 @@
 
 .star-checked {
   color: gold;
+}
+
+.on {
+  color: gold;
+}
+.off {
+  color: black;
 }

@@ -10,7 +10,7 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
 
-function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
+function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,13 +19,11 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
   const nav = useNavigate();
   const inputHandler = (e) => {
     if (e.key == "Enter") {
-      setSearch(e.target.value);
       e.preventDefault();
       document.getElementById("search-button").click();
     }
   };
   const searchButtonHandler = () => {
-    setSearch(document.getElementById("search-form").value);
     nav(`/search/q=${document.getElementById("search-form").value}`);
   };
 
@@ -47,11 +45,11 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link
-                onClick={searchButtonHandler}
                 className="bg-primary"
                 style={{ borderRadius: "10px" }}
+                href={`/search/q=`}
               >
                 Find Events
               </Nav.Link>
@@ -103,13 +101,7 @@ function HeaderNavbar({ setSearch, events, setEvents, fetchEvents }) {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <ModalCreate
-        events={[...events]}
-        setEvents={setEvents}
-        handleClose={handleClose}
-        show={show}
-        fetchEvents={fetchEvents}
-      />
+      <ModalCreate handleClose={handleClose} show={show} />
     </>
   );
 }
