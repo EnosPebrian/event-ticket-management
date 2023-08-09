@@ -5,8 +5,9 @@ import "./style.css";
 import { useState } from "react";
 import api from "../json-server/api";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { types } from "../redux/types";
+import { Container } from "react-bootstrap";
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -33,68 +34,72 @@ export const Login = () => {
 
     delete auth.data[0].password;
 
-    dispatch({ type: types.login, payload: { ...auth.data[0] } });
+    await dispatch({ payload: { ...auth.data[0] }, type: types.login });
 
     localStorage.setItem("auth", JSON.stringify(auth.data[0]));
     nav("/");
   };
+  const userSelector = useSelector((state) => state.auth);
+  console.log(`userselector di login`, userSelector);
   return (
     <>
       <center>
-        <div className="register-box">
-          <div className="judul">
-            <span style={{ fontWeight: "bold", fontSize: "18px" }}>
-              Sign In
-            </span>
-            <p>
-              Don’t have yesplis account ?
-              <span>
-                <a href="register">Sign Up</a>
+        <Container>
+          <div className="register-box">
+            <div className="judul">
+              <span style={{ fontWeight: "bold", fontSize: "18px" }}>
+                Sign In
               </span>
-            </p>
+              <p>
+                Don’t have yesplis account ?
+                <span>
+                  <a href="register">Sign Up</a>
+                </span>
+              </p>
+            </div>
+            {/* INPUT */}
+            <div style={{ marginBottom: "60px" }}>
+              <FloatingLabel
+                controlId="floatingInput"
+                label="Full Name"
+                className="mb-1"
+              >
+                <Form.Control
+                  type="text"
+                  placeholder="yourfullname"
+                  required
+                  onChange={(e) => inputHandler("username", e.target.value)}
+                />
+              </FloatingLabel>
+
+              <FloatingLabel
+                controlId="floatingInput"
+                label="Email address"
+                className="mb-1"
+              >
+                <Form.Control
+                  type="email"
+                  placeholder="name@example.com"
+                  required
+                  onChange={(e) => inputHandler("email", e.target.value)}
+                />
+              </FloatingLabel>
+
+              <FloatingLabel controlId="floatingPassword" label="Password">
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  required
+                  onChange={(e) => inputHandler("password", e.target.value)}
+                />
+              </FloatingLabel>
+            </div>
+
+            <Button variant="primary" size="lg" onClick={login}>
+              Sign In
+            </Button>
           </div>
-          {/* INPUT */}
-          <div style={{ marginBottom: "60px" }}>
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Full Name"
-              className="mb-1"
-            >
-              <Form.Control
-                type="text"
-                placeholder="yourfullname"
-                required
-                onChange={(e) => inputHandler("username", e.target.value)}
-              />
-            </FloatingLabel>
-
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Email address"
-              className="mb-1"
-            >
-              <Form.Control
-                type="email"
-                placeholder="name@example.com"
-                required
-                onChange={(e) => inputHandler("email", e.target.value)}
-              />
-            </FloatingLabel>
-
-            <FloatingLabel controlId="floatingPassword" label="Password">
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                required
-                onChange={(e) => inputHandler("password", e.target.value)}
-              />
-            </FloatingLabel>
-          </div>
-
-          <Button variant="primary" size="lg" onClick={login}>
-            Sign In
-          </Button>
-        </div>
+        </Container>
       </center>
     </>
   );

@@ -7,10 +7,14 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import api from "../json-server/api";
 import { useEffect, useState } from "react";
+import "../components/style.css";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 
 function Eventdisplay() {
   const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
+  const [rating_map, setRating_map] = useState({});
+  const [rating_length, setRating_length] = useState({});
   const fetchEvents = async () => {
     try {
       const res_events = await api.get("/events");
@@ -22,8 +26,32 @@ function Eventdisplay() {
   };
   useEffect(() => {
     fetchEvents();
+    fetchRating();
   }, []);
-  const navigate = useNavigate();
+
+  async function fetchRating() {
+    const res = await api.get("/reviews");
+    const data = res.data;
+    console.log(`tass`, data);
+    const temp_obj = new Object();
+    const temp_total_reviews = {};
+    let avg_rating;
+    let total_reviews;
+    data?.forEach((element) => {
+      avg_rating =
+        element.ratings.reduce((acc, currentVal) => acc + currentVal, 0) /
+        element.ratings.length;
+      total_reviews = element.ratings.length;
+      temp_obj[element.id] = avg_rating;
+      temp_total_reviews[element.id] = total_reviews;
+      console.log(temp_obj);
+    });
+    setRating_map(temp_obj);
+    setRating_length(temp_total_reviews);
+  }
+
+  console.log(`obj`, rating_map);
+
   return (
     <>
       <Container>
@@ -67,30 +95,50 @@ function Eventdisplay() {
       </Container>
       <Container className="mt-5">
         <Row>
-          {events.map((event, index) => (
+          {events.map((ev, index) => (
             <Col
+              xs={12}
+              sm={12}
               md={6}
               lg={4}
               xl={3}
               className="my-2 d-flex justify-content-center col-card"
               key={index}
               type="button"
-              onClick={() => navigate(`/${event.id}/${event.name}`)}
+              onClick={() => navigate(`/${ev.id}/${ev.name}`)}
             >
               <Card style={{ width: "18rem" }}>
                 <Card.Img
                   variant="top"
                   referrerPolicy="no-referrer"
-                  src={event.photo[0]}
-                  alt={event.name}
+                  src={ev.photo[0]}
+                  alt={ev.name}
                   className="image-event"
                 />
                 <Card.Body>
-                  <Card.Title className="event-name">{event.name}</Card.Title>
-                  <Card.Text className="location">{event.location}</Card.Text>
-                  <Card.Text className="date">{event.date}</Card.Text>
+                  <Card.Title className="event-name">{ev.name}</Card.Title>
+                  <Card.Text className="location">{ev.location}</Card.Text>
+                  <Card.Text className="date">{ev.date}</Card.Text>
                   <Card.Text className="description">
-                    {event.description}
+                    {ev.description}
+                  </Card.Text>
+                  <Card.Text className="rating">
+                    <span>
+                      <span
+                        class="fa fa-star star-checked"
+                        style={{ marginRight: "4px" }}
+                      ></span>
+                      <b>
+                        {rating_map[ev.id] &&
+                          Number(rating_map[ev.id]).toFixed(2)}
+                      </b>
+                      {rating_map[ev.id] && `/5 `}
+                    </span>
+                    <span>
+                      {rating_length[ev.id]
+                        ? `(${rating_length[ev.id]})`
+                        : `No ratings`}
+                    </span>
                   </Card.Text>
                   <Button variant="primary">Reserve Ticket</Button>
                 </Card.Body>

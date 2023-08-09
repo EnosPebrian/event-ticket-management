@@ -1,3 +1,4 @@
+import Redirect from "../components/Redirect";
 import { Login } from "../components/login";
 import Register from "../components/register";
 import Eventdisplay from "../pages/event-display";
@@ -12,6 +13,7 @@ class RouteClass {
 }
 
 export const routes = [
+  new RouteClass("/", <Redirect />),
   new RouteClass(
     "/home",
     (
@@ -20,7 +22,7 @@ export const routes = [
       </ProtectedPage>
     )
   ),
-  
+
   new RouteClass(
     "/:eventid/:eventname",
     (

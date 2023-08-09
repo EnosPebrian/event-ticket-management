@@ -11,7 +11,8 @@ const init_state = {
 };
 
 export const userReducer = (state = init_state, action) => {
-  if (action.type == types.login) {
+  console.log(`di user reducer`, state, action);
+  if (action.type === types.login) {
     return {
       ...state,
       username: action.payload.username,
@@ -22,7 +23,7 @@ export const userReducer = (state = init_state, action) => {
       referralcode: action.payload.referralcode,
       events: action.payload.events,
     };
-  } else if (action.type == types.logout) {
+  } else if (action.type === types.logout) {
     return init_state;
   }
 

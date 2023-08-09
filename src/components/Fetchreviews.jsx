@@ -2,14 +2,16 @@ import { Button, Card, Form, Spinner } from "react-bootstrap";
 import api from "../json-server/api";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function FetchReviews({ eventid, users_map, events_map }) {
   const [commentscontainer, setCommentscontainer] = useState([]);
   const [allComment, setAllComment] = useState([]);
   const [activitycounter, setActivitycounter] = useState(0);
-  const userid = JSON.parse(localStorage.getItem("auth")).id;
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+  const navigate = useNavigate();
   const [newcomment, setNewcomment] = useState({
     id: 0,
     eventid: 0,
@@ -17,50 +19,45 @@ function FetchReviews({ eventid, users_map, events_map }) {
     userid: [],
     ratings: [],
   });
+  let userid;
+
+  const userSelector = useSelector((state) => state.auth);
+  useEffect(() => console.log(`userselector detailpage`, userSelector));
+
+  try {
+    userid = JSON.parse(localStorage.getItem("auth")).id;
+  } catch (err) {
+    console.log(err);
+  }
 
   const load_review = async () => {
-    let res = await api.get(`reviews`);
-    let thiseventreview = [...res.data];
-    let temp_fil = thiseventreview.filter((rev) => rev.eventid == eventid)[0];
+    let res = await api.get(`reviews?eventid=${eventid}`);
+    let temp_fil = res.data[0];
     if (!temp_fil) {
       try {
-        await api.post(`reviews`, {
-          id: eventid,
-          eventid: eventid,
-          comments: [],
-          userid: [],
-          ratings: [],
-        });
-        res = await api.get(`reviews`);
-        thiseventreview = [...res.data];
-        temp_fil = thiseventreview.filter((rev) => rev.eventid == eventid)[0];
-        console.log(`here`, temp_fil);
+        await api
+          .post(`reviews`, {
+            id: eventid,
+            eventid: eventid,
+            comments: [],
+            userid: [],
+            ratings: [],
+          })
+          .then(async () => {
+            res = await api.get(`reviews?eventid=${eventid}`);
+            temp_fil = res.data[0];
+            setAllComment({
+              id: eventid,
+              eventid: eventid,
+              comments: [],
+              userid: [],
+              ratings: [],
+            });
+          });
       } catch (err) {
         console.log(err);
       }
-    }
-    setAllComment({
-      id: eventid,
-      eventid: eventid,
-      comments: [],
-      userid: [],
-      ratings: [],
-    });
-
-    if (temp_fil?.comments.length > 0) {
-      setAllComment(temp_fil);
-      const temp = [];
-      if (temp_fil) {
-        for (let i = 0; i < temp_fil.comments.length; i++) {
-          temp.push([
-            temp_fil.userid[i],
-            temp_fil.comments[i],
-            temp_fil.ratings[i],
-          ]);
-        }
-      }
-      setCommentscontainer(temp);
-    }
+    } else setAllComment(temp_fil);
   };
 
   function StarRating() {
@@ -94,6 +91,10 @@ function FetchReviews({ eventid, users_map, events_map }) {
   }
 
   const submitNewComment = async () => {
+    if (!userid) return navigate(`/login`);
+    if (rating == 0) return alert(`please add a rating`);
+    if (document.getElementById("ticketcode").value === "")
+      return alert(`please input your ticket code`);
     setNewcomment({
       id: eventid,
       eventid: eventid,
@@ -122,11 +123,11 @@ function FetchReviews({ eventid, users_map, events_map }) {
   return (
     <>
       <Card.Body style={{ overflowY: "scroll", maxHeight: "100vh" }}>
-        {commentscontainer.length ? (
-          commentscontainer.map((comment, index) => (
+        {allComment.id ? (
+          allComment?.comments.map((comment, index) => (
             <Card key={index}>
               <div className="px-3">
-                <span>Ratings: {Stars(comment[2])}</span>
+                <span>Ratings: {Stars(allComment?.ratings[index])}</span>
                 <span className="d-flex flex-row" style={{ gap: "5px" }}>
                   <span className="pt-1">
                     <Card.Img
@@ -135,13 +136,13 @@ function FetchReviews({ eventid, users_map, events_map }) {
                     />
                   </span>
                   {users_map.size ? (
-                    users_map.get(comment[0])?.username
+                    users_map.get(allComment?.userid[index])?.username
                   ) : (
                     <Spinner />
                   )}
                 </span>
               </div>
-              <Card.Body className="bg-light px-3">{comment[1]}</Card.Body>
+              <Card.Body className="bg-light px-3">{comment}</Card.Body>
             </Card>
           ))
         ) : (
