@@ -9,6 +9,7 @@ import { useFormik } from "formik/dist";
 import { Input } from "@chakra-ui/input";
 import { values } from "lodash";
 import api from "../json-server/api";
+// import { useState } from "react";
 
 export const ModalCreate = ({
   isModalOpen,
@@ -16,21 +17,35 @@ export const ModalCreate = ({
   openModal,
   closeModal,
 }) => {
+  const userProfile = localStorage.getItem("auth");
+  const user = { ...userProfile };
+  console.log("ini", user.username);
+
+  // const [time, setTime] = useState();
+
   const formik = useFormik({
     initialValues: {
       id: "",
-      photo: "",
       name: "",
       location: "",
+      venue: "",
+      category: "",
       "date-start": "",
       "date-end": "",
-      time: "",
+      "time-start": "",
+      "time-end": "",
       description: "",
-      ticketcategory: [],
-      price: "",
-      stock: "",
+      photo: "",
+      "vip-ticket-price": "",
+      "vip-ticket-stock": "",
+      "presale-ticket-price": "",
+      "presale-ticket-stock": "",
+      "event-creator": {},
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      const data = api.get("/events");
+      console.log("data yang berhasil dikirim", data);
+    },
   });
   console.log("ini formik", formik.values);
 
@@ -41,7 +56,14 @@ export const ModalCreate = ({
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
+        <Modal.Body
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Form onSubmit={formik.handleSubmit}>
             <img src={""}></img>
             <Input
@@ -64,8 +86,8 @@ export const ModalCreate = ({
               required
             ></Input>
             <Input
-              id="description"
-              placeholder="Description event"
+              id="location"
+              placeholder="Location event"
               mb={"20px"}
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
@@ -89,14 +111,14 @@ export const ModalCreate = ({
                 id="date-end"
                 type="date"
                 name="date-end"
-                placeholder="Start date"
+                placeholder="End date"
                 onChange={formik.handleChange}
                 required
               />
             </Form.Group>
             <Input
-              id="time"
-              placeholder="Time"
+              id="time-start"
+              placeholder="Time start"
               mb={"20px"}
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
@@ -104,8 +126,8 @@ export const ModalCreate = ({
               required
             ></Input>
             <Input
-              id="location"
-              placeholder="Location event"
+              id="time-end"
+              placeholder="Time start"
               mb={"20px"}
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
@@ -113,8 +135,8 @@ export const ModalCreate = ({
               required
             ></Input>
             <Input
-              id="ticketcategory"
-              placeholder="Categori Event"
+              id="description"
+              placeholder="Description event"
               mb={"20px"}
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
@@ -122,8 +144,8 @@ export const ModalCreate = ({
               required
             ></Input>
             <Input
-              id="price"
-              placeholder="Price"
+              id="vip-ticket-price"
+              placeholder="Price for vip"
               mb={"20px"}
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
@@ -131,8 +153,26 @@ export const ModalCreate = ({
               required
             ></Input>
             <Input
-              id="stock"
-              placeholder="Stock"
+              id="vip-ticket-stock"
+              placeholder="Stock ticket for vip"
+              mb={"20px"}
+              onChange={(e) =>
+                formik.setFieldValue(e.target.id, e.target.value)
+              }
+              required
+            ></Input>
+            <Input
+              id="presale-ticket-price"
+              placeholder="Price for ticket presale"
+              mb={"20px"}
+              onChange={(e) =>
+                formik.setFieldValue(e.target.id, e.target.value)
+              }
+              required
+            ></Input>
+            <Input
+              id="presale-ticket-stock"
+              placeholder="Stock for ticket prisale"
               mb={"20px"}
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)

@@ -36,10 +36,8 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     nav("/login");
   };
 
-  const profile = () => {
-    nav("/dashboardprofile");
-  };
-
+  const profile = () => {};
+  <link rel="stylesheet" href="/dashboard" />;
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
@@ -101,6 +99,13 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
                 onClick={signIn}
               >
                 Sign In
+              </Button>
+              <Button
+                variant="outline-success"
+                style={{ marginLeft: "20px" }}
+                onClick={profile}
+              >
+                Profile
               </Button>
             </Form>
           </Navbar.Collapse>
