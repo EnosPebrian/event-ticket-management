@@ -47,7 +47,6 @@ export const ModalCreate = ({
       console.log("data yang berhasil dikirim", data);
     },
   });
-  console.log("ini formik", formik.values);
 
   return (
     <>

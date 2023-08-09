@@ -95,7 +95,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               </Button>
               <Button
                 variant="outline-success"
-                style={{ marginLeft: "20px" }}
+                style={{ marginLeft: "20px", width: "115px" }}
                 onClick={signIn}
               >
                 Sign In
