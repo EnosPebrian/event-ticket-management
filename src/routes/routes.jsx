@@ -1,10 +1,10 @@
 import { Login } from "../components/login";
 import Register from "../components/register";
-import { DashboardProfile } from "../pages/dashboardprofile";
 import Eventdisplay from "../pages/event-display";
 import { SearchPage } from "../pages/search-page";
 import SingleEventDisplay from "../pages/single-event-display";
 import { ProtectedPage } from "./protectedpage";
+import { DashboardProfile } from "../pages/dashboardprofile";
 class RouteClass {
   constructor(path, element) {
     this.path = path;
@@ -55,7 +55,7 @@ export const routes = [
     )
   ),
   new RouteClass(
-    "dashboardprofile",
+    "dashoardprofile",
     (
       <ProtectedPage guestOnly={true}>
         <DashboardProfile />
