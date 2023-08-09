@@ -13,10 +13,14 @@ function App() {
   const dispatch = useDispatch();
   //check local storage, kalo ada isinya, dispatch
   async function dispatcher() {
-    const userid = JSON.parse(localStorage.getItem("auth")).id;
-    const res = await api.get(`users/${userid}`);
-    const user = res.data;
-    dispatch({ type: types.login, payload: { ...user } });
+    try {
+      const userid = JSON.parse(localStorage.getItem("auth")).id;
+      const res = await api.get(`users/${userid}`);
+      const user = res.data;
+      dispatch({ type: types.login, payload: { ...user } });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
