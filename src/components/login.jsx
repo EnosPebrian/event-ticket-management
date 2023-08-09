@@ -65,18 +65,19 @@ export const Login = () => {
 
             <p style={{ fontWeight: "400", fontSize: "13px" }}>
               Don’t have fomophobia account ? &nbsp;
-              <span>
-                <a href="register" style={{ color: "#2A3FB2" }}>
-                  Sign Up
-                </a>
-              </span>
-              <p>
-                Don’t have yesplis account ?
-                <span>
-                  <a href="register">Sign Up</a>
-                </span>
-              </p>
             </p>
+            <span>
+              <a href="register" style={{ color: "#2A3FB2" }}>
+                Sign Up
+              </a>
+            </span>
+            <p>
+              Don’t have yesplis account ?
+              <span>
+                <a href="register">Sign Up</a>
+              </span>
+            </p>
+
             {/* INPUT */}
             <div style={{ marginBottom: "60px" }}>
               <FloatingLabel
