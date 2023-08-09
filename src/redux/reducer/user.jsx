@@ -26,6 +26,5 @@ export const userReducer = (state = init_state, action) => {
   } else if (action.type === types.logout) {
     return init_state;
   }
-
   return state;
 };

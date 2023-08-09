@@ -5,13 +5,24 @@ import { Route, Routes } from "react-router-dom";
 import Eventdisplay from "./pages/event-display";
 import api from "./json-server/api";
 import { useEffect, useState } from "react";
-import SingleEventDisplay from "./pages/single-event-display";
-import Register from "./components/register";
-import { Login } from "./components/login";
-import { SearchPage } from "./pages/search-page";
 import { routes } from "./routes/routes";
+import { useDispatch } from "react-redux";
+import { types } from "./redux/types";
 
 function App() {
+  const dispatch = useDispatch();
+  //check local storage, kalo ada isinya, dispatch
+  async function dispatcher() {
+    const userid = JSON.parse(localStorage.getItem("auth")).id;
+    const res = await api.get(`users/${userid}`);
+    const user = res.data;
+    dispatch({ type: types.login, payload: { ...user } });
+  }
+
+  useEffect(() => {
+    dispatcher();
+  }, []);
+
   return (
     <>
       <Header />

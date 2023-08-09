@@ -19,7 +19,7 @@ function Eventdisplay() {
     try {
       const res_events = await api.get("/events");
       setEvents([...res_events.data]);
-      console.log(events);
+      // console.log(events);
     } catch (err) {
       console.log(err);
     }
@@ -32,7 +32,7 @@ function Eventdisplay() {
   async function fetchRating() {
     const res = await api.get("/reviews");
     const data = res.data;
-    console.log(`tass`, data);
+    // console.log(`tass`, data);
     const temp_obj = new Object();
     const temp_total_reviews = {};
     let avg_rating;
@@ -44,13 +44,13 @@ function Eventdisplay() {
       total_reviews = element.ratings.length;
       temp_obj[element.id] = avg_rating;
       temp_total_reviews[element.id] = total_reviews;
-      console.log(temp_obj);
+      // console.log(temp_obj);
     });
     setRating_map(temp_obj);
     setRating_length(temp_total_reviews);
   }
 
-  console.log(`obj`, rating_map);
+  // console.log(`obj`, rating_map);
 
   return (
     <>

@@ -10,6 +10,8 @@ import { types } from "../redux/types";
 import { Container } from "react-bootstrap";
 
 export const Login = () => {
+  const userSelector = useSelector((state) => state.auth);
+  console.log(`userselector di login`, userSelector);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const [user, setUser] = useState({
@@ -39,8 +41,7 @@ export const Login = () => {
     localStorage.setItem("auth", JSON.stringify(auth.data[0]));
     nav("/");
   };
-  const userSelector = useSelector((state) => state.auth);
-  console.log(`userselector di login`, userSelector);
+
   return (
     <>
       <center>
