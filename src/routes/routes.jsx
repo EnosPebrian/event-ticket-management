@@ -1,5 +1,6 @@
 import { Login } from "../components/login";
 import Register from "../components/register";
+import { DashboardProfile } from "../pages/dashboardprofile";
 import Eventdisplay from "../pages/event-display";
 import { SearchPage } from "../pages/search-page";
 import SingleEventDisplay from "../pages/single-event-display";
@@ -20,7 +21,7 @@ export const routes = [
       </ProtectedPage>
     )
   ),
-  
+
   new RouteClass(
     "/:eventid/:eventname",
     (
@@ -50,6 +51,14 @@ export const routes = [
     (
       <ProtectedPage guestOnly={true}>
         <Login />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "dashboardprofile",
+    (
+      <ProtectedPage guestOnly={true}>
+        <DashboardProfile />
       </ProtectedPage>
     )
   ),

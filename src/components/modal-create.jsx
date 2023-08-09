@@ -11,11 +11,10 @@ import { values } from "lodash";
 import api from "../json-server/api";
 
 export const ModalCreate = ({
-  events,
-  setEvents,
-  handleClose,
-  show,
-  fetchEvents,
+  isModalOpen,
+  setIsModalOpen,
+  openModal,
+  closeModal,
 }) => {
   const formik = useFormik({
     initialValues: {
@@ -31,32 +30,20 @@ export const ModalCreate = ({
       price: "",
       stock: "",
     },
-    onSubmit: (values) => {
-      const tempPhoto = [];
-      tempPhoto.push(values.photo);
-      values["photo"] = tempPhoto;
-      console.log(values, tempPhoto);
-      const tmp = [...events];
-      tmp.push(values);
-      api.post("/events", values);
-      setEvents(tmp);
-      handleClose();
-      fetchEvents();
-      window.location.reload(false);
-    },
+    onSubmit: (values) => {},
   });
   console.log("ini formik", formik.values);
 
   return (
     <>
-      <Modal show={show}>
+      <Modal show={isModalOpen} closeModal={closeModal}>
         <Modal.Header>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <Form onSubmit={formik.handleSubmit}>
-            <img src={events?.photo ? events?.photo : imageDefault}></img>
+            <img src={""}></img>
             <Input
               id="photo"
               placeholder="Image URL"
@@ -64,7 +51,7 @@ export const ModalCreate = ({
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
-              defaultValue={events?.photo}
+              defaultValue={""}
               required
             ></Input>
             <Input
@@ -156,7 +143,7 @@ export const ModalCreate = ({
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={closeModal}>
             Close
           </Button>
           <Button variant="primary" onClick={formik.handleSubmit}>

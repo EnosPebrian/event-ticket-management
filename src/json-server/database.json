@@ -7,9 +7,7 @@
       "id": 1,
       "points": 0,
       "referralcode": "zxciqbr12111",
-      "events": [
-        14
-      ]
+      "events": [14]
     },
     {
       "username": "Blank",
@@ -18,9 +16,7 @@
       "id": 2,
       "points": 0,
       "referralcode": "zxciqbr12333",
-      "events": [
-        13
-      ]
+      "events": [13]
     },
     {
       "username": "adam",
@@ -29,9 +25,7 @@
       "id": 3,
       "points": 0,
       "referralcode": "zxciqbr12444",
-      "events": [
-        12
-      ]
+      "events": [12]
     },
     {
       "username": "andre",
@@ -40,9 +34,7 @@
       "id": 4,
       "points": 0,
       "referralcode": "zxciqbr12555",
-      "events": [
-        11
-      ]
+      "events": [11]
     },
     {
       "username": "ari",
@@ -51,9 +43,7 @@
       "id": 5,
       "points": 0,
       "referralcode": "zxciqbr12666",
-      "events": [
-        10
-      ]
+      "events": [10]
     },
     {
       "username": "Aaron",
@@ -62,9 +52,7 @@
       "id": 6,
       "points": 0,
       "referralcode": "zxciqbr12777",
-      "events": [
-        9
-      ]
+      "events": [9]
     },
     {
       "username": "Mamaron",
@@ -73,9 +61,7 @@
       "id": 7,
       "points": 0,
       "referralcode": "zxciqbr12888",
-      "events": [
-        8
-      ]
+      "events": [8]
     },
     {
       "username": "Kakaron",
@@ -84,9 +70,7 @@
       "id": 8,
       "points": 0,
       "referralcode": "zxciqbr12999",
-      "events": [
-        7
-      ]
+      "events": [7]
     },
     {
       "username": "Paparon",
@@ -95,9 +79,7 @@
       "id": 9,
       "points": 0,
       "referralcode": "zxciqbr12121",
-      "events": [
-        6
-      ]
+      "events": [6]
     },
     {
       "username": "Bibiron",
@@ -106,9 +88,7 @@
       "id": 10,
       "points": 0,
       "referralcode": "zxciqbr12322",
-      "events": [
-        5
-      ]
+      "events": [5]
     },
     {
       "username": "Vegetta",
@@ -117,9 +97,7 @@
       "id": 11,
       "points": 0,
       "referralcode": "zxciqbr12245",
-      "events": [
-        4
-      ]
+      "events": [4]
     },
     {
       "username": "Saint Saturn",
@@ -128,9 +106,7 @@
       "id": 12,
       "points": 0,
       "referralcode": "zxciqbr12321",
-      "events": [
-        3
-      ]
+      "events": [3]
     },
     {
       "username": "Zoro",
@@ -139,9 +115,7 @@
       "id": 13,
       "points": 0,
       "referralcode": "zxciqbr12446",
-      "events": [
-        2
-      ]
+      "events": [2]
     },
     {
       "username": "angga",
@@ -150,9 +124,7 @@
       "id": 14,
       "points": 0,
       "referralcode": "zxciqbr12789",
-      "events": [
-        1
-      ]
+      "events": [1]
     }
   ],
   "events": [
@@ -234,22 +206,8 @@
       "photo": [
         "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
       ],
-      "ticket-category": [
-        {
-          "vip-ticket": [
-            {
-              "price": 125000,
-              "stock": 12
-            }
-          ],
-          "presale-ticket": [
-            {
-              "price": 65000,
-              "stock": 8
-            }
-          ]
-        }
-      ],
+      "ticket-vip": 12000,
+      "ticket-presale": 50000,
       "event-creator": 1
     },
     {
@@ -666,144 +624,158 @@
       "ticketcategory": [],
       "price": "",
       "stock": ""
+    },
+    {
+      "id": 24,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 25,
+      "photo": ["dasdas"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 26,
+      "photo": ["dasdsada"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 27,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "2023-08-17",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 28,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "sadasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 29,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 30,
+      "photo": ["adsad"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "dasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 31,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 32,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "ajncokkkkkkkkkksdasdasd",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 33,
+      "photo": [""],
+      "name": "satuduatida",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
     }
   ],
   "reviews": [
     {
-      "id": 1,
-      "eventid": "1",
+      "eventid": 1,
       "comments": [
         "Menarik joega ini lurrr",
         "bagaikan air di daun talas... event selesai menghilang tanpa bekas",
-        "situ yang benar lah kalau bikin event",
-        "Thanks for you guys’ efforts to make a successful the ISN2A 2020 conference. It is very different from many conferences that try to make money out of participants.",
-        "Keep going you can make an advancement for the scientific community as well as your great country.",
-        "Many thanks for the wonderful ISN2A 2020 conference in Caparica and for your kindness through the entire conference.",
-        "Thank you very much for the nice conference and the interesting program.",
-        "It was really nice to be part of this event and I hope I will be able to come again (in 2022 if I understood correctly)",
-        "The ISN2A 2020 conference was excellent at all levels, top-scientific level, an ideal format for networking and in a spirit of a friendship!",
-        "I just wanted to get in touch with you to express my gratitude and thanks for hosting such an amazing conference. I was overwhelmed with everything – the speakers, the hotel, the country and the food and wine. It was just amazing, and I really am going to work hard and come back to the PTIM2021 if you would have me",
-        "We are pleasure to have the chance to attend the conference and give oral presentation. The conference gives us an amazing experience for meeting different countries researcher and colorful culture.Thanks a lot for your good organization.",
-        "Thanks for your excellent organization of PTIM 2019. I came home safe and sound with good memories.",
-        "See you in 2021.",
-        "Attending PTIM 2019 has been a great experience for me. It was so nicely organised and scientifically strong conference in the field with a lot of networking opportunities. Many congratulations to you and your team for the overall success of the conference.",
-        "aaa",
-        "tes"
+        "situ yang benar lah kalau bikin event"
       ],
-      "userid": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        5,
-        4,
-        3,
-        4,
-        5,
-        5,
-        4,
-        4,
-        3,
-        4,
-        3,
-        4,
-        5,
-        3,
-        3
-      ]
+      "userid": [1, 2, 3],
+      "ratings": [4.6, 5, 4]
     },
     {
-      "id": 2,
       "eventid": 2,
       "comments": [
         "Cape woi disiksa pagi siang sore",
         "Cinlok is reaaaaal",
-        "Tertipu janji manis",
-        "anjjjjjjjjjjjjjjjj................ay",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu"
+        "Tertipu janji manis"
       ],
-      "userid": [
-        10,
-        11,
-        12,
-        13,
-        14,
-        5,
-        6,
-        7,
-        8,
-        9,
-        1,
-        2,
-        3,
-        4
-      ],
-      "ratings": [
-        2,
-        4,
-        2,
-        2,
-        3,
-        4,
-        4,
-        3,
-        3,
-        4,
-        4,
-        2,
-        4,
-        2
-      ]
-    },
-    {
-      "id": "22",
-      "eventid": "22",
-      "comments": [
-        "tes",
-        "tes lagi",
-        "tes terus"
-      ],
-      "userid": [
-        1,
-        1,
-        1
-      ],
-      "ratings": [
-        3,
-        4,
-        2
-      ]
-    },
-    {
-      "id": "12",
-      "eventid": 0,
-      "comments": [],
-      "userid": [],
-      "ratings": []
+      "userid": [4, 5, 6],
+      "ratings": [3, 4, 2.5]
     },
     {
       "id": "5",
@@ -811,84 +783,6 @@
       "comments": [],
       "userid": [],
       "ratings": []
-    },
-    {
-      "id": "17",
-      "eventid": "17",
-      "comments": [],
-      "userid": [],
-      "ratings": []
-    },
-    {
-      "id": "8",
-      "eventid": "8",
-      "comments": [
-        "dicoba ah",
-        "chaebol"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        3,
-        4
-      ]
-    },
-    {
-      "id": "3",
-      "eventid": "3",
-      "comments": [
-        "Layangan Putus daebak",
-        "Papip dan Mamim akhirnya pisah",
-        "Tripost gan"
-      ],
-      "userid": [
-        1,
-        1,
-        1
-      ],
-      "ratings": [
-        5,
-        5,
-        5
-      ]
-    }
-  ],
-  "discussions": [
-    {
-      "id": 1,
-      "eventid": 1,
-      "question": [
-        "apakah ada unsur berbau kampanye politik di sini?",
-        "apakah ada lowongan pekerjaan?",
-        "apakah ada lowongan pekerjaan?",
-        "apakah ada lowongan pekerjaan?"
-      ],
-      "question_id": [
-        1,
-        5,
-        6,
-        7
-      ],
-      "reply": {
-        "1": [
-          "tidak ada kaka",
-          "ada ada aja pertanyaanmu ndo"
-        ],
-        "2": [
-          "ada nih jadi kang parkir di event ini"
-        ]
-      },
-      "reply_id": {
-        "1": [
-          14,
-          2
-        ],
-        "2": [
-          14
-        ]
-      }
     }
   ]
 }
