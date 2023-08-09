@@ -37,8 +37,11 @@ export const Profile = () => {
         justifyContent: "space-between  ",
       }}
     >
-      <MDBContainer className="container py-5 h-100">
-        <MDBRow className="justify-content-center align-items-center h-100">
+      <MDBContainer
+        className="container py-5 h-100"
+        style={{ display: "flex", justifyContent: "space-between" }}
+      >
+        <MDBRow className="space-x-0 ">
           <MDBCol md="12" xl="4" style={{ width: "600px" }}>
             <MDBCard style={{ borderRadius: "15px" }}>
               <MDBCardBody className="text-center">
@@ -79,43 +82,45 @@ export const Profile = () => {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-        </MDBRow>
 
-        <MDBContainer
-          style={{
-            backgroundColor: "white",
-          }}
-        >
-          <div style={{ padding: "20px" }}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                backgroundColor: "#0D6EFD",
-                padding: "10px",
-                borderRadius: "5px",
-                color: "white",
-              }}
-            >
-              <div>
-                <button onClick={openModal}>Create Event</button>
+          {/* events details*/}
+          <MDBCol
+            style={{
+              backgroundColor: "white",
+              width: "800px",
+            }}
+          >
+            <div style={{ padding: "20px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  backgroundColor: "#0D6EFD",
+                  padding: "10px",
+                  borderRadius: "5px",
+                  color: "white",
+                }}
+              >
+                <div>
+                  <button onClick={openModal}>Create Event</button>
+                </div>
+                <div>
+                  <a href="">Transaction</a>
+                </div>
+                <div>
+                  <a href="">Event Post</a>
+                </div>
               </div>
-              <div>
-                <a href="">Transaction</a>
-              </div>
-              <div>
-                <a href="">Event Post</a>
-              </div>
+              <ModalCreate
+                openModal={openModal}
+                setIsModalOpen={setIsModalOpen}
+                closeModal={closeModal}
+                isModalOpen={isModalOpen}
+              />
             </div>
-            <ModalCreate
-              openModal={openModal}
-              setIsModalOpen={setIsModalOpen}
-              closeModal={closeModal}
-              isModalOpen={isModalOpen}
-            />
-          </div>
-        </MDBContainer>
+          </MDBCol>
+        </MDBRow>
       </MDBContainer>
     </div>
   );
