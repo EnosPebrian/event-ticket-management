@@ -13,8 +13,6 @@ import "../components/style.css";
 function Eventdisplay() {
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
-  const [rating_map, setRating_map] = useState({});
-  const [rating_length, setRating_length] = useState({});
   const fetchEvents = async () => {
     try {
       const res_events = await api.get("/events");
@@ -29,6 +27,8 @@ function Eventdisplay() {
     fetchRating();
   }, []);
 
+  const [rating_map, setRating_map] = useState({});
+  const [rating_length, setRating_length] = useState({});
   async function fetchRating() {
     const res = await api.get("/reviews");
     const data = res.data;
