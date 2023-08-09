@@ -102,14 +102,36 @@ export const Profile = () => {
                   color: "white",
                 }}
               >
-                <div>
+                <div
+                  style={{
+                    backgroundColor: "white",
+                    color: "black",
+                    borderRadius: "5px",
+                    padding: "2px",
+                  }}
+                >
+                  <a href="">Event Post</a>
+                </div>
+                <div
+                  style={{
+                    color: "black",
+                    borderRadius: "5px",
+                    padding: "2px",
+                  }}
+                  className="hover:bg-white"
+                >
                   <button onClick={openModal}>Create Event</button>
                 </div>
-                <div>
+                <div
+                  style={{
+                    color: "black",
+                    borderRadius: "5px",
+                    padding: "2px",
+                    fontWeight: "",
+                  }}
+                  className="hover:bg-white"
+                >
                   <a href="">Transaction</a>
-                </div>
-                <div>
-                  <a href="">Event Post</a>
                 </div>
               </div>
               <ModalCreate
