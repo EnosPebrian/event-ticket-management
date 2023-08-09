@@ -192,28 +192,39 @@ function SingleEventDisplay() {
                   />
                 ) : (
                   <>
-                    <Card.Title>VIP TICKET</Card.Title>
-                    <Card.Text>
-                      Rp
-                      {Number(an_event["vip-ticket-price"]).toLocaleString(
-                        `id-ID`
-                      )}
-                      ,00
-                    </Card.Text>
-                    <Card.Text>Stock: {an_event["vip-ticket-stock"]}</Card.Text>
-                    <Button className="mb-3">Buy VIP ticket</Button>
-                    <Card.Title>PRESALE TICKET</Card.Title>
-                    <Card.Text>
-                      Rp
-                      {Number(an_event["presale-ticket-price"]).toLocaleString(
-                        `id-ID`
-                      )}
-                      ,00
-                    </Card.Text>
-                    <Card.Text>
-                      Stock: {an_event["presale-ticket-stock"]}
-                    </Card.Text>
-                    <Button>Buy Presale ticket</Button>
+                    {" "}
+                    {an_event["vip-ticket-price"] ? (
+                      <>
+                        <Card.Title>VIP TICKET</Card.Title>
+                        <Card.Text>
+                          Rp
+                          {Number(an_event["vip-ticket-price"]).toLocaleString(
+                            `id-ID`
+                          )}
+                          ,00
+                        </Card.Text>
+                        <Card.Text>
+                          Stock: {an_event["vip-ticket-stock"]}
+                        </Card.Text>
+                        <Button className="mb-3">Buy VIP ticket</Button>
+                      </>
+                    ) : null}
+                    {an_event["presale-ticket-price"] ? (
+                      <>
+                        <Card.Title>PRESALE TICKET</Card.Title>
+                        <Card.Text>
+                          Rp
+                          {Number(
+                            an_event["presale-ticket-price"]
+                          ).toLocaleString(`id-ID`)}
+                          ,00
+                        </Card.Text>
+                        <Card.Text>
+                          Stock: {an_event["presale-ticket-stock"]}
+                        </Card.Text>
+                        <Button>Buy Presale ticket</Button>
+                      </>
+                    ) : null}
                   </>
                 )}
               </Card.Body>
