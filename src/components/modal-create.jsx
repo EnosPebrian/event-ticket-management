@@ -9,7 +9,7 @@ import { useFormik } from "formik/dist";
 import { Input } from "@chakra-ui/input";
 import { values } from "lodash";
 import api from "../json-server/api";
-// import { useState } from "react";
+import image from "../components/asserts/default-image.jpg";
 
 export const ModalCreate = ({
   isModalOpen,
@@ -21,7 +21,11 @@ export const ModalCreate = ({
   const user = { ...userProfile };
   console.log("ini", user.username);
 
-  // const [time, setTime] = useState();
+  // Time input
+  const now = new Date();
+  const [time, setTime] = useState({
+    hour: now.getHours(),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -52,7 +56,7 @@ export const ModalCreate = ({
     <>
       <Modal show={isModalOpen} closeModal={closeModal}>
         <Modal.Header>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Create Event</Modal.Title>
         </Modal.Header>
 
         <Modal.Body
@@ -63,8 +67,8 @@ export const ModalCreate = ({
             justifyContent: "center",
           }}
         >
-          <Form onSubmit={formik.handleSubmit}>
-            <img src={""}></img>
+          <Form onSubmit={formik.handleSubmit} className="  w-96">
+            <img src={image} className="mb-8"></img>
             <Input
               id="photo"
               placeholder="Image URL"
@@ -74,6 +78,7 @@ export const ModalCreate = ({
               }
               defaultValue={""}
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Input
               id="name"
@@ -83,6 +88,7 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Input
               id="location"
@@ -92,6 +98,7 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Form.Group controlId="startdate">
               start date
@@ -102,6 +109,7 @@ export const ModalCreate = ({
                 placeholder="Start date"
                 onChange={formik.handleChange}
                 required
+                className="bg-gray-100 rounded-md p-2 w-96"
               />
             </Form.Group>
             end date
@@ -113,25 +121,31 @@ export const ModalCreate = ({
                 placeholder="End date"
                 onChange={formik.handleChange}
                 required
+                className="bg-gray-100 rounded-md p-2 w-96"
               />
             </Form.Group>
+            Time start
             <Input
               id="time-start"
               placeholder="Time start"
-              mb={"20px"}
+              type="time"
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
+            Time end
             <Input
               id="time-end"
+              type="time"
               placeholder="Time start"
               mb={"20px"}
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Input
               id="description"
@@ -141,6 +155,7 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Input
               id="vip-ticket-price"
@@ -150,6 +165,7 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Input
               id="vip-ticket-stock"
@@ -159,6 +175,7 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Input
               id="presale-ticket-price"
@@ -168,6 +185,7 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
             <Input
               id="presale-ticket-stock"
@@ -177,6 +195,7 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
           </Form>
         </Modal.Body>

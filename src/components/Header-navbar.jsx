@@ -36,8 +36,10 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     nav("/login");
   };
 
-  const profile = () => {};
-  <link rel="stylesheet" href="/dashboard" />;
+  const profile = () => {
+    nav("/dashboardprofile");
+  };
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
