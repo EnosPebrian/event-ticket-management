@@ -39,14 +39,16 @@ const Register = () => {
       const ref = res.data[0];
       if (ref) {
         ref.points = ref.points + 20000;
+        tmp.points = 20000;
         await api
           .patch(`users/${ref.id}`, ref)
           .then(() => delete tmp.reference);
       }
 
-      await api.post("/users", tmp);
-      // alert("berhasil Register!");
-      nav("/login");
+      await api.post("/users", tmp).then(() => {
+        alert("berhasil Register!");
+        nav("/login");
+      });
     } else alert("password dan confirm password tidak sesuai");
   };
 

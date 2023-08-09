@@ -5,7 +5,7 @@
       "email": "admin@mail.com",
       "password": "admin123",
       "id": 1,
-      "points": 40000,
+      "points": 80000,
       "referralcode": "zxciqbr12111",
       "events": [
         14
@@ -115,7 +115,7 @@
       "email": "Vegetta@mail.com",
       "password": "Vegetta",
       "id": 11,
-      "points": 0,
+      "points": 20000,
       "referralcode": "zxciqbr12245",
       "events": [
         4
@@ -171,6 +171,33 @@
       "referralcode": "fbfd03c8-f9d6-279e-b3c2-baa069029433",
       "events": [],
       "id": 16
+    },
+    {
+      "username": "pyrope",
+      "email": "pyrope@mail.com",
+      "password": "pyrope",
+      "points": 20000,
+      "referralcode": "ef805c12-9d1c-81d1-f691-29852251065d",
+      "events": [],
+      "id": 17
+    },
+    {
+      "username": "garnet",
+      "email": "garnet@gmail.com",
+      "password": "garnet",
+      "points": 0,
+      "referralcode": "09ead75b-3bd8-198d-0939-422147aa5436",
+      "events": [],
+      "id": 18
+    },
+    {
+      "username": "Alakazam",
+      "email": "alakazam@mail.com",
+      "password": "alakazam",
+      "points": 20000,
+      "referralcode": "d54e516e-798b-612b-521e-f0e84c0e58b7",
+      "events": [],
+      "id": 19
     }
   ],
   "events": [
