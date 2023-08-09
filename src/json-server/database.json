@@ -38,7 +38,7 @@
       "email": "andre@mail.com",
       "password": "andre",
       "id": 4,
-      "points": 0,
+      "points": 940,
       "referralcode": "zxciqbr12555",
       "events": [
         11
@@ -832,6 +832,13 @@
       "comments": [],
       "userid": [],
       "ratings": []
+    },
+    {
+      "id": "profile",
+      "eventid": "profile",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -979,6 +986,14 @@
     {
       "id": "dashboard",
       "eventid": "dashboard",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    },
+    {
+      "id": "profile",
+      "eventid": "profile",
       "question": [],
       "question_id": [],
       "reply": {},

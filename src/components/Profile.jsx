@@ -18,6 +18,9 @@ import { Button } from "react-bootstrap";
 import { Formik, useFormik } from "formik";
 
 export const Profile = () => {
+  const user = localStorage.getItem("auth");
+  console.log("ini profile", user);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {

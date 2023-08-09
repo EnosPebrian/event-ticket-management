@@ -37,6 +37,8 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
   };
 
   const profile = () => {
+    const user = localStorage.getItem("auth");
+    console.log("button profile", user);
     nav("/dashboardprofile");
   };
 
