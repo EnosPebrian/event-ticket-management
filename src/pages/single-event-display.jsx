@@ -112,6 +112,24 @@ function SingleEventDisplay() {
 
               <Card.Body>
                 <Card.Title>{an_event.name}</Card.Title>
+                <Card.Text>
+                  <span>
+                    <span
+                      class="fa fa-star star-checked"
+                      style={{ marginRight: "4px" }}
+                    ></span>
+                    <b>
+                      {rating_map[eventid] &&
+                        Number(rating_map[eventid]).toFixed(2)}
+                    </b>
+                    {rating_map[eventid] && `/5 `}
+                  </span>
+                  <span>
+                    {rating_length[eventid]
+                      ? `(${rating_length[eventid]} rating)`
+                      : `No ratings`}
+                  </span>
+                </Card.Text>
                 <Card.Text>{an_event.description}</Card.Text>
                 <Card.Text>
                   <span
@@ -155,24 +173,6 @@ function SingleEventDisplay() {
                     </span>
                     <span>{an_event["location"]},</span>
                     <span>{an_event["venue"]}</span>
-                  </span>
-                </Card.Text>
-                <Card.Text>
-                  <span>
-                    <span
-                      class="fa fa-star star-checked"
-                      style={{ marginRight: "4px" }}
-                    ></span>
-                    <b>
-                      {rating_map[eventid] &&
-                        Number(rating_map[eventid]).toFixed(2)}
-                    </b>
-                    {rating_map[eventid] && `/5 `}
-                  </span>
-                  <span>
-                    {rating_length[eventid]
-                      ? `(${rating_length[eventid]} rating)`
-                      : `No ratings`}
                   </span>
                 </Card.Text>
                 <Button variant="primary" href="#Ticket-card">
