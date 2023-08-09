@@ -116,7 +116,18 @@ function Eventdisplay() {
                   className="image-event"
                 />
                 <Card.Body>
-                  <Card.Title className="event-name">{ev.name}</Card.Title>
+                  <Card.Title className="event-name">
+                    {ev.name}
+                    {ev.isfree ? (
+                      <>
+                        <img
+                          src="https://media.istockphoto.com/id/807772812/photo/free-price-tag-label.jpg?s=612x612&w=0&k=20&c=1Dq0FHOKP2UbhglZajMe5In_48U8k4qrI1Y4l_h9NrY="
+                          width={"50px"}
+                          style={{ float: "right" }}
+                        />
+                      </>
+                    ) : null}
+                  </Card.Title>
                   <Card.Text className="location">{ev.location}</Card.Text>
                   <Card.Text className="date">{ev.date}</Card.Text>
                   <Card.Text className="description">

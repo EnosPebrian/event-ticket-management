@@ -200,6 +200,8 @@ function SingleEventDisplay() {
                       )}
                       ,00
                     </Card.Text>
+                    <Card.Text>Stock: {an_event["vip-ticket-stock"]}</Card.Text>
+                    <Button className="mb-3">Buy VIP ticket</Button>
                     <Card.Title>PRESALE TICKET</Card.Title>
                     <Card.Text>
                       Rp
@@ -208,6 +210,10 @@ function SingleEventDisplay() {
                       )}
                       ,00
                     </Card.Text>
+                    <Card.Text>
+                      Stock: {an_event["presale-ticket-stock"]}
+                    </Card.Text>
+                    <Button>Buy Presale ticket</Button>
                   </>
                 )}
               </Card.Body>
