@@ -839,6 +839,13 @@
       "comments": [],
       "userid": [],
       "ratings": []
+    },
+    {
+      "id": "dashboardprofile",
+      "eventid": "dashboardprofile",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -994,6 +1001,14 @@
     {
       "id": "profile",
       "eventid": "profile",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    },
+    {
+      "id": "dashboardprofile",
+      "eventid": "dashboardprofile",
       "question": [],
       "question_id": [],
       "reply": {},
