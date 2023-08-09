@@ -15,7 +15,11 @@ function SingleEventDisplay() {
   const [an_event, setAn_event] = useState([]);
   const [users_map, setUsers_map] = useState(new Map());
   const [events_map, setEvents_map] = useState(new Map());
-  const userId = JSON.parse(localStorage.getItem("auth")).id;
+  try {
+    const userId = JSON.parse(localStorage.getItem("auth")).id;
+  } catch (err) {
+    console.log(err);
+  }
 
   const fetchEventsMap = async () => {
     try {
