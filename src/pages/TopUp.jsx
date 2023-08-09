@@ -12,6 +12,7 @@ export default function TopUp() {
   const dispatch = useDispatch();
   async function addsaldo() {
     const val = document.getElementById("pointsform").value;
+    if (val < 0) return alert(`saldo tidak boleh kurang dari 0`);
     try {
       await api.patch(`users/${userSelector.id}`, {
         ...userSelector,

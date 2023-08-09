@@ -7,7 +7,9 @@
       "id": 1,
       "points": 80000,
       "referralcode": "zxciqbr12111",
-      "events": [14]
+      "events": [
+        14
+      ]
     },
     {
       "username": "Blank",
@@ -16,7 +18,9 @@
       "id": 2,
       "points": 0,
       "referralcode": "zxciqbr12333",
-      "events": [13]
+      "events": [
+        13
+      ]
     },
     {
       "username": "adam",
@@ -25,7 +29,9 @@
       "id": 3,
       "points": 1000970,
       "referralcode": "zxciqbr12444",
-      "events": [12]
+      "events": [
+        12
+      ]
     },
     {
       "username": "andre",
@@ -34,7 +40,9 @@
       "id": 4,
       "points": 0,
       "referralcode": "zxciqbr12555",
-      "events": [11]
+      "events": [
+        11
+      ]
     },
     {
       "username": "ari",
@@ -43,7 +51,9 @@
       "id": 5,
       "points": 0,
       "referralcode": "zxciqbr12666",
-      "events": [10]
+      "events": [
+        10
+      ]
     },
     {
       "username": "Aaron",
@@ -52,7 +62,9 @@
       "id": 6,
       "points": 0,
       "referralcode": "zxciqbr12777",
-      "events": [9]
+      "events": [
+        9
+      ]
     },
     {
       "username": "Mamaron",
@@ -61,7 +73,9 @@
       "id": 7,
       "points": 0,
       "referralcode": "zxciqbr12888",
-      "events": [8]
+      "events": [
+        8
+      ]
     },
     {
       "username": "Kakaron",
@@ -70,7 +84,9 @@
       "id": 8,
       "points": 0,
       "referralcode": "zxciqbr12999",
-      "events": [7]
+      "events": [
+        7
+      ]
     },
     {
       "username": "Paparon",
@@ -79,7 +95,9 @@
       "id": 9,
       "points": 0,
       "referralcode": "zxciqbr12121",
-      "events": [6]
+      "events": [
+        6
+      ]
     },
     {
       "username": "Bibiron",
@@ -88,7 +106,9 @@
       "id": 10,
       "points": 0,
       "referralcode": "zxciqbr12322",
-      "events": [5]
+      "events": [
+        5
+      ]
     },
     {
       "username": "Vegetta",
@@ -97,7 +117,9 @@
       "id": 11,
       "points": 20000,
       "referralcode": "zxciqbr12245",
-      "events": [4]
+      "events": [
+        4
+      ]
     },
     {
       "username": "Saint Saturn",
@@ -106,7 +128,9 @@
       "id": 12,
       "points": 0,
       "referralcode": "zxciqbr12321",
-      "events": [3]
+      "events": [
+        3
+      ]
     },
     {
       "username": "Zoro",
@@ -115,7 +139,9 @@
       "id": 13,
       "points": 0,
       "referralcode": "zxciqbr12446",
-      "events": [2]
+      "events": [
+        2
+      ]
     },
     {
       "username": "angga",
@@ -124,7 +150,9 @@
       "id": 14,
       "points": 0,
       "referralcode": "zxciqbr12789",
-      "events": [1]
+      "events": [
+        1
+      ]
     },
     {
       "username": "almandine",
@@ -166,10 +194,19 @@
       "username": "Alakazam",
       "email": "alakazam@mail.com",
       "password": "alakazam",
-      "points": 20000,
+      "points": 40000,
       "referralcode": "d54e516e-798b-612b-521e-f0e84c0e58b7",
       "events": [],
       "id": 19
+    },
+    {
+      "username": "aneh",
+      "email": "aneh@gmail.com",
+      "password": "123",
+      "points": 20000,
+      "referralcode": "dbdf66d8-7d3a-6135-a062-43c93723ba1b",
+      "events": [],
+      "id": 20
     }
   ],
   "events": [
@@ -600,8 +637,40 @@
         "Attending PTIM 2019 has been a great experience for me. It was so nicely organised and scientifically strong conference in the field with a lot of networking opportunities. Many congratulations to you and your team for the overall success of the conference.",
         "Vala morghulis"
       ],
-      "userid": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 3],
-      "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5, 5]
+      "userid": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        3
+      ],
+      "ratings": [
+        4,
+        5,
+        4,
+        3,
+        4,
+        5,
+        5,
+        4,
+        4,
+        3,
+        4,
+        3,
+        4,
+        5,
+        5
+      ]
     },
     {
       "id": 2,
@@ -612,64 +681,143 @@
         "Tertipu janji manis",
         "Ternyata begini ya"
       ],
-      "userid": [10, 11, 12, 3],
-      "ratings": [2, 4, 2, 4]
+      "userid": [
+        10,
+        11,
+        12,
+        3
+      ],
+      "ratings": [
+        2,
+        4,
+        2,
+        4
+      ]
     },
     {
       "id": "8",
       "eventid": "8",
-      "comments": ["dicoba ah", "chaebol"],
-      "userid": [1, 1],
-      "ratings": [3, 4]
+      "comments": [
+        "dicoba ah",
+        "chaebol"
+      ],
+      "userid": [
+        1,
+        1
+      ],
+      "ratings": [
+        3,
+        4
+      ]
     },
     {
       "id": "3",
       "eventid": "3",
-      "comments": ["333"],
-      "userid": [1],
-      "ratings": [4]
+      "comments": [
+        "333"
+      ],
+      "userid": [
+        1
+      ],
+      "ratings": [
+        4
+      ]
     },
     {
       "id": "6",
       "eventid": "6",
-      "comments": ["111", "123", "1234", "556"],
-      "userid": [1, 1, 1, 1],
-      "ratings": [4, 3, 3, 3]
+      "comments": [
+        "111",
+        "123",
+        "1234",
+        "556"
+      ],
+      "userid": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "ratings": [
+        4,
+        3,
+        3,
+        3
+      ]
     },
     {
       "id": "20",
       "eventid": "20",
-      "comments": ["123", "222"],
-      "userid": [1, 1],
-      "ratings": [4, 3]
+      "comments": [
+        "123",
+        "222"
+      ],
+      "userid": [
+        1,
+        1
+      ],
+      "ratings": [
+        4,
+        3
+      ]
     },
     {
       "id": "21",
       "eventid": "21",
-      "comments": ["tes review", "tes review2"],
-      "userid": [1, 1],
-      "ratings": [4, 4]
+      "comments": [
+        "tes review",
+        "tes review2"
+      ],
+      "userid": [
+        1,
+        1
+      ],
+      "ratings": [
+        4,
+        4
+      ]
     },
     {
       "id": "9",
       "eventid": "9",
-      "comments": ["dha pha nhe", "dha pha nhe 2"],
-      "userid": [3, 3],
-      "ratings": [3, 3]
+      "comments": [
+        "dha pha nhe",
+        "dha pha nhe 2"
+      ],
+      "userid": [
+        3,
+        3
+      ],
+      "ratings": [
+        3,
+        3
+      ]
     },
     {
       "id": "4",
       "eventid": "4",
-      "comments": ["Seru banget ini"],
-      "userid": [3],
-      "ratings": [5]
+      "comments": [
+        "Seru banget ini"
+      ],
+      "userid": [
+        3
+      ],
+      "ratings": [
+        5
+      ]
     },
     {
       "id": "10",
       "eventid": "10",
-      "comments": ["12"],
-      "userid": [3],
-      "ratings": [3]
+      "comments": [
+        "12"
+      ],
+      "userid": [
+        3
+      ],
+      "ratings": [
+        3
+      ]
     },
     {
       "id": "dashboard",
@@ -691,16 +839,33 @@
         "belum ada update?",
         "valid ini"
       ],
-      "question_id": [1, 5, 6, 7, 1, 3],
+      "question_id": [
+        1,
+        5,
+        6,
+        7,
+        1,
+        3
+      ],
       "reply": {
-        "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
-        "2": ["ada nih jadi kang parkir di event ini"],
+        "1": [
+          "tidak ada kaka",
+          "ada ada aja pertanyaanmu ndo"
+        ],
+        "2": [
+          "ada nih jadi kang parkir di event ini"
+        ],
         "4": [],
         "5": []
       },
       "reply_id": {
-        "1": [14, 2],
-        "2": [14],
+        "1": [
+          14,
+          2
+        ],
+        "2": [
+          14
+        ],
         "4": [],
         "5": []
       }
@@ -708,8 +873,14 @@
     {
       "id": "2",
       "eventid": "2",
-      "question": ["123", "123"],
-      "question_id": [1, 3],
+      "question": [
+        "123",
+        "123"
+      ],
+      "question_id": [
+        1,
+        3
+      ],
       "reply": {
         "0": [],
         "1": []
@@ -722,8 +893,12 @@
     {
       "id": "6",
       "eventid": "6",
-      "question": ["111"],
-      "question_id": [1],
+      "question": [
+        "111"
+      ],
+      "question_id": [
+        1
+      ],
       "reply": {
         "0": []
       },
@@ -742,8 +917,12 @@
     {
       "id": "3",
       "eventid": "3",
-      "question": ["Layangan putus kali"],
-      "question_id": [1],
+      "question": [
+        "Layangan putus kali"
+      ],
+      "question_id": [
+        1
+      ],
       "reply": {
         "0": []
       },
@@ -761,8 +940,12 @@
     {
       "id": "4",
       "eventid": "4",
-      "question": ["Apakah butuh sertifikasi khusus?"],
-      "question_id": [3],
+      "question": [
+        "Apakah butuh sertifikasi khusus?"
+      ],
+      "question_id": [
+        3
+      ],
       "reply": {
         "0": []
       },
@@ -773,8 +956,12 @@
     {
       "id": "10",
       "eventid": "10",
-      "question": ["22"],
-      "question_id": [3],
+      "question": [
+        "22"
+      ],
+      "question_id": [
+        3
+      ],
       "reply": {
         "0": []
       },

@@ -186,10 +186,12 @@ function SingleEventDisplay() {
               <Card.Header as="h5">Ticket Category</Card.Header>
               <Card.Body>
                 {an_event?.isfree ? (
-                  <img
-                    src="https://media.istockphoto.com/id/807772812/photo/free-price-tag-label.jpg?s=612x612&w=0&k=20&c=1Dq0FHOKP2UbhglZajMe5In_48U8k4qrI1Y4l_h9NrY="
-                    alt="free"
-                  />
+                  <>
+                    <img
+                      src="https://media.istockphoto.com/id/807772812/photo/free-price-tag-label.jpg?s=612x612&w=0&k=20&c=1Dq0FHOKP2UbhglZajMe5In_48U8k4qrI1Y4l_h9NrY="
+                      alt="free"
+                    />
+                  </>
                 ) : (
                   <>
                     {" "}
