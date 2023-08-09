@@ -109,31 +109,6 @@ function SingleEventDisplay() {
                 events_map={events_map}
                 eventid={eventid}
               />
-              <Card.Body>
-                <Card className="p-3">
-                  <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                      <Form.Label>
-                        <b>Write a new question</b>
-                      </Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Write your question here"
-                      />
-                      <Form.Text className="text-muted">
-                        More spesific question helps alot
-                      </Form.Text>
-                      <Button
-                        className="mt-2"
-                        style={{ float: "right" }}
-                        variant="secondary"
-                      >
-                        Submit
-                      </Button>
-                    </Form.Group>
-                  </Form>
-                </Card>
-              </Card.Body>
             </Card>
           </Col>
         </Row>

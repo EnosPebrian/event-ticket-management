@@ -660,10 +660,16 @@
         "See you in 2021.",
         "Attending PTIM 2019 has been a great experience for me. It was so nicely organised and scientifically strong conference in the field with a lot of networking opportunities. Many congratulations to you and your team for the overall success of the conference.",
         "aaa",
-        "tes"
+        "tes",
+        "aaa",
+        "aaa",
+        "bbbb",
+        "waiting user selector"
       ],
-      "userid": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 1],
-      "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5, 3, 3]
+      "userid": [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 1, 1, 1, 1, 3
+      ],
+      "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5, 3, 3, 2, 2, 2, 2]
     },
     {
       "id": 2,
@@ -695,27 +701,6 @@
       "ratings": [3, 4, 2]
     },
     {
-      "id": "12",
-      "eventid": 0,
-      "comments": [],
-      "userid": [],
-      "ratings": []
-    },
-    {
-      "id": "5",
-      "eventid": "5",
-      "comments": [],
-      "userid": [],
-      "ratings": []
-    },
-    {
-      "id": "17",
-      "eventid": "17",
-      "comments": [],
-      "userid": [],
-      "ratings": []
-    },
-    {
       "id": "8",
       "eventid": "8",
       "comments": ["dicoba ah", "chaebol"],
@@ -725,33 +710,128 @@
     {
       "id": "3",
       "eventid": "3",
-      "comments": [
-        "Layangan Putus daebak",
-        "Papip dan Mamim akhirnya pisah",
-        "Tripost gan"
-      ],
-      "userid": [1, 1, 1],
-      "ratings": [5, 5, 5]
+      "comments": ["333"],
+      "userid": [1],
+      "ratings": [4]
+    },
+    {
+      "id": "6",
+      "eventid": "6",
+      "comments": ["111", "123", "1234", "556"],
+      "userid": [1, 1, 1, 1],
+      "ratings": [4, 3, 3, 3]
+    },
+    {
+      "id": "20",
+      "eventid": "20",
+      "comments": ["123", "222"],
+      "userid": [1, 1],
+      "ratings": [4, 3]
+    },
+    {
+      "id": "21",
+      "eventid": "21",
+      "comments": ["tes review", "tes review2"],
+      "userid": [1, 1],
+      "ratings": [4, 4]
+    },
+    {
+      "id": "9",
+      "eventid": "9",
+      "comments": ["dha pha nhe", "dha pha nhe 2"],
+      "userid": [3, 3],
+      "ratings": [3, 3]
     }
   ],
   "discussions": [
     {
       "id": 1,
-      "eventid": 1,
+      "eventid": "1",
       "question": [
         "apakah ada unsur berbau kampanye politik di sini?",
         "apakah ada lowongan pekerjaan?",
         "apakah ada lowongan pekerjaan?",
-        "apakah ada lowongan pekerjaan?"
+        "apakah ada lowongan pekerjaan?",
+        "belum ada update?"
       ],
-      "question_id": [1, 5, 6, 7],
+      "question_id": [1, 5, 6, 7, 1],
       "reply": {
         "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
-        "2": ["ada nih jadi kang parkir di event ini"]
+        "2": ["ada nih jadi kang parkir di event ini"],
+        "4": []
       },
       "reply_id": {
         "1": [14, 2],
-        "2": [14]
+        "2": [14],
+        "4": []
+      }
+    },
+    {
+      "id": "2",
+      "eventid": "2",
+      "question": ["123"],
+      "question_id": [1],
+      "reply": {
+        "0": []
+      },
+      "reply_id": {
+        "0": []
+      }
+    },
+    {
+      "id": "6",
+      "eventid": "6",
+      "question": ["111"],
+      "question_id": [1],
+      "reply": {
+        "0": []
+      },
+      "reply_id": {
+        "0": []
+      }
+    },
+    {
+      "id": "20",
+      "eventid": "20",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    },
+    {
+      "id": "3",
+      "eventid": "3",
+      "question": ["Layangan putus kali"],
+      "question_id": [1],
+      "reply": {
+        "0": []
+      },
+      "reply_id": {
+        "0": []
+      }
+    },
+    {
+      "id": "21",
+      "eventid": "21",
+      "question": ["333"],
+      "question_id": [1],
+      "reply": {
+        "0": []
+      },
+      "reply_id": {
+        "0": []
+      }
+    },
+    {
+      "id": "9",
+      "eventid": "9",
+      "question": ["dha pha nhee"],
+      "question_id": [3],
+      "reply": {
+        "0": ["ssss"]
+      },
+      "reply_id": {
+        "0": [3]
       }
     }
   ]

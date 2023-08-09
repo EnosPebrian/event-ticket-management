@@ -42,18 +42,14 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary" id="nav-container">
+      <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
         <Container fluid>
           <Navbar.Brand href="#">
             <span id="logo-text">FOMOPHOBIA</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
+            <Nav className="me-auto my-2 my-lg-0" navbarScroll>
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link
                 className="bg-primary"
@@ -99,30 +95,14 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Search
               </Button>
+              <Button
+                variant="outline-success"
+                style={{ marginLeft: "20px" }}
+                onClick={signIn}
+              >
+                Sign In
+              </Button>
             </Form>
-            <Button
-              variant="outline-success"
-              style={{ marginLeft: "20px" }}
-              onClick={signIn}
-            >
-              Sign In
-            </Button>
-
-            <Button
-              variant="outline-danger"
-              style={{ marginLeft: "20px" }}
-              onClick={logout}
-            >
-              Logout
-            </Button>
-
-            <Button
-              variant="outline-info"
-              style={{ marginLeft: "20px" }}
-              onClick={profile}
-            >
-              Profile
-            </Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

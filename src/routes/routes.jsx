@@ -1,3 +1,4 @@
+import Redirect from "../components/Redirect";
 import { Login } from "../components/login";
 import Register from "../components/register";
 import { Profile } from "../pages/Profile";
@@ -13,6 +14,7 @@ class RouteClass {
 }
 
 export const routes = [
+  new RouteClass("/", <Redirect />),
   new RouteClass(
     "/home",
     (

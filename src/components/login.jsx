@@ -4,12 +4,19 @@ import Button from "react-bootstrap/Button";
 import "./style.css";
 import { useEffect, useState } from "react";
 import api from "../json-server/api";
+
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { types } from "../redux/types";
+
 import HeaderNavbar from "./Header-navbar";
 
+import { useDispatch, useSelector } from "react-redux";
+import { types } from "../redux/types";
+import { Container } from "react-bootstrap";
+
+
 export const Login = () => {
+  const userSelector = useSelector((state) => state.auth);
+  console.log(`userselector di login`, userSelector);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const location = useLocation();
@@ -35,7 +42,7 @@ export const Login = () => {
     if (auth.data == 0) return alert("email/password salah");
     alert("berhasil login");
 
-    dispatch({ type: types.login, payload: { ...auth.data[0] } });
+    await dispatch({ payload: { ...auth.data[0] }, type: types.login });
 
     localStorage.setItem("auth", JSON.stringify(auth.data[0]));
     delete auth.data[0].password;
@@ -63,7 +70,54 @@ export const Login = () => {
                   Sign Up
                 </a>
               </span>
-            </p>
+              <p>
+                Don’t have yesplis account ?
+                <span>
+                  <a href="register">Sign Up</a>
+                </span>
+              </p>
+            </div>
+            {/* INPUT */}
+            <div style={{ marginBottom: "60px" }}>
+              <FloatingLabel
+                controlId="floatingInput"
+                label="Full Name"
+                className="mb-1"
+              >
+                <Form.Control
+                  type="text"
+                  placeholder="yourfullname"
+                  required
+                  onChange={(e) => inputHandler("username", e.target.value)}
+                />
+              </FloatingLabel>
+
+              <FloatingLabel
+                controlId="floatingInput"
+                label="Email address"
+                className="mb-1"
+              >
+                <Form.Control
+                  type="email"
+                  placeholder="name@example.com"
+                  required
+                  onChange={(e) => inputHandler("email", e.target.value)}
+                />
+              </FloatingLabel>
+
+              <FloatingLabel controlId="floatingPassword" label="Password">
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  required
+                  onChange={(e) => inputHandler("password", e.target.value)}
+                />
+              </FloatingLabel>
+            </div>
+
+            <Button variant="primary" size="lg" onClick={login}>
+              Sign In
+            </Button>
           </div>
           {/* INPUT */}
           <div style={{ marginBottom: "60px" }}>

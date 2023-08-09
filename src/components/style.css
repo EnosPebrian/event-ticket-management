@@ -32,7 +32,8 @@
 }
 
 .register-box {
-  width: 450px;
+  width: 100%;
+  max-width: 360px;
   height: 500px;
   border: 2px solid grey;
   padding: 20px;
