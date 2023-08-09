@@ -55,9 +55,9 @@ export const routes = [
     )
   ),
   new RouteClass(
-    "dashoardprofile",
+    "dashboardprofile",
     (
-      <ProtectedPage guestOnly={true}>
+      <ProtectedPage guestOnly={false}>
         <DashboardProfile />
       </ProtectedPage>
     )

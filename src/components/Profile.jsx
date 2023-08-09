@@ -28,8 +28,6 @@ export const Profile = () => {
     setIsModalOpen(false);
   };
 
-  const dispatch = useDispatch();
-
   return (
     <div
       className="vh-100"
