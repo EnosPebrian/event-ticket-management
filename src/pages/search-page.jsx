@@ -72,6 +72,7 @@ export const SearchPage = () => {
   };
   useEffect(() => {
     fetchAllEvents();
+    fetchRating();
   }, []);
 
   const formik = useFormik({
@@ -186,12 +187,36 @@ export const SearchPage = () => {
     }
   }
 
+  const [rating_map, setRating_map] = useState({});
+  const [rating_length, setRating_length] = useState({});
+  async function fetchRating() {
+    const res = await api.get("/reviews");
+    const data = res.data;
+    // console.log(`tass`, data);
+    const temp_obj = new Object();
+    const temp_total_reviews = {};
+    let avg_rating;
+    let total_reviews;
+    data?.forEach((element) => {
+      avg_rating =
+        element.ratings.reduce((acc, currentVal) => acc + currentVal, 0) /
+        element.ratings.length;
+      total_reviews = element.ratings.length;
+      temp_obj[element.id] = avg_rating;
+      temp_total_reviews[element.id] = total_reviews;
+      // console.log(temp_obj);
+    });
+    setRating_map(temp_obj);
+    setRating_length(temp_total_reviews);
+  }
+
   useEffect(() => {
     fetchEvents();
   }, [events]);
 
   useEffect(() => {
     fetchEvents();
+    fetchRating();
   }, [searchkey]);
 
   useEffect(() => {
@@ -383,7 +408,16 @@ export const SearchPage = () => {
                       />
                       <Card.Body>
                         <Card.Title className="event-name">
-                          {this_event.name}
+                          {this_event.name}{" "}
+                          {this_event.isfree ? (
+                            <>
+                              <img
+                                src="https://media.istockphoto.com/id/807772812/photo/free-price-tag-label.jpg?s=612x612&w=0&k=20&c=1Dq0FHOKP2UbhglZajMe5In_48U8k4qrI1Y4l_h9NrY="
+                                width={"50px"}
+                                style={{ float: "right" }}
+                              />
+                            </>
+                          ) : null}
                         </Card.Title>
                         <Card.Text className="location">
                           {this_event.location}
@@ -395,6 +429,24 @@ export const SearchPage = () => {
                         </Card.Text>
                         <Card.Text className="description">
                           {this_event.description}
+                        </Card.Text>
+                        <Card.Text>
+                          <span>
+                            <span
+                              class="fa fa-star star-checked"
+                              style={{ marginRight: "4px" }}
+                            ></span>
+                            <b>
+                              {rating_map[this_event.id] &&
+                                Number(rating_map[this_event.id]).toFixed(2)}
+                            </b>
+                            {rating_map[this_event.id] && `/5 `}
+                          </span>
+                          <span>
+                            {rating_length[this_event.id]
+                              ? `(${rating_length[this_event.id]})`
+                              : `No ratings`}
+                          </span>
                         </Card.Text>
                         <Button variant="primary">Reserve Ticket</Button>
                       </Card.Body>

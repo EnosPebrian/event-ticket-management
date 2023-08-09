@@ -32,7 +32,6 @@ export const ModalCreate = ({
     },
     onSubmit: (values) => {},
   });
-  console.log("ini formik", formik.values);
 
   return (
     <>

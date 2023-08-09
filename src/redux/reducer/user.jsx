@@ -11,7 +11,6 @@ const init_state = {
 };
 
 export const userReducer = (state = init_state, action) => {
-  console.log(`di user reducer`, state, action);
   if (action.type === types.login) {
     return {
       ...state,
