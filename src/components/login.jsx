@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { types } from "../redux/types";
 import { Container } from "react-bootstrap";
 
-
 export const Login = () => {
   const userSelector = useSelector((state) => state.auth);
   console.log(`userselector di login`, userSelector);
@@ -63,6 +62,7 @@ export const Login = () => {
             <span style={{ fontWeight: "bold", fontSize: "18px" }}>
               Sign In
             </span>
+
             <p style={{ fontWeight: "400", fontSize: "13px" }}>
               Don’t have fomophobia account ? &nbsp;
               <span>
@@ -76,7 +76,7 @@ export const Login = () => {
                   <a href="register">Sign Up</a>
                 </span>
               </p>
-            </div>
+            </p>
             {/* INPUT */}
             <div style={{ marginBottom: "60px" }}>
               <FloatingLabel
