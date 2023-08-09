@@ -71,56 +71,8 @@ export const Login = () => {
                 Sign Up
               </a>
             </span>
-            <p>
-              Don’t have yesplis account ?
-              <span>
-                <a href="register">Sign Up</a>
-              </span>
-            </p>
-
-            {/* INPUT */}
-            <div style={{ marginBottom: "60px" }}>
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Full Name"
-                className="mb-1"
-              >
-                <Form.Control
-                  type="text"
-                  placeholder="yourfullname"
-                  required
-                  onChange={(e) => inputHandler("username", e.target.value)}
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Email address"
-                className="mb-1"
-              >
-                <Form.Control
-                  type="email"
-                  placeholder="name@example.com"
-                  required
-                  onChange={(e) => inputHandler("email", e.target.value)}
-                />
-              </FloatingLabel>
-
-              <FloatingLabel controlId="floatingPassword" label="Password">
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  required
-                  onChange={(e) => inputHandler("password", e.target.value)}
-                />
-              </FloatingLabel>
-            </div>
-
-            <Button variant="primary" size="lg" onClick={login}>
-              Sign In
-            </Button>
           </div>
-          {/* INPUT */}
+
           <div style={{ marginBottom: "60px" }}>
             <FloatingLabel
               controlId="floatingInput"

@@ -5,6 +5,7 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../json-server/api";
+import uuid from "react-uuid";
 
 const Register = () => {
   const nav = useNavigate();
@@ -13,6 +14,9 @@ const Register = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    points: 0,
+    referralcode: "zxciqbr12111",
+    events: [],
   });
 
   const register = async (e) => {
@@ -109,6 +113,16 @@ const Register = () => {
               >
                 <Form.Control
                   type="password"
+                  placeholder="Confirm Password"
+                  required
+                  onChange={(e) =>
+                    inputHandler("confirmPassword", e.target.value)
+                  }
+                />
+              </FloatingLabel>
+              <FloatingLabel controlId="referralcode" label="referralcode">
+                <Form.Control
+                  type="text"
                   placeholder="Confirm Password"
                   required
                   onChange={(e) =>
