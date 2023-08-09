@@ -24,6 +24,8 @@ export const userReducer = (state = init_state, action) => {
     };
   } else if (action.type === types.logout) {
     return init_state;
+  } else if (action.type === types.update_saldo) {
+    return { ...state, points: action.payload.points };
   }
   return state;
 };

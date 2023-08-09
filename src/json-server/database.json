@@ -27,7 +27,7 @@
       "email": "adam@mail.com",
       "password": "adamair",
       "id": 3,
-      "points": 0,
+      "points": 1000970,
       "referralcode": "zxciqbr12444",
       "events": [
         12
@@ -809,6 +809,13 @@
       "ratings": [
         3
       ]
+    },
+    {
+      "id": "dashboard",
+      "eventid": "dashboard",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -952,6 +959,14 @@
       "reply_id": {
         "0": []
       }
+    },
+    {
+      "id": "dashboard",
+      "eventid": "dashboard",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
     }
   ]
 }
