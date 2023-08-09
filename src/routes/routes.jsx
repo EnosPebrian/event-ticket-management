@@ -7,6 +7,8 @@ import SingleEventDisplay from "../pages/single-event-display";
 import { ProtectedPage } from "./protectedpage";
 import { DashboardProfile } from "../pages/dashboardprofile";
 import TopUp from "../pages/TopUp";
+import { Toast } from "../components/toast";
+import { ModalBuy } from "../components/modal-buy";
 class RouteClass {
   constructor(path, element) {
     this.path = path;
@@ -60,16 +62,24 @@ export const routes = [
   new RouteClass(
     "dashboardprofile",
     (
-      <ProtectedPage guestOnly={false}>
+      <ProtectedPage guestOnly={false} needLogin={true}>
         <DashboardProfile />
       </ProtectedPage>
     )
   ),
   new RouteClass(
-    `/dashboardprofile/topUp`,
+    "dashboardprofile/topup",
     (
       <ProtectedPage guestOnly={false} needLogin={true}>
         <TopUp />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "modalBuy",
+    (
+      <ProtectedPage guestOnly={false} needLogin={false}>
+        <ModalBuy />
       </ProtectedPage>
     )
   ),

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../json-server/api";
 import uuid from "react-uuid";
+import { useToast } from "@chakra-ui/react";
 
 const Register = () => {
   const nav = useNavigate();

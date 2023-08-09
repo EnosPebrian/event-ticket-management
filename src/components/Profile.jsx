@@ -33,8 +33,10 @@ export const Profile = () => {
 
   const userSelector = useSelector((state) => state.auth);
 
-  const topUp = () => {
-    nav(`/dashboardprofile/topUp`);
+  console.log(userSelector);
+
+  const topup = () => {
+    nav("/dashboardprofile/topup");
   };
 
   return (
@@ -51,10 +53,10 @@ export const Profile = () => {
         style={{ display: "flex", justifyContent: "space-between" }}
       >
         <MDBRow className="space-x-0 ">
-          <MDBCol md="20" xl="2" style={{ width: "600px" }}>
+          <MDBCol md="12" xl="4" style={{ width: "600px" }}>
             <MDBCard style={{ borderRadius: "15px" }}>
               <MDBCardBody className="text-center">
-                <div className="mt-3 mb-4 justify-center">
+                <div className="mt-3 mb-4">
                   <MDBCardImage
                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
                     className="rounded-circle"
@@ -62,12 +64,12 @@ export const Profile = () => {
                     style={{ width: "100px" }}
                   />
                 </div>
-                <MDBTypography tag="h4">{userSelector.username}</MDBTypography>
+                <MDBTypography tag="h4">{""}</MDBTypography>
                 <MDBCardText className="text-muted mb-4">
-                  <a href="#!">{userSelector.referralcode}</a>
+                  <a href="#!">{""}</a>
                 </MDBCardText>
                 <div className="mb-4 pb-2"></div>
-                <Button onClick={topUp}>Topup Saldo</Button>
+                <Button onClick={topup}>Topup Saldo</Button>
                 <div className="d-flex justify-content-between text-center mt-5 mb-2">
                   <div>
                     <MDBCardText className="mb-1 h5">

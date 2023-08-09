@@ -9,9 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
-import { NavLink } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
@@ -40,13 +37,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
   };
 
   const profile = () => {
-    const user = JSON.parse(localStorage.getItem("auth"));
-    console.log("ini button profile", user.username);
-    if (user.username) nav(`/dashboardprofile/?${user.username}`);
-  };
-
-  const topup = () => {
-    nav("/dashboardprofile/topup");
+    nav("/dashboardprofile");
   };
 
   return (
@@ -54,9 +45,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
         <Container fluid>
           <Navbar.Brand href="#">
-            <NavLink href="/home">
-              <span id="logo-text">FOMOPHOBIA</span>
-            </NavLink>
+            <span id="logo-text">FOMOPHOBIA</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">

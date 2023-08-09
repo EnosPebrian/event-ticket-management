@@ -38,7 +38,7 @@
       "email": "andre@mail.com",
       "password": "andre",
       "id": 4,
-      "points": 30940,
+      "points": 0,
       "referralcode": "zxciqbr12555",
       "events": [
         11
@@ -148,7 +148,7 @@
       "email": "angga@mail.com",
       "password": "angga",
       "id": 14,
-      "points": 0,
+      "points": 120000,
       "referralcode": "zxciqbr12789",
       "events": [
         1
@@ -827,22 +827,8 @@
       "ratings": []
     },
     {
-      "id": "15",
-      "eventid": "15",
-      "comments": [],
-      "userid": [],
-      "ratings": []
-    },
-    {
-      "id": "profile",
-      "eventid": "profile",
-      "comments": [],
-      "userid": [],
-      "ratings": []
-    },
-    {
-      "id": "dashboardprofile",
-      "eventid": "dashboardprofile",
+      "id": "7",
+      "eventid": "7",
       "comments": [],
       "userid": [],
       "ratings": []
@@ -999,16 +985,8 @@
       "reply_id": {}
     },
     {
-      "id": "profile",
-      "eventid": "profile",
-      "question": [],
-      "question_id": [],
-      "reply": {},
-      "reply_id": {}
-    },
-    {
-      "id": "dashboardprofile",
-      "eventid": "dashboardprofile",
+      "id": "7",
+      "eventid": "7",
       "question": [],
       "question_id": [],
       "reply": {},
