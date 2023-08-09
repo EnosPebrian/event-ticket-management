@@ -7,9 +7,7 @@
       "id": 1,
       "points": 80000,
       "referralcode": "zxciqbr12111",
-      "events": [
-        14
-      ]
+      "events": [14]
     },
     {
       "username": "Blank",
@@ -18,9 +16,7 @@
       "id": 2,
       "points": 0,
       "referralcode": "zxciqbr12333",
-      "events": [
-        13
-      ]
+      "events": [13]
     },
     {
       "username": "adam",
@@ -29,9 +25,7 @@
       "id": 3,
       "points": 1000970,
       "referralcode": "zxciqbr12444",
-      "events": [
-        12
-      ]
+      "events": [12]
     },
     {
       "username": "andre",
@@ -40,9 +34,7 @@
       "id": 4,
       "points": 0,
       "referralcode": "zxciqbr12555",
-      "events": [
-        11
-      ]
+      "events": [11]
     },
     {
       "username": "ari",
@@ -51,9 +43,7 @@
       "id": 5,
       "points": 0,
       "referralcode": "zxciqbr12666",
-      "events": [
-        10
-      ]
+      "events": [10]
     },
     {
       "username": "Aaron",
@@ -62,9 +52,7 @@
       "id": 6,
       "points": 0,
       "referralcode": "zxciqbr12777",
-      "events": [
-        9
-      ]
+      "events": [9]
     },
     {
       "username": "Mamaron",
@@ -73,9 +61,7 @@
       "id": 7,
       "points": 0,
       "referralcode": "zxciqbr12888",
-      "events": [
-        8
-      ]
+      "events": [8]
     },
     {
       "username": "Kakaron",
@@ -84,9 +70,7 @@
       "id": 8,
       "points": 0,
       "referralcode": "zxciqbr12999",
-      "events": [
-        7
-      ]
+      "events": [7]
     },
     {
       "username": "Paparon",
@@ -95,9 +79,7 @@
       "id": 9,
       "points": 0,
       "referralcode": "zxciqbr12121",
-      "events": [
-        6
-      ]
+      "events": [6]
     },
     {
       "username": "Bibiron",
@@ -106,9 +88,7 @@
       "id": 10,
       "points": 0,
       "referralcode": "zxciqbr12322",
-      "events": [
-        5
-      ]
+      "events": [5]
     },
     {
       "username": "Vegetta",
@@ -117,9 +97,7 @@
       "id": 11,
       "points": 20000,
       "referralcode": "zxciqbr12245",
-      "events": [
-        4
-      ]
+      "events": [4]
     },
     {
       "username": "Saint Saturn",
@@ -128,9 +106,7 @@
       "id": 12,
       "points": 0,
       "referralcode": "zxciqbr12321",
-      "events": [
-        3
-      ]
+      "events": [3]
     },
     {
       "username": "Zoro",
@@ -139,9 +115,7 @@
       "id": 13,
       "points": 0,
       "referralcode": "zxciqbr12446",
-      "events": [
-        2
-      ]
+      "events": [2]
     },
     {
       "username": "angga",
@@ -150,9 +124,7 @@
       "id": 14,
       "points": 0,
       "referralcode": "zxciqbr12789",
-      "events": [
-        1
-      ]
+      "events": [1]
     },
     {
       "username": "almandine",
@@ -215,8 +187,7 @@
       "photo": [
         "https://assets-a1.kompasiana.com/items/album/2021/11/03/air-618258c4b4ab2e185a476433.jpg"
       ],
-      "event-creator": 1,
-      "isfree": 1
+      "poster": 1
     },
     {
       "id": 2,
@@ -232,8 +203,7 @@
       "photo": [
         "https://statik.tempo.co/data/2016/04/26/id_501460/501460_620.jpg"
       ],
-      "event-creator": 2,
-      "isfree": 1
+      "poster": 2
     },
     {
       "id": 3,
@@ -249,10 +219,7 @@
       "photo": [
         "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
       ],
-      "isfree": 0,
-      "vip-ticket-price": 5000000,
-      "vip-ticket-stock": 12,
-      "event-creator": 2
+      "poster": 2
     },
     {
       "id": 4,
@@ -268,12 +235,7 @@
       "photo": [
         "https://wisconsinskydivingcenter.com/wp-content/uploads/2019/07/skydiving-freefall.jpg"
       ],
-      "isfree": 0,
-      "vip-ticket-price": 2000000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 1500000,
-      "presale-ticket-stock": 8,
-      "event-creator": 2
+      "poster": 2
     },
     {
       "id": 5,
@@ -289,10 +251,9 @@
       "photo": [
         "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
       ],
-      "ticket-vip": 120000,
+      "ticket-vip": 12000,
       "ticket-presale": 50000,
-      "event-creator": 1,
-      "isfree": 0
+      "event-creator": 1
     },
     {
       "id": 6,
@@ -306,14 +267,25 @@
       "time-end": "21:00:00",
       "description": "event konser di kota magelang dengan menampilkan guestar artis nasional NDXAKA Dan WORO WIDOWATI",
       "photo": [
-        "https://api.yesplis.com/images/banner/d82209518f876dcc2496ac397675d904b64cac49.png.webp"
+        "https://api.yesplis.com/images/banner/bb5cce866380e74ddb3fe96d6adb8388ef961800.png.webp"
       ],
-      "vip-ticket-price": 110000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 69000,
-      "presale-ticket-stock": 8,
-      "event-creator": 2,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 125000,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 65000,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 2
     },
     {
       "id": 7,
@@ -329,12 +301,23 @@
       "photo": [
         "https://api.yesplis.com/images/banner/c70e7c400805f3f769d3871511e32f7add63301d.png.webp"
       ],
-      "vip-ticket-price": 135000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 85000,
-      "presale-ticket-stock": 8,
-      "event-creator": 3,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 135,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 85,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 3
     },
     {
       "id": 8,
@@ -350,12 +333,23 @@
       "photo": [
         "https://api.yesplis.com/images/banner/ec874e3e8da2c487370d11a5a8957bcfb0018ac7.png.webp"
       ],
-      "vip-ticket-price": 110000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 69000,
-      "presale-ticket-stock": 8,
-      "event-creator": 4,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 110,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 69,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 4
     },
     {
       "id": 9,
@@ -371,12 +365,23 @@
       "photo": [
         "https://api.yesplis.com/images/banner/e881c350136fa511c38feb64f3f6fa065bf54f34.png.webp"
       ],
-      "vip-ticket-price": 110000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 69000,
-      "presale-ticket-stock": 8,
-      "event-creator": 5,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 110,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 50,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 5
     },
     {
       "id": 10,
@@ -392,12 +397,23 @@
       "photo": [
         "https://api.yesplis.com/images/banner/b3cc57510604e9a7c8ff1d7fe0cf1446d5beff7d.png.webp"
       ],
-      "vip-ticket-price": 150000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 80000,
-      "presale-ticket-stock": 8,
-      "event-creator": 7,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 150,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 40,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 7
     },
     {
       "id": 11,
@@ -413,12 +429,23 @@
       "photo": [
         "https://api.yesplis.com/images/banner/38a4b7540e85184a1ee737a01574ad3b0aba7c64.png.webp"
       ],
-      "vip-ticket-price": 130000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 100000,
-      "presale-ticket-stock": 8,
-      "event-creator": 8,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 150,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 40,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 8
     },
     {
       "id": 12,
@@ -434,12 +461,23 @@
       "photo": [
         "https://api.yesplis.com/images/banner/763ca0d1291e49e8587d6899ad1df02d7ba765d9.png.webp"
       ],
-      "vip-ticket-price": 205000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 140000,
-      "presale-ticket-stock": 8,
-      "event-creator": 9,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 205,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 140,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 9
     },
     {
       "id": 13,
@@ -455,12 +493,23 @@
       "photo": [
         "https://api.yesplis.com/images/banner/c03b080e1ed6180adc6709670ec601294a112ab8.png.webp"
       ],
-      "vip-ticket-price": 110000,
-      "vip-ticket-stock": 12,
-      "presale-ticket-price": 69000,
-      "presale-ticket-stock": 8,
-      "event-creator": 10,
-      "isfree": 0
+      "ticket-category": [
+        {
+          "vip-ticket": [
+            {
+              "price": 205,
+              "stock": 12
+            }
+          ],
+          "presale-ticket": [
+            {
+              "price": 65,
+              "stock": 8
+            }
+          ]
+        }
+      ],
+      "event-creator": 10
     },
     {
       "id": 14,
@@ -476,10 +525,7 @@
       "photo": [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBvMC9N2QMzBM9Lgy2YuAoo4IJQ1m5pQsDw&usqp=CAU"
       ],
-      "event-creator": 2,
-      "isfree": 0,
-      "presale-ticket-price": 10000,
-      "presale-ticket-stock": 200
+      "poster": 2
     },
     {
       "id": 15,
@@ -496,8 +542,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxULm_esftjfyORLiuiGWELoDVHTBaaO3fw&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W-79slVpQYPJeVisbhADfp-n52ip_6f89Q&usqp=CAU"
       ],
-      "event-creator": 2,
-      "isfree": 1
+      "poster": 2
     },
     {
       "id": 16,
@@ -514,8 +559,7 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxULm_esftjfyORLiuiGWELoDVHTBaaO3fw&usqp=CAU",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0W-79slVpQYPJeVisbhADfp-n52ip_6f89Q&usqp=CAU"
       ],
-      "event-creator": 2,
-      "isfree": 1
+      "poster": 2
     },
     {
       "id": 17,
@@ -526,16 +570,14 @@
       ],
       "name": "BERKAH COMPUTER",
       "location": "Jakarta",
-      "venue": "Jakarta",
-      "category": "Sport",
       "date-start": "2023-08-12",
       "date-end": "2023-08-14",
       "time": "13:00:00",
       "description": "Dalam Rangka Gelaran Jambore Nasional IMI Rx-KING di selenggarakan event konser bertajuk Festival Indonesia Gemilang untuk bisa diikuti oleh semua kalangan baik komunitas atau masyarakat umum",
-      "vip-ticket-price": 475000,
-      "vip-ticket-stock": 12,
-      "event-creator": 14,
-      "isfree": 0
+      "ticketcategory": "VIP",
+      "price": "475.000",
+      "stock": "12",
+      "startdate": "2023-08-24"
     },
     {
       "id": 18,
@@ -543,17 +585,15 @@
         "https://api.yesplis.com/images/banner/e881c350136fa511c38feb64f3f6fa065bf54f34.png.webp"
       ],
       "name": "MUSIC OF GENERATION",
-      "location": "Majalengka",
-      "venue": "Jl. Brigjend Dharsono | Korem 063/Sunan Gunung Jati",
-      "category": "Music",
-      "date-start": "2023-09-06",
+      "location": "Jl. Brigjend Dharsono | Korem 063/Sunan Gunung Jati",
+      "date-start": "",
       "date-end": "",
       "time": "13:00:00",
       "description": "“MUSIC OF GENERATION” adalah serangkaian kegiatan yang diselenggarakan D’tONes Pro Organizer untuk menghibur Masyarakat dengan beberapa konten diantaranya adalah Bazar UMKM dan Musik Entertainment bekerjasama dengan Beberapa Artist dan Band Guna membangun dan membangkitkan semangat Masyarakat pecinta musik.",
-      "presale-ticket-price": 125000,
-      "presale-ticket-stock": 12,
-      "event-creator": 4,
-      "isfree": 0
+      "ticketcategory": "Music",
+      "price": "125000",
+      "stock": "12",
+      "startdate": "2023-09-06"
     },
     {
       "id": 19,
@@ -562,15 +602,13 @@
       ],
       "name": "Keroncong Plesiran Vol. 7",
       "location": "Jakarta",
-      "venue": "Jakarta",
-      "category": "Music",
       "date-start": "2023-08-07",
       "date-end": "2023-08-17",
       "time": "13:00:00",
       "description": "Term Of Reference Keroncong Plesiran Vol. 7 :  - Bagi Penonton yang berusia diatas 7 tahun dikenakan tiket.  - Tiket wajib ditukarkan dengan Gelang Lanyard di lokasi dengan menunjukan e-tiket melalui handphone beserta kartu identitas.  - Booking penginapan di Asram Edupark langsung hubungi CP : 0882-0202-02028 ( Iqbal )  - Tiket tidak dapat dikembalikan atau di refund dengan alasan yang timbul dari pembeli.  - Dalam keadaan force majeur yang telah resmi di umumkan oleh pemerintah, panitia dan promotor acara berhak untuk membatalkan dan/atau merubah waktu acara dan tata letak tempat tanpa pemberitahuan sebelumnya.",
-      "presale-ticket-price": 299999,
-      "presale-ticket-stock": 22,
-      "isfree": 0
+      "ticketcategory": "Music",
+      "price": "299999",
+      "stock": "22"
     },
     {
       "id": 20,
@@ -578,16 +616,14 @@
         "https://api.yesplis.com/images/banner/763ca0d1291e49e8587d6899ad1df02d7ba765d9.png.webp"
       ],
       "name": "jangkrik",
-      "location": "Magelang",
-      "venue": "Lapangan Kujon | LAPANGAN KUJON",
-      "category": "Music",
+      "location": "Lapangan Kujon | LAPANGAN KUJON",
       "date-start": "2023-08-16",
       "date-end": "2023-08-25",
       "time": "08:30:00",
       "description": "ayam betina",
-      "presale-ticket-price": 100000,
-      "presale-ticket-stock": 11,
-      "isfree": 0
+      "ticketcategory": "Music",
+      "price": "100000",
+      "stock": "11"
     },
     {
       "id": 21,
@@ -595,22 +631,179 @@
         "https://api.yesplis.com/images/banner/0602419a6fb0488b71d9674997d8154d66cfe035.png.webp"
       ],
       "name": "satu",
-      "location": "Magelang",
-      "venue": "Lapangan Kujon | LAPANGAN KUJON",
+      "location": "Lapangan Kujon | LAPANGAN KUJON",
       "date-start": "2023-08-24",
       "date-end": "2023-08-29",
       "time": "08:30:00",
       "description": "sss",
-      "category": "Music",
-      "presale-ticket-price": 120000,
-      "presale-ticket-stock": 22,
-      "isfree": 0
+      "ticketcategory": "Music",
+      "price": "120000",
+      "stock": "22"
+    },
+    {
+      "id": 22,
+      "photo": [
+        "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
+      ],
+      "name": "TrueCuks",
+      "location": "",
+      "date-start": "2023-08-09",
+      "date-end": "2023-08-19",
+      "time": "",
+      "description": "ayamssss",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 23,
+      "photo": [
+        "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp"
+      ],
+      "name": "yuppppp",
+      "location": "",
+      "date-start": "2023-08-06",
+      "date-end": "2023-08-15",
+      "time": "",
+      "description": "aasdasdsawwwwwww",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 24,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 25,
+      "photo": ["dasdas"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 26,
+      "photo": ["dasdsada"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 27,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "2023-08-17",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 28,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "sadasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 29,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 30,
+      "photo": ["adsad"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "dasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 31,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 32,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "ajncokkkkkkkkkksdasdasd",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 33,
+      "photo": [""],
+      "name": "satuduatida",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
     }
   ],
   "reviews": [
     {
-      "id": 1,
-      "eventid": "1",
+      "eventid": 1,
       "comments": [
         "Menarik joega ini lurrr",
         "bagaikan air di daun talas... event selesai menghilang tanpa bekas",
@@ -626,193 +819,85 @@
         "Thanks for your excellent organization of PTIM 2019. I came home safe and sound with good memories.",
         "See you in 2021.",
         "Attending PTIM 2019 has been a great experience for me. It was so nicely organised and scientifically strong conference in the field with a lot of networking opportunities. Many congratulations to you and your team for the overall success of the conference.",
-        "Vala morghulis"
+        "aaa",
+        "tes",
+        "aaa",
+        "aaa",
+        "bbbb",
+        "waiting user selector"
       ],
-      "userid": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        3
-      ],
-      "ratings": [
-        4,
-        5,
-        4,
-        3,
-        4,
-        5,
-        5,
-        4,
-        4,
-        3,
-        4,
-        3,
-        4,
-        5,
-        5
-      ]
+      "userid": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 3],
+      "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5, 5]
     },
     {
-      "id": 2,
-      "eventid": "2",
+      "eventid": 2,
       "comments": [
         "Cape woi disiksa pagi siang sore",
         "Cinlok is reaaaaal",
-        "Tertipu janji manis",
-        "Ternyata begini ya"
+        "Tertipu janji manis"
       ],
-      "userid": [
-        10,
-        11,
-        12,
-        3
-      ],
-      "ratings": [
-        2,
-        4,
-        2,
-        4
-      ]
+      "userid": [10, 11, 12, 3],
+      "ratings": [2, 4, 2, 4]
     },
     {
       "id": "8",
       "eventid": "8",
-      "comments": [
-        "dicoba ah",
-        "chaebol"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        3,
-        4
-      ]
+      "comments": ["dicoba ah", "chaebol"],
+      "userid": [1, 1],
+      "ratings": [3, 4]
     },
     {
       "id": "3",
       "eventid": "3",
-      "comments": [
-        "333"
-      ],
-      "userid": [
-        1
-      ],
-      "ratings": [
-        4
-      ]
+      "comments": ["333"],
+      "userid": [1],
+      "ratings": [4]
     },
     {
       "id": "6",
       "eventid": "6",
-      "comments": [
-        "111",
-        "123",
-        "1234",
-        "556"
-      ],
-      "userid": [
-        1,
-        1,
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        3,
-        3,
-        3
-      ]
+      "comments": ["111", "123", "1234", "556"],
+      "userid": [1, 1, 1, 1],
+      "ratings": [4, 3, 3, 3]
     },
     {
       "id": "20",
       "eventid": "20",
-      "comments": [
-        "123",
-        "222"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        3
-      ]
+      "comments": ["123", "222"],
+      "userid": [1, 1],
+      "ratings": [4, 3]
     },
     {
       "id": "21",
       "eventid": "21",
-      "comments": [
-        "tes review",
-        "tes review2"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        4
-      ]
+      "comments": ["tes review", "tes review2"],
+      "userid": [1, 1],
+      "ratings": [4, 4]
     },
     {
       "id": "9",
       "eventid": "9",
-      "comments": [
-        "dha pha nhe",
-        "dha pha nhe 2"
-      ],
-      "userid": [
-        3,
-        3
-      ],
-      "ratings": [
-        3,
-        3
-      ]
+      "comments": ["dha pha nhe", "dha pha nhe 2"],
+      "userid": [3, 3],
+      "ratings": [3, 3]
     },
     {
       "id": "4",
       "eventid": "4",
-      "comments": [
-        "Seru banget ini"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        5
-      ]
+      "comments": ["Seru banget ini"],
+      "userid": [3],
+      "ratings": [5]
     },
     {
       "id": "10",
       "eventid": "10",
-      "comments": [
-        "12"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        3
-      ]
+      "comments": ["12"],
+      "userid": [3],
+      "ratings": [3]
     },
     {
-      "id": "dashboard",
-      "eventid": "dashboard",
+      "id": "7",
+      "eventid": "7",
       "comments": [],
       "userid": [],
       "ratings": []
@@ -827,36 +912,20 @@
         "apakah ada lowongan pekerjaan?",
         "apakah ada lowongan pekerjaan?",
         "apakah ada lowongan pekerjaan?",
-        "belum ada update?",
-        "valid ini"
+        "belum ada update?"
       ],
-      "question_id": [
-        1,
-        5,
-        6,
-        7,
-        1,
-        3
-      ],
+      "question_id": [1, 5, 6, 7, 1],
       "reply": {
-        "1": [
-          "tidak ada kaka",
-          "ada ada aja pertanyaanmu ndo"
-        ],
-        "2": [
-          "ada nih jadi kang parkir di event ini"
-        ],
+        "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
+        "2": ["ada nih jadi kang parkir di event ini"],
+        "3": [],
         "4": [],
         "5": []
       },
       "reply_id": {
-        "1": [
-          14,
-          2
-        ],
-        "2": [
-          14
-        ],
+        "1": [14, 2],
+        "2": [14],
+        "3": [],
         "4": [],
         "5": []
       }
@@ -864,14 +933,8 @@
     {
       "id": "2",
       "eventid": "2",
-      "question": [
-        "123",
-        "123"
-      ],
-      "question_id": [
-        1,
-        3
-      ],
+      "question": ["123", "123"],
+      "question_id": [1, 3],
       "reply": {
         "0": [],
         "1": []
@@ -884,12 +947,8 @@
     {
       "id": "6",
       "eventid": "6",
-      "question": [
-        "111"
-      ],
-      "question_id": [
-        1
-      ],
+      "question": ["111"],
+      "question_id": [1],
       "reply": {
         "0": []
       },
@@ -908,12 +967,8 @@
     {
       "id": "3",
       "eventid": "3",
-      "question": [
-        "Layangan putus kali"
-      ],
-      "question_id": [
-        1
-      ],
+      "question": ["Layangan putus kali"],
+      "question_id": [1],
       "reply": {
         "0": []
       },
@@ -931,12 +986,8 @@
     {
       "id": "4",
       "eventid": "4",
-      "question": [
-        "Apakah butuh sertifikasi khusus?"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["Apakah butuh sertifikasi khusus?"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
@@ -947,12 +998,8 @@
     {
       "id": "10",
       "eventid": "10",
-      "question": [
-        "22"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["22"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
