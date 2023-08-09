@@ -71,6 +71,12 @@ export const Login = () => {
                 Sign Up
               </a>
             </span>
+            <p>
+              Don’t have yesplis account ?
+              <span>
+                <a href="register">Sign Up</a>
+              </span>
+            </p>
           </div>
 
           <div style={{ marginBottom: "60px" }}>
