@@ -811,28 +811,11 @@
       }
     },
     {
-      "id": "21",
-      "eventid": "21",
-      "question": ["333"],
-      "question_id": [1],
-      "reply": {
-        "0": []
-      },
-      "reply_id": {
-        "0": []
-      }
-    },
-    {
-      "id": "9",
-      "eventid": "9",
-      "question": ["dha pha nhee"],
-      "question_id": [3],
-      "reply": {
-        "0": ["ssss"]
-      },
-      "reply_id": {
-        "0": [3]
-      }
+      "id": "15",
+      "eventid": "15",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ]
 }
