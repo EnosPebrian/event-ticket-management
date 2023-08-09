@@ -10,6 +10,8 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
 import { NavLink } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
@@ -39,8 +41,12 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
 
   const profile = () => {
     const user = JSON.parse(localStorage.getItem("auth"));
-    console.log("button profile", user);
-    nav(`dashboardprofile/${user.username}`);
+    console.log("ini button profile", user.username);
+    if (user.username) nav(`/dashboardprofile/?${user.username}`);
+  };
+
+  const topup = () => {
+    nav("/dashboardprofile/topup");
   };
 
   return (

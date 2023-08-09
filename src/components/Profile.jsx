@@ -16,11 +16,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { Formik, useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import api from "../json-server/api";
 
 export const Profile = () => {
-  const user = localStorage.getItem("auth");
-  console.log("ini profile", user);
-
+  const nav = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -29,6 +29,12 @@ export const Profile = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const userSelector = useSelector((state) => state.auth);
+
+  const topUp = () => {
+    nav(`/dashboardprofile/topUp`);
   };
 
   return (
@@ -45,10 +51,10 @@ export const Profile = () => {
         style={{ display: "flex", justifyContent: "space-between" }}
       >
         <MDBRow className="space-x-0 ">
-          <MDBCol md="12" xl="4" style={{ width: "600px" }}>
+          <MDBCol md="20" xl="2" style={{ width: "600px" }}>
             <MDBCard style={{ borderRadius: "15px" }}>
               <MDBCardBody className="text-center">
-                <div className="mt-3 mb-4">
+                <div className="mt-3 mb-4 justify-center">
                   <MDBCardImage
                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
                     className="rounded-circle"
@@ -56,15 +62,17 @@ export const Profile = () => {
                     style={{ width: "100px" }}
                   />
                 </div>
-                <MDBTypography tag="h4">{""}</MDBTypography>
+                <MDBTypography tag="h4">{userSelector.username}</MDBTypography>
                 <MDBCardText className="text-muted mb-4">
-                  <a href="#!">{""}</a>
+                  <a href="#!">{userSelector.referralcode}</a>
                 </MDBCardText>
                 <div className="mb-4 pb-2"></div>
-                <Button>Message now</Button>
+                <Button onClick={topUp}>Topup Saldo</Button>
                 <div className="d-flex justify-content-between text-center mt-5 mb-2">
                   <div>
-                    <MDBCardText className="mb-1 h5">8471</MDBCardText>
+                    <MDBCardText className="mb-1 h5">
+                      {userSelector.points}
+                    </MDBCardText>
                     <MDBCardText className="small text-muted mb-0">
                       Wallets Balance
                     </MDBCardText>
@@ -105,36 +113,14 @@ export const Profile = () => {
                   color: "white",
                 }}
               >
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    color: "black",
-                    borderRadius: "5px",
-                    padding: "2px",
-                  }}
-                >
-                  <a href="">Event Post</a>
-                </div>
-                <div
-                  style={{
-                    color: "black",
-                    borderRadius: "5px",
-                    padding: "2px",
-                  }}
-                  className="hover:bg-white"
-                >
+                <div>
                   <button onClick={openModal}>Create Event</button>
                 </div>
-                <div
-                  style={{
-                    color: "black",
-                    borderRadius: "5px",
-                    padding: "2px",
-                    fontWeight: "",
-                  }}
-                  className="hover:bg-white"
-                >
+                <div>
                   <a href="">Transaction</a>
+                </div>
+                <div>
+                  <a href="">Event Post</a>
                 </div>
               </div>
               <ModalCreate

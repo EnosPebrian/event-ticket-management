@@ -66,7 +66,7 @@ export const routes = [
     )
   ),
   new RouteClass(
-    "dashboardprofile/topup",
+    `/dashboardprofile/topUp`,
     (
       <ProtectedPage guestOnly={false} needLogin={true}>
         <TopUp />
