@@ -1,11 +1,11 @@
 import Redirect from "../components/Redirect";
 import { Login } from "../components/login";
 import Register from "../components/register";
-import { Profile } from "../pages/Profile";
 import Eventdisplay from "../pages/event-display";
 import { SearchPage } from "../pages/search-page";
 import SingleEventDisplay from "../pages/single-event-display";
 import { ProtectedPage } from "./protectedpage";
+import { DashboardProfile } from "../pages/dashboardprofile";
 class RouteClass {
   constructor(path, element) {
     this.path = path;
@@ -57,10 +57,10 @@ export const routes = [
     )
   ),
   new RouteClass(
-    "profile",
+    "dashboardprofile",
     (
-      <ProtectedPage guestOnly={true}>
-        <Profile />
+      <ProtectedPage guestOnly={false}>
+        <DashboardProfile />
       </ProtectedPage>
     )
   ),

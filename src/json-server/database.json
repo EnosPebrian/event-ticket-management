@@ -206,22 +206,8 @@
       "photo": [
         "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
       ],
-      "ticket-category": [
-        {
-          "vip-ticket": [
-            {
-              "price": 125000,
-              "stock": 12
-            }
-          ],
-          "presale-ticket": [
-            {
-              "price": 65000,
-              "stock": 8
-            }
-          ]
-        }
-      ],
+      "ticket-vip": 12000,
+      "ticket-presale": 50000,
       "event-creator": 1
     },
     {
@@ -638,12 +624,141 @@
       "ticketcategory": [],
       "price": "",
       "stock": ""
+    },
+    {
+      "id": 24,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 25,
+      "photo": ["dasdas"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 26,
+      "photo": ["dasdsada"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 27,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "2023-08-17",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 28,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "sadasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 29,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 30,
+      "photo": ["adsad"],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "dasdas",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 31,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 32,
+      "photo": [""],
+      "name": "",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "ajncokkkkkkkkkksdasdasd",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
+    },
+    {
+      "id": 33,
+      "photo": [""],
+      "name": "satuduatida",
+      "location": "",
+      "date-start": "",
+      "date-end": "",
+      "time": "",
+      "description": "",
+      "ticketcategory": [],
+      "price": "",
+      "stock": ""
     }
   ],
   "reviews": [
     {
-      "id": 1,
-      "eventid": "1",
+      "eventid": 1,
       "comments": [
         "Menarik joega ini lurrr",
         "bagaikan air di daun talas... event selesai menghilang tanpa bekas",
@@ -672,23 +787,11 @@
       "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5, 3, 3, 2, 2, 2, 2]
     },
     {
-      "id": 2,
       "eventid": 2,
       "comments": [
         "Cape woi disiksa pagi siang sore",
         "Cinlok is reaaaaal",
-        "Tertipu janji manis",
-        "anjjjjjjjjjjjjjjjj................ay",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu",
-        "aing gitu"
+        "Tertipu janji manis"
       ],
       "userid": [10, 11, 12, 13, 14, 5, 6, 7, 8, 9, 1, 2, 3, 4],
       "ratings": [2, 4, 2, 2, 3, 4, 4, 3, 3, 4, 4, 2, 4, 2]

@@ -37,7 +37,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
   };
 
   const profile = () => {
-    nav("/profile");
+    nav("/dashboardprofile");
   };
 
   return (
