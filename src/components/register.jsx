@@ -15,7 +15,8 @@ const Register = () => {
     password: "",
     confirmPassword: "",
     points: 0,
-    referralcode: "zxciqbr12111",
+    referralcode: uuid(),
+    reference: "",
     events: [],
   });
 
@@ -31,10 +32,18 @@ const Register = () => {
     // console.log(check);
 
     if (check.data.length) return alert("email sudah terdaftar");
-
     if (user.confirmPassword == user.password) {
       const tmp = { ...user };
       delete tmp.confirmPassword;
+      const res = await api.get(`users?referralcode=${tmp.reference}`);
+      const ref = res.data[0];
+      if (ref) {
+        ref.points = ref.points + 20000;
+        await api
+          .patch(`users/${ref.id}`, ref)
+          .then(() => delete tmp.reference);
+      }
+
       await api.post("/users", tmp);
       // alert("berhasil Register!");
       nav("/login");
@@ -43,6 +52,7 @@ const Register = () => {
 
   const inputHandler = (key, value) => {
     setUser({ ...user, [key]: value });
+    console.log(user);
   };
 
   useEffect(() => {
@@ -69,7 +79,7 @@ const Register = () => {
                 </span>
               </p>
             </div>
-            {/* INPUT */}
+            {/* -------------------INPUT---------------------- */}
             <div style={{ marginBottom: "20px" }}>
               <FloatingLabel
                 controlId="floatingInput"
@@ -120,14 +130,12 @@ const Register = () => {
                   }
                 />
               </FloatingLabel>
-              <FloatingLabel controlId="referralcode" label="referralcode">
+              <FloatingLabel controlId="reference" label="Referral code">
                 <Form.Control
                   type="text"
-                  placeholder="Confirm Password"
+                  placeholder="Referral code"
                   required
-                  onChange={(e) =>
-                    inputHandler("confirmPassword", e.target.value)
-                  }
+                  onChange={(e) => inputHandler("reference", e.target.value)}
                 />
               </FloatingLabel>
             </div>
