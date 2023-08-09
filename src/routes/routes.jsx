@@ -6,6 +6,7 @@ import { SearchPage } from "../pages/search-page";
 import SingleEventDisplay from "../pages/single-event-display";
 import { ProtectedPage } from "./protectedpage";
 import { DashboardProfile } from "../pages/dashboardprofile";
+import TopUp from "../pages/TopUp";
 class RouteClass {
   constructor(path, element) {
     this.path = path;
@@ -61,6 +62,14 @@ export const routes = [
     (
       <ProtectedPage guestOnly={false}>
         <DashboardProfile />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "dashboardprofile/topup",
+    (
+      <ProtectedPage guestOnly={false} needLogin={true}>
+        <TopUp />
       </ProtectedPage>
     )
   ),
