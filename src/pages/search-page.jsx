@@ -198,6 +198,10 @@ export const SearchPage = () => {
     updatefilter();
   }, [value]);
 
+  useEffect(() => {
+    formik.handleSubmit();
+  }, [formik.values]);
+
   return (
     <>
       <Row>
