@@ -199,7 +199,7 @@ export const Profile = () => {
             <MDBCol
               style={{
                 backgroundColor: "white",
-                width: "800px",
+                width: "",
               }}
             >
               <div style={{ padding: "20px" }}>
@@ -235,7 +235,7 @@ export const Profile = () => {
 
                   {/* event post */}
                 </div>
-                <div>
+                <div className="grid-cols-2">
                   {event?.map((event, idx) => {
                     return (
                       <div

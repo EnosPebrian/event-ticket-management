@@ -12,7 +12,9 @@
         22,
         23,
         25,
-        26
+        26,
+        27,
+        27
       ]
     },
     {
@@ -701,6 +703,44 @@
     {
       "id": 26,
       "name": "truecuks19@gmail.com",
+      "location": "",
+      "venue": "",
+      "category": "",
+      "date-start": "",
+      "date-end": "",
+      "time-start": "",
+      "time-end": "",
+      "description": "",
+      "photo": "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp",
+      "vip-ticket-price": "",
+      "vip-ticket-stock": "",
+      "presale-ticket-price": "",
+      "presale-ticket-stock": "",
+      "event-creator": "",
+      "isfree": ""
+    },
+    {
+      "id": 27,
+      "name": "jancok",
+      "location": "",
+      "venue": "",
+      "category": "",
+      "date-start": "",
+      "date-end": "",
+      "time-start": "",
+      "time-end": "",
+      "description": "",
+      "photo": "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp",
+      "vip-ticket-price": "",
+      "vip-ticket-stock": "",
+      "presale-ticket-price": "",
+      "presale-ticket-stock": "",
+      "event-creator": "",
+      "isfree": ""
+    },
+    {
+      "id": 28,
+      "name": "jancok",
       "location": "",
       "venue": "",
       "category": "",
