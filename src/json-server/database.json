@@ -635,7 +635,9 @@
         "Thanks for your excellent organization of PTIM 2019. I came home safe and sound with good memories.",
         "See you in 2021.",
         "Attending PTIM 2019 has been a great experience for me. It was so nicely organised and scientifically strong conference in the field with a lot of networking opportunities. Many congratulations to you and your team for the overall success of the conference.",
-        "Vala morghulis"
+        "Vala morghulis",
+        "111",
+        "any comment"
       ],
       "userid": [
         1,
@@ -652,6 +654,8 @@
         12,
         13,
         14,
+        3,
+        3,
         3
       ],
       "ratings": [
@@ -669,7 +673,9 @@
         3,
         4,
         5,
-        5
+        5,
+        1,
+        4
       ]
     },
     {
@@ -829,9 +835,15 @@
     {
       "id": "7",
       "eventid": "7",
-      "comments": [],
-      "userid": [],
-      "ratings": []
+      "comments": [
+        "Apakah ada comments"
+      ],
+      "userid": [
+        3
+      ],
+      "ratings": [
+        3
+      ]
     }
   ],
   "discussions": [
@@ -844,7 +856,8 @@
         "apakah ada lowongan pekerjaan?",
         "apakah ada lowongan pekerjaan?",
         "belum ada update?",
-        "valid ini"
+        "valid ini",
+        "123123"
       ],
       "question_id": [
         1,
@@ -852,6 +865,7 @@
         6,
         7,
         1,
+        3,
         3
       ],
       "reply": {
@@ -860,10 +874,14 @@
           "ada ada aja pertanyaanmu ndo"
         ],
         "2": [
-          "ada nih jadi kang parkir di event ini"
+          "ada nih jadi kang parkir di event ini",
+          "123"
         ],
         "4": [],
-        "5": []
+        "5": [],
+        "6": [
+          "244"
+        ]
       },
       "reply_id": {
         "1": [
@@ -871,10 +889,14 @@
           2
         ],
         "2": [
-          14
+          14,
+          3
         ],
         "4": [],
-        "5": []
+        "5": [],
+        "6": [
+          3
+        ]
       }
     },
     {
@@ -987,10 +1009,18 @@
     {
       "id": "7",
       "eventid": "7",
-      "question": [],
-      "question_id": [],
-      "reply": {},
-      "reply_id": {}
+      "question": [
+        "apakah ada tiket diskon?"
+      ],
+      "question_id": [
+        3
+      ],
+      "reply": {
+        "0": []
+      },
+      "reply_id": {
+        "0": []
+      }
     }
   ]
 }
