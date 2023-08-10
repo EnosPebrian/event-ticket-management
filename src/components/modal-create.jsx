@@ -18,9 +18,13 @@ export const ModalCreate = ({
   closeModal,
 }) => {
   const userProfile = localStorage.getItem("auth");
-  const user = { ...userProfile };
-  console.log("ini", user.username);
-
+  let userid;
+  try {
+    const userProfile = JSON.parse(localStorage.getItem("auth"));
+    userid = userProfile.id;
+  } catch (err) {
+    console.log(err);
+  }
   // Time input
   const now = new Date();
   const [time, setTime] = useState({
@@ -47,9 +51,29 @@ export const ModalCreate = ({
       "event-creator": "",
       isfree: "",
     },
-    onSubmit: (values) => {
-      const data = api.get("/events");
-      console.log("data yang berhasil dikirim", data);
+    onSubmit: async (values) => {
+      const temp = { ...values };
+
+      console.log("ghalo", values["description"], values["category"]);
+      if (temp["vip-ticket-price"] && temp["presale-ticket-price"]) {
+        temp["isfree"] = 0;
+        const tmpPhoto = [];
+        tmpPhoto.push(temp["photo"]);
+        temp.photo = tmpPhoto;
+        api.post("/events", temp);
+        closeModal();
+      }
+      await api.post("/events", temp);
+      const res_this_event = await api.get(
+        `/events?name=${temp.name}&location=${temp.location}&venue=${temp.venue}`
+      );
+      console.log(`1`, res_this_event);
+      const eventid = res_this_event.data[0].id;
+      const res_user = await api.get(`users/${userid}`);
+      const datauser = res_user.data;
+      datauser.events.push(eventid);
+      await api.patch(`users/${datauser.id}`, datauser);
+      closeModal();
     },
   });
   useEffect(() => {}, []);
@@ -69,15 +93,19 @@ export const ModalCreate = ({
           }}
         >
           <Form onSubmit={formik.handleSubmit} className="  w-96">
-            <img src={image} className="mb-8"></img>
+            <img id="img-default" src={imageDefault} className="mb-8"></img>
             <Input
               id="photo"
               placeholder="Image URL"
               mb={"20px"}
-              onChange={(e) =>
-                formik.setFieldValue(e.target.id, e.target.value)
-              }
-              defaultValue={""}
+              onChange={(e) => {
+                if (!e.target.value) {
+                  document.getElementById("img-default").src = imageDefault;
+                } else {
+                  document.getElementById("img-default").src = e.target.value;
+                }
+                formik.setFieldValue(e.target.id, e.target.value);
+              }}
               required
               className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
@@ -101,7 +129,27 @@ export const ModalCreate = ({
               required
               className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
-            <Form.Group controlId="startdate">
+            <Input
+              id="venue"
+              placeholder="Venue event"
+              mb={"20px"}
+              onChange={(e) =>
+                formik.setFieldValue(e.target.id, e.target.value)
+              }
+              required
+              className="bg-gray-100 rounded-md p-2 w-96"
+            ></Input>
+            <Input
+              id="category"
+              placeholder="Category event"
+              mb={"20px"}
+              onChange={(e) =>
+                formik.setFieldValue(e.target.id, e.target.value)
+              }
+              required
+              className="bg-gray-100 rounded-md p-2 w-96"
+            ></Input>
+            <Form.Group>
               start date
               <Form.Control
                 id="date-start"
@@ -114,7 +162,7 @@ export const ModalCreate = ({
               />
             </Form.Group>
             end date
-            <Form.Group controlId="enddate">
+            <Form.Group>
               <Form.Control
                 id="date-end"
                 type="date"
@@ -196,17 +244,6 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
-              className="bg-gray-100 rounded-md p-2 w-96"
-            ></Input>
-            <Input
-              id="presale-ticket-stock"
-              placeholder="Stock for ticket prisale"
-              mb={"20px"}
-              onChange={(e) =>
-                formik.setFieldValue(e.target.id, e.target.value)
-              }
-              required
-              type="radio"
               className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
           </Form>

@@ -125,12 +125,13 @@ export const Profile = () => {
                       className="rounded-circle"
                       fluid
                       style={{ width: "100px" }}
-                    />{" "}
-                    b00115d28b4e81552d1480a512d8b59fcd7c3445
+                    />
                   </div>
-                  <MDBTypography tag="h4">{""}</MDBTypography>
+                  <MDBTypography tag="h4">
+                    {userSelector.username}
+                  </MDBTypography>
                   <MDBCardText className="text-muted mb-4">
-                    <a href="#!">{""}</a>
+                    <a href="#!">{}</a>
                   </MDBCardText>
                   <div className="mb-4 pb-2"></div>
                   <Button onClick={topup}>Topup Saldo</Button>
