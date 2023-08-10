@@ -16,9 +16,9 @@ export default function EditEvent() {
   useEffect(() => {
     fetchData();
   }, []);
-  useEffect(() => {
-    fetchData();
-  }, [temp]);
+  //   useEffect(() => {
+  //     fetchData();
+  //   }, [temp]);
 
   return (
     <Container>
