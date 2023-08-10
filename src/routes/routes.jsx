@@ -9,6 +9,7 @@ import { DashboardProfile } from "../pages/dashboardprofile";
 import TopUp from "../pages/TopUp";
 import { Toast } from "../components/toast";
 import { ModalBuy } from "../components/modal-buy";
+import EditEvent from "../pages/edit-event";
 class RouteClass {
   constructor(path, element) {
     this.path = path;
@@ -78,8 +79,16 @@ export const routes = [
   new RouteClass(
     "modalBuy",
     (
-      <ProtectedPage guestOnly={false} needLogin={false}>
+      <ProtectedPage guestOnly={false} needLogin={true}>
         <ModalBuy />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "/:eventid/edit_event",
+    (
+      <ProtectedPage guestOnly={false} needLogin={true}>
+        <EditEvent />
       </ProtectedPage>
     )
   ),
