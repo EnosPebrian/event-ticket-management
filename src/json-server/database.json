@@ -27,7 +27,7 @@
       "email": "adam@mail.com",
       "password": "adamair",
       "id": 3,
-      "points": 1000970,
+      "points": 991000970,
       "referralcode": "zxciqbr12444",
       "events": [
         12
@@ -148,7 +148,7 @@
       "email": "angga@mail.com",
       "password": "angga",
       "id": 14,
-      "points": 120000,
+      "points": 999965475000,
       "referralcode": "zxciqbr12789",
       "events": [
         1
@@ -260,7 +260,7 @@
       ],
       "isfree": 0,
       "vip-ticket-price": 5000000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 10,
       "event-creator": 2
     },
     {
@@ -279,7 +279,7 @@
       ],
       "isfree": 0,
       "vip-ticket-price": 2000000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 0,
       "presale-ticket-price": 1500000,
       "presale-ticket-stock": 8,
       "event-creator": 2
@@ -318,7 +318,7 @@
         "https://api.yesplis.com/images/banner/d82209518f876dcc2496ac397675d904b64cac49.png.webp"
       ],
       "vip-ticket-price": 110000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 0,
       "presale-ticket-price": 69000,
       "presale-ticket-stock": 8,
       "event-creator": 2,
@@ -339,7 +339,7 @@
         "https://api.yesplis.com/images/banner/c70e7c400805f3f769d3871511e32f7add63301d.png.webp"
       ],
       "vip-ticket-price": 135000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 3,
       "presale-ticket-price": 85000,
       "presale-ticket-stock": 8,
       "event-creator": 3,
@@ -1510,6 +1510,13 @@
       "ratings": [
         3
       ]
+    },
+    {
+      "id": "5",
+      "eventid": "5",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -1687,6 +1694,48 @@
       "reply_id": {
         "0": []
       }
+    },
+    {
+      "id": "5",
+      "eventid": "5",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    },
+    {
+      "id": "8",
+      "eventid": "8",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "userid": 0,
+      "eventid": 0,
+      "ticketCode": "",
+      "ticketCategory": "",
+      "ticketPrice": ""
+    },
+    {
+      "userid": 3,
+      "eventid": 3,
+      "ticketCode": "5e02f51b-3a0e-b589-0033-bfdfae7bd92e",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 2
+    },
+    {
+      "userid": 3,
+      "eventid": 3,
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 3
     }
   ]
 }

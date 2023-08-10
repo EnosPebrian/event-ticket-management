@@ -10,6 +10,7 @@ import TopUp from "../pages/TopUp";
 import { Toast } from "../components/toast";
 import { ModalBuy } from "../components/modal-buy";
 import EditEvent from "../pages/edit-event";
+import { Ticket } from "../components/ticket";
 class RouteClass {
   constructor(path, element) {
     this.path = path;
@@ -89,6 +90,14 @@ export const routes = [
     (
       <ProtectedPage guestOnly={false} needLogin={true}>
         <EditEvent />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "/ticket",
+    (
+      <ProtectedPage guestOnly={false} needLogin={true}>
+        <Ticket />
       </ProtectedPage>
     )
   ),

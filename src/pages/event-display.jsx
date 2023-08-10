@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import api from "../json-server/api";
 import { useEffect, useState } from "react";
 import "../components/style.css";
+import HeaderNavbar from "../components/Header-navbar";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 
 function Eventdisplay() {
@@ -54,6 +55,7 @@ function Eventdisplay() {
 
   return (
     <>
+      <HeaderNavbar />
       <Container>
         <Carousel id="carousel-container">
           <Carousel.Item>
