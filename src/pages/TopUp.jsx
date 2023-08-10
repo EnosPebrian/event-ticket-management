@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import api from "../json-server/api";
 import { types } from "../redux/types";
+import HeaderNavbar from "../components/Header-navbar";
 
 export default function TopUp() {
   const userSelector = useSelector((state) => state.auth);
@@ -36,33 +37,36 @@ export default function TopUp() {
   //   });
   console.log(userSelector);
   return (
-    <Container>
-      <Card className="text-center">
-        <Card.Header>Top Up Saldo</Card.Header>
-        <Card.Body>
-          <Card.Title>
-            Saldo saat ini: Rp
-            {Number(userSelector.points).toLocaleString(`id-ID`)},00
-          </Card.Title>
-          <Card.Text>
-            <Form className="mt-4 d-flex flex-column align-items-center">
-              <Form.Label htmlFor="points">Tambah Saldo</Form.Label>
-              <Form.Control
-                type="number"
-                id="pointsform"
-                name="pointsform"
-                aria-describedby=""
-                min="0"
-                style={{ width: "200px" }}
-              />
-            </Form>
-          </Card.Text>
-          <Button variant="primary" onClick={addsaldo}>
-            Top Up
-          </Button>
-        </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
-      </Card>
-    </Container>
+    <>
+      <HeaderNavbar />
+      <Container>
+        <Card className="text-center">
+          <Card.Header>Top Up Saldo</Card.Header>
+          <Card.Body>
+            <Card.Title>
+              Saldo saat ini: Rp
+              {Number(userSelector.points).toLocaleString(`id-ID`)},00
+            </Card.Title>
+            <Card.Text>
+              <Form className="mt-4 d-flex flex-column align-items-center">
+                <Form.Label htmlFor="points">Tambah Saldo</Form.Label>
+                <Form.Control
+                  type="number"
+                  id="pointsform"
+                  name="pointsform"
+                  aria-describedby=""
+                  min="0"
+                  style={{ width: "200px" }}
+                />
+              </Form>
+            </Card.Text>
+            <Button variant="primary" onClick={addsaldo}>
+              Top Up
+            </Button>
+          </Card.Body>
+          <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        </Card>
+      </Container>
+    </>
   );
 }

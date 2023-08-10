@@ -3,14 +3,16 @@ import Modal from "react-bootstrap/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import api from "../json-server/api";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { type } from "@testing-library/user-event/dist/type";
 import { types } from "../redux/types";
+import uuid from "react-uuid";
 
 export const ModalBuy = (props) => {
   const userSelector = useSelector((state) => state.auth);
   const [events_map, setEvents_map] = useState(new Map());
   const dispatch = useDispatch();
+  const nav = useNavigate();
   // console.log(userSelector);
 
   const { eventid, eventname } = useParams();
@@ -41,8 +43,12 @@ export const ModalBuy = (props) => {
   // console.log(thisevent["vip-ticket-stock"]);
 
   const buy = async () => {
-    // saldo(points) berkurang
+    // const idUserLokal
+
     const sisaSaldo = userSelector.points - thisevent["vip-ticket-price"];
+    //proteksi user tidak login tapi mau beli
+    if (!userSelector.id && sisaSaldo == 0) return nav("/login");
+    // saldo(points) berkurang
     if (sisaSaldo <= 0) return alert("saldo anda tidak cukup");
 
     try {
@@ -50,20 +56,16 @@ export const ModalBuy = (props) => {
         points: sisaSaldo,
       });
 
-      // console.log("sisa saldo", sisaSaldo);
-
       await dispatch({
         type: types.update_saldo,
         payload: { ["points"]: sisaSaldo },
       });
-      // console.log(userSelector.points);
     } catch (err) {
       console.log(err);
     }
 
     // stock berkurang
     const stock = thisevent["vip-ticket-stock"];
-    console.log(stock);
 
     //apabila stok nya udah 0 maka gabisa dibeli
     if (stock <= 0) return alert("stok habis");
@@ -71,6 +73,14 @@ export const ModalBuy = (props) => {
       ["vip-ticket-stock"]: stock - 1,
     });
     props.fetchThisEvent();
+
+    //push ticket ke db
+
+    const pushTicket = await api.post("/tickets", {
+      userid: userSelector.id,
+      eventid: event_id,
+      ticketCode: uuid(),
+    });
 
     return props.onHide();
   };

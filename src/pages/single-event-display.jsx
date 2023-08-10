@@ -10,6 +10,7 @@ import FetchDiscussion from "../components/Fetchdiscussion";
 import "../components/style.css";
 import { SVGcalendar, SVGclock, SVGlocation } from "../components/SVG";
 import { ModalBuy } from "../components/modal-buy";
+import HeaderNavbar from "../components/Header-navbar";
 
 function SingleEventDisplay() {
   //get params id for querrying db
@@ -93,6 +94,7 @@ function SingleEventDisplay() {
 
   return (
     <>
+      <HeaderNavbar />
       <Container>
         <Row>
           <Col md={12} lg={9}>

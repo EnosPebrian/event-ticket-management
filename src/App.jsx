@@ -1,5 +1,4 @@
 import "./App.css";
-import Header from "./components/Header-navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import Eventdisplay from "./pages/event-display";
@@ -8,6 +7,7 @@ import { useEffect, useState } from "react";
 import { routes } from "./routes/routes";
 import { useDispatch } from "react-redux";
 import { types } from "./redux/types";
+import HeaderNavbar from "./components/Header-navbar";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +29,6 @@ function App() {
 
   return (
     <>
-      <Header />
       <Routes>
         {routes.map((route) => (
           <Route {...route} />

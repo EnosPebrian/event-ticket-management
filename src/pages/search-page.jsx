@@ -15,6 +15,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import SpinnerLoading from "../components/SpinnerLoading";
 import { useFormik } from "formik";
+import HeaderNavbar from "../components/Header-navbar";
 
 export const SearchPage = () => {
   const navigate = useNavigate();
@@ -229,6 +230,7 @@ export const SearchPage = () => {
 
   return (
     <>
+      <HeaderNavbar />
       <Row>
         <Col
           lg={2}

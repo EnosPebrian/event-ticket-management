@@ -148,7 +148,7 @@
       "email": "angga@mail.com",
       "password": "angga",
       "id": 14,
-      "points": 120000,
+      "points": 999965475000,
       "referralcode": "zxciqbr12789",
       "events": [
         1
@@ -279,7 +279,7 @@
       ],
       "isfree": 0,
       "vip-ticket-price": 2000000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 0,
       "presale-ticket-price": 1500000,
       "presale-ticket-stock": 8,
       "event-creator": 2
@@ -318,7 +318,7 @@
         "https://api.yesplis.com/images/banner/d82209518f876dcc2496ac397675d904b64cac49.png.webp"
       ],
       "vip-ticket-price": 110000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 0,
       "presale-ticket-price": 69000,
       "presale-ticket-stock": 8,
       "event-creator": 2,
@@ -339,7 +339,7 @@
         "https://api.yesplis.com/images/banner/c70e7c400805f3f769d3871511e32f7add63301d.png.webp"
       ],
       "vip-ticket-price": 135000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 3,
       "presale-ticket-price": 85000,
       "presale-ticket-stock": 8,
       "event-creator": 3,
@@ -1510,6 +1510,13 @@
       "ratings": [
         3
       ]
+    },
+    {
+      "id": "5",
+      "eventid": "5",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -1687,6 +1694,48 @@
       "reply_id": {
         "0": []
       }
+    },
+    {
+      "id": "5",
+      "eventid": "5",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    },
+    {
+      "id": "8",
+      "eventid": "8",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "userid": 0,
+      "eventid": 0,
+      "ticketCode": ""
+    },
+    {
+      "userid": 14,
+      "eventid": 7,
+      "ticketCode": "80ea964c-c393-f0d2-32f6-4f3546c181df",
+      "id": 3
+    },
+    {
+      "userid": 14,
+      "eventid": 7,
+      "ticketCode": "67956434-2380-c483-5e81-8d7f76486cec",
+      "id": 4
+    },
+    {
+      "userid": 14,
+      "eventid": 7,
+      "ticketCode": "acb72725-3028-be0c-69db-c43826582012",
+      "id": 5
     }
   ]
 }
