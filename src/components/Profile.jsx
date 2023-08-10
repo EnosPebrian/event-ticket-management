@@ -37,8 +37,6 @@ export const Profile = () => {
 
   const userSelector = useSelector((state) => state.auth);
 
-  console.log(userSelector);
-
   const topup = () => {
     nav("/dashboardprofile/topup");
   };
@@ -49,12 +47,40 @@ export const Profile = () => {
     for (let id of userevent) {
       let res = await api.get(`/events/${id}`);
       temp.push(res.data);
-      console.log("ini res", res);
     }
-    console.log(`temp`, temp);
-
+    console.log(temp);
     setEvent(temp);
   };
+
+  async function deleteEvent(ev) {
+    const today = new Date().toISOString().split("T")[0];
+    console.log(today);
+    if (
+      window.confirm(`are you sure want to delete this event and its record?`)
+    ) {
+      if (ev["date-start"] > today) {
+        if (window.confirm(`there might be several people buy tickets`)) {
+          const res = await api.get(`tickets?eventid=${ev.id}`);
+          const all_ticket = [...res.data];
+          if (all_ticket.length) {
+            for (let item of all_ticket) {
+              const res_user = await api.get(`users/${item.userid}`);
+              const this_user = res_user.data;
+              console.log(`this_user 1`, this_user);
+              const temp_points = this_user.points;
+              this_user.points = temp_points + item.ticketPrice;
+              console.log(`this_user 2`, this_user);
+              await api.patch(`users/${item.userid}`, this_user);
+            }
+          }
+          await api.delete(`events/${ev.id}`);
+        }
+      } else {
+        await api.delete(`events/${ev.id}`);
+        fetctEvents();
+      }
+    }
+  }
 
   useEffect(() => {
     fetctEvents();
@@ -168,8 +194,20 @@ export const Profile = () => {
                       <div class="card-body">
                         <h5 class="card-title">{event.name}</h5>
                         <p class="card-text">{event.category}</p>
-                        <button class="btn btn-primary mr-2">Edit</button>
-                        <button class="btn btn-primary">Delete</button>
+                        <button
+                          class="btn btn-primary mr-2"
+                          onClick={() => {
+                            nav(`/${event.id}/edit_event/${event.name}`);
+                          }}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          class="btn btn-primary"
+                          onClick={() => deleteEvent(event)}
+                        >
+                          Delete
+                        </button>
                       </div>
                     </div>
                   );
