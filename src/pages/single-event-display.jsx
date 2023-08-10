@@ -23,6 +23,8 @@ function SingleEventDisplay() {
     console.log(err);
   }
 
+  console.log(events_map);
+
   const [modalShow, setModalShow] = useState(false);
 
   const fetchEventsMap = async () => {
@@ -220,6 +222,9 @@ function SingleEventDisplay() {
                         <ModalBuy
                           show={modalShow}
                           onHide={() => setModalShow(false)}
+                          eventid={eventid}
+                          events_map={events_map}
+                          fetchThisEvent={fetchThisEvent}
                         />
                       </>
                     ) : null}
