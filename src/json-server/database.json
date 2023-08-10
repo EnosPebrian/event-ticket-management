@@ -27,7 +27,7 @@
       "email": "adam@mail.com",
       "password": "adamair",
       "id": 3,
-      "points": 1000970,
+      "points": 991000970,
       "referralcode": "zxciqbr12444",
       "events": [
         12
@@ -260,7 +260,7 @@
       ],
       "isfree": 0,
       "vip-ticket-price": 5000000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 10,
       "event-creator": 2
     },
     {
@@ -1717,25 +1717,25 @@
       "id": 1,
       "userid": 0,
       "eventid": 0,
-      "ticketCode": ""
+      "ticketCode": "",
+      "ticketCategory": "",
+      "ticketPrice": ""
     },
     {
-      "userid": 14,
-      "eventid": 7,
-      "ticketCode": "80ea964c-c393-f0d2-32f6-4f3546c181df",
+      "userid": 3,
+      "eventid": 3,
+      "ticketCode": "5e02f51b-3a0e-b589-0033-bfdfae7bd92e",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 2
+    },
+    {
+      "userid": 3,
+      "eventid": 3,
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
       "id": 3
-    },
-    {
-      "userid": 14,
-      "eventid": 7,
-      "ticketCode": "67956434-2380-c483-5e81-8d7f76486cec",
-      "id": 4
-    },
-    {
-      "userid": 14,
-      "eventid": 7,
-      "ticketCode": "acb72725-3028-be0c-69db-c43826582012",
-      "id": 5
     }
   ]
 }

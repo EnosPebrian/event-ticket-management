@@ -12,6 +12,7 @@ import HeaderNavbar from "./Header-navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { types } from "../redux/types";
 import { Container } from "react-bootstrap";
+import NavbarLogin from "./navbarLogin";
 
 export const Login = () => {
   const userSelector = useSelector((state) => state.auth);
@@ -58,6 +59,7 @@ export const Login = () => {
 
   return (
     <>
+      <NavbarLogin />
       <center>
         <div className="register-box">
           <div className="judul">

@@ -43,11 +43,12 @@ export const ModalBuy = (props) => {
   // console.log(thisevent["vip-ticket-stock"]);
 
   const buy = async () => {
-    // const idUserLokal
+    const idUserLokal = localStorage.getItem("auth");
+    console.log(idUserLokal);
 
     const sisaSaldo = userSelector.points - thisevent["vip-ticket-price"];
     //proteksi user tidak login tapi mau beli
-    if (!userSelector.id && sisaSaldo == 0) return nav("/login");
+    if (!idUserLokal && userSelector.points == 0) return nav("/login");
     // saldo(points) berkurang
     if (sisaSaldo <= 0) return alert("saldo anda tidak cukup");
 
@@ -80,6 +81,8 @@ export const ModalBuy = (props) => {
       userid: userSelector.id,
       eventid: event_id,
       ticketCode: uuid(),
+      ticketCategory: "VIP",
+      ticketPrice: thisevent["vip-ticket-price"],
     });
 
     return props.onHide();
