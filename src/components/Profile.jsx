@@ -27,7 +27,6 @@ export const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [event, setEvent] = useState();
   const ticketNumber = uuid();
-  
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -113,33 +112,6 @@ export const Profile = () => {
         className="container py-5 h-100"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
-
-        <MDBRow className="space-x-0 ">
-          <MDBCol md="12" xl="4" style={{ width: "600px" }}>
-            <MDBCard style={{ borderRadius: "15px" }}>
-              <MDBCardBody className="text-center">
-                <div className="mt-3 mb-4">
-                  <MDBCardImage
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                    className="rounded-circle"
-                    fluid
-                    style={{ width: "100px" }}
-                  />
-                </div>
-                <MDBTypography tag="h4">{userSelector.username}</MDBTypography>
-                <MDBCardText className="text-muted mb-4">
-                  <a href="#!">{userSelector.referralcode}</a>
-                </MDBCardText>
-                <div className="mb-4 pb-2"></div>
-                <Button onClick={topup}>Topup Saldo</Button>
-                <div className="d-flex justify-content-between text-center mt-5 mb-2">
-                  <div>
-                    <MDBCardText className="mb-1 h5">
-                      {userSelector.points}
-                    </MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">
-                      Wallets Balance
-                    </MDBCardText>
         {
           <MDBRow className="space-x-0 ">
             <MDBCol
@@ -156,7 +128,8 @@ export const Profile = () => {
                       className="rounded-circle"
                       fluid
                       style={{ width: "100px" }}
-                    /> b00115d28b4e81552d1480a512d8b59fcd7c3445
+                    />{" "}
+                    b00115d28b4e81552d1480a512d8b59fcd7c3445
                   </div>
                   <MDBTypography tag="h4">{""}</MDBTypography>
                   <MDBCardText className="text-muted mb-4">
@@ -262,48 +235,49 @@ export const Profile = () => {
                     <a href="">Transaction</a>
                   </div>
 
-                {/* event post */}
-              </div>
-              <div>
-                {event?.map((event, idx) => {
-                  return (
-                    <div
-                      className="card mt-4"
-                      style={{ width: "18rem" }}
-                      key={idx}
-                    >
-                      <img src={event.photo} class="card-img-top"></img>
-                      <div class="card-body">
-                        <h5 class="card-title">{event.name}</h5>
-                        <p class="card-text">{event.category}</p>
-                        <button
-                          class="btn btn-primary mr-2"
-                          onClick={() => {
-                            nav(`/${event.id}/edit_event/${event.name}`);
-                          }}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          class="btn btn-primary"
-                          onClick={() => deleteEvent(event)}
-                        >
-                          Delete
-                        </button>
+                  {/* event post */}
+                </div>
+                <div>
+                  {event?.map((event, idx) => {
+                    return (
+                      <div
+                        className="card mt-4"
+                        style={{ width: "18rem" }}
+                        key={idx}
+                      >
+                        <img src={event.photo} class="card-img-top"></img>
+                        <div class="card-body">
+                          <h5 class="card-title">{event.name}</h5>
+                          <p class="card-text">{event.category}</p>
+                          <button
+                            class="btn btn-primary mr-2"
+                            onClick={() => {
+                              nav(`/${event.id}/edit_event/${event.name}`);
+                            }}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            class="btn btn-primary"
+                            onClick={() => deleteEvent(event)}
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
+                <ModalCreate
+                  openModal={openModal}
+                  setIsModalOpen={setIsModalOpen}
+                  closeModal={closeModal}
+                  isModalOpen={isModalOpen}
+                />
               </div>
-              <ModalCreate
-                openModal={openModal}
-                setIsModalOpen={setIsModalOpen}
-                closeModal={closeModal}
-                isModalOpen={isModalOpen}
-              />
-            </div>
-          </MDBCol>
-        </MDBRow>
+            </MDBCol>
+          </MDBRow>
+        }
       </MDBContainer>
     </div>
   );
