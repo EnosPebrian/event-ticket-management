@@ -7,7 +7,7 @@
       "id": 1,
       "points": 80000,
       "referralcode": "zxciqbr12111",
-      "events": [14]
+      "events": [14, 22, 23]
     },
     {
       "username": "Blank",
@@ -23,7 +23,7 @@
       "email": "adam@mail.com",
       "password": "adamair",
       "id": 3,
-      "points": 1001000970,
+      "points": 115000000,
       "referralcode": "zxciqbr12444",
       "events": [12]
     },
@@ -551,6 +551,7 @@
       "description": "Term Of Reference Keroncong Plesiran Vol. 7 :  - Bagi Penonton yang berusia diatas 7 tahun dikenakan tiket.  - Tiket wajib ditukarkan dengan Gelang Lanyard di lokasi dengan menunjukan e-tiket melalui handphone beserta kartu identitas.  - Booking penginapan di Asram Edupark langsung hubungi CP : 0882-0202-02028 ( Iqbal )  - Tiket tidak dapat dikembalikan atau di refund dengan alasan yang timbul dari pembeli.  - Dalam keadaan force majeur yang telah resmi di umumkan oleh pemerintah, panitia dan promotor acara berhak untuk membatalkan dan/atau merubah waktu acara dan tata letak tempat tanpa pemberitahuan sebelumnya.",
       "presale-ticket-price": 299999,
       "presale-ticket-stock": 22,
+      "event-creator": 1,
       "isfree": 0
     },
     {
@@ -568,6 +569,7 @@
       "description": "ayam betina",
       "presale-ticket-price": 100000,
       "presale-ticket-stock": 11,
+      "event-creator": 1,
       "isfree": 0
     },
     {
@@ -585,6 +587,7 @@
       "category": "Music",
       "presale-ticket-price": 120000,
       "presale-ticket-stock": 22,
+      "event-creator": 1,
       "isfree": 0
     },
     {
@@ -595,6 +598,44 @@
       "category": "Travel",
       "date-start": "2023-10-23",
       "date-end": "2023-10-25",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
+      "description": "Terbang bersama dengan 1000 balon udara",
+      "photo": [
+        "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
+      ],
+      "isfree": 0,
+      "vip-ticket-price": 5000000,
+      "vip-ticket-stock": 10,
+      "event-creator": 1
+    },
+    {
+      "id": 23,
+      "name": "Festival Balon Terbang",
+      "location": "Capadocia",
+      "venue": "Skyland",
+      "category": "Travel",
+      "date-start": "2023-10-23",
+      "date-end": "2023-10-25",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
+      "description": "Terbang bersama dengan 1000 balon udara",
+      "photo": [
+        "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
+      ],
+      "isfree": 0,
+      "vip-ticket-price": 5000000,
+      "vip-ticket-stock": 10,
+      "event-creator": 1
+    },
+    {
+      "id": 24,
+      "name": "Festival Balon Terbang",
+      "location": "Capadocia",
+      "venue": "Skyland",
+      "category": "Travel",
+      "date-start": "2023-7-23",
+      "date-end": "2023-7-25",
       "time-start": "07:00:00",
       "time-end": "21:00:00",
       "description": "Terbang bersama dengan 1000 balon udara",
@@ -877,15 +918,7 @@
     },
     {
       "userid": 3,
-      "eventid": 3,
-      "ticketCode": "5e02f51b-3a0e-b589-0033-bfdfae7bd92e",
-      "ticketCategory": "VIP",
-      "ticketPrice": 5000000,
-      "id": 2
-    },
-    {
-      "userid": 3,
-      "eventid": 3,
+      "eventid": 23,
       "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
       "ticketCategory": "VIP",
       "ticketPrice": 5000000,
@@ -893,16 +926,8 @@
     },
     {
       "userid": 3,
-      "eventid": 22,
-      "ticketCode": "5e02f51b-3a0e-b589-0033-bfdfae7bd92f",
-      "ticketCategory": "VIP",
-      "ticketPrice": 5000000,
-      "id": 2
-    },
-    {
-      "userid": 3,
-      "eventid": 22,
-      "ticketCode": "5e02f51b-3a0e-b589-0033-bfdfae7bd92g",
+      "eventid": 3,
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
       "ticketCategory": "VIP",
       "ticketPrice": 5000000,
       "id": 2
@@ -910,18 +935,26 @@
     {
       "userid": 3,
       "eventid": 23,
-      "ticketCode": "5e02f51b-3a0e-b589-0033-bfdfae7bd92w",
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
       "ticketCategory": "VIP",
       "ticketPrice": 5000000,
-      "id": 2
+      "id": 4
     },
     {
       "userid": 3,
       "eventid": 23,
-      "ticketCode": "5e02f51b-3a0e-b589-0033-bfdfae7bd92q",
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
       "ticketCategory": "VIP",
       "ticketPrice": 5000000,
-      "id": 2
+      "id": 5
+    },
+    {
+      "userid": 3,
+      "eventid": 24,
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 6
     }
   ]
 }

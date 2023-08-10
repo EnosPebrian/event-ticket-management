@@ -25,7 +25,7 @@ export const Profile = () => {
   const nav = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [event, setEvent] = useState();
-  console.log(event);
+  console.log(event, `event`);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -36,6 +36,7 @@ export const Profile = () => {
   };
 
   const userSelector = useSelector((state) => state.auth);
+  console.log(`tes`, userSelector);
 
   const topup = () => {
     nav("/dashboardprofile/topup");
@@ -48,7 +49,7 @@ export const Profile = () => {
       let res = await api.get(`/events/${id}`);
       temp.push(res.data);
     }
-    console.log(temp);
+    console.log(temp, `temp`);
     setEvent(temp);
   };
 
@@ -66,11 +67,15 @@ export const Profile = () => {
             for (let item of all_ticket) {
               const res_user = await api.get(`users/${item.userid}`);
               const this_user = res_user.data;
-              console.log(`this_user 1`, this_user);
+              // console.log(`this_user 1`, this_user);
               const temp_points = this_user.points;
               this_user.points = temp_points + item.ticketPrice;
-              console.log(`this_user 2`, this_user);
+              // console.log(`this_user 2`, this_user);
               await api.patch(`users/${item.userid}`, this_user);
+              console.log(item.id);
+              const a = await api.delete(`tickets/${item.id}`);
+              console.log(a);
+
               alert(
                 `successfully retrieving ${this_user.name} credits from ${temp_points} to ${this_user.points}`
               );
@@ -80,9 +85,9 @@ export const Profile = () => {
         }
       } else {
         await api.delete(`events/${ev.id}`);
-        fetctEvents();
       }
     }
+    fetctEvents();
   }
 
   useEffect(() => {
