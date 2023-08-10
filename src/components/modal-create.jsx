@@ -11,7 +11,22 @@ import { values } from "lodash";
 import api from "../json-server/api";
 import image from "../components/asserts/default-image.jpg";
 
-export const ModalCreate = ({ isModalOpen, closeModal }) => {
+export const ModalCreate = ({
+  isModalOpen,
+  setIsModalOpen,
+  openModal,
+  closeModal,
+}) => {
+  const userProfile = localStorage.getItem("auth");
+  const user = { ...userProfile };
+  console.log("ini", user.username);
+
+  // Time input
+  const now = new Date();
+  const [time, setTime] = useState({
+    hour: now.getHours(),
+  });
+
   const formik = useFormik({
     initialValues: {
       id: "",
@@ -31,8 +46,10 @@ export const ModalCreate = ({ isModalOpen, closeModal }) => {
       "presale-ticket-stock": "",
       "event-creator": {},
     },
-
-    onSubmit: async (values) => {},
+    onSubmit: (values) => {
+      const data = api.get("/events");
+      console.log("data yang berhasil dikirim", data);
+    },
   });
   useEffect(() => {}, []);
   return (

@@ -39,12 +39,14 @@ export const Login = () => {
     console.log("auth.data", auth.data);
 
     if (auth.data == 0) return alert("email/password salah");
+
     alert("berhasil login");
 
     await dispatch({ payload: { ...auth.data[0] }, type: types.login });
 
     localStorage.setItem("auth", JSON.stringify(auth.data[0]));
     delete auth.data[0].password;
+
     nav("/home");
   };
 
@@ -113,7 +115,6 @@ export const Login = () => {
           <Button variant="primary" size="lg" onClick={login}>
             Sign In
           </Button>
-          {location.pathname !== "/login" && <HeaderNavbar />}
         </div>
       </center>
     </>

@@ -1,4 +1,4 @@
-import { Carousel, Col, Container, Form, Row } from "react-bootstrap";
+import { Carousel, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
@@ -9,6 +9,7 @@ import FetchReviews from "../components/Fetchreviews";
 import FetchDiscussion from "../components/Fetchdiscussion";
 import "../components/style.css";
 import { SVGcalendar, SVGclock, SVGlocation } from "../components/SVG";
+import { ModalBuy } from "../components/modal-buy";
 
 function SingleEventDisplay() {
   //get params id for querrying db
@@ -21,6 +22,8 @@ function SingleEventDisplay() {
   } catch (err) {
     console.log(err);
   }
+
+  const [modalShow, setModalShow] = useState(false);
 
   const fetchEventsMap = async () => {
     try {
@@ -208,7 +211,16 @@ function SingleEventDisplay() {
                         <Card.Text>
                           Stock: {an_event["vip-ticket-stock"]}
                         </Card.Text>
-                        <Button className="mb-3">Buy VIP ticket</Button>
+                        <Button
+                          className="mb-3"
+                          onClick={() => setModalShow(true)}
+                        >
+                          Buy VIP ticket
+                        </Button>
+                        <ModalBuy
+                          show={modalShow}
+                          onHide={() => setModalShow(false)}
+                        />
                       </>
                     ) : null}
                     {an_event["presale-ticket-price"] ? (

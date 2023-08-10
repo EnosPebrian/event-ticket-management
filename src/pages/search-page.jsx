@@ -230,7 +230,12 @@ export const SearchPage = () => {
   return (
     <>
       <Row>
-        <Col lg={2} className="vh-100 mt-2" id="side-bar">
+        <Col
+          lg={2}
+          className="vh-100 mt-2"
+          id="side-bar"
+          style={{ position: "sticky", top: "20px" }}
+        >
           <Row>
             <Button
               variant="primary"
