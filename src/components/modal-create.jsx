@@ -12,8 +12,6 @@ import api from "../json-server/api";
 import image from "../components/asserts/default-image.jpg";
 
 export const ModalCreate = ({ isModalOpen, closeModal }) => {
-  // Time input
-
   const formik = useFormik({
     initialValues: {
       id: "",
@@ -33,13 +31,10 @@ export const ModalCreate = ({ isModalOpen, closeModal }) => {
       "presale-ticket-stock": "",
       "event-creator": {},
     },
-    onSubmit: async (values) => {
-      const eventsAll = await api.post("/events");
-      console.log(eventsAll);
-      formik.values = values;
-    },
-  });
 
+    onSubmit: async (values) => {},
+  });
+  useEffect(() => {}, []);
   return (
     <>
       <Modal show={isModalOpen} closeModal={closeModal}>

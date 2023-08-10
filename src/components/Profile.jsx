@@ -18,10 +18,14 @@ import { Button } from "react-bootstrap";
 import { Formik, useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import api from "../json-server/api";
+import { Photo } from "@mui/icons-material";
+import userEvent from "@testing-library/user-event";
 
 export const Profile = () => {
   const nav = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [event, setEvent] = useState();
+  console.log(event);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -37,6 +41,22 @@ export const Profile = () => {
     nav(`/dashboardprofile/topUp`);
   };
 
+  const fetctEvents = async () => {
+    const userevent = userSelector.events;
+    const temp = [];
+    for (let id of userevent) {
+      let res = await api.get(`/events/${id}`);
+      temp.push(res.data);
+      console.log("ini res", res);
+    }
+    console.log(`temp`, temp);
+
+    setEvent(temp);
+  };
+
+  useEffect(() => {
+    fetctEvents();
+  }, []);
   return (
     <div
       className="vh-100"
@@ -113,15 +133,45 @@ export const Profile = () => {
                   color: "white",
                 }}
               >
-                <div>
-                  <button onClick={openModal}>Create Event</button>
-                </div>
-                <div>
-                  <a href="">Transaction</a>
-                </div>
-                <div>
+                <div
+                  className="bg-white p-1 "
+                  style={{ color: "black", borderRadius: "4px" }}
+                >
                   <a href="">Event Post</a>
                 </div>
+                <div
+                  className="hover:bg-white p-1 "
+                  style={{ color: "black", borderRadius: "4px" }}
+                >
+                  <button onClick={openModal}>Create Event</button>
+                </div>
+                <div
+                  className="hover:bg-white p-1 "
+                  style={{ color: "black", borderRadius: "4px" }}
+                >
+                  <a href="">Transaction</a>
+                </div>
+
+                {/* event post */}
+              </div>
+              <div>
+                {event?.map((event, idx) => {
+                  return (
+                    <div
+                      className="card mt-4"
+                      style={{ width: "18rem" }}
+                      key={idx}
+                    >
+                      <img src={event.photo} class="card-img-top"></img>
+                      <div class="card-body">
+                        <h5 class="card-title">{event.name}</h5>
+                        <p class="card-text">{event.category}</p>
+                        <button class="btn btn-primary mr-2">Edit</button>
+                        <button class="btn btn-primary">Delete</button>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               <ModalCreate
                 openModal={openModal}
