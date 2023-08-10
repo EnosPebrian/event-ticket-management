@@ -73,10 +73,7 @@ export const Profile = () => {
               this_user.points = temp_points + item.ticketPrice;
               // console.log(`this_user 2`, this_user);
               await api.patch(`users/${item.userid}`, this_user);
-              console.log(item.id);
               const a = await api.delete(`tickets/${item.id}`);
-              console.log(a);
-
               alert(
                 `successfully retrieving ${this_user.name} credits from ${temp_points} to ${this_user.points}`
               );

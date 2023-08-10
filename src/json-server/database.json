@@ -752,15 +752,9 @@
     {
       "id": "7",
       "eventid": "7",
-      "comments": [
-        "Apakah ada comments"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        3
-      ]
+      "comments": ["Apakah ada comments"],
+      "userid": [3],
+      "ratings": [3]
     },
     {
       "id": "5",
@@ -962,5 +956,6 @@
       "ticketPrice": 5000000,
       "id": 6
     }
-  ]
+  ],
+  "log": [{ "id": 1, "action": "db initialized by Enos" }]
 }
