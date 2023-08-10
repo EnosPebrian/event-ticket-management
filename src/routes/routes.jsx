@@ -86,7 +86,7 @@ export const routes = [
     )
   ),
   new RouteClass(
-    "/:eventid/edit_event",
+    "/:eventid/edit_event/:eventname",
     (
       <ProtectedPage guestOnly={false} needLogin={true}>
         <EditEvent />

@@ -7,9 +7,7 @@
       "id": 1,
       "points": 80000,
       "referralcode": "zxciqbr12111",
-      "events": [
-        14
-      ]
+      "events": [14, 22, 23]
     },
     {
       "username": "Blank",
@@ -18,20 +16,16 @@
       "id": 2,
       "points": 0,
       "referralcode": "zxciqbr12333",
-      "events": [
-        13
-      ]
+      "events": [13]
     },
     {
       "username": "adam",
       "email": "adam@mail.com",
       "password": "adamair",
       "id": 3,
-      "points": 991000970,
+      "points": 115000000,
       "referralcode": "zxciqbr12444",
-      "events": [
-        12
-      ]
+      "events": [12]
     },
     {
       "username": "andre",
@@ -40,9 +34,7 @@
       "id": 4,
       "points": 0,
       "referralcode": "zxciqbr12555",
-      "events": [
-        11
-      ]
+      "events": [11]
     },
     {
       "username": "ari",
@@ -51,9 +43,7 @@
       "id": 5,
       "points": 0,
       "referralcode": "zxciqbr12666",
-      "events": [
-        10
-      ]
+      "events": [10]
     },
     {
       "username": "Aaron",
@@ -62,9 +52,7 @@
       "id": 6,
       "points": 0,
       "referralcode": "zxciqbr12777",
-      "events": [
-        9
-      ]
+      "events": [9]
     },
     {
       "username": "Mamaron",
@@ -73,9 +61,7 @@
       "id": 7,
       "points": 0,
       "referralcode": "zxciqbr12888",
-      "events": [
-        8
-      ]
+      "events": [8]
     },
     {
       "username": "Kakaron",
@@ -84,9 +70,7 @@
       "id": 8,
       "points": 0,
       "referralcode": "zxciqbr12999",
-      "events": [
-        7
-      ]
+      "events": [7]
     },
     {
       "username": "Paparon",
@@ -95,9 +79,7 @@
       "id": 9,
       "points": 0,
       "referralcode": "zxciqbr12121",
-      "events": [
-        6
-      ]
+      "events": [6]
     },
     {
       "username": "Bibiron",
@@ -106,9 +88,7 @@
       "id": 10,
       "points": 0,
       "referralcode": "zxciqbr12322",
-      "events": [
-        5
-      ]
+      "events": [5]
     },
     {
       "username": "Vegetta",
@@ -117,9 +97,7 @@
       "id": 11,
       "points": 20000,
       "referralcode": "zxciqbr12245",
-      "events": [
-        4
-      ]
+      "events": [4]
     },
     {
       "username": "Saint Saturn",
@@ -128,9 +106,7 @@
       "id": 12,
       "points": 0,
       "referralcode": "zxciqbr12321",
-      "events": [
-        3
-      ]
+      "events": [3]
     },
     {
       "username": "Zoro",
@@ -139,9 +115,7 @@
       "id": 13,
       "points": 0,
       "referralcode": "zxciqbr12446",
-      "events": [
-        2
-      ]
+      "events": [2]
     },
     {
       "username": "angga",
@@ -150,9 +124,7 @@
       "id": 14,
       "points": 999965475000,
       "referralcode": "zxciqbr12789",
-      "events": [
-        1
-      ]
+      "events": [1]
     },
     {
       "username": "almandine",
@@ -579,6 +551,7 @@
       "description": "Term Of Reference Keroncong Plesiran Vol. 7 :  - Bagi Penonton yang berusia diatas 7 tahun dikenakan tiket.  - Tiket wajib ditukarkan dengan Gelang Lanyard di lokasi dengan menunjukan e-tiket melalui handphone beserta kartu identitas.  - Booking penginapan di Asram Edupark langsung hubungi CP : 0882-0202-02028 ( Iqbal )  - Tiket tidak dapat dikembalikan atau di refund dengan alasan yang timbul dari pembeli.  - Dalam keadaan force majeur yang telah resmi di umumkan oleh pemerintah, panitia dan promotor acara berhak untuk membatalkan dan/atau merubah waktu acara dan tata letak tempat tanpa pemberitahuan sebelumnya.",
       "presale-ticket-price": 299999,
       "presale-ticket-stock": 22,
+      "event-creator": 1,
       "isfree": 0
     },
     {
@@ -596,6 +569,7 @@
       "description": "ayam betina",
       "presale-ticket-price": 100000,
       "presale-ticket-stock": 11,
+      "event-creator": 1,
       "isfree": 0
     },
     {
@@ -613,673 +587,65 @@
       "category": "Music",
       "presale-ticket-price": 120000,
       "presale-ticket-stock": 22,
+      "event-creator": 1,
       "isfree": 0
     },
     {
       "id": 22,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
+      "name": "Festival Balon Terbang",
+      "location": "Capadocia",
+      "venue": "Skyland",
+      "category": "Travel",
+      "date-start": "2023-10-23",
+      "date-end": "2023-10-25",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
+      "description": "Terbang bersama dengan 1000 balon udara",
+      "photo": [
+        "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
+      ],
+      "isfree": 0,
+      "vip-ticket-price": 5000000,
+      "vip-ticket-stock": 10,
+      "event-creator": 1
     },
     {
       "id": 23,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
+      "name": "Festival Balon Terbang",
+      "location": "Capadocia",
+      "venue": "Skyland",
+      "category": "Travel",
+      "date-start": "2023-10-23",
+      "date-end": "2023-10-25",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
+      "description": "Terbang bersama dengan 1000 balon udara",
+      "photo": [
+        "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
+      ],
+      "isfree": 0,
+      "vip-ticket-price": 5000000,
+      "vip-ticket-stock": 10,
+      "event-creator": 1
     },
     {
       "id": 24,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 25,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 26,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 27,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 28,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 29,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 30,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 31,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 32,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 33,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 34,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 35,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 36,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 37,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 38,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 39,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 40,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 41,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 42,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 43,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 44,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 45,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 46,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 47,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 48,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 49,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 50,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 51,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 52,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 53,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 54,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 55,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 56,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 57,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
-    },
-    {
-      "id": 58,
-      "name": "ddddd",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "123d",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": {}
+      "name": "Festival Balon Terbang",
+      "location": "Capadocia",
+      "venue": "Skyland",
+      "category": "Travel",
+      "date-start": "2023-7-23",
+      "date-end": "2023-7-25",
+      "time-start": "07:00:00",
+      "time-end": "21:00:00",
+      "description": "Terbang bersama dengan 1000 balon udara",
+      "photo": [
+        "https://asset.kompas.com/crops/JrLqHVca9Z3au3ZMY4eCB1CjLyo=/0x0:1920x1280/780x390/data/photo/2021/12/22/61c2de43ee5c0.jpg"
+      ],
+      "isfree": 0,
+      "vip-ticket-price": 5000000,
+      "vip-ticket-stock": 10,
+      "event-creator": 1
     }
   ],
   "reviews": [
@@ -1305,44 +671,8 @@
         "111",
         "any comment"
       ],
-      "userid": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        3,
-        3,
-        3
-      ],
-      "ratings": [
-        4,
-        5,
-        4,
-        3,
-        4,
-        5,
-        5,
-        4,
-        4,
-        3,
-        4,
-        3,
-        4,
-        5,
-        5,
-        1,
-        4
-      ]
+      "userid": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 3, 3, 3],
+      "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5, 5, 1, 4]
     },
     {
       "id": 2,
@@ -1353,143 +683,64 @@
         "Tertipu janji manis",
         "Ternyata begini ya"
       ],
-      "userid": [
-        10,
-        11,
-        12,
-        3
-      ],
-      "ratings": [
-        2,
-        4,
-        2,
-        4
-      ]
+      "userid": [10, 11, 12, 3],
+      "ratings": [2, 4, 2, 4]
     },
     {
       "id": "8",
       "eventid": "8",
-      "comments": [
-        "dicoba ah",
-        "chaebol"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        3,
-        4
-      ]
+      "comments": ["dicoba ah", "chaebol"],
+      "userid": [1, 1],
+      "ratings": [3, 4]
     },
     {
       "id": "3",
       "eventid": "3",
-      "comments": [
-        "333"
-      ],
-      "userid": [
-        1
-      ],
-      "ratings": [
-        4
-      ]
+      "comments": ["333"],
+      "userid": [1],
+      "ratings": [4]
     },
     {
       "id": "6",
       "eventid": "6",
-      "comments": [
-        "111",
-        "123",
-        "1234",
-        "556"
-      ],
-      "userid": [
-        1,
-        1,
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        3,
-        3,
-        3
-      ]
+      "comments": ["111", "123", "1234", "556"],
+      "userid": [1, 1, 1, 1],
+      "ratings": [4, 3, 3, 3]
     },
     {
       "id": "20",
       "eventid": "20",
-      "comments": [
-        "123",
-        "222"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        3
-      ]
+      "comments": ["123", "222"],
+      "userid": [1, 1],
+      "ratings": [4, 3]
     },
     {
       "id": "21",
       "eventid": "21",
-      "comments": [
-        "tes review",
-        "tes review2"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        4
-      ]
+      "comments": ["tes review", "tes review2"],
+      "userid": [1, 1],
+      "ratings": [4, 4]
     },
     {
       "id": "9",
       "eventid": "9",
-      "comments": [
-        "dha pha nhe",
-        "dha pha nhe 2"
-      ],
-      "userid": [
-        3,
-        3
-      ],
-      "ratings": [
-        3,
-        3
-      ]
+      "comments": ["dha pha nhe", "dha pha nhe 2"],
+      "userid": [3, 3],
+      "ratings": [3, 3]
     },
     {
       "id": "4",
       "eventid": "4",
-      "comments": [
-        "Seru banget ini"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        5
-      ]
+      "comments": ["Seru banget ini"],
+      "userid": [3],
+      "ratings": [5]
     },
     {
       "id": "10",
       "eventid": "10",
-      "comments": [
-        "12"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        3
-      ]
+      "comments": ["12"],
+      "userid": [3],
+      "ratings": [3]
     },
     {
       "id": "dashboard",
@@ -1532,57 +783,27 @@
         "valid ini",
         "123123"
       ],
-      "question_id": [
-        1,
-        5,
-        6,
-        7,
-        1,
-        3,
-        3
-      ],
+      "question_id": [1, 5, 6, 7, 1, 3, 3],
       "reply": {
-        "1": [
-          "tidak ada kaka",
-          "ada ada aja pertanyaanmu ndo"
-        ],
-        "2": [
-          "ada nih jadi kang parkir di event ini",
-          "123"
-        ],
+        "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
+        "2": ["ada nih jadi kang parkir di event ini", "123"],
         "4": [],
         "5": [],
-        "6": [
-          "244"
-        ]
+        "6": ["244"]
       },
       "reply_id": {
-        "1": [
-          14,
-          2
-        ],
-        "2": [
-          14,
-          3
-        ],
+        "1": [14, 2],
+        "2": [14, 3],
         "4": [],
         "5": [],
-        "6": [
-          3
-        ]
+        "6": [3]
       }
     },
     {
       "id": "2",
       "eventid": "2",
-      "question": [
-        "123",
-        "123"
-      ],
-      "question_id": [
-        1,
-        3
-      ],
+      "question": ["123", "123"],
+      "question_id": [1, 3],
       "reply": {
         "0": [],
         "1": []
@@ -1595,12 +816,8 @@
     {
       "id": "6",
       "eventid": "6",
-      "question": [
-        "111"
-      ],
-      "question_id": [
-        1
-      ],
+      "question": ["111"],
+      "question_id": [1],
       "reply": {
         "0": []
       },
@@ -1619,12 +836,8 @@
     {
       "id": "3",
       "eventid": "3",
-      "question": [
-        "Layangan putus kali"
-      ],
-      "question_id": [
-        1
-      ],
+      "question": ["Layangan putus kali"],
+      "question_id": [1],
       "reply": {
         "0": []
       },
@@ -1642,12 +855,8 @@
     {
       "id": "4",
       "eventid": "4",
-      "question": [
-        "Apakah butuh sertifikasi khusus?"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["Apakah butuh sertifikasi khusus?"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
@@ -1658,12 +867,8 @@
     {
       "id": "10",
       "eventid": "10",
-      "question": [
-        "22"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["22"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
@@ -1682,12 +887,8 @@
     {
       "id": "7",
       "eventid": "7",
-      "question": [
-        "apakah ada tiket diskon?"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["apakah ada tiket diskon?"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
@@ -1736,6 +937,30 @@
       "ticketCategory": "VIP",
       "ticketPrice": 5000000,
       "id": 3
+    },
+    {
+      "userid": 3,
+      "eventid": 23,
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 4
+    },
+    {
+      "userid": 3,
+      "eventid": 23,
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 5
+    },
+    {
+      "userid": 3,
+      "eventid": 24,
+      "ticketCode": "f80b5a6f-288c-f0ce-54d6-f1800c0c1093",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 6
     }
   ]
 }
