@@ -84,9 +84,9 @@ export const Profile = () => {
                     style={{ width: "100px" }}
                   />
                 </div>
-                <MDBTypography tag="h4">{""}</MDBTypography>
+                <MDBTypography tag="h4">{userSelector.username}</MDBTypography>
                 <MDBCardText className="text-muted mb-4">
-                  <a href="#!">{""}</a>
+                  <a href="#!">{userSelector.referralcode}</a>
                 </MDBCardText>
                 <div className="mb-4 pb-2"></div>
                 <Button onClick={topup}>Topup Saldo</Button>

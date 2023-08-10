@@ -44,7 +44,8 @@ export const ModalCreate = ({
       "vip-ticket-stock": "",
       "presale-ticket-price": "",
       "presale-ticket-stock": "",
-      "event-creator": {},
+      "event-creator": "",
+      isfree: "",
     },
     onSubmit: (values) => {
       const data = api.get("/events");
@@ -195,6 +196,17 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
+              className="bg-gray-100 rounded-md p-2 w-96"
+            ></Input>
+            <Input
+              id="presale-ticket-stock"
+              placeholder="Stock for ticket prisale"
+              mb={"20px"}
+              onChange={(e) =>
+                formik.setFieldValue(e.target.id, e.target.value)
+              }
+              required
+              type="radio"
               className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
           </Form>
