@@ -29,12 +29,12 @@ export default function TopUp() {
       console.log(err);
     }
   }
-  //   const formik = useFormik({
-  //     initialValues: { pointsform: 0 },
-  //     validationSchema: Yup.object().shape({
-  //       pointsform: Yup.number().min(1),
-  //     }),
-  //   });
+  const formik = useFormik({
+    initialValues: { pointsform: 0 },
+    validationSchema: Yup.object().shape({
+      pointsform: Yup.number().min(1),
+    }),
+  });
   console.log(userSelector);
   return (
     <>
@@ -50,6 +50,10 @@ export default function TopUp() {
             <Card.Text>
               <Form className="mt-4 d-flex flex-column align-items-center">
                 <Form.Label htmlFor="points">Tambah Saldo</Form.Label>
+                <p>
+                  Rp{Number(formik.values.pointsform).toLocaleString("id-ID")}
+                  ,00
+                </p>
                 <Form.Control
                   type="number"
                   id="pointsform"
@@ -57,6 +61,7 @@ export default function TopUp() {
                   aria-describedby=""
                   min="0"
                   style={{ width: "200px" }}
+                  onChange={formik.handleChange}
                 />
               </Form>
             </Card.Text>

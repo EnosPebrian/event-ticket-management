@@ -17,10 +17,10 @@ export const ModalCreate = ({
   openModal,
   closeModal,
 }) => {
-  const userProfile = localStorage.getItem("auth");
+  let userProfile;
   let userid;
   try {
-    const userProfile = JSON.parse(localStorage.getItem("auth"));
+    userProfile = JSON.parse(localStorage.getItem("auth"));
     userid = userProfile.id;
   } catch (err) {
     console.log(err);

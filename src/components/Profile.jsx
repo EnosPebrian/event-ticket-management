@@ -116,6 +116,7 @@ export const Profile = () => {
   };
 
   useEffect(() => {
+    console.log(userSelector, "e");
     fetctEvents();
     getTicket();
   }, [userSelector]);
