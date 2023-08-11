@@ -22,7 +22,7 @@ function FetchReviews({ eventid, users_map, events_map }) {
   let userid;
 
   const userSelector = useSelector((state) => state.auth);
-  useEffect(() => console.log(`userselector detailpage`, userSelector));
+  // useEffect(() => console.log(`userselector detailpage`, userSelector));
 
   try {
     userid = JSON.parse(localStorage.getItem("auth")).id;
@@ -93,8 +93,19 @@ function FetchReviews({ eventid, users_map, events_map }) {
   const submitNewComment = async () => {
     if (!userid) return navigate(`/login`);
     if (rating == 0) return alert(`please add a rating`);
-    if (document.getElementById("ticketcode").value === "")
+    if (document.getElementById("ticketcode").value === "") {
       return alert(`please input your ticket code`);
+    } else {
+      const res_code = await api.get(
+        `tickets?ticketCode=${document.getElementById("ticketcode").value}`
+      );
+      // console.log(res_code);
+      const code = res_code.data[0];
+      console.log(userid, code);
+      if (!code?.ticketCode) return alert(`wrong ticket code`);
+      if (userid != code?.userid)
+        return alert(`You are not attending this event`);
+    }
     setNewcomment({
       id: eventid,
       eventid: eventid,
