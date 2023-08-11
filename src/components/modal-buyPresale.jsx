@@ -49,7 +49,7 @@ export const ModalBuyPresale = (props) => {
     //proteksi user tidak login tapi mau beli
     if (!idUserLokal && userSelector.points == 0) return nav("/login");
     // saldo(points) berkurang
-    const sisaSaldo = userSelector.points - thisevent["vip-ticket-price"];
+    const sisaSaldo = userSelector.points - thisevent["presale-ticket-price"];
     if (sisaSaldo <= 0) return alert("saldo anda tidak cukup");
 
     try {
@@ -82,7 +82,7 @@ export const ModalBuyPresale = (props) => {
       eventid: event_id,
       ticketCode: uuid(),
       ticketCategory: "PRESALE",
-      ticketPrice: thisevent["vip-ticket-price"],
+      ticketPrice: thisevent["presale-ticket-price"],
     });
 
     return props.onHide();
@@ -105,7 +105,7 @@ export const ModalBuyPresale = (props) => {
           Price of this ticket: Rp
           {thisevent &&
             thisevent &&
-            Number(thisevent["vip-ticket-price"]).toLocaleString(`id-ID`)}
+            Number(thisevent["presale-ticket-price"]).toLocaleString(`id-ID`)}
           ,00
         </div>
         <div>

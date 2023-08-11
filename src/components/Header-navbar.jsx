@@ -109,14 +109,14 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Logout
               </Button>
+              <Button
+                variant="outline-success"
+                style={{ marginLeft: "20px" }}
+                onClick={profile}
+              >
+                Profile
+              </Button>
             </Form>
-            <Button
-              variant="outline-success"
-              style={{ marginLeft: "20px" }}
-              onClick={profile}
-            >
-              Profile
-            </Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

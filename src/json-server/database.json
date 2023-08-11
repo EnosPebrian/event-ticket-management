@@ -5,7 +5,7 @@
       "email": "admin@mail.com",
       "password": "admin123",
       "id": 1,
-      "points": 80000,
+      "points": 11000,
       "referralcode": "zxciqbr12111",
       "events": [
         14,
@@ -326,7 +326,7 @@
       "vip-ticket-price": 110000,
       "vip-ticket-stock": 0,
       "presale-ticket-price": 69000,
-      "presale-ticket-stock": 8,
+      "presale-ticket-stock": 7,
       "event-creator": 2,
       "isfree": 0
     },
@@ -1032,6 +1032,13 @@
       "comments": [],
       "userid": [],
       "ratings": []
+    },
+    {
+      "id": "11",
+      "eventid": "11",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -1243,6 +1250,22 @@
       "question_id": [],
       "reply": {},
       "reply_id": {}
+    },
+    {
+      "id": "9",
+      "eventid": "9",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    },
+    {
+      "id": "11",
+      "eventid": "11",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
     }
   ],
   "tickets": [
@@ -1346,6 +1369,14 @@
       "ticketCode": "246ca8d9-503b-501d-cd17-305feaf364fa",
       "ticketCategory": "FREE",
       "id": 13
+    },
+    {
+      "userid": 1,
+      "eventid": 6,
+      "ticketCode": "8b780f1c-a886-c9c6-f2cd-cd2f942b523c",
+      "ticketCategory": "PRESALE",
+      "ticketPrice": 69000,
+      "id": 14
     }
   ],
   "log": [

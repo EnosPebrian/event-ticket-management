@@ -236,7 +236,7 @@ export const SearchPage = () => {
           lg={2}
           className="vh-100 mt-2"
           id="side-bar"
-          style={{ position: "sticky", top: "20px" }}
+          style={{ position: "sticky", top: "70px" }}
         >
           <Row>
             <Button

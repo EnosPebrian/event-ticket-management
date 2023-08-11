@@ -118,14 +118,19 @@ export const Profile = () => {
     >
       <MDBContainer
         className="container py-5 h-100"
-        style={{ display: "flex", justifyContent: "space-between" }}
+        style={{ display: "flex", justifyContent: "center" }}
       >
         {
-          <MDBRow className="space-x-0 ">
+          <MDBRow
+            className="space-x-0"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <MDBCol
               md="12"
               xl="4"
-              style={{ width: "600px" }}
+              style={{
+                width: "600px",
+              }}
               className="card atas"
             >
               <MDBCard style={{ borderRadius: "15px" }}>
@@ -139,7 +144,7 @@ export const Profile = () => {
                     />
                   </div>
                   <MDBTypography tag="h4">
-                   Welcome, {userSelector.username} !
+                    Welcome, {userSelector.username} !
                   </MDBTypography>
                   <MDBCardText className="text-muted mb-4">
                     <a href="#!">{}</a>
@@ -213,7 +218,6 @@ export const Profile = () => {
             <MDBCol
               style={{
                 backgroundColor: "white",
-                width: "",
               }}
             >
               <div style={{ padding: "20px" }}>
@@ -249,15 +253,23 @@ export const Profile = () => {
 
                   {/* event post */}
                 </div>
-                <div className="grid-cols-2">
+                <MDBCol className="grid grid-cols-2">
                   {event?.map((event, idx) => {
                     return (
                       <div
                         className="card mt-4"
-                        style={{ width: "18rem" }}
+                        style={{ maxWidth: "18rem" }}
                         key={idx}
                       >
-                        <img src={event.photo} class="card-img-top"></img>
+                        <img
+                          src={event.photo}
+                          class="card-img-top"
+                          style={{
+                            maxHeight: "150px",
+                            aspectRatio: "1/1",
+                            objectFit: "fill",
+                          }}
+                        />
                         <div class="card-body">
                           <h5 class="card-title">{event.name}</h5>
                           <p class="card-text">{event.category}</p>
@@ -279,7 +291,7 @@ export const Profile = () => {
                       </div>
                     );
                   })}
-                </div>
+                </MDBCol>
                 <ModalCreate
                   openModal={openModal}
                   setIsModalOpen={setIsModalOpen}
