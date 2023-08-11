@@ -66,7 +66,7 @@
       "email": "Aaron@mail.com",
       "password": "aaron",
       "id": 6,
-      "points": 0,
+      "points": 685000,
       "referralcode": "zxciqbr12777",
       "events": [
         9
@@ -266,7 +266,7 @@
       ],
       "isfree": 0,
       "vip-ticket-price": 5000000,
-      "vip-ticket-stock": 10,
+      "vip-ticket-stock": 9,
       "event-creator": 2
     },
     {
@@ -287,7 +287,7 @@
       "vip-ticket-price": 2000000,
       "vip-ticket-stock": 0,
       "presale-ticket-price": 1500000,
-      "presale-ticket-stock": 8,
+      "presale-ticket-stock": 7,
       "event-creator": 2
     },
     {
@@ -368,7 +368,7 @@
       "vip-ticket-price": 110000,
       "vip-ticket-stock": 12,
       "presale-ticket-price": 69000,
-      "presale-ticket-stock": 8,
+      "presale-ticket-stock": 7,
       "event-creator": 4,
       "isfree": 0
     },
@@ -450,7 +450,7 @@
         "https://api.yesplis.com/images/banner/763ca0d1291e49e8587d6899ad1df02d7ba765d9.png.webp"
       ],
       "vip-ticket-price": 205000,
-      "vip-ticket-stock": 12,
+      "vip-ticket-stock": 11,
       "presale-ticket-price": 140000,
       "presale-ticket-stock": 8,
       "event-creator": 9,
@@ -993,6 +993,27 @@
       "comments": [],
       "userid": [],
       "ratings": []
+    },
+    {
+      "id": "15",
+      "eventid": "15",
+      "comments": [],
+      "userid": [],
+      "ratings": []
+    },
+    {
+      "id": "14",
+      "eventid": "14",
+      "comments": [],
+      "userid": [],
+      "ratings": []
+    },
+    {
+      "id": "12",
+      "eventid": "12",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -1186,6 +1207,22 @@
       "question_id": [],
       "reply": {},
       "reply_id": {}
+    },
+    {
+      "id": "14",
+      "eventid": "14",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
+    },
+    {
+      "id": "12",
+      "eventid": "12",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
     }
   ],
   "tickets": [
@@ -1236,6 +1273,59 @@
       "ticketCategory": "VIP",
       "ticketPrice": 5000000,
       "id": 6
+    },
+    {
+      "userid": 6,
+      "eventid": 3,
+      "ticketCode": "943e950b-810f-718e-05bf-936a9767e37b",
+      "ticketCategory": "VIP",
+      "ticketPrice": 5000000,
+      "id": 7
+    },
+    {
+      "userid": 6,
+      "eventid": 12,
+      "ticketCode": "44b18128-2dc4-0ee8-414d-d4a6d9563148",
+      "ticketCategory": "VIP",
+      "ticketPrice": 205000,
+      "id": 8
+    },
+    {
+      "userid": 6,
+      "eventid": 4,
+      "ticketCode": "4347b587-082c-0d07-f9f8-ef329c50e012",
+      "ticketCategory": "VIP",
+      "ticketPrice": 2000000,
+      "id": 9
+    },
+    {
+      "userid": 6,
+      "eventid": 8,
+      "ticketCode": "661330c0-8ef1-081f-0a66-812fd9556e0a",
+      "ticketCategory": "VIP",
+      "ticketPrice": 110000,
+      "id": 10
+    },
+    {
+      "userid": 6,
+      "eventid": "2",
+      "ticketCode": "efe4900e-88fe-e40e-cf1d-3b074d38cf01",
+      "ticketCategory": "FREE",
+      "id": 11
+    },
+    {
+      "userid": 6,
+      "eventid": "2",
+      "ticketCode": "f9694a7b-6e2a-b255-48e7-d3ce5ef5a1d8",
+      "ticketCategory": "FREE",
+      "id": 12
+    },
+    {
+      "userid": 6,
+      "eventid": "2",
+      "ticketCode": "246ca8d9-503b-501d-cd17-305feaf364fa",
+      "ticketCategory": "FREE",
+      "id": 13
     }
   ],
   "log": [
