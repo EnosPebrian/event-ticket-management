@@ -11,6 +11,8 @@ import "../components/style.css";
 import { SVGcalendar, SVGclock, SVGlocation } from "../components/SVG";
 import { ModalBuy } from "../components/modal-buy";
 import HeaderNavbar from "../components/Header-navbar";
+import { ModalBuyPresale } from "../components/modal-buyPresale";
+import uuid from "react-uuid";
 
 function SingleEventDisplay() {
   //get params id for querrying db
@@ -25,6 +27,7 @@ function SingleEventDisplay() {
   }
 
   console.log(events_map);
+  const thisevent = events_map.get(eventid);
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -84,6 +87,24 @@ function SingleEventDisplay() {
     setRating_map(temp_obj);
     setRating_length(temp_total_reviews);
   }
+
+  const buyFreeTicket = async () => {
+    try {
+      const res = await api.get(`/events/${eventid}`);
+      //push ticket ke db
+      if (res.data.isfree == 1) {
+        const userSelectorLocal = JSON.parse(localStorage.getItem("auth"));
+        const pushTicket = await api.post("/tickets", {
+          userid: userSelectorLocal.id,
+          eventid: eventid,
+          ticketCode: uuid(),
+          ticketCategory: "FREE",
+        });
+      } else alert("event ini tidak gratis");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     fetchEventsMap();
@@ -182,7 +203,11 @@ function SingleEventDisplay() {
                     <span>{an_event["venue"]}</span>
                   </span>
                 </Card.Text>
-                <Button variant="primary" href="#Ticket-card">
+                <Button
+                  variant="primary"
+                  href="#Ticket-card"
+                  onClick={buyFreeTicket}
+                >
                   Add ticket to Cart
                 </Button>
               </Card.Body>
@@ -243,7 +268,16 @@ function SingleEventDisplay() {
                         <Card.Text>
                           Stock: {an_event["presale-ticket-stock"]}
                         </Card.Text>
-                        <Button>Buy Presale ticket</Button>
+                        <Button onClick={() => setModalShow(true)}>
+                          Buy Presale ticket
+                        </Button>
+                        <ModalBuyPresale
+                          show={modalShow}
+                          onHide={() => setModalShow(false)}
+                          eventid={eventid}
+                          events_map={events_map}
+                          fetchThisEvent={fetchThisEvent}
+                        />
                       </>
                     ) : null}
                   </>
@@ -276,6 +310,7 @@ function SingleEventDisplay() {
                 users_map={users_map}
                 events_map={events_map}
                 eventid={eventid}
+                an_event={an_event}
               />
             </Card>
           </Col>

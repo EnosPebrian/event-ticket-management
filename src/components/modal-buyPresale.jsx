@@ -8,7 +8,7 @@ import { type } from "@testing-library/user-event/dist/type";
 import { types } from "../redux/types";
 import uuid from "react-uuid";
 
-export const ModalBuy = (props) => {
+export const ModalBuyPresale = (props) => {
   const userSelector = useSelector((state) => state.auth);
   const [events_map, setEvents_map] = useState(new Map());
   const dispatch = useDispatch();
@@ -66,12 +66,12 @@ export const ModalBuy = (props) => {
     }
 
     // stock berkurang
-    const stock = thisevent["vip-ticket-stock"];
+    const stock = thisevent["presale-ticket-stock"];
 
     //apabila stok nya udah 0 maka gabisa dibeli
     if (stock <= 0) return alert("stok habis");
     await api.patch(`/events/${event_id}`, {
-      ["vip-ticket-stock"]: stock - 1,
+      ["presale-ticket-stock"]: stock - 1,
     });
     props.fetchThisEvent();
 
@@ -81,7 +81,7 @@ export const ModalBuy = (props) => {
       userid: userSelector.id,
       eventid: event_id,
       ticketCode: uuid(),
-      ticketCategory: "VIP",
+      ticketCategory: "PRESALE",
       ticketPrice: thisevent["vip-ticket-price"],
     });
 
@@ -118,7 +118,7 @@ export const ModalBuy = (props) => {
           Close
         </Button>
         <Button variant="primary" onClick={buy}>
-          Buy VIP Ticket
+          Buy Presale Ticket
         </Button>
       </Modal.Footer>
     </Modal>

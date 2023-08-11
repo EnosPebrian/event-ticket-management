@@ -18,7 +18,7 @@ function Eventdisplay() {
     try {
       const res_events = await api.get("/events");
       setEvents([...res_events.data]);
-      // console.log(events);
+      console.log(res_events);
     } catch (err) {
       console.log(err);
     }

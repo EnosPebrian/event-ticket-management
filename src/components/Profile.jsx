@@ -21,12 +21,14 @@ import api from "../json-server/api";
 import { Photo } from "@mui/icons-material";
 import userEvent from "@testing-library/user-event";
 import uuid from "react-uuid";
+import { Ticket } from "./ticket";
 
 export const Profile = () => {
   const nav = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [event, setEvent] = useState();
   const ticketNumber = uuid();
+  const [tickets, setTickets] = useState([]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -37,6 +39,7 @@ export const Profile = () => {
   };
 
   const userSelector = useSelector((state) => state.auth);
+  const userSelectorLocal = JSON.parse(localStorage.getItem("auth"));
   console.log(`tes`, userSelector);
 
   const topup = () => {
@@ -44,7 +47,7 @@ export const Profile = () => {
   };
 
   const fetctEvents = async () => {
-    const userevent = userSelector.events;
+    const userevent = userSelectorLocal.events;
     const temp = [];
     for (let id of userevent) {
       let res = await api.get(`/events/${id}`);
@@ -52,6 +55,13 @@ export const Profile = () => {
     }
     console.log(temp, `temp`);
     setEvent(temp);
+  };
+
+  // get ticket data
+  const getTicket = async () => {
+    console.log(userSelectorLocal.id);
+    const resTicket = await api.get(`/tickets?userid=${userSelectorLocal.id}`);
+    setTickets(resTicket.data);
   };
 
   async function deleteEvent(ev) {
@@ -94,6 +104,7 @@ export const Profile = () => {
 
   useEffect(() => {
     fetctEvents();
+    getTicket();
   }, []);
 
   return (
@@ -128,7 +139,7 @@ export const Profile = () => {
                     />
                   </div>
                   <MDBTypography tag="h4">
-                    {userSelector.username}
+                   Welcome, {userSelector.username} !
                   </MDBTypography>
                   <MDBCardText className="text-muted mb-4">
                     <a href="#!">{}</a>
@@ -160,7 +171,10 @@ export const Profile = () => {
                   </div>
                 </MDBCardBody>
 
-                <MDBCardBody
+                {tickets.map((ticket) => (
+                  <Ticket ticket={ticket} />
+                ))}
+                {/*   <MDBCardBody
                   className="text-center"
                   id="card bawah"
                   style={{ border: "1px solid" }}
@@ -191,7 +205,7 @@ export const Profile = () => {
                     Your Ticket Number: &emsp; {ticketNumber}
                   </div>
                   <Button onClick={ticketDetail}>get Ticket Details</Button>
-                </MDBCardBody>
+                </MDBCardBody> */}
               </MDBCard>
             </MDBCol>
 
