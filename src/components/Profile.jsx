@@ -48,10 +48,15 @@ export const Profile = () => {
 
   const fetctEvents = async () => {
     const userevent = userSelectorLocal.events;
+    console.log("user", userevent);
     const temp = [];
-    for (let id of userevent) {
-      let res = await api.get(`/events/${id}`);
-      temp.push(res.data);
+    try {
+      for (let id of userevent) {
+        let res = await api.get(`/events/${id}`);
+        temp.push(res.data);
+      }
+    } catch (err) {
+      console.log(err);
     }
     console.log(temp, `temp`);
     setEvent(temp);
@@ -103,9 +108,10 @@ export const Profile = () => {
   };
 
   useEffect(() => {
+    console.log(userSelector, "e");
     fetctEvents();
     getTicket();
-  }, []);
+  }, [userSelector]);
 
   return (
     <div

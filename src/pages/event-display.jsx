@@ -43,6 +43,9 @@ function Eventdisplay() {
         element.ratings.reduce((acc, currentVal) => acc + currentVal, 0) /
         element.ratings.length;
       total_reviews = element.ratings.length;
+      if (isNaN(avg_rating)) {
+        avg_rating = "";
+      }
       temp_obj[element.id] = avg_rating;
       temp_total_reviews[element.id] = total_reviews;
       // console.log(temp_obj);
