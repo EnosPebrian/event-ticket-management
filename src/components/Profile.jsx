@@ -40,28 +40,41 @@ export const Profile = () => {
 
   const userSelector = useSelector((state) => state.auth);
   const userSelectorLocal = JSON.parse(localStorage.getItem("auth"));
-  console.log(`tes`, userSelector);
 
   const topup = () => {
     nav("/dashboardprofile/topup");
   };
 
   const fetctEvents = async () => {
-    const userevent = userSelectorLocal.events;
-    const temp = [];
-    for (let id of userevent) {
-      let res = await api.get(`/events/${id}`);
-      temp.push(res.data);
+    try {
+      const userevent = userSelector.events;
+      console.log("ayam event", userevent);
+      const temp = [];
+
+      for (let id of userevent) {
+        let res = await api.get(`/events/${id}`);
+        temp.push(res.data);
+      }
+
+      console.log(`temp`, temp);
+      setEvent(temp);
+    } catch (error) {
+      console.log(error);
     }
-    console.log(temp, `temp`);
-    setEvent(temp);
   };
 
+  console.log("INI ADALAH EVENT", event);
   // get ticket data
   const getTicket = async () => {
-    console.log(userSelectorLocal.id);
-    const resTicket = await api.get(`/tickets?userid=${userSelectorLocal.id}`);
-    setTickets(resTicket.data);
+    try {
+      console.log(userSelectorLocal.id);
+      const resTicket = await api.get(
+        `/tickets?userid=${userSelectorLocal.id}`
+      );
+      setTickets(resTicket.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   async function deleteEvent(ev) {
@@ -105,7 +118,7 @@ export const Profile = () => {
   useEffect(() => {
     fetctEvents();
     getTicket();
-  }, []);
+  }, [userSelector]);
 
   return (
     <div
@@ -147,7 +160,7 @@ export const Profile = () => {
                     Welcome, {userSelector.username} !
                   </MDBTypography>
                   <MDBCardText className="text-muted mb-4">
-                    <a href="#!">{}</a>
+                    <a href="#!">{userSelector.referralcode}</a>
                   </MDBCardText>
                   <div className="mb-4 pb-2"></div>
                   <Button onClick={topup}>Topup Saldo</Button>
