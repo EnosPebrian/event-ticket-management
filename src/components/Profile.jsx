@@ -40,15 +40,15 @@ export const Profile = () => {
 
   const userSelector = useSelector((state) => state.auth);
   const userSelectorLocal = JSON.parse(localStorage.getItem("auth"));
-  console.log(`tes`, userSelector);
+  // console.log(`tes`, userSelector);
 
   const topup = () => {
     nav("/dashboardprofile/topup");
   };
 
   const fetctEvents = async () => {
-    const userevent = userSelectorLocal.events;
-    console.log("user", userevent);
+    const userevent = userSelectorLocal?.events;
+    // console.log("user", userevent);
     const temp = [];
     try {
       for (let id of userevent) {
@@ -58,20 +58,27 @@ export const Profile = () => {
     } catch (err) {
       console.log(err);
     }
-    console.log(temp, `temp`);
+    // console.log(temp, `temp`);
     setEvent(temp);
   };
 
   // get ticket data
   const getTicket = async () => {
-    console.log(userSelectorLocal.id);
-    const resTicket = await api.get(`/tickets?userid=${userSelectorLocal.id}`);
-    setTickets(resTicket.data);
+    // console.log(userSelectorLocal?.id);
+    try {
+      const resTicket = await api.get(
+        `/tickets?userid=${userSelectorLocal.id}`
+      );
+      setTickets(resTicket.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   async function deleteEvent(ev) {
     const today = new Date().toISOString().split("T")[0];
-    console.log(today);
+    console.log(ev, `ev.id`, ev.id);
+
     if (
       window.confirm(`are you sure want to delete this event and its record?`)
     ) {
@@ -108,7 +115,7 @@ export const Profile = () => {
   };
 
   useEffect(() => {
-    console.log(userSelector, "e");
+    // console.log(userSelector, "e");
     fetctEvents();
     getTicket();
   }, [userSelector]);

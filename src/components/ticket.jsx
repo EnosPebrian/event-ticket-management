@@ -34,7 +34,7 @@ export const Ticket = ({ ticket }) => {
     }
   };
 
-  console.log(events_map);
+  // console.log(events_map);
 
   const getEvent = async () => {
     const eventData = await api.get("/events");
