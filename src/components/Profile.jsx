@@ -51,7 +51,7 @@ export const Profile = () => {
     try {
       let eventAmount;
       const eventCreator = await api.get(`/events?event-creator=${userid}`);
-      eventAmount = eventCreator;
+      eventAmount = eventCreator.data;
       setEvent(eventAmount.length);
     } catch (error) {
       console.log(error);
@@ -112,7 +112,7 @@ export const Profile = () => {
     console.log(userSelector, "e");
     fetctEvents();
     getTicket();
-  }, [userSelector]);
+  }, [userSelector, event]);
 
   return (
     <div
@@ -169,7 +169,7 @@ export const Profile = () => {
                       </MDBCardText>
                     </div>
                     <div className="px-3">
-                      <MDBCardText className="mb-1 h5">8512</MDBCardText>
+                      <MDBCardText className="mb-1 h5">{event}</MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
                         Followers
                       </MDBCardText>
@@ -219,95 +219,32 @@ export const Profile = () => {
                   <Button onClick={ticketDetail}>get Ticket Details</Button>
                 </MDBCardBody> */}
               </MDBCard>
-            </MDBCol>
-
-            {/* events details*/}
-            <MDBCol
-              style={{
-                backgroundColor: "white",
-              }}
-            >
-              <div style={{ padding: "20px" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    backgroundColor: "#0D6EFD",
-                    padding: "10px",
-                    borderRadius: "5px",
-                    color: "white",
-                  }}
+              <div
+                style={{ marginTop: "20px", justifyContent: "space-between" }}
+                className="flex "
+              >
+                {" "}
+                <button
+                  onClick={openModal}
+                  className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded :"
                 >
-                  <div
-                    className="bg-white p-1 "
-                    style={{ color: "black", borderRadius: "4px" }}
-                  >
-                    <a href="">Event Post</a>
-                  </div>
-                  <div
-                    className="hover:bg-white p-1 "
-                    style={{ color: "black", borderRadius: "4px" }}
-                  >
-                    <button onClick={openModal}>Create Event</button>
-                  </div>
-                  <div
-                    className="hover:bg-white p-1 "
-                    style={{ color: "black", borderRadius: "4px" }}
-                  >
-                    <a href="">Transaction</a>
-                  </div>
-
-                  {/* event post */}
-                </div>
-                <MDBCol className="grid grid-cols-2">
-                  {/* {event?.map((event, idx) => {
-                    return (
-                      <div
-                        className="card mt-4"
-                        style={{ maxWidth: "18rem" }}
-                        key={idx}
-                      >
-                        <img
-                          src={event.photo}
-                          class="card-img-top"
-                          style={{
-                            maxHeight: "150px",
-                            aspectRatio: "1/1",
-                            objectFit: "fill",
-                          }}
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">{event.name}</h5>
-                          <p class="card-text">{event.category}</p>
-                          <button
-                            class="btn btn-primary mr-2"
-                            onClick={() => {
-                              nav(`/${event.id}/edit_event/${event.name}`);
-                            }}
-                          >
-                            Edit
-                          </button>
-                          <button
-                            class="btn btn-primary"
-                            onClick={() => deleteEvent(event)}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })} */}
-                  {}
-                </MDBCol>
-                <ModalCreate
-                  openModal={openModal}
-                  setIsModalOpen={setIsModalOpen}
-                  closeModal={closeModal}
-                  isModalOpen={isModalOpen}
-                />
+                  Create Event
+                </button>
+                <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded :">
+                  Edit Event
+                </button>
+                <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded :">
+                  Delete Event
+                </button>
               </div>
             </MDBCol>
+
+            <ModalCreate
+              openModal={openModal}
+              setIsModalOpen={setIsModalOpen}
+              closeModal={closeModal}
+              isModalOpen={isModalOpen}
+            />
           </MDBRow>
         }
       </MDBContainer>

@@ -62,11 +62,12 @@
       "email": "ari@mail.com",
       "password": "ari",
       "id": 5,
-      "points": 0,
+      "points": 1000000,
       "referralcode": "zxciqbr12666",
       "events": [
         10,
-        37
+        37,
+        38
       ]
     },
     {
@@ -933,6 +934,25 @@
       "time-end": "",
       "description": "",
       "photo": "https://api.yesplis.com/images/banner/0602419a6fb0488b71d9674997d8154d66cfe035.png.webp",
+      "vip-ticket-price": "",
+      "vip-ticket-stock": "",
+      "presale-ticket-price": "",
+      "presale-ticket-stock": "",
+      "event-creator": 5,
+      "isfree": 1
+    },
+    {
+      "id": 38,
+      "name": "Nangis atuhh tehh uyy",
+      "location": "",
+      "venue": "",
+      "category": "",
+      "date-start": "",
+      "date-end": "",
+      "time-start": "",
+      "time-end": "",
+      "description": "",
+      "photo": "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp",
       "vip-ticket-price": "",
       "vip-ticket-stock": "",
       "presale-ticket-price": "",
