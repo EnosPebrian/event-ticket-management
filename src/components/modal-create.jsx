@@ -48,8 +48,8 @@ export const ModalCreate = ({
       "vip-ticket-stock": "",
       "presale-ticket-price": "",
       "presale-ticket-stock": "",
-      "event-creator": "",
-      isfree: "",
+      "event-creator": userProfile.id,
+      isfree: 1,
     },
     onSubmit: async (values) => {
       const temp = { ...values };

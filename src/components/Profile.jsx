@@ -38,17 +38,17 @@ export const Profile = () => {
     setIsModalOpen(false);
   };
 
-  const userSelector = useSelector((state) => state.auth);
-  const userSelectorLocal = JSON.parse(localStorage.getItem("auth"));
-
+  // FOR TOP UP
   const topup = () => {
     nav("/dashboardprofile/topup");
   };
 
+  const userSelector = useSelector((state) => state.auth);
+  const userSelectorLocal = JSON.parse(localStorage.getItem("auth"));
+
   const fetctEvents = async () => {
     try {
       const userevent = userSelector.events;
-      console.log("ayam event", userevent);
       const temp = [];
 
       for (let id of userevent) {
@@ -56,18 +56,15 @@ export const Profile = () => {
         temp.push(res.data);
       }
 
-      console.log(`temp`, temp);
       setEvent(temp);
     } catch (error) {
       console.log(error);
     }
   };
 
-  console.log("INI ADALAH EVENT", event);
   // get ticket data
   const getTicket = async () => {
     try {
-      console.log(userSelectorLocal.id);
       const resTicket = await api.get(
         `/tickets?userid=${userSelectorLocal.id}`
       );
@@ -79,7 +76,7 @@ export const Profile = () => {
 
   async function deleteEvent(ev) {
     const today = new Date().toISOString().split("T")[0];
-    console.log(today);
+
     if (
       window.confirm(`are you sure want to delete this event and its record?`)
     ) {
