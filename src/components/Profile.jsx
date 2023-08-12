@@ -51,7 +51,7 @@ export const Profile = () => {
     try {
       let eventAmount;
       const eventCreator = await api.get(`/events?event-creator=${userid}`);
-      eventAmount = eventCreator.data;
+      eventAmount = eventCreator;
       setEvent(eventAmount.length);
     } catch (error) {
       console.log(error);
@@ -169,9 +169,9 @@ export const Profile = () => {
                       </MDBCardText>
                     </div>
                     <div className="px-3">
-                      <MDBCardText className="mb-1 h5">{event}</MDBCardText>
+                      <MDBCardText className="mb-1 h5">8512</MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Event you create
+                        Followers
                       </MDBCardText>
                     </div>
                     <div>
@@ -222,6 +222,92 @@ export const Profile = () => {
             </MDBCol>
 
             {/* events details*/}
+            <MDBCol
+              style={{
+                backgroundColor: "white",
+              }}
+            >
+              <div style={{ padding: "20px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    backgroundColor: "#0D6EFD",
+                    padding: "10px",
+                    borderRadius: "5px",
+                    color: "white",
+                  }}
+                >
+                  <div
+                    className="bg-white p-1 "
+                    style={{ color: "black", borderRadius: "4px" }}
+                  >
+                    <a href="">Event Post</a>
+                  </div>
+                  <div
+                    className="hover:bg-white p-1 "
+                    style={{ color: "black", borderRadius: "4px" }}
+                  >
+                    <button onClick={openModal}>Create Event</button>
+                  </div>
+                  <div
+                    className="hover:bg-white p-1 "
+                    style={{ color: "black", borderRadius: "4px" }}
+                  >
+                    <a href="">Transaction</a>
+                  </div>
+
+                  {/* event post */}
+                </div>
+                <MDBCol className="grid grid-cols-2">
+                  {/* {event?.map((event, idx) => {
+                    return (
+                      <div
+                        className="card mt-4"
+                        style={{ maxWidth: "18rem" }}
+                        key={idx}
+                      >
+                        <img
+                          src={event.photo}
+                          class="card-img-top"
+                          style={{
+                            maxHeight: "150px",
+                            aspectRatio: "1/1",
+                            objectFit: "fill",
+                          }}
+                        />
+                        <div class="card-body">
+                          <h5 class="card-title">{event.name}</h5>
+                          <p class="card-text">{event.category}</p>
+                          <button
+                            class="btn btn-primary mr-2"
+                            onClick={() => {
+                              nav(`/${event.id}/edit_event/${event.name}`);
+                            }}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            class="btn btn-primary"
+                            onClick={() => deleteEvent(event)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })} */}
+                  {}
+                </MDBCol>
+                <ModalCreate
+                  openModal={openModal}
+                  setIsModalOpen={setIsModalOpen}
+                  closeModal={closeModal}
+                  isModalOpen={isModalOpen}
+                />
+              </div>
+            </MDBCol>
           </MDBRow>
         }
       </MDBContainer>
