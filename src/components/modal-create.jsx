@@ -76,7 +76,7 @@ export const ModalCreate = ({
       closeModal();
     },
   });
-  useEffect(() => {}, []);
+  useEffect(() => {}, [userProfile]);
   return (
     <>
       <Modal show={isModalOpen} closeModal={closeModal}>

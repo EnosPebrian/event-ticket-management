@@ -65,7 +65,8 @@
       "points": 0,
       "referralcode": "zxciqbr12666",
       "events": [
-        10
+        10,
+        37
       ]
     },
     {
@@ -256,7 +257,9 @@
         36,
         36,
         36,
-        36
+        36,
+        33,
+        33
       ],
       "id": 23
     }
@@ -902,7 +905,26 @@
     {
       "id": 36,
       "name": "",
-      "location": "wow wow wow",
+      "location": "",
+      "venue": "",
+      "category": "",
+      "date-start": "",
+      "date-end": "",
+      "time-start": "",
+      "time-end": "",
+      "description": "",
+      "photo": "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp",
+      "vip-ticket-price": "",
+      "vip-ticket-stock": "",
+      "presale-ticket-price": "",
+      "presale-ticket-stock": "",
+      "event-creator": 23,
+      "isfree": 1
+    },
+    {
+      "id": 37,
+      "name": "",
+      "location": "Ayam jantan bertelurrr",
       "venue": "",
       "category": "",
       "date-start": "",
@@ -915,7 +937,7 @@
       "vip-ticket-stock": "",
       "presale-ticket-price": "",
       "presale-ticket-stock": "",
-      "event-creator": 23,
+      "event-creator": 5,
       "isfree": 1
     }
   ],
