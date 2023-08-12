@@ -171,7 +171,7 @@ export const Profile = () => {
                     <div className="px-3">
                       <MDBCardText className="mb-1 h5">{event}</MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Followers
+                        Event you create
                       </MDBCardText>
                     </div>
                     <div>
