@@ -151,10 +151,10 @@ export const Profile = () => {
                     />
                   </div>
                   <MDBTypography tag="h4">
-                    Welcome, {userSelector.username} !
+                    Welcome, {userSelector.username}
                   </MDBTypography>
                   <MDBCardText className="text-muted mb-4">
-                    <a href="#!">{userSelector.referralcode}</a>
+                    <a href="#!">Ref: {userSelector.referralcode}</a>
                   </MDBCardText>
                   <div className="mb-4 pb-2"></div>
                   <Button onClick={topup}>Topup Saldo</Button>

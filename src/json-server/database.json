@@ -21,7 +21,8 @@
         32,
         33,
         33,
-        35
+        35,
+        39
       ]
     },
     {
@@ -958,6 +959,25 @@
       "presale-ticket-price": "",
       "presale-ticket-stock": "",
       "event-creator": 5,
+      "isfree": 1
+    },
+    {
+      "id": 39,
+      "name": "Terbang menuju awan",
+      "location": "",
+      "venue": "",
+      "category": "",
+      "date-start": "",
+      "date-end": "",
+      "time-start": "",
+      "time-end": "",
+      "description": "",
+      "photo": "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit621414gsm/events/2022/08/08/711c0837-2d63-47b3-be2f-53b86b94d421-1659970749195-b49938412c7b59283cb7eea23bdcf2a4.jpg",
+      "vip-ticket-price": "",
+      "vip-ticket-stock": "",
+      "presale-ticket-price": "",
+      "presale-ticket-stock": "",
+      "event-creator": 1,
       "isfree": 1
     }
   ],

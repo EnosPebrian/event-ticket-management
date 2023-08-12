@@ -19,12 +19,15 @@ export const ModalCreate = ({
 }) => {
   let userProfile;
   let userid;
+  console.log("user profile", userid);
+
   try {
     userProfile = JSON.parse(localStorage.getItem("auth"));
     userid = userProfile.id;
   } catch (err) {
     console.log(err);
   }
+
   // Time input
   const now = new Date();
   const [time, setTime] = useState({
@@ -48,7 +51,7 @@ export const ModalCreate = ({
       "vip-ticket-stock": "",
       "presale-ticket-price": "",
       "presale-ticket-stock": "",
-      "event-creator": userProfile.id,
+      "event-creator": userid,
       isfree: 1,
     },
     onSubmit: async (values) => {
@@ -76,7 +79,7 @@ export const ModalCreate = ({
       closeModal();
     },
   });
-  useEffect(() => {}, [userProfile]);
+  useEffect(() => {}, []);
   return (
     <>
       <Modal show={isModalOpen} closeModal={closeModal}>
