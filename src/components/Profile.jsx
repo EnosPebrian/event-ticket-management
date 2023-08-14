@@ -1,3 +1,9 @@
+import { Card, Carousel, Col, Container, Form, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import api from "../json-server/api";
+import HeaderNavbar from "../components/Header-navbar";
+import SpinnerLoading from "../components/SpinnerLoading";
+
 import {
   MDBCol,
   MDBContainer,
@@ -16,9 +22,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { Formik, useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
-import api from "../json-server/api";
-import { Photo } from "@mui/icons-material";
+import { Link, useNavigate } from "react-router-dom";
+
 import userEvent from "@testing-library/user-event";
 import uuid from "react-uuid";
 import { Ticket } from "./ticket";
@@ -26,7 +31,8 @@ import { Ticket } from "./ticket";
 export const Profile = () => {
   const nav = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [event, setEvent] = useState();
+  const [events, setEvents] = useState([]);
+  const [even, setEven] = useState([]);
   const ticketNumber = uuid();
   const [tickets, setTickets] = useState([]);
 
@@ -52,12 +58,23 @@ export const Profile = () => {
       let eventAmount;
       const eventCreator = await api.get(`/events?event-creator=${userid}`);
       eventAmount = eventCreator.data;
-      setEvent(eventAmount.length);
+      setEvents(eventAmount.length);
     } catch (error) {
       console.log(error);
     }
   };
-  console.log("Ini event leng", event);
+  const fetctEven = async () => {
+    try {
+      let eventAmount;
+      const eventCreator = await api.get(`/events?event-creator=${userid}`);
+      eventAmount = eventCreator.data;
+      setEven(eventAmount);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // console.log("Ini event leng", event);
   // get ticket data
   const getTicket = async () => {
     try {
@@ -101,7 +118,7 @@ export const Profile = () => {
         await api.delete(`events/${ev.id}`);
       }
     }
-    fetctEvents();
+    fetctEven();
   }
 
   const ticketDetail = () => {
@@ -112,7 +129,8 @@ export const Profile = () => {
     console.log(userSelector, "e");
     fetctEvents();
     getTicket();
-  }, [userSelector, event]);
+    fetctEven();
+  }, [userSelector, events]);
 
   return (
     <div
@@ -169,7 +187,7 @@ export const Profile = () => {
                       </MDBCardText>
                     </div>
                     <div className="px-3">
-                      <MDBCardText className="mb-1 h5">{event}</MDBCardText>
+                      <MDBCardText className="mb-1 h5">{events}</MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
                         Event you create
                       </MDBCardText>
@@ -219,22 +237,60 @@ export const Profile = () => {
                   <Button onClick={ticketDetail}>get Ticket Details</Button>
                 </MDBCardBody> */}
               </MDBCard>
+              <div className="grid grid-cols-2 gap-4 pt-5">
+                {even?.map((eve) => {
+                  return (
+                    <Card style={{ maxWidth: "18rem" }}>
+                      <Card.Img
+                        variant="top"
+                        src={eve.photo}
+                        style={{
+                          maxWidth: "100%",
+                          aspectRatio: "2/1",
+                          objectFit: "fill",
+                        }}
+                      />
+                      {console.log(eve)}
+                      <Card.Body>
+                        <Card.Title>{eve.name}</Card.Title>
+                        <Card.Text>{eve.location}</Card.Text>
+                        <Card.Text>{eve["date-start"]}</Card.Text>
+                        <div
+                          className="flex"
+                          style={{ justifyContent: "space-between" }}
+                        >
+                          <button
+                            rel="stylesheet"
+                            onClick={() =>
+                              nav(`/${eve.id}/edit_event/${eve.name}`)
+                            }
+                            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded :"
+                          >
+                            Edit Event
+                          </button>
+                          <button
+                            onClick={() => {
+                              deleteEvent(eve);
+                            }}
+                            className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-2 border-b-4 border-red-700 hover:border-red-500 rounded :"
+                          >
+                            Delete Event
+                          </button>
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+              </div>
               <div
                 style={{ marginTop: "20px", justifyContent: "space-between" }}
                 className="flex "
               >
-                {" "}
                 <button
                   onClick={openModal}
                   className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded :"
                 >
                   Create Event
-                </button>
-                <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded :">
-                  Edit Event
-                </button>
-                <button className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded :">
-                  Delete Event
                 </button>
               </div>
             </MDBCol>
@@ -244,6 +300,7 @@ export const Profile = () => {
               setIsModalOpen={setIsModalOpen}
               closeModal={closeModal}
               isModalOpen={isModalOpen}
+              fetchEven={fetctEven}
             />
           </MDBRow>
         }

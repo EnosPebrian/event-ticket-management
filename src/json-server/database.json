@@ -41,10 +41,19 @@
       "email": "adam@mail.com",
       "password": "adamair",
       "id": 3,
-      "points": 125000000,
+      "points": 124999998,
       "referralcode": "zxciqbr12444",
       "events": [
-        12
+        12,
+        40,
+        42,
+        43,
+        45,
+        33,
+        33,
+        33,
+        27,
+        44
       ]
     },
     {
@@ -229,7 +238,7 @@
       "username": "admin",
       "email": "admin12@mail.com",
       "password": "admin123",
-      "points": 9692000,
+      "points": 9862000,
       "referralcode": "38f4fcba-80dd-9c71-8173-879a56a7f1f6",
       "reference": " ",
       "events": [
@@ -379,27 +388,6 @@
       "presale-ticket-price": 69000,
       "presale-ticket-stock": 5,
       "event-creator": 2,
-      "isfree": 0
-    },
-    {
-      "id": 7,
-      "name": "Radio Komunikasi 2023",
-      "location": "Makassar",
-      "venue": "Phinisi Point Mall",
-      "category": "Music",
-      "date-start": "2023-09-14",
-      "date-end": "",
-      "time-start": "15:00:00",
-      "time-end": "18:00:00",
-      "description": "Himpunan Mahasiswa Ilmu Komunikasi Universitas Fajar dengan bangga mempersembahkan Radio Komunikasi 2023 yang hadir untuk memberikan kalian kesempatan untuk merasakan sensasi festival yang berbeda dari sebelumnya.",
-      "photo": [
-        "https://api.yesplis.com/images/banner/c70e7c400805f3f769d3871511e32f7add63301d.png.webp"
-      ],
-      "vip-ticket-price": 135000,
-      "vip-ticket-stock": 3,
-      "presale-ticket-price": 85000,
-      "presale-ticket-stock": 6,
-      "event-creator": 3,
       "isfree": 0
     },
     {
@@ -979,6 +967,27 @@
       "presale-ticket-stock": "",
       "event-creator": 1,
       "isfree": 1
+    },
+    {
+      "id": 43,
+      "name": "Festival Gadjah Mada 2023: Festival Musik \"Prasama Amerta\"",
+      "location": "Yogyakarta",
+      "venue": "Lapangan Pancasila UGM | Lapangan Pancasila, Universitas Gadjah Mada",
+      "category": "Music",
+      "date-start": "2023-10-21",
+      "date-end": "2023-10-22",
+      "time-start": "03:00",
+      "time-end": "21:10",
+      "description": "Festival Musik “Prasama Amerta” merupakan sebuah pertunjukan pentas musik kolaborasi yang memadukan unsur musik tradisional dan Modern. Prasama Amerta akan disajikan dengan berbagai macam pentas dan segementasi seperti, “Prathama Abinaya” menjadi sesi opening ceremony yang akan diisi oleh talent penampil dari mahasiswa UGM. Lalu ada pementasan Karya kolaborasi dengan tajuk “Raksaka Adinegara Caksana” yang akan menjadi pentas kolaborasi seni musik dari berbagai unsur. Prasama Amerta akan ditutup dengan penampilan dari bintang tamu lokal maupun nasional sebagai bentuk puncak acara dari Festival Gadjah Mada 2023.",
+      "photo": [
+        "https://api.yesplis.com/images/banner/029b15e915d33576016546db0f2c2b368d1e6ebe.png.webp"
+      ],
+      "vip-ticket-price": "99000",
+      "vip-ticket-stock": "30",
+      "presale-ticket-price": "20000",
+      "presale-ticket-stock": "12",
+      "event-creator": 3,
+      "isfree": 0
     }
   ],
   "reviews": [
@@ -1285,6 +1294,13 @@
       "comments": [],
       "userid": [],
       "ratings": []
+    },
+    {
+      "id": "40",
+      "eventid": "40",
+      "comments": [],
+      "userid": [],
+      "ratings": []
     }
   ],
   "discussions": [
@@ -1536,6 +1552,14 @@
       "question_id": [],
       "reply": {},
       "reply_id": {}
+    },
+    {
+      "id": "40",
+      "eventid": "40",
+      "question": [],
+      "question_id": [],
+      "reply": {},
+      "reply_id": {}
     }
   ],
   "tickets": [
@@ -1634,22 +1658,6 @@
     },
     {
       "userid": 21,
-      "eventid": 7,
-      "ticketCode": "e2f346d2-6012-7ad3-ce8b-7d87fd56a73a",
-      "ticketCategory": "PRESALE",
-      "ticketPrice": 85000,
-      "id": 15
-    },
-    {
-      "userid": 21,
-      "eventid": 7,
-      "ticketCode": "6dfb31f7-fbff-cead-a1ec-fa7a5638feb6",
-      "ticketCategory": "PRESALE",
-      "ticketPrice": 85000,
-      "id": 16
-    },
-    {
-      "userid": 21,
       "eventid": 6,
       "ticketCode": "f4da409f-520e-dbde-13c5-9472ff691af2",
       "ticketCategory": "PRESALE",
@@ -1679,6 +1687,14 @@
       "ticketCategory": "VIP",
       "ticketPrice": 5000000,
       "id": 20
+    },
+    {
+      "userid": 3,
+      "eventid": 41,
+      "ticketCode": "c8271c70-af77-8cc9-14c7-5876c71efce1",
+      "ticketCategory": "PRESALE",
+      "ticketPrice": "2",
+      "id": 21
     }
   ],
   "log": [
