@@ -1,22 +1,22 @@
 import { Button, useToast } from "@chakra-ui/react";
 
-export const Toast = () => {
+function ToastExample() {
   const toast = useToast();
   return (
-    <>
-      <button
-        onClick={() =>
-          toast({
-            title: "Account created.",
-            description: "We've created your account for you.",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-          })
-        }
-      >
-        Show Toast
-      </button>
-    </>
+    <Button
+      onClick={() =>
+        toast({
+          title: "Login Success",
+          description: "you are entering the app now",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        })
+      }
+    >
+      Show Toast
+    </Button>
   );
-};
+}
+
+export default ToastExample;

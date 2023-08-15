@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import api from "../json-server/api";
 import uuid from "react-uuid";
 import { useToast } from "@chakra-ui/react";
+import NavbarLogin from "./navbarLogin";
 
 const Register = () => {
   const nav = useNavigate();
@@ -20,6 +21,7 @@ const Register = () => {
     reference: "",
     events: [],
   });
+  const toast = useToast();
 
   const register = async (e) => {
     e.preventDefault();
@@ -32,7 +34,15 @@ const Register = () => {
     });
     // console.log(check);
 
-    if (check.data.length) return alert("email sudah terdaftar");
+    if (check.data.length) {
+      return toast({
+        title: "Email sudah terdaftar",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    }
     if (user.confirmPassword == user.password) {
       const tmp = { ...user };
       delete tmp.confirmPassword;
@@ -47,10 +57,24 @@ const Register = () => {
       }
 
       await api.post("/users", tmp).then(() => {
-        alert("berhasil Register!");
+        toast({
+          title: "Berhasil Register!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
         nav("/login");
       });
-    } else alert("password dan confirm password tidak sesuai");
+    } else {
+      toast({
+        title: "password & confirm password tidak sesuai!",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    }
   };
 
   const inputHandler = (key, value) => {
@@ -66,6 +90,7 @@ const Register = () => {
 
   return (
     <>
+      <NavbarLogin />
       <center>
         <form onSubmit={register}>
           <div className="register-box">
@@ -79,6 +104,7 @@ const Register = () => {
                   <a href="login" style={{ color: "#2A3FB2" }}>
                     login
                   </a>
+                  <hr />
                 </span>
               </p>
             </div>
@@ -137,7 +163,6 @@ const Register = () => {
                 <Form.Control
                   type="text"
                   placeholder="Referral code"
-                  required
                   onChange={(e) => inputHandler("reference", e.target.value)}
                 />
               </FloatingLabel>

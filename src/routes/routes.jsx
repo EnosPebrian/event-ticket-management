@@ -7,7 +7,7 @@ import SingleEventDisplay from "../pages/single-event-display";
 import { ProtectedPage } from "./protectedpage";
 import { DashboardProfile } from "../pages/dashboardprofile";
 import TopUp from "../pages/TopUp";
-import { Toast } from "../components/toast";
+import ToastExample, { Toast } from "../components/toast";
 import { ModalBuy } from "../components/modal-buy";
 import EditEvent from "../pages/edit-event";
 import { Ticket } from "../components/ticket";
@@ -98,6 +98,14 @@ export const routes = [
     (
       <ProtectedPage guestOnly={false} needLogin={true}>
         <Ticket />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "/toast",
+    (
+      <ProtectedPage guestOnly={false} needLogin={false}>
+        <ToastExample />
       </ProtectedPage>
     )
   ),
