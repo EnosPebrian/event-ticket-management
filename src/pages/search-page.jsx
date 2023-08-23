@@ -41,7 +41,7 @@ export const SearchPage = () => {
       );
       setEvents_map(temp_events_map);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -52,7 +52,7 @@ export const SearchPage = () => {
       res_users.data.map((user) => temp_users_map.set(user.id, user));
       setUsers_map(temp_users_map);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -66,9 +66,9 @@ export const SearchPage = () => {
     try {
       const res_events = await api.get("/events");
       setEvents([...res_events.data]);
-      console.log(events);
+      // console.log(events);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
   useEffect(() => {
@@ -103,12 +103,16 @@ export const SearchPage = () => {
       temp = [...res.data];
     }
 
-    if (value.startdate && !value.completed_event) {
+    if (!value.startdate && !value.completed_event) {
       value["date-start"] = today;
+    } else if (value.completed_event) {
+      value["date-start"] = "2020-01-01";
     }
+    // console.log(`here`, value);
     if (value.startdate) {
       temp = temp.filter((val) => val["date-start"] > value.startdate);
-    }
+    } else if (!value.startdate && !value.completed_event)
+      temp = temp = temp.filter((val) => val["date-start"] >= today);
 
     if (value.enddate) {
       temp = temp.filter((val) => val["date-end"] <= value.enddate);
@@ -160,7 +164,7 @@ export const SearchPage = () => {
 
       setFiltered(new_filtered);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -226,6 +230,10 @@ export const SearchPage = () => {
   useEffect(() => {
     updatefilter();
   }, [value]);
+
+  useEffect(() => {
+    updatefilter();
+  }, [value.startdate]);
 
   useEffect(() => {
     formik.handleSubmit();

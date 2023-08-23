@@ -20,13 +20,13 @@ export const ModalCreate = ({
 }) => {
   let userProfile;
   let userid;
-  console.log("user profile", userid);
+  // console.log("user profile", userid);
 
   try {
     userProfile = JSON.parse(localStorage.getItem("auth"));
     userid = userProfile.id;
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 
   // Time input
@@ -58,7 +58,7 @@ export const ModalCreate = ({
     onSubmit: async (values) => {
       const temp = { ...values };
 
-      console.log("ghalo", values["description"], values["category"]);
+      // console.log("ghalo", values["description"], values["category"]);
       if (temp["vip-ticket-price"] && temp["presale-ticket-price"]) {
         temp["isfree"] = 0;
         const tmpPhoto = [];
@@ -71,7 +71,7 @@ export const ModalCreate = ({
       const res_this_event = await api.get(
         `/events?name=${temp.name}&location=${temp.location}&venue=${temp.venue}`
       );
-      console.log(`1`, res_this_event);
+      // console.log(`1`, res_this_event);
       const eventid = res_this_event.data[0].id;
       const res_user = await api.get(`users/${userid}`);
       const datauser = res_user.data;
