@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import "./style.css";
 import { useEffect, useState } from "react";
 import api from "../json-server/api";
+import Eye from "../components/asserts/eye.svg";
+import Closed_eye from "../components/asserts/closed_eye.svg";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -13,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { types } from "../redux/types";
 import { Container } from "react-bootstrap";
 import NavbarLogin from "./navbarLogin";
+import { useToast } from "@chakra-ui/react";
 
 export const Login = () => {
   const userSelector = useSelector((state) => state.auth);
@@ -20,6 +23,8 @@ export const Login = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const location = useLocation();
+  const toast = useToast();
+  const [see, setSee] = useState(false);
 
   const [user, setUser] = useState({
     email: "",
@@ -39,9 +44,27 @@ export const Login = () => {
     });
     console.log("auth.data", auth.data);
 
-    if (auth.data == 0) return alert("email/password salah");
+    if (auth.data == 0) {
+      return toast({
+        title: "email/password salah",
+        description: "harap periksa kembali email/password anda",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    }
 
-    alert("berhasil login");
+    // alert("berhasil login");
+    //toast here
+    toast({
+      title: "Login Success",
+      description: "you are entering the app now",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
 
     await dispatch({ payload: { ...auth.data[0] }, type: types.login });
 
@@ -73,6 +96,7 @@ export const Login = () => {
                 <a href="register" style={{ color: "#2A3FB2" }}>
                   Sign Up
                 </a>
+                <hr />
               </span>
             </p>
           </div>

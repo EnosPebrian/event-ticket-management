@@ -7,18 +7,33 @@ import * as Yup from "yup";
 import api from "../json-server/api";
 import { types } from "../redux/types";
 import HeaderNavbar from "../components/Header-navbar";
+import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function TopUp() {
   const userSelector = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const toast = useToast();
+  const nav = useNavigate();
+
   async function addsaldo() {
     const val = document.getElementById("pointsform").value;
     if (val < 0) return alert(`saldo tidak boleh kurang dari 0`);
     try {
-      await api.patch(`users/${userSelector.id}`, {
-        ...userSelector,
-        ["points"]: Number(userSelector.points) + Number(val),
-      });
+      await api
+        .patch(`users/${userSelector.id}`, {
+          ...userSelector,
+          ["points"]: Number(userSelector.points) + Number(val),
+        })
+        .then(() => {
+          toast({
+            title: "Berhasil Top Up",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+        }, nav("/dashboardprofile"));
       await dispatch({
         type: types.update_saldo,
         payload: {
