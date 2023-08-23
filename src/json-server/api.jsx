@@ -1,5 +1,5 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "https://pale-goldenrod-wizard.glitch.me/" });
+const api = axios.create({ baseURL: "http://localhost:2000" });
 
 export default api;
