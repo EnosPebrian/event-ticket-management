@@ -27,9 +27,11 @@ import { Link, useNavigate } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import uuid from "react-uuid";
 import { Ticket } from "./ticket";
+import { useToast } from "@chakra-ui/react";
 
 export const Profile = () => {
   const nav = useNavigate();
+  const toast = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [events, setEvents] = useState([]);
   const [even, setEven] = useState([]);
@@ -193,7 +195,9 @@ export const Profile = () => {
                       </MDBCardText>
                     </div>
                     <div>
-                      <MDBCardText className="mb-1 h5">4751</MDBCardText>
+                      <MDBCardText className="mb-1 h5">
+                        {tickets.length}
+                      </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
                         Total Transactions
                       </MDBCardText>

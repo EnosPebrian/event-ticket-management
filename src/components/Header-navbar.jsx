@@ -9,12 +9,15 @@ import { useNavigate } from "react-router-dom";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
+import { useToast } from "@chakra-ui/react";
 
 function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const toast = useToast();
 
   const nav = useNavigate();
   const inputHandler = (e) => {
@@ -34,6 +37,13 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const logout = () => {
     localStorage.removeItem("auth");
     nav("/login");
+    toast({
+      title: "you have been logged out!",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
   };
 
   const profile = () => {
