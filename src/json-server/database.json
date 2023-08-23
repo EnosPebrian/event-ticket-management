@@ -7,23 +7,7 @@
       "id": 1,
       "points": 61000,
       "referralcode": "zxciqbr12111",
-      "events": [
-        14,
-        22,
-        23,
-        25,
-        26,
-        27,
-        27,
-        29,
-        30,
-        31,
-        32,
-        33,
-        33,
-        35,
-        39
-      ]
+      "events": [14, 22, 23, 25, 26, 27, 27, 29, 30, 31, 32, 33, 33, 35, 39]
     },
     {
       "username": "Blank",
@@ -32,9 +16,7 @@
       "id": 2,
       "points": 0,
       "referralcode": "zxciqbr12333",
-      "events": [
-        13
-      ]
+      "events": [13]
     },
     {
       "username": "adam",
@@ -43,18 +25,7 @@
       "id": 3,
       "points": 124999998,
       "referralcode": "zxciqbr12444",
-      "events": [
-        12,
-        40,
-        42,
-        43,
-        45,
-        33,
-        33,
-        33,
-        27,
-        44
-      ]
+      "events": [12, 40, 42, 43, 45, 33, 33, 33, 27, 44]
     },
     {
       "username": "andre",
@@ -63,9 +34,7 @@
       "id": 4,
       "points": 0,
       "referralcode": "zxciqbr12555",
-      "events": [
-        11
-      ]
+      "events": [11]
     },
     {
       "username": "ari",
@@ -74,99 +43,79 @@
       "id": 5,
       "points": 1000000,
       "referralcode": "zxciqbr12666",
-      "events": [
-        10,
-        37,
-        38
-      ]
+      "events": [10, 37, 38]
     },
     {
       "username": "Aaron",
-      "email": "Aaron@mail.com",
+      "email": "aaron@mail.com",
       "password": "aaron",
       "id": 6,
       "points": 685000,
       "referralcode": "zxciqbr12777",
-      "events": [
-        9
-      ]
+      "events": [9]
     },
     {
       "username": "Mamaron",
-      "email": "Mamaron@mail.com",
+      "email": "mamaron@mail.com",
       "password": "Mamaron",
       "id": 7,
       "points": 0,
       "referralcode": "zxciqbr12888",
-      "events": [
-        8
-      ]
+      "events": [8]
     },
     {
       "username": "Kakaron",
-      "email": "Kakaron@mail.com",
+      "email": "kakaron@mail.com",
       "password": "Kakaron",
       "id": 8,
       "points": 0,
       "referralcode": "zxciqbr12999",
-      "events": [
-        7
-      ]
+      "events": [7]
     },
     {
       "username": "Paparon",
-      "email": "Paparon@mail.com",
+      "email": "paparon@mail.com",
       "password": "Paparon",
       "id": 9,
       "points": 0,
       "referralcode": "zxciqbr12121",
-      "events": [
-        6
-      ]
+      "events": [6]
     },
     {
       "username": "Bibiron",
-      "email": "Bibiron@mail.com",
+      "email": "bibiron@mail.com",
       "password": "Bibiron",
       "id": 10,
       "points": 0,
       "referralcode": "zxciqbr12322",
-      "events": [
-        5
-      ]
+      "events": [5]
     },
     {
       "username": "Vegetta",
-      "email": "Vegetta@mail.com",
+      "email": "vegetta@mail.com",
       "password": "Vegetta",
       "id": 11,
       "points": 20000,
       "referralcode": "zxciqbr12245",
-      "events": [
-        4
-      ]
+      "events": [4]
     },
     {
       "username": "Saint Saturn",
-      "email": "Saintsaturn@mail.com",
+      "email": "saintsaturn@mail.com",
       "password": "Saintsaturn",
       "id": 12,
       "points": 0,
       "referralcode": "zxciqbr12321",
-      "events": [
-        3
-      ]
+      "events": [3]
     },
     {
       "username": "Zoro",
-      "email": "Zoro@mail.com",
+      "email": "zoro@mail.com",
       "password": "Zoro",
       "id": 13,
       "points": 0,
       "referralcode": "zxciqbr12446",
-      "events": [
-        2
-      ]
+      "events": [2]
     },
     {
       "username": "angga",
@@ -175,10 +124,7 @@
       "id": 14,
       "points": 999965475000,
       "referralcode": "zxciqbr12789",
-      "events": [
-        1,
-        42
-      ]
+      "events": [1, 42]
     },
     {
       "username": "almandine",
@@ -241,9 +187,7 @@
       "points": 9862000,
       "referralcode": "38f4fcba-80dd-9c71-8173-879a56a7f1f6",
       "reference": " ",
-      "events": [
-        42
-      ],
+      "events": [42],
       "id": 21
     },
     {
@@ -262,16 +206,7 @@
       "points": 0,
       "referralcode": "c2b66649-6b87-2859-2781-920e541dcafd",
       "reference": " ",
-      "events": [
-        36,
-        36,
-        36,
-        36,
-        36,
-        36,
-        33,
-        33
-      ],
+      "events": [36, 36, 36, 36, 36, 36, 33, 33],
       "id": 23
     }
   ],
@@ -360,7 +295,7 @@
       "date-end": "",
       "time-start": "07:00:00",
       "time-end": "21:00:00",
-      "description": "Rhapsodie with Scraft merupakan acara pentas kesenian yang diselenggarakan oleh SMAN 61 JAKARTA yang dilengkapi dengan penampilan-penampilan dari SMAN 61 JAKARTA dan bintang tamu yang akan diundang. Tahun ini Rhapsodie With Scraft kembali diselenggarakan dengan mengusung tema ‘Nayanika Pancarona Nusantara’'",
+      "description": "Rhapsodie with Scraft merupakan acara pentas kesenian yang diselenggarakan oleh SMAN 61 JAKARTA yang dilengkapi dengan penampilan-penampilan dari SMAN 61 JAKARTA dan bintang tamu yang akan diundang. Tahun ini Rhapsodie With Scraft kembali diselenggarakan dengan mengusung tema Nayanika Pancarona Nusantara",
       "photo": [
         "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp"
       ],
@@ -575,9 +510,7 @@
     {
       "id": 17,
       "photo": [
-        [
-          "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp"
-        ]
+        "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp"
       ],
       "name": "BERKAH COMPUTER",
       "location": "Jakarta",
@@ -703,272 +636,6 @@
       "event-creator": 1
     },
     {
-      "id": 25,
-      "name": "makan ayam",
-      "location": "jakarta",
-      "venue": "timur",
-      "category": "music",
-      "date-start": "2023-08-25",
-      "date-end": "2023-08-24",
-      "time-start": "16:19",
-      "time-end": "17:22",
-      "description": "Smansa Fair adalah acara tahunan SMA Negeri 1 Purwokerto sebagai wadah peluang eksplorasi diri. Namun, setelah pandemi Covid-19 nama Smansa Fair berubah menjadi Ganesha Adiwara yang diartikan sebagai pengumuman besar bagi SMA Negeri 1 Purwokerto.",
-      "photo": "https://api.yesplis.com/images/banner/194f6bdab790cace4201b68793585b9048578027.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 26,
-      "name": "truecuks19@gmail.com",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 27,
-      "name": "jancok",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 28,
-      "name": "jancok",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 29,
-      "name": "ayam kambing",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 30,
-      "name": "anginkencang",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 32,
-      "name": "abbbsdasdsads",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 33,
-      "name": "",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 34,
-      "name": "",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://api.yesplis.com/images/banner/b85600f1d0c906d8d861f3203af2e968287c305d.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 35,
-      "name": "janig",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": "",
-      "isfree": ""
-    },
-    {
-      "id": 36,
-      "name": "",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": 23,
-      "isfree": 1
-    },
-    {
-      "id": 37,
-      "name": "",
-      "location": "Ayam jantan bertelurrr",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://api.yesplis.com/images/banner/0602419a6fb0488b71d9674997d8154d66cfe035.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": 5,
-      "isfree": 1
-    },
-    {
-      "id": 38,
-      "name": "Nangis atuhh tehh uyy",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://api.yesplis.com/images/banner/933e29fc86242af220ba97ae41e97abe14c39e05.png.webp",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": 5,
-      "isfree": 1
-    },
-    {
-      "id": 39,
-      "name": "Terbang menuju awan",
-      "location": "",
-      "venue": "",
-      "category": "",
-      "date-start": "",
-      "date-end": "",
-      "time-start": "",
-      "time-end": "",
-      "description": "",
-      "photo": "https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit621414gsm/events/2022/08/08/711c0837-2d63-47b3-be2f-53b86b94d421-1659970749195-b49938412c7b59283cb7eea23bdcf2a4.jpg",
-      "vip-ticket-price": "",
-      "vip-ticket-stock": "",
-      "presale-ticket-price": "",
-      "presale-ticket-stock": "",
-      "event-creator": 1,
-      "isfree": 1
-    },
-    {
       "id": 43,
       "name": "Festival Gadjah Mada 2023: Festival Musik \"Prasama Amerta\"",
       "location": "Yogyakarta",
@@ -987,6 +654,48 @@
       "presale-ticket-price": "20000",
       "presale-ticket-stock": "12",
       "event-creator": 3,
+      "isfree": 0
+    },
+    {
+      "id": 44,
+      "name": "XYZ Liveground",
+      "location": "batam",
+      "venue": "UNRIKA batam",
+      "category": "music",
+      "date-start": "2023-08-16",
+      "date-end": "2023-08-31",
+      "time-start": "15:11",
+      "time-end": "18:11",
+      "description": "Konser musik dengan bintang tamu yang luar biasa",
+      "photo": [
+        "https://api.yesplis.com/images/banner/e4d2446dc0ae20a8c9090b44a4a3fb394cccb39d.png.webp"
+      ],
+      "vip-ticket-price": "300000",
+      "vip-ticket-stock": "10",
+      "presale-ticket-price": "250000",
+      "presale-ticket-stock": 8,
+      "event-creator": 24,
+      "isfree": 0
+    },
+    {
+      "id": 45,
+      "name": "FROM THE ASHES RISE",
+      "location": "Jakarta",
+      "venue": "Jl. Veteran No.6 | ZONA X3 SALATIGA",
+      "category": "Music",
+      "date-start": "2023-11-12",
+      "date-end": "2023-11-13",
+      "time-start": "16:00",
+      "time-end": "17:50",
+      "description": "RPM MERCH X KORPS BAWAH TANAH SALATIGA PRESENT  \"FROM THE ASHES RISE 2023\"  12 NOVEMBER 2023  VOMITING  DEMENTED HEART  ANTHROPOPHAGUS DEPRAVITY  DEATH CURSE",
+      "photo": [
+        "https://api.yesplis.com/images/banner/23791a6fa70cd78e5ece790d18616d5bb1dcaa1b.png.webp"
+      ],
+      "vip-ticket-price": "80000",
+      "vip-ticket-stock": "12",
+      "presale-ticket-price": "50000",
+      "presale-ticket-stock": "2",
+      "event-creator": 4,
       "isfree": 0
     }
   ],
@@ -1013,44 +722,8 @@
         "111",
         "any comment"
       ],
-      "userid": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        3,
-        3,
-        3
-      ],
-      "ratings": [
-        4,
-        5,
-        4,
-        3,
-        4,
-        5,
-        5,
-        4,
-        4,
-        3,
-        4,
-        3,
-        4,
-        5,
-        5,
-        1,
-        4
-      ]
+      "userid": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 3, 3, 3],
+      "ratings": [4, 5, 4, 3, 4, 5, 5, 4, 4, 3, 4, 3, 4, 5, 5, 1, 4]
     },
     {
       "id": 2,
@@ -1061,164 +734,64 @@
         "Tertipu janji manis",
         "Ternyata begini ya"
       ],
-      "userid": [
-        10,
-        11,
-        12,
-        3
-      ],
-      "ratings": [
-        2,
-        4,
-        2,
-        4
-      ]
+      "userid": [10, 11, 12, 3],
+      "ratings": [2, 4, 2, 4]
     },
     {
       "id": "8",
       "eventid": "8",
-      "comments": [
-        "dicoba ah",
-        "chaebol"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        3,
-        4
-      ]
+      "comments": ["dicoba ah", "chaebol"],
+      "userid": [1, 1],
+      "ratings": [3, 4]
     },
     {
       "id": "3",
       "eventid": "3",
-      "comments": [
-        "333",
-        "111",
-        "111",
-        "111",
-        "222",
-        "aaa",
-        "aaa",
-        "123456"
-      ],
-      "userid": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        21
-      ],
-      "ratings": [
-        4,
-        4,
-        4,
-        4,
-        4,
-        5,
-        5,
-        5
-      ]
+      "comments": ["333", "111", "111", "111", "222", "aaa", "aaa", "123456"],
+      "userid": [1, 1, 1, 1, 1, 1, 1, 21],
+      "ratings": [4, 4, 4, 4, 4, 5, 5, 5]
     },
     {
       "id": "6",
       "eventid": "6",
-      "comments": [
-        "111",
-        "123",
-        "1234",
-        "556"
-      ],
-      "userid": [
-        1,
-        1,
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        3,
-        3,
-        3
-      ]
+      "comments": ["111", "123", "1234", "556"],
+      "userid": [1, 1, 1, 1],
+      "ratings": [4, 3, 3, 3]
     },
     {
       "id": "20",
       "eventid": "20",
-      "comments": [
-        "123",
-        "222"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        3
-      ]
+      "comments": ["123", "222"],
+      "userid": [1, 1],
+      "ratings": [4, 3]
     },
     {
       "id": "21",
       "eventid": "21",
-      "comments": [
-        "tes review",
-        "tes review2"
-      ],
-      "userid": [
-        1,
-        1
-      ],
-      "ratings": [
-        4,
-        4
-      ]
+      "comments": ["tes review", "tes review2"],
+      "userid": [1, 1],
+      "ratings": [4, 4]
     },
     {
       "id": "9",
       "eventid": "9",
-      "comments": [
-        "dha pha nhe",
-        "dha pha nhe 2"
-      ],
-      "userid": [
-        3,
-        3
-      ],
-      "ratings": [
-        3,
-        3
-      ]
+      "comments": ["dha pha nhe", "dha pha nhe 2"],
+      "userid": [3, 3],
+      "ratings": [3, 3]
     },
     {
       "id": "4",
       "eventid": "4",
-      "comments": [
-        "Seru banget ini"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        5
-      ]
+      "comments": ["Seru banget ini"],
+      "userid": [3],
+      "ratings": [5]
     },
     {
       "id": "10",
       "eventid": "10",
-      "comments": [
-        "12"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        3
-      ]
+      "comments": ["12"],
+      "userid": [3],
+      "ratings": [3]
     },
     {
       "id": "dashboard",
@@ -1230,15 +803,9 @@
     {
       "id": "7",
       "eventid": "7",
-      "comments": [
-        "Apakah ada comments"
-      ],
-      "userid": [
-        3
-      ],
-      "ratings": [
-        3
-      ]
+      "comments": ["Apakah ada comments"],
+      "userid": [3],
+      "ratings": [3]
     },
     {
       "id": "5",
@@ -1257,15 +824,9 @@
     {
       "id": "14",
       "eventid": "14",
-      "comments": [
-        "hehe"
-      ],
-      "userid": [
-        1
-      ],
-      "ratings": [
-        1
-      ]
+      "comments": ["hehe"],
+      "userid": [1],
+      "ratings": [1]
     },
     {
       "id": "12",
@@ -1317,66 +878,31 @@
         "123123",
         "apapun"
       ],
-      "question_id": [
-        1,
-        5,
-        6,
-        7,
-        1,
-        3,
-        3,
-        21
-      ],
+      "question_id": [1, 5, 6, 7, 1, 3, 3, 21],
       "reply": {
-        "1": [
-          "tidak ada kaka",
-          "ada ada aja pertanyaanmu ndo"
-        ],
-        "2": [
-          "ada nih jadi kang parkir di event ini",
-          "123"
-        ],
+        "1": ["tidak ada kaka", "ada ada aja pertanyaanmu ndo"],
+        "2": ["ada nih jadi kang parkir di event ini", "123"],
         "3": [],
         "4": [],
         "5": [],
-        "6": [
-          "244"
-        ],
-        "7": [
-          "aaa"
-        ]
+        "6": ["244"],
+        "7": ["aaa"]
       },
       "reply_id": {
-        "1": [
-          14,
-          2
-        ],
-        "2": [
-          14,
-          3
-        ],
+        "1": [14, 2],
+        "2": [14, 3],
         "3": [],
         "4": [],
         "5": [],
-        "6": [
-          3
-        ],
-        "7": [
-          21
-        ]
+        "6": [3],
+        "7": [21]
       }
     },
     {
       "id": "2",
       "eventid": "2",
-      "question": [
-        "123",
-        "123"
-      ],
-      "question_id": [
-        1,
-        3
-      ],
+      "question": ["123", "123"],
+      "question_id": [1, 3],
       "reply": {
         "0": [],
         "1": []
@@ -1389,12 +915,8 @@
     {
       "id": "6",
       "eventid": "6",
-      "question": [
-        "111"
-      ],
-      "question_id": [
-        1
-      ],
+      "question": ["111"],
+      "question_id": [1],
       "reply": {
         "0": []
       },
@@ -1413,12 +935,8 @@
     {
       "id": "3",
       "eventid": "3",
-      "question": [
-        "Layangan putus kali"
-      ],
-      "question_id": [
-        1
-      ],
+      "question": ["Layangan putus kali"],
+      "question_id": [1],
       "reply": {
         "0": []
       },
@@ -1436,12 +954,8 @@
     {
       "id": "4",
       "eventid": "4",
-      "question": [
-        "Apakah butuh sertifikasi khusus?"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["Apakah butuh sertifikasi khusus?"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
@@ -1452,12 +966,8 @@
     {
       "id": "10",
       "eventid": "10",
-      "question": [
-        "22"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["22"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
@@ -1476,12 +986,8 @@
     {
       "id": "7",
       "eventid": "7",
-      "question": [
-        "apakah ada tiket diskon?"
-      ],
-      "question_id": [
-        3
-      ],
+      "question": ["apakah ada tiket diskon?"],
+      "question_id": [3],
       "reply": {
         "0": []
       },
