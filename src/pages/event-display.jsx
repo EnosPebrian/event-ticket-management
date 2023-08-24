@@ -60,7 +60,7 @@ function Eventdisplay() {
     <>
       <HeaderNavbar />
       <Container>
-        <Carousel id="carousel-container">
+        <Carousel id="carousel-container" className="mt-2">
           <Carousel.Item>
             <img
               src="https://api.yesplis.com/images/slider/8044935f5ad212cb8c3d74cb8d8fefdb158025d6.png.webp"
@@ -68,8 +68,8 @@ function Eventdisplay() {
               className="img-carousel"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              {/* <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -79,27 +79,28 @@ function Eventdisplay() {
               className="img-carousel"
             />
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              {/* <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
-              src="https://api.yesplis.com/images/slider/521ccf964196249b8b09a63819dad8db5f0b4d5b.png.webp"
+              src="https://www.adeogroup.co.uk/wp-content/uploads/2020/03/Advertise-Your-Events-Through-These-Techniques-Using-Paid-Search-and-Social-Ads-2-1-1.jpg"
               referrerPolicy="no-referrer"
               className="img-carousel"
             />
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              {/* <h3>Third slide label</h3>
               <p>
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              </p> */}
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </Container>
       <Container className="mt-5">
         <Row>
+          <h2>RECOMMENDATION</h2>
           {events.map((ev, index) => (
             <Col
               xs={12}
