@@ -29,7 +29,8 @@ function SingleEventDisplay() {
   console.log(events_map);
   const thisevent = events_map.get(eventid);
 
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShowVIP, setModalShowVIP] = useState(false);
+  const [modalShowPresale, setModalShowPresale] = useState(false);
 
   const fetchEventsMap = async () => {
     try {
@@ -245,13 +246,13 @@ function SingleEventDisplay() {
                         </Card.Text>
                         <Button
                           className="mb-3"
-                          onClick={() => setModalShow(true)}
+                          onClick={() => setModalShowVIP(true)}
                         >
                           Buy VIP ticket
                         </Button>
                         <ModalBuy
-                          show={modalShow}
-                          onHide={() => setModalShow(false)}
+                          show={modalShowVIP}
+                          onHide={() => setModalShowVIP(false)}
                           eventid={eventid}
                           events_map={events_map}
                           fetchThisEvent={fetchThisEvent}
@@ -271,12 +272,12 @@ function SingleEventDisplay() {
                         <Card.Text>
                           Stock: {an_event["presale-ticket-stock"]}
                         </Card.Text>
-                        <Button onClick={() => setModalShow(true)}>
+                        <Button onClick={() => setModalShowPresale(true)}>
                           Buy Presale ticket
                         </Button>
                         <ModalBuyPresale
-                          show={modalShow}
-                          onHide={() => setModalShow(false)}
+                          show={modalShowPresale}
+                          onHide={() => setModalShowPresale(false)}
                           eventid={eventid}
                           events_map={events_map}
                           fetchThisEvent={fetchThisEvent}
