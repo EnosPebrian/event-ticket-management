@@ -24,7 +24,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     }
   };
   const searchButtonHandler = () => {
-    nav(`/search/q=${document.getElementById("search-form").value}`);
+    nav(`/search/q?name=${document.getElementById("search-form").value}`);
   };
 
   function signIn() {
@@ -43,7 +43,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
-        <Container fluid>
+        <Container fluid id="top">
           <Navbar.Brand href="#">
             <span id="logo-text">FOMOPHOBIA</span>
           </Navbar.Brand>
@@ -54,7 +54,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               <Nav.Link
                 className="bg-primary"
                 style={{ borderRadius: "10px" }}
-                href={`/search/q=`}
+                href={`/search/q?`}
               >
                 Find Events
               </Nav.Link>

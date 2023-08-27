@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Review_comment_card } from "./review_comment_card";
 
-function FetchReviews({ eventid, users_map, events_map }) {
-  const [commentscontainer, setCommentscontainer] = useState([]);
+function FetchReviews({ eventid }) {
   const [allComment, setAllComment] = useState([]);
-  const [activitycounter, setActivitycounter] = useState(0);
+  const [reviewPage, setReviewPage] = useState(0);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const navigate = useNavigate();
@@ -19,11 +19,8 @@ function FetchReviews({ eventid, users_map, events_map }) {
     userid: [],
     ratings: [],
   });
-  let userid;
-
   const userSelector = useSelector((state) => state.auth);
-  // useEffect(() => console.log(`userselector detailpage`, userSelector));
-
+  let userid;
   try {
     userid = JSON.parse(localStorage.getItem("auth")).id;
   } catch (err) {
@@ -31,34 +28,14 @@ function FetchReviews({ eventid, users_map, events_map }) {
   }
 
   const load_review = async () => {
-    let res = await api.get(`reviews?eventid=${eventid}`);
-    let temp_fil = res.data[0];
-    if (!temp_fil) {
-      try {
-        await api
-          .post(`reviews`, {
-            id: eventid,
-            eventid: eventid,
-            comments: [],
-            userid: [],
-            ratings: [],
-          })
-          .then(async () => {
-            res = await api.get(`reviews?eventid=${eventid}`);
-            temp_fil = res.data[0];
-            setAllComment({
-              id: eventid,
-              eventid: eventid,
-              comments: [],
-              userid: [],
-              ratings: [],
-            });
-          });
-      } catch (err) {
-        console.log(err);
-      }
-    } else setAllComment(temp_fil);
+    await api.get(`/reviews/context/${eventid}`).then((result) => {
+      setAllComment(result.data.data);
+      setReviewPage(result.data.number_of_pages);
+    });
   };
+  useEffect(() => {
+    load_review();
+  }, []);
 
   function StarRating() {
     return (
@@ -99,7 +76,6 @@ function FetchReviews({ eventid, users_map, events_map }) {
       const res_code = await api.get(
         `tickets?ticketCode=${document.getElementById("ticketcode").value}`
       );
-      // console.log(res_code);
       const code = res_code.data[0];
       console.log(userid, code);
       if (!code?.ticketCode) return alert(`wrong ticket code`);
@@ -119,93 +95,69 @@ function FetchReviews({ eventid, users_map, events_map }) {
     await api
       .patch(`/reviews/${eventid}`, newcomment)
       .then(() => load_review());
-    const tmp = activitycounter;
-    setActivitycounter(tmp + 1);
   };
 
   useEffect(() => {
     load_review();
   }, []);
 
-  useEffect(() => {
-    load_review();
-  }, [activitycounter]);
-
   return (
     <>
       <Card.Body style={{ overflowY: "scroll", maxHeight: "100vh" }}>
-        {allComment.id ? (
-          allComment?.comments.map((comment, index) => (
-            <Card key={index}>
-              <div className="px-3">
-                <span>Ratings: {Stars(allComment?.ratings[index])}</span>
-                <span className="d-flex flex-row" style={{ gap: "5px" }}>
-                  <span className="pt-1">
-                    <Card.Img
-                      src="https://static.thenounproject.com/png/5034901-200.png"
-                      style={{ maxWidth: "20px", maxHeight: "20px" }}
-                    />
-                  </span>
-                  {users_map.size ? (
-                    users_map.get(allComment?.userid[index])?.username
-                  ) : (
-                    <Spinner />
-                  )}
-                </span>
-              </div>
-              <Card.Body className="bg-light px-3">{comment}</Card.Body>
-            </Card>
+        {allComment.length ? (
+          allComment.map((comment, index) => (
+            <Review_comment_card comment={comment} index={index} />
           ))
         ) : (
           <span>This event has no review / comment</span>
         )}
       </Card.Body>
-      <Card.Body>
-        <Card className="p-3">
-          <Form>
-            <Form.Group className="mb-3">
-              <Form.Label>
-                <b>Add your reviews/comments here</b>
-              </Form.Label>
-              <Form.Control
-                id="addcomment"
-                name="addcomment"
-                type="text"
-                placeholder="Write your comments"
-              />
-              <Form.Text className="text-muted">
-                Ratings: <StarRating required />
-              </Form.Text>
-              <Form.Control
-                id="ticketcode"
-                name="ticketcode"
-                type="text"
-                placeholder="Input your ticket code"
-              />
-              <Button
-                className="mt-2"
-                style={{ float: "right" }}
-                variant="secondary"
-                onClick={submitNewComment}
-              >
-                Submit
-              </Button>
-            </Form.Group>
-          </Form>
-        </Card>
-      </Card.Body>
+      {reviewPage > 1 ? (
+        <Card.Body>
+          <Card className="p-3">
+            <Card.Header>
+              Page:{" "}
+              {[...Array(reviewPage)].map((value, index) => (
+                <Button variant="secondary">{index + 1}</Button>
+              ))}
+            </Card.Header>
+          </Card>
+        </Card.Body>
+      ) : null}
     </>
   );
 }
 export default FetchReviews;
 
-function Stars(value) {
-  const temp = [];
-  for (let i = 0; i < value; i++) {
-    temp.push(<span class="fa fa-star star-checked"></span>);
-  }
-  for (let i = 0; i < 5 - value; i++) {
-    temp.push(<span class="fa fa-star"></span>);
-  }
-  return temp;
+{
+  /* <Form>
+  <Form.Group className="mb-3">
+    <Form.Label>
+      <b>Add your reviews/comments here</b>
+    </Form.Label>
+    <Form.Control
+      id="addcomment"
+      name="addcomment"
+      type="text"
+      placeholder="Write your comments"
+    />
+    <Form.Text className="text-muted">
+      Ratings: <StarRating required />
+    </Form.Text>
+    <Form.Control
+      id="ticketcode"
+      name="ticketcode"
+      type="text"
+      placeholder="Input your ticket code"
+    />
+    <Button
+      className="mt-2"
+      style={{ float: "right" }}
+      variant="secondary"
+      onClick={submitNewComment}
+    >
+      Submit
+    </Button>
+  </Form.Group>
+</Form>; */
 }

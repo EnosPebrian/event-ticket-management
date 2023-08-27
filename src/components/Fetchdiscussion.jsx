@@ -4,116 +4,59 @@ import { useEffect, useState } from "react";
 import { SVGPlus } from "./svgPlus";
 import { useNavigate } from "react-router-dom";
 
-function FetchDiscussion({ eventid, users_map, events_map }) {
+function FetchDiscussion({ eventid }) {
   const [discussionscontainer, setDiscussionscontainer] = useState([]);
-  const [activitycounter, setActivitycounter] = useState(0);
+  const [discussionPage, setDiscussionPage] = useState(0);
+  const navigate = useNavigate();
   let userid;
   try {
     userid = JSON.parse(localStorage.getItem("auth")).id;
   } catch (err) {
     console.log(err);
   }
-  const navigate = useNavigate();
 
   const load_discussion = async () => {
-    let res_dis = await api.get(`discussions`);
-    let thiseventdiscus = [...res_dis.data];
-    let temp_fil = thiseventdiscus.filter((rev) => rev.eventid == eventid)[0];
-    if (!temp_fil) {
-      try {
-        await api
-          .post(`discussions`, {
-            id: eventid,
-            eventid: eventid,
-            question: [],
-            question_id: [],
-            reply: {},
-            reply_id: {},
-          })
-          .then(async () => {
-            res_dis = await api.get(`discussions`);
-            thiseventdiscus = [...res_dis.data];
-            temp_fil = thiseventdiscus.filter(
-              (rev) => rev.eventid == eventid
-            )[0];
-            setDiscussionscontainer({
-              id: eventid,
-              eventid: eventid,
-              question: [],
-              question_id: [],
-              reply: {},
-              reply_id: {},
-            });
-          });
-      } catch (err) {
-        console.log(err);
-      }
-    } else setDiscussionscontainer(temp_fil);
+    let res_dis = await api.get(`/discussions/context/${eventid}`);
+    setDiscussionscontainer(res_dis.data.data);
+    setDiscussionPage(res_dis.data.number_of_pages);
   };
 
   async function postadiscussion() {
     if (!userid) return navigate(`/login`);
     if (document.getElementById("formaddnewquestion").value) {
       const new_discussion = {
-        id: eventid,
         eventid: eventid,
-        question: [
-          ...discussionscontainer.question,
-          document.getElementById("formaddnewquestion").value,
-        ],
-        question_id: [...discussionscontainer.question_id, userid],
-        reply: {
-          ...discussionscontainer.reply,
-          [discussionscontainer.question.length]: [],
-        },
-        reply_id: {
-          ...discussionscontainer.reply_id,
-          [discussionscontainer.question.length]: [],
-        },
+        userid: userid,
+        question_text: document.getElementById("formaddnewquestion").value,
       };
       await api
-        .patch(`discussions/${eventid}`, new_discussion)
+        .post(`/discussions`, new_discussion)
         .then(() => load_discussion());
     }
   }
 
   function addInput(e) {
     async function postreply(ev) {
-      const comment = document.getElementById(
-        `form-${ev.target.id.slice(7)}`
-      ).value;
       const temp = {
-        id: eventid,
         eventid: eventid,
-        question: [...discussionscontainer?.question],
-        question_id: [...discussionscontainer?.question_id],
-        reply: {
-          ...discussionscontainer?.reply,
-          [ev.target.id.slice(7)]: [
-            ...discussionscontainer?.reply[ev.target.id.slice(7)],
-            comment,
-          ],
-        },
-        reply_id: {
-          ...discussionscontainer?.reply_id,
-          [ev.target.id.slice(7)]: [
-            ...discussionscontainer?.reply_id[ev.target.id.slice(7)],
-            userid,
-          ],
-        },
+        userid: userid,
+        discussion_id: e.target.id.slice(9),
+        reply_text: document.getElementById(`form-${e.target.id.slice(9)}`)
+          .value,
       };
-      await api
-        .patch(`discussions/${eventid}`, temp)
-        .then(() => load_discussion());
-      document.getElementById(`form-${ev.target.id.slice(7)}`).value = "";
+      console.log(`temp`, temp);
+      await api.post(`/discussion_replies`, temp).then(() => {
+        load_discussion();
+        document.getElementById(`form-reply-${e.target.id.slice(9)}`).remove();
+      });
     }
 
     const disc_container = document.getElementById(
-      `disc-card-${e.target.id.slice(9)}`
+      `disc-card-${e.target.getAttribute("name")}`
     );
-
     let div = document.createElement("div");
     div.style.cssText = "display:flex; justify-content:center; width:100%";
+    div.id = `form-reply-${e.target.id.slice(9)}`;
     let input = document.createElement("input");
     input.style.cssText = "width:85%;border:2px solid black";
     input.id = `form-${e.target.id.slice(9)}`;
@@ -142,16 +85,12 @@ function FetchDiscussion({ eventid, users_map, events_map }) {
     load_discussion();
   }, []);
 
-  useEffect(() => {
-    load_discussion();
-  }, [activitycounter]);
-
   if (discussionscontainer) {
     return (
       <>
         <Card.Body style={{ overflowY: "scroll", maxHeight: "100vh" }}>
-          {discussionscontainer.question?.length
-            ? discussionscontainer.question?.map((disc, index) => (
+          {discussionscontainer?.length
+            ? discussionscontainer.map((disc, index) => (
                 <Card key={index} id={`disc-card-${index}`}>
                   <div className="px-3">
                     <span className="d-flex flex-row" style={{ gap: "5px" }}>
@@ -161,27 +100,22 @@ function FetchDiscussion({ eventid, users_map, events_map }) {
                           style={{ maxWidth: "20px", maxHeight: "20px" }}
                         />
                       </span>
-                      {discussionscontainer.question_id[index] ? (
-                        users_map.get(discussionscontainer.question_id[index])
-                          ?.username
-                      ) : (
-                        <Spinner />
-                      )}
+                      {disc.User.username}
                     </span>
                   </div>
                   <Card.Body className="bg-light px-3">
-                    {disc}
+                    {disc.question_text}
                     <Button
                       style={{ float: "right", padding: "0" }}
                       variant="secondary"
                       onClick={(e) => addInput(e)}
                     >
-                      <SVGPlus identifier={index} />
+                      <SVGPlus identifier={disc.id} index={index} />
                     </Button>
 
                     <div className="ml-3 px-3 pt-1">
-                      {discussionscontainer.reply[index]
-                        ? discussionscontainer.reply[index].map((val, idx) => (
+                      {disc?.Discussion_reply.length
+                        ? disc.Discussion_reply.map((val, idx) => (
                             <>
                               <Card className="mb-2">
                                 <div
@@ -197,18 +131,10 @@ function FetchDiscussion({ eventid, users_map, events_map }) {
                                       }}
                                     />
                                   </span>
-                                  <span>
-                                    {
-                                      users_map.get(
-                                        discussionscontainer.reply_id[index][
-                                          idx
-                                        ]
-                                      )?.username
-                                    }
-                                  </span>
+                                  <span>{val.User.username}</span>
                                 </div>
                                 <Card.Body className="bg-light pl-3 py-0">
-                                  {val}
+                                  {val.reply_text}
                                 </Card.Body>
                               </Card>
                             </>
@@ -220,6 +146,18 @@ function FetchDiscussion({ eventid, users_map, events_map }) {
               ))
             : null}
         </Card.Body>
+        {discussionPage > 1 ? (
+          <Card.Body>
+            <Card className="p-3">
+              <Card.Header>
+                Page:{" "}
+                {[...Array(discussionPage)].map((value, index) => (
+                  <Button variant="secondary">{index + 1}</Button>
+                ))}
+              </Card.Header>
+            </Card>
+          </Card.Body>
+        ) : null}
         <Card.Body>
           <Card className="p-3">
             <Form>
