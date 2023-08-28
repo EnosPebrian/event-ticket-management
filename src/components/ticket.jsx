@@ -68,10 +68,15 @@ export const Ticket = ({ ticket }) => {
 
   return (
     <>
-      <MDBCardBody
+      <div
         className="text-center"
         id="card bawah"
-        style={{ border: "1px solid" }}
+        style={{
+          border: "1px solid",
+          maxWidth: "400px",
+          height: "200px",
+          marginBottom: "4px",
+        }}
       >
         <MDBCardText className="mb-1 h5">Your Tickets:</MDBCardText>
         <div className="mb-4 pb-2 border-2 w-30 h-32">
@@ -98,7 +103,7 @@ export const Ticket = ({ ticket }) => {
         <div className="d-flex justify-content-between text-center mt-3 pt-3">
           Your Ticket Number: &emsp; {ticketNumber}
         </div>
-      </MDBCardBody>
+      </div>
     </>
   );
 };

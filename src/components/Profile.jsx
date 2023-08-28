@@ -27,7 +27,7 @@ import { Link, useNavigate } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import uuid from "react-uuid";
 import { Ticket } from "./ticket";
-import { useToast } from "@chakra-ui/react";
+import { Flex, useToast } from "@chakra-ui/react";
 
 export const Profile = () => {
   const nav = useNavigate();
@@ -115,9 +115,11 @@ export const Profile = () => {
             }
           }
           await api.delete(`events/${ev.id}`);
+          fetctEvents();
         }
       } else {
         await api.delete(`events/${ev.id}`);
+        fetctEvents();
       }
     }
     fetctEven();
@@ -176,8 +178,29 @@ export const Profile = () => {
                   <MDBCardText className="text-muted mb-4">
                     <a href="#!">Ref: {userSelector.referralcode}</a>
                   </MDBCardText>
-                  <div className="mb-4 pb-2"></div>
-                  <Button onClick={topup}>Topup Saldo</Button>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div></div>
+                    <button
+                      onClick={topup}
+                      className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded :"
+                    >
+                      Topup Saldo
+                    </button>
+                    <button
+                      onClick={openModal}
+                      className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded :"
+                    >
+                      Create Event
+                    </button>
+                    <div></div>
+                  </div>
+
                   <div className="d-flex justify-content-between text-center mt-5 mb-2">
                     <div>
                       <MDBCardText className="mb-1 h5">
@@ -205,9 +228,11 @@ export const Profile = () => {
                   </div>
                 </MDBCardBody>
 
-                {tickets.map((ticket) => (
-                  <Ticket ticket={ticket} />
-                ))}
+                <MDBCardBody className="mb-5">
+                  {tickets.map((ticket) => (
+                    <Ticket ticket={ticket} />
+                  ))}
+                </MDBCardBody>
                 {/*   <MDBCardBody
                   className="text-center"
                   id="card bawah"
@@ -244,7 +269,12 @@ export const Profile = () => {
               <div className="grid grid-cols-2 gap-4 pt-5">
                 {even?.map((eve) => {
                   return (
-                    <Card style={{ maxWidth: "18rem" }}>
+                    <Card
+                      style={{
+                        maxWidth: "18rem",
+                        boxShadow: "1px 2px 5px black",
+                      }}
+                    >
                       <Card.Img
                         variant="top"
                         src={eve.photo}
@@ -273,6 +303,7 @@ export const Profile = () => {
                             Edit Event
                           </button>
                           <button
+                            fetchEvents={fetctEvents}
                             onClick={() => {
                               deleteEvent(eve);
                             }}
@@ -289,14 +320,7 @@ export const Profile = () => {
               <div
                 style={{ marginTop: "20px", justifyContent: "space-between" }}
                 className="flex "
-              >
-                <button
-                  onClick={openModal}
-                  className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded :"
-                >
-                  Create Event
-                </button>
-              </div>
+              ></div>
             </MDBCol>
 
             <ModalCreate
@@ -305,6 +329,7 @@ export const Profile = () => {
               closeModal={closeModal}
               isModalOpen={isModalOpen}
               fetchEven={fetctEven}
+              fetchEvents={fetctEvents}
             />
           </MDBRow>
         }
