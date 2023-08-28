@@ -54,13 +54,13 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
         <Container fluid>
-          <Navbar.Brand href="#">
+          <Navbar.Brand href="/home">
             <span id="logo-text">FOMOPHOBIA</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              <Nav.Link href="/home">Home</Nav.Link>
+              {/* <Nav.Link href="/home">Home</Nav.Link> */}
               <Nav.Link
                 className="bg-primary"
                 style={{ borderRadius: "10px" }}
@@ -68,7 +68,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Find Events
               </Nav.Link>
-              <NavDropdown title="Action" id="navbarScrollingDropdown">
+              {/* <NavDropdown title="Action" id="navbarScrollingDropdown">
                 <NavDropdown.Item>
                   <Button variant="primary" onClick={handleShow}>
                     Create new event
@@ -84,7 +84,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
                 <NavDropdown.Item href="#action5">
                   Subscription
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
               {/* <Nav.Link href="#" disabled>
               Link
             </Nav.Link> */}
