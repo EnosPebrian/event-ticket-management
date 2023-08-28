@@ -72,13 +72,15 @@ export const Ticket = ({ ticket }) => {
         className="text-center"
         id="card bawah"
         style={{
-          border: "1px solid",
-          maxWidth: "400px",
-          height: "200px",
+          boxShadow: "1px 2px 5px black",
+          maxWidth: "160px",
+          maxHeight: "360px",
           marginBottom: "4px",
         }}
       >
-        <MDBCardText className="mb-1 h5">Your Tickets:</MDBCardText>
+        <div className="font-bold border-b-2" style={{ fontSize: "19px" }}>
+          Your Tickets:
+        </div>
         <div className="mb-4 pb-2 border-2 w-30 h-32">
           <img
             src={photo}
@@ -86,23 +88,30 @@ export const Ticket = ({ ticket }) => {
             style={{ width: "550px", height: "125px", objectFit: "cover" }}
           />
         </div>
-        <div className="d-flex justify-around text-center mt-2 mb-2">
+        <div className="col-auto">
           <div>
-            <MDBCardText className="small text-muted mb-0">{}</MDBCardText>
-            <MDBCardText className="mb-1 h5">
+            <div className="small text-muted mb-0">{}</div>
+            <div
+              className="mb-1"
+              style={{ fontWeight: "700", fontSize: "16px" }}
+            >
               {this_event ? this_event.name : null}
-            </MDBCardText>
+            </div>
           </div>
-          <div>
-            <MDBCardText className="small text-muted mb-0">
+          <div style={{ display: "col" }}>
+            <MDBCardText className=" mb-0" style={{ fontWeight: "500" }}>
               Event Date:
             </MDBCardText>
-            <MDBCardText className="mb-1 h5">{datestart}</MDBCardText>
+            <div className="h-7">{datestart}</div>
           </div>
         </div>
-        <div className="d-flex justify-content-between text-center mt-3 pt-3">
-          Your Ticket Number: &emsp; {ticketNumber}
+        <div
+          className="d-flex text-center "
+          style={{ fontWeight: "500", justifyContent: "center" }}
+        >
+          Your Ticket Number:
         </div>
+        <div>{ticketNumber}</div>
       </div>
     </>
   );

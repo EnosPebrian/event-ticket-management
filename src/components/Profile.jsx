@@ -162,9 +162,9 @@ export const Profile = () => {
               }}
               className="card atas"
             >
-              <MDBCard style={{ borderRadius: "15px" }}>
+              <MDBCard style={{ borderRadius: "15px" }} className="mt-8">
                 <MDBCardBody className="text-center">
-                  <div className="mt-3 mb-4">
+                  <div className="mt-3 mb-4 flex justify-center">
                     <MDBCardImage
                       src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
                       className="rounded-circle"
@@ -173,7 +173,7 @@ export const Profile = () => {
                     />
                   </div>
                   <MDBTypography tag="h4">
-                    Welcome, {userSelector.username}
+                    {userSelector.username}
                   </MDBTypography>
                   <MDBCardText className="text-muted mb-4">
                     <a href="#!">Ref: {userSelector.referralcode}</a>
@@ -184,6 +184,7 @@ export const Profile = () => {
                       display: "flex",
                       justifyContent: "space-between",
                     }}
+                    className="mt-10"
                   >
                     <div></div>
                     <button
@@ -228,11 +229,6 @@ export const Profile = () => {
                   </div>
                 </MDBCardBody>
 
-                <MDBCardBody className="mb-5">
-                  {tickets.map((ticket) => (
-                    <Ticket ticket={ticket} />
-                  ))}
-                </MDBCardBody>
                 {/*   <MDBCardBody
                   className="text-center"
                   id="card bawah"
@@ -266,7 +262,12 @@ export const Profile = () => {
                   <Button onClick={ticketDetail}>get Ticket Details</Button>
                 </MDBCardBody> */}
               </MDBCard>
-              <div className="grid grid-cols-2 gap-4 pt-5">
+              <div className="mb-5 grid grid-cols-3  gap-3 mt-5 flex justify-center">
+                {tickets.map((ticket) => (
+                  <Ticket ticket={ticket} />
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-4 mt-2">
                 {even?.map((eve) => {
                   return (
                     <Card
@@ -275,6 +276,9 @@ export const Profile = () => {
                         boxShadow: "1px 2px 5px black",
                       }}
                     >
+                      <div className="text-center font-bold text-xl p-2 border-b-2">
+                        Even you created
+                      </div>
                       <Card.Img
                         variant="top"
                         src={eve.photo}
