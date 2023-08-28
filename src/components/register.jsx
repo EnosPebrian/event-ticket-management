@@ -93,7 +93,7 @@ const Register = () => {
       <NavbarLogin />
       <center>
         <form onSubmit={register}>
-          <div className="register-box">
+          <div className="register-box" style={{ borderRadius: "50px" }}>
             <div className="judul-register">
               <span style={{ fontWeight: "bold", fontSize: "18px" }}>
                 Sign Up

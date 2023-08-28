@@ -16,7 +16,7 @@ export const ModalCreate = ({
   setIsModalOpen,
   openModal,
   closeModal,
-  fetchEven,
+  fetchPostedEvents,
 }) => {
   let userProfile;
   let userid;
@@ -77,7 +77,7 @@ export const ModalCreate = ({
       const datauser = res_user.data;
       datauser.events.push(eventid);
       await api.patch(`users/${datauser.id}`, datauser);
-      fetchEven();
+      fetchPostedEvents();
       closeModal();
     },
     validationSchema: yup.object().shape({

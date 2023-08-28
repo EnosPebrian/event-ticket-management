@@ -84,7 +84,7 @@ export const Login = () => {
     <>
       <NavbarLogin />
       <center>
-        <div className="register-box">
+        <div className="register-box" style={{ borderRadius: "50px" }}>
           <div className="judul">
             <span style={{ fontWeight: "bold", fontSize: "18px" }}>
               Sign In
@@ -102,7 +102,7 @@ export const Login = () => {
           </div>
 
           <div style={{ marginBottom: "60px" }}>
-            <FloatingLabel
+            {/* <FloatingLabel
               controlId="floatingInput"
               label="Full Name"
               className="mb-1"
@@ -113,7 +113,7 @@ export const Login = () => {
                 required
                 onChange={(e) => inputHandler("username", e.target.value)}
               />
-            </FloatingLabel>
+            </FloatingLabel> */}
 
             <FloatingLabel
               controlId="floatingInput"

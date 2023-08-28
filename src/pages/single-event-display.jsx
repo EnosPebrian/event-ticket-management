@@ -140,6 +140,9 @@ function SingleEventDisplay() {
                       <span>{an_event?.venue}</span>
                     </span>
                   </Card.Text>
+                  <Card.Text>
+                    <span>Event poster: {an_event?.User?.username}</span>
+                  </Card.Text>
                 </Col>
                 <Col id="Ticket-card">
                   <Card>

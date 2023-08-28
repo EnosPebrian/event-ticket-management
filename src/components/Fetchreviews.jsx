@@ -9,8 +9,7 @@ import { Review_comment_card } from "./review_comment_card";
 function FetchReviews({ eventid }) {
   const [allComment, setAllComment] = useState([]);
   const [reviewPage, setReviewPage] = useState(0);
-  const [rating, setRating] = useState(0);
-  const [hover, setHover] = useState(0);
+
   const navigate = useNavigate();
   const [newcomment, setNewcomment] = useState({
     id: 0,
@@ -37,65 +36,35 @@ function FetchReviews({ eventid }) {
     load_review();
   }, []);
 
-  function StarRating() {
-    return (
-      <span className="star-rating">
-        {[...Array(5)].map((star, index) => {
-          index += 1;
-          return (
-            <Button
-              key={index}
-              style={{
-                backgroundColor: "transparent",
-                border: "none",
-                outline: "none",
-                cursor: "pointer",
-                padding: "0",
-              }}
-              className={index <= (hover || rating) ? "on" : "off"}
-              onClick={() => setRating(index)}
-              onMouseEnter={() => setHover(index)}
-              onMouseLeave={() => setHover(rating)}
-            >
-              <span className={index <= (hover || rating) ? "on" : "off"}>
-                &#9733;
-              </span>
-            </Button>
-          );
-        })}
-      </span>
-    );
-  }
-
-  const submitNewComment = async () => {
-    if (!userid) return navigate(`/login`);
-    if (rating == 0) return alert(`please add a rating`);
-    if (document.getElementById("ticketcode").value === "") {
-      return alert(`please input your ticket code`);
-    } else {
-      const res_code = await api.get(
-        `tickets?ticketCode=${document.getElementById("ticketcode").value}`
-      );
-      const code = res_code.data[0];
-      console.log(userid, code);
-      if (!code?.ticketCode) return alert(`wrong ticket code`);
-      if (userid != code?.userid)
-        return alert(`You are not attending this event`);
-    }
-    setNewcomment({
-      id: eventid,
-      eventid: eventid,
-      comments: [
-        ...allComment?.comments,
-        document.getElementById("addcomment").value,
-      ],
-      userid: [...allComment?.userid, userid],
-      ratings: [...allComment?.ratings, rating],
-    });
-    await api
-      .patch(`/reviews/${eventid}`, newcomment)
-      .then(() => load_review());
-  };
+  // const submitNewComment = async () => {
+  //   if (!userid) return navigate(`/login`);
+  //   if (rating == 0) return alert(`please add a rating`);
+  //   if (document.getElementById("ticketcode").value === "") {
+  //     return alert(`please input your ticket code`);
+  //   } else {
+  //     const res_code = await api.get(
+  //       `tickets?ticketCode=${document.getElementById("ticketcode").value}`
+  //     );
+  //     const code = res_code.data[0];
+  //     console.log(userid, code);
+  //     if (!code?.ticketCode) return alert(`wrong ticket code`);
+  //     if (userid != code?.userid)
+  //       return alert(`You are not attending this event`);
+  //   }
+  //   setNewcomment({
+  //     id: eventid,
+  //     eventid: eventid,
+  //     comments: [
+  //       ...allComment?.comments,
+  //       document.getElementById("addcomment").value,
+  //     ],
+  //     userid: [...allComment?.userid, userid],
+  //     ratings: [...allComment?.ratings, rating],
+  //   });
+  //   await api
+  //     .patch(`/reviews/${eventid}`, newcomment)
+  //     .then(() => load_review());
+  // };
 
   useEffect(() => {
     load_review();
@@ -128,36 +97,3 @@ function FetchReviews({ eventid }) {
   );
 }
 export default FetchReviews;
-
-{
-  /* <Form>
-  <Form.Group className="mb-3">
-    <Form.Label>
-      <b>Add your reviews/comments here</b>
-    </Form.Label>
-    <Form.Control
-      id="addcomment"
-      name="addcomment"
-      type="text"
-      placeholder="Write your comments"
-    />
-    <Form.Text className="text-muted">
-      Ratings: <StarRating required />
-    </Form.Text>
-    <Form.Control
-      id="ticketcode"
-      name="ticketcode"
-      type="text"
-      placeholder="Input your ticket code"
-    />
-    <Button
-      className="mt-2"
-      style={{ float: "right" }}
-      variant="secondary"
-      onClick={submitNewComment}
-    >
-      Submit
-    </Button>
-  </Form.Group>
-</Form>; */
-}

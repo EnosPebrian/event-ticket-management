@@ -12,9 +12,14 @@ import { useState } from "react";
 
 function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  let userid;
+  try {
+    userid = JSON.parse(localStorage.getItem("auth")).id;
+  } catch (err) {
+    console.log(err);
+  }
 
   const nav = useNavigate();
   const inputHandler = (e) => {
@@ -95,27 +100,32 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Search
               </Button>
-              <Button
-                variant="outline-success"
-                style={{ marginLeft: "20px", width: "130px" }}
-                onClick={signIn}
-              >
-                Sign In
-              </Button>
-              <Button
-                variant="outline-danger"
-                style={{ marginLeft: "20px" }}
-                onClick={logout}
-              >
-                Logout
-              </Button>
-              <Button
-                variant="outline-success"
-                style={{ marginLeft: "20px" }}
-                onClick={profile}
-              >
-                Profile
-              </Button>
+              {userid ? (
+                <>
+                  <Button
+                    variant="outline-danger"
+                    style={{ marginLeft: "20px" }}
+                    onClick={logout}
+                  >
+                    Logout
+                  </Button>
+                  <Button
+                    variant="outline-success"
+                    style={{ marginLeft: "20px" }}
+                    onClick={profile}
+                  >
+                    Profile
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="outline-success"
+                  style={{ marginLeft: "20px", width: "130px" }}
+                  onClick={signIn}
+                >
+                  Sign In
+                </Button>
+              )}
             </Form>
           </Navbar.Collapse>
         </Container>

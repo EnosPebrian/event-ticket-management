@@ -150,21 +150,23 @@ export const SearchPage = () => {
                 </span>
               )}
             </Row>
-            <div className="w-100 d-flex flex-row justify-content-center align-items-center">
-              {filtered[0] && <span className="mr-3">Page:</span>}
-              {[...new Array(page)].map((val, index) => (
-                <span key={index} className="d-flex mr-1">
-                  <Button
-                    variant="light color-secondary"
-                    page={index + 1}
-                    onClick={(e) => handlePagination(e)}
-                    id={`buttonPage-${index + 1}`}
-                  >
-                    {index + 1}
-                  </Button>
-                </span>
-              ))}
-            </div>
+            {page > 1 ? (
+              <div className="w-100 d-flex flex-row justify-content-center align-items-center">
+                {filtered[0] && <span className="mr-3">Page:</span>}
+                {[...new Array(page)].map((val, index) => (
+                  <span key={index} className="d-flex mr-1">
+                    <Button
+                      variant="light color-secondary"
+                      page={index + 1}
+                      onClick={(e) => handlePagination(e)}
+                      id={`buttonPage-${index + 1}`}
+                    >
+                      {index + 1}
+                    </Button>
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </Container>
         </Col>
       </Row>
