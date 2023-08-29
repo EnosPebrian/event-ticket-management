@@ -123,7 +123,9 @@ export const SearchPage = () => {
       <HeaderNavbar />
       <Row>
         <Col
-          lg={2}
+          xl={3}
+          lg={3}
+          md={4}
           className="vh-100 mt-2"
           id="side-bar"
           style={{ position: "sticky", top: "70px" }}

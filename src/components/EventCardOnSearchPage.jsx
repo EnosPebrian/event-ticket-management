@@ -8,7 +8,7 @@ export const EventCardOnSearchPage = ({ this_event, index }) => {
       xs={12}
       md={6}
       lg={4}
-      xl={3}
+      xl={4}
       className="my-2 d-flex justify-content-center col-card"
       key={index}
       type="button"
@@ -38,8 +38,11 @@ export const EventCardOnSearchPage = ({ this_event, index }) => {
               </>
             ) : null}
           </Card.Title>
-          <Card.Text className="location">
-            {this_event?.Location.location_name}
+          <Card.Text
+            className="location"
+            style={{ textTransform: "capitalize" }}
+          >
+            {this_event?.Location.location_name.toLowerCase()}
           </Card.Text>
           <Card.Text className="date">
             {new Date(this_event?.date_start).toString().slice(0, 15)}

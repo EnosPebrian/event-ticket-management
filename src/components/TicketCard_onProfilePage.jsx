@@ -15,24 +15,29 @@ export const TicketCardProfilePage = ({ eve, index, fetchPostedEvents }) => {
     ) {
       if (ev.date_start > today) {
         if (window.confirm(`there might be several people buy tickets`)) {
+          // ev.Photo_event.forEach(
+          //   async (photo) => await api.delete(`/photo_events/${photo.id}`)
+          // );
           const res = await api.get(`/tickets/q?eventid=${ev.id}`);
           const all_ticket = [...res.data.data];
           if (all_ticket.length) {
             for (let item of all_ticket) {
-              const res_user = await api.get(`users/${item.userid}`);
-              const this_user = res_user.data;
-              console.log(`this_user 1`, this_user);
-              const temp_points = this_user.points;
-              this_user.points = temp_points + item.ticketPrice;
-              console.log(`this_user 2`, this_user);
-              await api.patch(`/users/${item.userid}`, this_user);
-              const a = await api.delete(`tickets/${item.id}`);
-              toast({
-                status: "success",
-                title: "retrieving money",
-                description: `successfully retrieving ${this_user.name} credits from ${temp_points} to ${this_user.points}`,
-                isClosable: true,
-                duration: 1500,
+              await api.get(`/users/${item.userid}`).then(async (result) => {
+                const temp_point = result.data.points;
+                const thisUser = result.data;
+                thisUser.points = temp_point + item.ticket_price;
+                await api
+                  .patch(`/users/${item.userid}`, thisUser)
+                  .then(() =>
+                    toast({
+                      status: "success",
+                      title: "retrieving money",
+                      description: `successfully retrieving ${thisUser.username} credits from ${temp_point} to ${thisUser.points}`,
+                      isClosable: true,
+                      duration: 1500,
+                    })
+                  )
+                  .catch((err) => console.log(err));
               });
             }
           }
@@ -60,14 +65,19 @@ export const TicketCardProfilePage = ({ eve, index, fetchPostedEvents }) => {
         </a>
         <Card.Body>
           <a href={`/${eve?.id}/${eve?.name.replace(" ", "%20")}`}>
-            <Card.Title>{eve?.name}</Card.Title>
+            <Card.Title style={{ textTransform: "capitalize" }}>
+              {eve?.name.toLowerCase()}
+            </Card.Title>
           </a>
-          <Card.Text className="d-flex align-items-center">
+          <Card.Text
+            className="d-flex align-items-center"
+            style={{ textTransform: "capitalize" }}
+          >
             <span className="mr-2">
               {" "}
               <SVGlocation />
             </span>
-            {eve?.Location?.location_name}
+            {eve?.Location?.location_name.toLowerCase()}
           </Card.Text>
           <Card.Text className="d-flex align-items-center">
             <span className="mr-2">

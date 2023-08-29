@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../json-server/api";
 import HeaderNavbar from "../components/Header-navbar";
 import SpinnerLoading from "../components/SpinnerLoading";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { SelectLocationOpt } from "../components/asserts/Select location ANTD";
+import { SelectLocationOpt } from "../components/Select location ANTD";
 import {
   Card,
   Container,
@@ -15,24 +15,40 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
+import { SelectCategoryOpt } from "../components/Select category ANTD";
 
 export default function EditEvent() {
+  const nav = useNavigate();
   const { eventid, eventname } = useParams();
   const [thisEvent, setThisEvent] = useState({});
+  const [location, setLocation] = useState("");
+  const [category, setCategory] = useState("");
 
   async function fetchData() {
     await api
       .get(`/events/q?id=${eventid}`)
-      .then((result) => setThisEvent(result.data.data[0]))
+      .then((result) => {
+        setThisEvent(result.data.data[0]);
+        setLocation(
+          // result.data.data[0].location +
+          //   `--` +
+          result.data.data[0]?.Location?.location_name
+        );
+        setCategory(
+          // result.data.data[0].category +
+          //   `--` +
+          result.data.data[0]?.Event_category?.category
+        );
+      })
       .catch((err) => console.log(err));
   }
 
   const formik = useFormik({
     initialValues: {
       name: thisEvent.name,
-      location: thisEvent.Location?.location_name,
+      location: thisEvent.location,
       venue: thisEvent.venue,
-      category: thisEvent.Event_category?.category,
+      category: thisEvent.category,
       date_start: thisEvent.date_start,
       date_end: thisEvent.date_end,
       time_start: thisEvent.time_start,
@@ -73,6 +89,22 @@ export default function EditEvent() {
     onSubmit: async (values) => {
       if (window.confirm("Are you sure want to apply changes?")) {
         const temp = { ...values };
+        console.log(`1`, temp);
+        [
+          "date_end",
+          "time_end",
+          "time_start",
+          "vip_ticket_price",
+          "vip_ticket_stock",
+          "presale_ticket_price",
+          "presale_ticket_stock",
+          "normal_ticket_price",
+          "normal_ticket_stock",
+        ].forEach((val) => {
+          if (temp[val] === "") temp[val] = null;
+        });
+        console.log(`2`, temp);
+
         if (
           temp.vip_ticket_price ||
           temp.presale_ticket_price ||
@@ -80,8 +112,11 @@ export default function EditEvent() {
         ) {
           temp.isfree = false;
         }
-        await api.patch(`/events/${eventid}`, temp).then(() => fetchData());
-        // await api
+        await api
+          .patch(`/events/${eventid}`, temp)
+          .then(() => fetchData())
+          .then(() => nav("/dashboardprofile"))
+          .catch((err) => console.log(err));
       }
     },
   });
@@ -89,6 +124,7 @@ export default function EditEvent() {
   useEffect(() => {
     fetchData();
   }, []);
+
   useEffect(() => {
     fetchData();
   }, [formik.handleSubmit]);
@@ -133,30 +169,27 @@ export default function EditEvent() {
                       }
                       required
                     />
-                    <Form.Label htmlFor="points">Category</Form.Label>
-                    <Form.Control
-                      type="text"
-                      id="category"
-                      name="category"
-                      aria-describedby=""
-                      value={formik.values.category}
-                      onChange={(e) =>
-                        formik.setFieldValue(e.target.id, e.target.value)
-                      }
-                      required
-                    />
-                    <Form.Label htmlFor="points">Location (City)</Form.Label>
-                    <Form.Control
-                      type="text"
-                      id="location"
-                      name="location"
-                      aria-describedby=""
-                      value={formik.values.location}
-                      onChange={(e) =>
-                        formik.setFieldValue(e.target.id, e.target.value)
-                      }
-                      required
-                    />
+                    <div className="text-left mt-3 mr-2">
+                      <Form.Label htmlFor="points">
+                        Category: {category}
+                      </Form.Label>
+                      <SelectCategoryOpt
+                        formik={formik}
+                        setCategory={setCategory}
+                      />
+                    </div>
+                    <div className="text-left mt-3 mr-2">
+                      <Form.Label
+                        htmlFor="points"
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        Location (City): {location.toLocaleLowerCase()}
+                      </Form.Label>
+                      <SelectLocationOpt
+                        formik={formik}
+                        setLocation={setLocation}
+                      />
+                    </div>
                     <Form.Label htmlFor="points">Venue</Form.Label>
                     <Form.Control
                       type="text"
@@ -378,7 +411,6 @@ export default function EditEvent() {
                     />
                   </Col>
                 </Row>
-                <SelectLocationOpt formik={formik} />
               </Form>
             </Card.Text>
             <Button variant="primary" onClick={formik.handleSubmit}>

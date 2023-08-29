@@ -1,41 +1,42 @@
 import { Select } from "antd";
 import { useEffect, useState } from "react";
-import api from "../../json-server/api";
+import api from "../json-server/api";
 
-export const SelectCategoryOpt = ({ formik }) => {
-  const [allLocation, setAllLocation] = useState([]);
-  const [locationName, setLocationName] = useState("");
+export const SelectCategoryOpt = ({ formik, setCategory }) => {
+  const [allCategory, setAllCategory] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
 
-  const fetchLocation = async (location_name = "") => {
+  const fetchCategory = async (category = "") => {
     await api
-      .get(`/category/q?category=${location_name}`)
-      .then((result) => setAllLocation(result.data));
+      .get(`/event_categories/q?category=${category}`)
+      .then((result) => setAllCategory(result.data));
   };
 
   const { Option } = Select;
   function onChange(value) {
-    formik.values.location = value;
+    formik.setFieldValue(`category`, Number(String(value).split(`--`)[0]));
+    setCategory(String(value).split(`--`)[1]);
   }
   function onBlur() {
-    setLocationName("");
+    // setCategory("");
   }
   function onFocus() {}
   function onSearch(val) {
-    setLocationName(val);
+    setCategory(val);
   }
 
   useEffect(() => {
-    fetchLocation();
+    fetchCategory(categoryName);
   }, []);
   useEffect(() => {
-    const debounce = setTimeout(() => fetchLocation(locationName), 500);
+    const debounce = setTimeout(() => fetchCategory(categoryName), 500);
     return () => clearTimeout(debounce);
-  }, [locationName]);
+  }, [categoryName]);
 
   return (
     <Select
       showSearch
-      style={{ width: 200 }}
+      style={{ width: 200, textTransform: "capitalize" }}
       placeholder="Select a person"
       optionFilterProp="children"
       onChange={onChange}
@@ -43,11 +44,13 @@ export const SelectCategoryOpt = ({ formik }) => {
       onBlur={onBlur}
       onSearch={onSearch}
       filterOption={(input, option) =>
-        option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+        option?.props?.children?.toLowerCase().indexOf(input.toLowerCase()) >= 0
       }
     >
-      {allLocation.map((val, index) => (
-        <Option value={val.id}>{val.location_name}</Option>
+      {allCategory.map((val, index) => (
+        <Option value={val.id + `--` + val.category} key={index}>
+          {val.category}
+        </Option>
       ))}
     </Select>
   );

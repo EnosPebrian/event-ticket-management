@@ -9,7 +9,12 @@ export const OffCanvasSearchPage = ({ formik, category, location }) => {
   return (
     <>
       <Row>
-        <Button variant="primary" className="d-lg-none" onClick={handleShow}>
+        <Button
+          variant="primary"
+          className="d-lg-none"
+          onClick={handleShow}
+          style={{ position: "fixed", top: "50px", maxWidth: "200px" }}
+        >
           Detailed Search Menu
         </Button>
       </Row>
@@ -21,16 +26,12 @@ export const OffCanvasSearchPage = ({ formik, category, location }) => {
         className="bg-secondary p-2"
         style={{ borderRadius: "15px" }}
       >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Detailed Search</Offcanvas.Title>
-        </Offcanvas.Header>
-
         <Offcanvas.Body
           className="d-flex flex-column justify-content-between"
           style={{ gap: "10px", minWidth: "132px" }}
         >
           <Row>
-            <h5>Detailed Search</h5>
+            <h5 className="my-0">Detailed Search</h5>
           </Row>
           <Row>
             <Form className="d-flex">
@@ -39,7 +40,7 @@ export const OffCanvasSearchPage = ({ formik, category, location }) => {
                 name="searchform"
                 type="search"
                 placeholder="Search"
-                className="me-2"
+                className="me-2 py-0 my-0"
                 aria-label="Search"
                 onKeyPress={(e) => {
                   if (e.key === "Enter") {
@@ -59,6 +60,7 @@ export const OffCanvasSearchPage = ({ formik, category, location }) => {
                 id="detailed-search-button"
                 variant="primary"
                 onClick={formik.handleSubmit}
+                className="py-0 my-0"
               >
                 Find
               </Button>
@@ -76,84 +78,86 @@ export const OffCanvasSearchPage = ({ formik, category, location }) => {
             </label>
           </Row>
           <Row>
-            <h6>Date start</h6>
+            <h6 className="my-0">Date start</h6>
             <Form.Group controlId="startdate">
               <Form.Control
                 type="date"
                 name="startdate"
                 placeholder="Start date"
                 onChange={formik.handleChange}
+                className="py-0"
               />
             </Form.Group>
           </Row>
           <Row>
-            <h6>Date end</h6>
+            <h6 className="my-0">Date end</h6>
             <Form.Group controlId="enddate">
               <Form.Control
                 type="date"
                 name="enddate"
                 placeholder="End date"
                 onChange={formik.handleChange}
+                className="py-0"
               />
             </Form.Group>
           </Row>
-          <Row className="m-0 p-0">
-            <h6>Location</h6>
-          </Row>
-          <Row
-            className="d-flex flex-column flex-nowrap"
-            style={{
-              maxHeight: "25vh",
-              maxWidth: "100%",
-              overflowY: "scroll !important",
-              overflowX: "hidden",
-            }}
-          >
-            {location?.length ? (
-              location.map((any_location, index) => (
-                <label key={index}>
-                  <input
-                    type="checkbox"
-                    name="location"
-                    value={any_location}
-                    onChange={formik.handleChange}
-                    className="mr-2"
-                  />
-                  {any_location}
-                </label>
-              ))
-            ) : (
-              <SpinnerLoading />
-            )}
+          <Row>
+            <h6 className="my-0">Location</h6>
+            <div
+              className="d-flex flex-column flex-nowrap"
+              style={{
+                maxHeight: "18vh",
+                maxWidth: "98%",
+                overflowY: "scroll !important",
+                overflowX: "hidden",
+              }}
+            >
+              {location?.length ? (
+                location.map((any_location, index) => (
+                  <label key={index} style={{ textTransform: "capitalize" }}>
+                    <input
+                      type="checkbox"
+                      name="location"
+                      value={any_location}
+                      onChange={formik.handleChange}
+                      className="mr-2"
+                    />
+                    {any_location.toLowerCase()}
+                  </label>
+                ))
+              ) : (
+                <SpinnerLoading />
+              )}
+            </div>
           </Row>
           <Row>
-            <h6>Categories</h6>
-          </Row>
-          <Row
-            className="d-flex flex-column flex-nowrap"
-            style={{
-              maxHeight: "25vh",
-              maxWidth: "100%",
-              overflowY: "scroll !important",
-              overflowX: "hidden",
-            }}
-          >
-            {category?.length ? (
-              category.map((any_category, index) => (
-                <label key={index}>
-                  <input
-                    type="checkbox"
-                    name="category"
-                    value={any_category}
-                    onChange={formik.handleChange}
-                    className="mr-2"
-                  />
-                  {any_category}
-                </label>
-              ))
-            ) : (
-              <SpinnerLoading />
-            )}
+            <h6 className="my-0">Categories</h6>
+            <div
+              className="d-flex flex-column flex-nowrap"
+              style={{
+                maxHeight: "18vh",
+                maxWidth: "98%",
+                overflowY: "scroll !important",
+                overflowX: "hidden",
+              }}
+            >
+              {category?.length ? (
+                category.map((any_category, index) => (
+                  <label key={index}>
+                    <input
+                      type="checkbox"
+                      name="category"
+                      value={any_category}
+                      onChange={formik.handleChange}
+                      className="mr-2"
+                    />
+                    {any_category}
+                  </label>
+                ))
+              ) : (
+                <SpinnerLoading />
+              )}
+            </div>
           </Row>
           <Row>
             <h6>Sort by:</h6>
