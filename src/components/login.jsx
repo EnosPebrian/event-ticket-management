@@ -4,16 +4,9 @@ import Button from "react-bootstrap/Button";
 import "./style.css";
 import { useEffect, useState } from "react";
 import api from "../json-server/api";
-import Eye from "../components/asserts/eye.svg";
-import Closed_eye from "../components/asserts/closed_eye.svg";
-
 import { useLocation, useNavigate } from "react-router-dom";
-
-import HeaderNavbar from "./Header-navbar";
-
 import { useDispatch, useSelector } from "react-redux";
 import { types } from "../redux/types";
-import { Container } from "react-bootstrap";
 import NavbarLogin from "./navbarLogin";
 import { useToast } from "@chakra-ui/react";
 
@@ -125,6 +118,7 @@ export const Login = () => {
                 placeholder="name@example.com"
                 required
                 onChange={(e) => inputHandler("email", e.target.value)}
+                style={{ borderRadius: "20px" }}
               />
             </FloatingLabel>
 
@@ -134,6 +128,7 @@ export const Login = () => {
                 placeholder="Password"
                 required
                 onChange={(e) => inputHandler("password", e.target.value)}
+                style={{ borderRadius: "20px" }}
               />
             </FloatingLabel>
           </div>

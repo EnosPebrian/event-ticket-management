@@ -8,7 +8,7 @@ export const EventCardOnSearchPage = ({ this_event, index }) => {
       xs={12}
       md={6}
       lg={4}
-      xl={4}
+      xl={3}
       className="my-2 d-flex justify-content-center col-card"
       key={index}
       type="button"

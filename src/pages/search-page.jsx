@@ -123,7 +123,7 @@ export const SearchPage = () => {
       <HeaderNavbar />
       <Row>
         <Col
-          xl={3}
+          xl={2}
           lg={3}
           md={4}
           className="vh-100 mt-2"
