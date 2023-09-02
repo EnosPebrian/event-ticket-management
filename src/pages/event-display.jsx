@@ -7,8 +7,10 @@ import { useEffect, useState } from "react";
 import "../components/style.css";
 import HeaderNavbar from "../components/Header-navbar";
 import { EventCardOnSearchPage } from "../components/EventCardOnSearchPage";
+import { useNavigate } from "react-router-dom/dist";
 
 function Eventdisplay() {
+  const nav = useNavigate();
   const [recommendation, setRecommendation] = useState([]);
   const [mostPopular, setMostPopular] = useState([]);
   const [bestRating, setBestRating] = useState([]);

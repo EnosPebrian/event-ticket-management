@@ -16,17 +16,18 @@ export const ModalCreate = ({
   setIsModalOpen,
   openModal,
   closeModal,
-  fetchPostedEvents,
+  fetchEven,
+  fetchEvents,
 }) => {
   let userProfile;
   let userid;
-  // console.log("user profile", userid);
+  console.log("user profile", userid);
 
   try {
     userProfile = JSON.parse(localStorage.getItem("auth"));
     userid = userProfile.id;
   } catch (err) {
-    // console.log(err);
+    console.log(err);
   }
 
   // Time input
@@ -58,26 +59,32 @@ export const ModalCreate = ({
     onSubmit: async (values) => {
       const temp = { ...values };
 
-      // console.log("ghalo", values["description"], values["category"]);
+      console.log("ghalo", values["description"], values["category"]);
       if (temp["vip-ticket-price"] && temp["presale-ticket-price"]) {
         temp["isfree"] = 0;
         const tmpPhoto = [];
         tmpPhoto.push(temp["photo"]);
         temp.photo = tmpPhoto;
-        api.post("/events", temp);
+        await api.post("/events", temp);
+        closeModal();
+      } else {
+        const tmpPhoto = [];
+        tmpPhoto.push(temp["photo"]);
+        temp.photo = tmpPhoto;
+        await api.post("/events", temp);
         closeModal();
       }
-      await api.post("/events", temp);
       const res_this_event = await api.get(
         `/events?name=${temp.name}&location=${temp.location}&venue=${temp.venue}`
       );
-      // console.log(`1`, res_this_event);
+      console.log(`1`, res_this_event);
       const eventid = res_this_event.data[0].id;
       const res_user = await api.get(`users/${userid}`);
       const datauser = res_user.data;
       datauser.events.push(eventid);
       await api.patch(`users/${datauser.id}`, datauser);
-      fetchPostedEvents();
+      fetchEven();
+      fetchEvents();
       closeModal();
     },
     validationSchema: yup.object().shape({
@@ -88,12 +95,32 @@ export const ModalCreate = ({
       "time-end": yup.string().required(),
     }),
   });
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        document.getElementById("img-default").src = reader.result;
+        formik.setFieldValue("photo", reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   useEffect(() => {}, []);
   return (
     <>
       <Modal show={isModalOpen} closeModal={closeModal}>
-        <Modal.Header>
-          <Modal.Title>Create Event</Modal.Title>
+        <Modal.Header
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Modal.Title style={{ fontWeight: "700", fontSize: "28px" }}>
+            Create Event
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body
@@ -105,22 +132,23 @@ export const ModalCreate = ({
           }}
         >
           <Form onSubmit={formik.handleSubmit} className="  w-96">
-            <img id="img-default" src={imageDefault} className="mb-8"></img>
-            <Input
+            <img
+              id="img-default"
+              src={imageDefault}
+              className="mb-8"
+              style={{ boxShadow: "1px 2px 4px black" }}
+            ></img>
+            <input
+              type="file"
+              accept="image/"
               id="photo"
               placeholder="Image URL"
               mb={"20px"}
-              onChange={(e) => {
-                if (!e.target.value) {
-                  document.getElementById("img-default").src = imageDefault;
-                } else {
-                  document.getElementById("img-default").src = e.target.value;
-                }
-                formik.setFieldValue(e.target.id, e.target.value);
-              }}
+              onChange={handleImageChange}
               required
-              className="bg-gray-100 rounded-md p-2 w-96"
-            ></Input>
+              className="bg-gray-100 rounded-md p-2 w-96 "
+              style={{ boxShadow: "1px 2px 4px black" }}
+            ></input>
             <Input
               id="name"
               placeholder="Name event"
@@ -129,7 +157,8 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
-              className="bg-gray-100 rounded-md p-2 w-96"
+              className="bg-gray-100 rounded-md p-2 w-96 mt-6"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Input
               id="location"
@@ -138,6 +167,7 @@ export const ModalCreate = ({
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
+              style={{ boxShadow: "1px 2px 4px black" }}
               required
               className="bg-gray-100 rounded-md p-2 w-96"
             ></Input>
@@ -150,6 +180,7 @@ export const ModalCreate = ({
               }
               required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Input
               id="category"
@@ -160,9 +191,19 @@ export const ModalCreate = ({
               }
               required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Form.Group>
-              start date
+              <span
+                style={{
+                  backgroundColor: "#dec378",
+                  borderRadius: "4px",
+                  padding: "2px",
+                  fontWeight: "500",
+                }}
+              >
+                Start date
+              </span>
               <Form.Control
                 id="date-start"
                 type="date"
@@ -170,10 +211,20 @@ export const ModalCreate = ({
                 placeholder="Start date"
                 onChange={formik.handleChange}
                 required
-                className="bg-gray-100 rounded-md p-2 w-96"
+                className="bg-gray-100 rounded-md p-2 w-96 mb-3"
+                style={{ boxShadow: "1px 2px 4px black" }}
               />
             </Form.Group>
-            end date
+            <span
+              style={{
+                backgroundColor: "#dec378",
+                borderRadius: "4px",
+                padding: "2px",
+                fontWeight: "500",
+              }}
+            >
+              End date
+            </span>
             <Form.Group>
               <Form.Control
                 id="date-end"
@@ -182,10 +233,20 @@ export const ModalCreate = ({
                 placeholder="End date"
                 onChange={formik.handleChange}
                 required
-                className="bg-gray-100 rounded-md p-2 w-96"
+                className="bg-gray-100 rounded-md p-2 w-96 mb-3"
+                style={{ boxShadow: "1px 2px 4px black" }}
               />
             </Form.Group>
-            Time start
+            <span
+              style={{
+                backgroundColor: "#dec378",
+                borderRadius: "4px",
+                padding: "2px",
+                fontWeight: "500",
+              }}
+            >
+              Time start
+            </span>
             <Input
               id="time-start"
               placeholder="Time start"
@@ -194,9 +255,20 @@ export const ModalCreate = ({
                 formik.setFieldValue(e.target.id, e.target.value)
               }
               required
-              className="bg-gray-100 rounded-md p-2 w-96"
+              className="bg-gray-100 rounded-md p-2 w-96 mb-3"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
-            Time end
+            <span
+              style={{
+                backgroundColor: "#dec378",
+                borderRadius: "4px",
+                padding: "2px",
+                fontWeight: "500",
+              }}
+            >
+              Time end
+            </span>
+
             <Input
               id="time-end"
               type="time"
@@ -207,6 +279,7 @@ export const ModalCreate = ({
               }
               required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Input
               id="description"
@@ -217,6 +290,7 @@ export const ModalCreate = ({
               }
               required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Input
               id="vip-ticket-price"
@@ -225,8 +299,8 @@ export const ModalCreate = ({
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
-              required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Input
               id="vip-ticket-stock"
@@ -235,8 +309,8 @@ export const ModalCreate = ({
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
-              required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Input
               id="presale-ticket-price"
@@ -245,8 +319,8 @@ export const ModalCreate = ({
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
-              required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
             <Input
               id="presale-ticket-stock"
@@ -255,18 +329,18 @@ export const ModalCreate = ({
               onChange={(e) =>
                 formik.setFieldValue(e.target.id, e.target.value)
               }
-              required
               className="bg-gray-100 rounded-md p-2 w-96"
+              style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
           </Form>
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
+          <Button variant="primary" onClick={closeModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={formik.handleSubmit}>
-            Save Changes
+          <Button variant="success" onClick={formik.handleSubmit}>
+            Submit
           </Button>
         </Modal.Footer>
       </Modal>

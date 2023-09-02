@@ -1,9 +1,9 @@
 import { MDBCardText, MDBCardBody } from "mdb-react-ui-kit";
 import uuid from "react-uuid";
 import { Button, Col } from "react-bootstrap";
-import Barcode from "react-barcode";
 import { ReviewAnEvent } from "../pages/EventReview";
 import { useState } from "react";
+import Barcode from "react-barcode";
 
 export const Ticket = ({ ticket, index, getTicket }) => {
   const [show, setShow] = useState("");
