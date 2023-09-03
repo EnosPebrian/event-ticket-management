@@ -10,6 +10,7 @@ import { Input } from "@chakra-ui/input";
 import { values } from "lodash";
 import api from "../json-server/api";
 import image from "../components/asserts/default-image.jpg";
+import { useSelector } from "react-redux";
 
 export const ModalCreate = ({
   isModalOpen,
@@ -19,16 +20,18 @@ export const ModalCreate = ({
   fetchEven,
   fetchEvents,
 }) => {
-  let userProfile;
-  let userid;
-  console.log("user profile", userid);
+  // let userProfile;
+  // let userid;
+  // console.log("user profile", userid);
 
-  try {
-    userProfile = JSON.parse(localStorage.getItem("auth"));
-    userid = userProfile.id;
-  } catch (err) {
-    console.log(err);
-  }
+  // try {
+  //   userProfile = JSON.parse(localStorage.getItem("auth"));
+  //   userid = userProfile.id;
+  // } catch (err) {
+  //   console.log(err);
+  // }
+
+  const userSelector = useSelector((state) => state.auth);
 
   // Time input
   const now = new Date();
@@ -38,7 +41,6 @@ export const ModalCreate = ({
 
   const formik = useFormik({
     initialValues: {
-      id: "",
       name: "",
       location: "",
       venue: "",
@@ -48,13 +50,14 @@ export const ModalCreate = ({
       "time-start": "",
       "time-end": "",
       description: "",
-      photo: "",
+      url: "",
       "vip-ticket-price": "",
       "vip-ticket-stock": "",
       "presale-ticket-price": "",
       "presale-ticket-stock": "",
-      "event-creator": userid,
+      "event-creator": userSelector.id,
       isfree: 1,
+      is_sponsored: "",
     },
     onSubmit: async (values) => {
       const temp = { ...values };
@@ -62,24 +65,16 @@ export const ModalCreate = ({
       console.log("ghalo", values["description"], values["category"]);
       if (temp["vip-ticket-price"] && temp["presale-ticket-price"]) {
         temp["isfree"] = 0;
-        const tmpPhoto = [];
-        tmpPhoto.push(temp["photo"]);
-        temp.photo = tmpPhoto;
-        await api.post("/events", temp);
-        closeModal();
-      } else {
-        const tmpPhoto = [];
-        tmpPhoto.push(temp["photo"]);
-        temp.photo = tmpPhoto;
-        await api.post("/events", temp);
+        await api.post("/events/create", temp);
         closeModal();
       }
+
       const res_this_event = await api.get(
         `/events?name=${temp.name}&location=${temp.location}&venue=${temp.venue}`
       );
       console.log(`1`, res_this_event);
       const eventid = res_this_event.data[0].id;
-      const res_user = await api.get(`users/${userid}`);
+      const res_user = await api.get(`users/${userSelector.id}`);
       const datauser = res_user.data;
       datauser.events.push(eventid);
       await api.patch(`users/${datauser.id}`, datauser);
@@ -102,7 +97,7 @@ export const ModalCreate = ({
       const reader = new FileReader();
       reader.onload = () => {
         document.getElementById("img-default").src = reader.result;
-        formik.setFieldValue("photo", reader.result);
+        formik.setFieldValue("url", reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -135,14 +130,14 @@ export const ModalCreate = ({
             <img
               id="img-default"
               src={imageDefault}
-              className="mb-8"
+              className="mb-8 object-fill"
               style={{ boxShadow: "1px 2px 4px black" }}
             ></img>
             <input
               type="file"
               accept="image/"
-              id="photo"
-              placeholder="Image URL"
+              id="url"
+              placeholder="Image"
               mb={"20px"}
               onChange={handleImageChange}
               required
