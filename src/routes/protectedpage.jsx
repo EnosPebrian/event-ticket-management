@@ -8,7 +8,6 @@ export const ProtectedPage = ({
   guestOnly = false,
 }) => {
   const token = localStorage.getItem("auth");
-
   const nav = useNavigate();
   useEffect(() => {
     if (needLogin && !token) return nav(`/login`);
