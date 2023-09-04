@@ -41,6 +41,8 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     nav("/dashboardprofile");
   };
 
+  console.log(userSelector.id);
+
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">

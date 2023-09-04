@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export const ProtectedPage = ({
@@ -6,12 +7,8 @@ export const ProtectedPage = ({
   needLogin = false,
   guestOnly = false,
 }) => {
-  let user;
-  try {
-    user = JSON.parse(localStorage.getItem("auth"));
-  } catch (err) {
-    console.log(err);
-  }
+  const user = useSelector((state) => state.auth);
+
   const nav = useNavigate();
   useEffect(() => {
     if (needLogin && !user?.id) return nav(`/login`);

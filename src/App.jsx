@@ -14,8 +14,8 @@ function App() {
 
   async function dispatcher() {
     try {
-      const userid = JSON.parse(localStorage.getItem("auth")).id;
-      const res = await api.get(`users/${userid}`);
+      const token = localStorage.getItem("auth");
+      const res = await api.get(`users/token?token=${token}`);
       const user = res.data;
       dispatch({ type: types.login, payload: { ...user } });
     } catch (err) {
