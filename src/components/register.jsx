@@ -38,6 +38,13 @@ const Register = () => {
         const tmp = { ...values };
         tmp.email = tmp.email.toLowerCase();
         delete tmp.confirmPassword;
+        toast({
+          title: "processing",
+          status: "info",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
         await api
           .post("/users/new_account", tmp)
           .then((result) => {
