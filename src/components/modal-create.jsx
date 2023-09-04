@@ -43,7 +43,7 @@ export const ModalCreate = ({
   const formik = useFormik({
     initialValues: {
       name: "",
-      location: "",
+      location: 0,
       venue: "",
       category: 0,
       date_start: "",
@@ -69,9 +69,10 @@ export const ModalCreate = ({
       // if (temp["vip-ticket-price"] && temp["presale-ticket-price"]) {
       //   temp["isfree"] = 0;
       // }
-
-      // await api.post("/events/create", temp);
-      closeModal();
+      console.log("terkirim dongggggg");
+      await api.post("/events/create", temp);
+      // closeModal();
+      // fetchEvents();
 
       // const res_this_event = await api.get(
       //   `/events?name=${temp.name}&location=${temp.location}&venue=${temp.venue}`
@@ -86,14 +87,20 @@ export const ModalCreate = ({
       // fetchEvents();
       // closeModal();
     },
-    validationSchema: yup.object().shape({
-      name: yup.string().required(),
-      dat_start: yup.string().required(),
-      date_end: yup.string().required(),
-      time_start: yup.string().required(),
-      time_end: yup.string().required(),
-    }),
+
+    // validationSchema: yup.object().shape({
+    //   name: yup.string().required(),
+    //   date_start: yup.string().required(),
+    //   date_end: yup.string().required(),
+    //   time_start: yup.string().required(),
+    //   time_end: yup.string().required(),
+    // }),
   });
+  const [location, setLocation] = useState([]);
+
+  const fetchLocationForSelectOption = async () => {
+    await api.get("/locations/").then((result) => setLocation(result.data));
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -106,10 +113,12 @@ export const ModalCreate = ({
       reader.readAsDataURL(file);
     }
   };
+
   useEffect(() => {
     // console.log(formik.values.category);
     // console.log(formik.values.name);
-  }, []);
+    fetchLocationForSelectOption();
+  }, [isModalOpen]);
   return (
     <>
       <Modal show={isModalOpen} closeModal={closeModal} size="full">
@@ -133,7 +142,7 @@ export const ModalCreate = ({
             justifyContent: "center",
           }}
         >
-          <Form className="  w-96" onSubmit={formik.handleSubmit}>
+          <Form onSubmit={formik.handleSubmit}>
             <img
               id="img-default"
               src={imageDefault}
@@ -143,11 +152,11 @@ export const ModalCreate = ({
             ></img>
             <input
               type="file"
-              accept="image/"
+              accept="image/*"
               id="url"
               placeholder="Image"
               mb={"20px"}
-              onClick={handleImageChange}
+              onChange={handleImageChange}
               required
               className="bg-gray-100 rounded-md p-2 w-96 "
               style={{ boxShadow: "1px 2px 4px black" }}
@@ -163,17 +172,22 @@ export const ModalCreate = ({
               className="bg-gray-100 rounded-md p-2 w-96 mt-6"
               style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
-            <Input
-              id="location"
-              placeholder="Location event"
-              mb={"20px"}
-              onChange={(e) =>
-                formik.setFieldValue(e.target.id, e.target.value)
-              }
+
+            <Select
+              placeholder="Select  or type location"
+              className="bg-gray-100 rounded-md p-2 w-96 mb-3"
               style={{ boxShadow: "1px 2px 4px black" }}
-              required
-              className="bg-gray-100 rounded-md p-2 w-96"
-            ></Input>
+              id="location"
+              value={formik.values.location}
+              onChange={(e) => formik.setFieldValue("location", e.target.value)}
+            >
+              {location.map((name) => (
+                <>
+                  <option value={name?.id}>{name?.location_name}</option>
+                </>
+              ))}
+            </Select>
+
             <Input
               id="venue"
               placeholder="Venue event"
@@ -185,7 +199,6 @@ export const ModalCreate = ({
               className="bg-gray-100 rounded-md p-2 w-96"
               style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
-
             <Select
               placeholder="Select category"
               className="bg-gray-100 rounded-md p-2 w-96 mb-3"
@@ -210,7 +223,6 @@ export const ModalCreate = ({
               <option value={12}>Kids</option>
               <option value={13}>Family</option>
             </Select>
-
             <Form.Group>
               <span
                 style={{
@@ -370,17 +382,17 @@ export const ModalCreate = ({
               className="bg-gray-100 rounded-md p-2 w-96"
               style={{ boxShadow: "1px 2px 4px black" }}
             ></Input>
+
+            <Modal.Footer>
+              <Button variant="primary" onClick={closeModal}>
+                Close
+              </Button>
+              <Button variant="success" onClick={formik.handleSubmit}>
+                Create
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="primary" onClick={closeModal}>
-            Close
-          </Button>
-          <Button variant="success" type="submit" onClick={formik.handleSubmit}>
-            Create
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );
