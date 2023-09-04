@@ -6,20 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { useDisclosure } from "@chakra-ui/hooks";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  let userid;
-  try {
-    userid = JSON.parse(localStorage.getItem("auth")).id;
-  } catch (err) {
-    console.log(err);
-  }
+
+  const userSelector = useSelector((state) => state.auth);
 
   const nav = useNavigate();
   const inputHandler = (e) => {
@@ -63,7 +59,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Find Events
               </Nav.Link>
-              <NavDropdown title="Action" id="navbarScrollingDropdown">
+              {/* <NavDropdown title="Profile" id="navbarScrollingDropdown">
                 <NavDropdown.Item>
                   <Button variant="primary" onClick={handleShow}>
                     Create new event
@@ -79,10 +75,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
                 <NavDropdown.Item href="#action5">
                   Subscription
                 </NavDropdown.Item>
-              </NavDropdown>
-              {/* <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link> */}
+              </NavDropdown> */}
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -100,22 +93,28 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Search
               </Button>
-              {userid ? (
+              {userSelector?.id ? (
                 <>
-                  <Button
-                    variant="outline-danger"
-                    style={{ marginLeft: "20px" }}
-                    onClick={logout}
-                  >
-                    Logout
-                  </Button>
-                  <Button
-                    variant="outline-success"
-                    style={{ marginLeft: "20px" }}
-                    onClick={profile}
-                  >
-                    Profile
-                  </Button>
+                  <NavDropdown title="Profile" id="navbarScrollingDropdown">
+                    <NavDropdown.Item>
+                      <Button
+                        variant="outline-danger"
+                        style={{ marginLeft: "20px" }}
+                        onClick={logout}
+                      >
+                        Logout
+                      </Button>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <Button
+                        variant="outline-success"
+                        style={{ marginLeft: "20px" }}
+                        onClick={profile}
+                      >
+                        Profile
+                      </Button>{" "}
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </>
               ) : (
                 <Button

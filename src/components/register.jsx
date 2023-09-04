@@ -10,10 +10,12 @@ import NavbarLogin from "./navbarLogin";
 import * as Yup from "yup";
 import YupPassword from "yup-password";
 import { useFormik } from "formik";
+import { useState } from "react";
 
 const Register = () => {
   const nav = useNavigate();
   const toast = useToast();
+  const [timeRegister, setTimeRegister] = useState(new Date());
   YupPassword(Yup);
   const formik = useFormik({
     initialValues: {
@@ -34,39 +36,47 @@ const Register = () => {
       confirmPassword: Yup.string().password().required(),
     }),
     onSubmit: async (values) => {
-      if (values.confirmPassword == values.password) {
-        const tmp = { ...values };
-        tmp.email = tmp.email.toLowerCase();
-        delete tmp.confirmPassword;
-        toast({
-          title: "processing",
-          status: "info",
-          duration: 3000,
-          isClosable: true,
-          position: "top",
-        });
-        await api
-          .post("/users/new_account", tmp)
-          .then((result) => {
-            toast({
-              title: "Your account has been created!",
-              status: "success",
-              duration: 3000,
-              isClosable: true,
-              position: "top",
-            });
-            nav("/login");
-          })
-          .catch((err) => {
-            toast({
-              title: "Failed to register",
-              status: "error",
-              description: err?.response?.data,
-              duration: 3000,
-              isClosable: true,
-              position: "top",
-            });
+      try {
+        console.log(new Date(), timeRegister);
+        if (new Date() - timeRegister < 5000)
+          throw new Error("too many attempt");
+        else setTimeRegister(new Date());
+        if (values.confirmPassword == values.password) {
+          const tmp = { ...values };
+          tmp.email = tmp.email.toLowerCase();
+          delete tmp.confirmPassword;
+          toast({
+            title: "processing",
+            status: "info",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
           });
+          await api
+            .post("/users/new_account", tmp)
+            .then((result) => {
+              toast({
+                title: "Your account has been created!",
+                status: "success",
+                duration: 3000,
+                isClosable: true,
+                position: "top",
+              });
+              nav("/login");
+            })
+            .catch((err) => {
+              toast({
+                title: "Failed to register",
+                status: "error",
+                description: err?.response?.data,
+                duration: 3000,
+                isClosable: true,
+                position: "top",
+              });
+            });
+        }
+      } catch (err) {
+        console.log(err);
       }
     },
   });

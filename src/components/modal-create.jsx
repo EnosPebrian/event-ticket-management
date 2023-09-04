@@ -107,8 +107,8 @@ export const ModalCreate = ({
     }
   };
   useEffect(() => {
-    console.log(formik.values.category);
-    console.log(formik.values.name);
+    // console.log(formik.values.category);
+    // console.log(formik.values.name);
   }, []);
   return (
     <>

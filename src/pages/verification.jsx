@@ -30,16 +30,17 @@ export const Verification_Email = () => {
   };
 
   const resendVerificationLink = async () => {
+    toast({
+      title: "a new verification email has been sent",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
     await api
       .post(`/users/new_account_verification/${id}`, {})
       .then((result) => {
-        toast({
-          title: "a new verification email has been sent",
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-          position: "top",
-        });
+        console.log(result);
         setError("a new verification email has been sent");
       })
       .catch((err) => setError(err?.message));
