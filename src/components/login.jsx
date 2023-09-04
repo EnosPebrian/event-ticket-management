@@ -9,69 +9,50 @@ import { useDispatch, useSelector } from "react-redux";
 import { types } from "../redux/types";
 import NavbarLogin from "./navbarLogin";
 import { useToast } from "@chakra-ui/react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 export const Login = () => {
   const userSelector = useSelector((state) => state.auth);
-  console.log(`userselector di login`, userSelector);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const location = useLocation();
   const toast = useToast();
   const [see, setSee] = useState(false);
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().email().required(),
+      password: Yup.string().required(),
+    }),
+    onSubmit: async (values) => {
+      try {
+        const res = await api.post("/users/auth", {
+          ...values,
+        });
+
+        const user = res.data.user;
+        localStorage.setItem("auth", res.data.token);
+
+        dispatch({
+          type: types.login,
+          payload: user,
+        });
+
+        return nav("/home");
+      } catch (err) {
+        localStorage.removeItem("auth");
+        return err.response.data;
+      }
+    },
   });
-
-  const inputHandler = (key, value) => {
-    setUser({ ...user, [key]: value });
-  };
-
-  const login = async () => {
-    const auth = await api.get("/users", {
-      params: {
-        email: user.email,
-        password: user.password,
-      },
-    });
-    console.log("auth.data", auth.data);
-
-    if (auth.data == 0) {
-      return toast({
-        title: "email/password salah",
-        description: "harap periksa kembali email/password anda",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-
-    // alert("berhasil login");
-    //toast here
-    toast({
-      title: "Login Success",
-      description: "you are entering the app now",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-      position: "top",
-    });
-
-    await dispatch({ payload: { ...auth.data[0] }, type: types.login });
-
-    localStorage.setItem("auth", JSON.stringify(auth.data[0]));
-    delete auth.data[0].password;
-
-    nav("/home");
-  };
 
   useEffect(() => {
     const localData = localStorage.getItem("auth");
-    console.log("localData", localData);
-
-    // if (localData) nav("/home");
   }, []);
 
   return (
@@ -96,45 +77,34 @@ export const Login = () => {
           </div>
 
           <div style={{ marginBottom: "60px" }}>
-            {/* <FloatingLabel
-              controlId="floatingInput"
-              label="Full Name"
-              className="mb-1"
-            >
-              <Form.Control
-                type="text"
-                placeholder="yourfullname"
-                required
-                onChange={(e) => inputHandler("username", e.target.value)}
-              />
-            </FloatingLabel> */}
-
             <FloatingLabel
               controlId="floatingInput"
               label="Email address"
               className="mb-1"
             >
               <Form.Control
+                name="email"
                 type="email"
                 placeholder="name@example.com"
                 required
-                onChange={(e) => inputHandler("email", e.target.value)}
+                onChange={formik.handleChange}
                 style={{ borderRadius: "20px" }}
               />
             </FloatingLabel>
 
             <FloatingLabel controlId="floatingPassword" label="Password">
               <Form.Control
+                name="password"
                 type="password"
                 placeholder="Password"
                 required
-                onChange={(e) => inputHandler("password", e.target.value)}
+                onChange={formik.handleChange}
                 style={{ borderRadius: "20px" }}
               />
             </FloatingLabel>
           </div>
 
-          <Button variant="primary" size="lg" onClick={login}>
+          <Button variant="primary" size="lg" onClick={formik.handleSubmit}>
             Sign In
           </Button>
         </div>
