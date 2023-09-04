@@ -150,17 +150,20 @@ export const ModalCreate = ({
               style={{ boxShadow: "1px 2px 4px black" }}
               cursor={"pointer"}
             ></img>
-            <input
-              type="file"
-              accept="image/*"
-              id="url"
-              placeholder="Image"
-              mb={"20px"}
-              onChange={handleImageChange}
-              required
-              className="bg-gray-100 rounded-md p-2 w-96 "
-              style={{ boxShadow: "1px 2px 4px black" }}
-            ></input>
+            <div className="flex justify-center">
+              <input
+                type="file"
+                accept="image/*"
+                id="url"
+                placeholder="Image"
+                mb={"20px"}
+                onChange={handleImageChange}
+                required
+                className="bg-gray-100 rounded-md p-2 w-28 text-gray-100"
+                style={{ boxShadow: "1px 2px 4px black" }}
+              ></input>
+            </div>
+
             <Input
               id="name"
               placeholder="Name event"
