@@ -1,20 +1,30 @@
 import { MDBCardText, MDBCardBody } from "mdb-react-ui-kit";
 import uuid from "react-uuid";
 import { Button, Col } from "react-bootstrap";
-import Barcode from "react-barcode";
 import { ReviewAnEvent } from "../pages/EventReview";
 import { useState } from "react";
+import Barcode from "react-barcode";
 
 export const Ticket = ({ ticket, index, getTicket }) => {
   const [show, setShow] = useState("");
   const handleClose = () => setShow("");
   const handleShow = () => setShow("modalReview");
   return (
-    <Col sm={6} md={4} lg={3}>
+    <Col
+      sm={6}
+      md={4}
+      lg={3}
+      style={{
+        borderRadius: "14px",
+        border: "1px solid black",
+        boxShadow: "2px 3px 6px black",
+      }}
+      className="bg-white p-4"
+    >
       <MDBCardBody
-        className="text-center"
+        className="text-center p-2"
         id="card bawah"
-        style={{ border: "1px solid" }}
+        style={{ border: "1px solid", boxShadow: "2px 3px 6px black" }}
       >
         <MDBCardText
           className="mb-1 h5"

@@ -50,8 +50,25 @@ export const TicketCardProfilePage = ({ eve, index, fetchPostedEvents }) => {
     fetchPostedEvents();
   }
   return (
-    <Col sm={6} md={4} lg={3} className="d-flex justify-content-center">
-      <Card style={{ maxWidth: "18rem", width: "100%" }} key={index}>
+    <Col
+      sm={6}
+      md={4}
+      lg={3}
+      className="d-flex justify-content-center bg-white p-4"
+      style={{
+        borderRadius: "14px",
+        border: "1px solid black",
+        boxShadow: "2px 3px 6px black",
+      }}
+    >
+      <Card
+        style={{
+          maxWidth: "18rem",
+          width: "100%",
+          boxShadow: "2px 3px 6px black",
+        }}
+        key={index}
+      >
         <a href={`/${eve?.id}/${eve?.name.replace(" ", "%20")}`}>
           <Card.Img
             variant="top"
@@ -90,15 +107,15 @@ export const TicketCardProfilePage = ({ eve, index, fetchPostedEvents }) => {
             <button
               rel="stylesheet"
               onClick={() => nav(`/${eve?.id}/edit_event/${eve?.name}`)}
-              className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded :"
+              className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded h-10 "
             >
-              Edit Event
+              <p style={{ fontSize: "14px" }}>Edit Event</p>
             </button>
             <button
               onClick={() => {
                 deleteEvent(eve);
               }}
-              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-2 border-b-4 border-red-700 hover:border-red-500 rounded :"
+              className="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-2 border-b-4 border-red-700 hover:border-red-500 rounded : h-10"
             >
               Delete Event
             </button>

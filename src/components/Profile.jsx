@@ -62,7 +62,7 @@ export const Profile = () => {
 
   const getTicket = async () => {
     try {
-      const resTicket = await api.get(`/tickets/q?userid=${userSelector.id}`);
+      const resTicket = await api.get(`/tickets/q?userid=${""}}`);
       setTickets(resTicket.data.data);
       setTicketPage(resTicket.data.number_of_pages);
     } catch (error) {
@@ -70,6 +70,7 @@ export const Profile = () => {
     }
   };
 
+  console.log(evenPosted, "ini eventpost");
   useEffect(() => {
     fetchPostedEvents();
     getTicket();
@@ -88,7 +89,14 @@ export const Profile = () => {
           className="space-x-0"
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <MDBCard style={{ borderRadius: "15px", maxWidth: "600px" }}>
+          <MDBCard
+            style={{
+              borderRadius: "15px",
+              maxWidth: "600px",
+              boxShadow: "2px 3px 5px black",
+              marginBottom: "8px",
+            }}
+          >
             <MDBCardBody className="text-center">
               <div className="mt-3 mb-4 d-flex justify-content-center">
                 <MDBCardImage
@@ -145,7 +153,7 @@ export const Profile = () => {
               title="Event You Created"
               className="center"
             >
-              <Row className="w-100 d-flex justify-content-center">
+              <Row className="w-100 d-flex justify-content-center gap-1">
                 {evenPosted?.map((aPostedEvent, index) => (
                   <TicketCardProfilePage
                     eve={aPostedEvent}
@@ -156,7 +164,7 @@ export const Profile = () => {
               </Row>
             </Tab>
             <Tab eventKey="tickets" title="Your Tickets">
-              <Row className="w-100 d-flex justify-content-center">
+              <Row className="w-100 d-flex justify-content-center gap-1">
                 {tickets.map((ticket, index) => (
                   <Ticket ticket={ticket} index={index} getTicket={getTicket} />
                 ))}
