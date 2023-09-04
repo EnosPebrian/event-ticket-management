@@ -12,6 +12,9 @@ import { useSelector } from "react-redux";
 
 function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
+  const [isSearchPage, setIsSearchPage] = useState(
+    window.location.href.split("/")[3]
+  );
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -41,8 +44,6 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     nav("/dashboardprofile");
   };
 
-  console.log(userSelector.id);
-
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
@@ -62,23 +63,26 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
                 Find Events
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                id="search-form"
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-                onKeyPress={(e) => inputHandler(e)}
-              />
-              <Button
-                id="search-button"
-                variant="outline-success"
-                onClick={searchButtonHandler}
-              >
-                Search
-              </Button>
-            </Form>
+            {isSearchPage === "search" ? null : (
+              <Form className="d-flex">
+                <Form.Control
+                  id="search-form"
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                  onKeyPress={(e) => inputHandler(e)}
+                />
+                <Button
+                  id="search-button"
+                  variant="outline-success"
+                  onClick={searchButtonHandler}
+                >
+                  Search
+                </Button>
+              </Form>
+            )}
+
             {userSelector?.id ? (
               <>
                 <div

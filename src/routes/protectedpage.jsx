@@ -7,12 +7,11 @@ export const ProtectedPage = ({
   needLogin = false,
   guestOnly = false,
 }) => {
-  const user = useSelector((state) => state.auth);
+  const token = localStorage.getItem("auth");
 
   const nav = useNavigate();
   useEffect(() => {
-    if (needLogin && !user?.id) return nav(`/login`);
-    // else if (guestOnly) return nav("/dashboard");
+    if (needLogin && !token) return nav(`/login`);
   }, [children]);
 
   return children;

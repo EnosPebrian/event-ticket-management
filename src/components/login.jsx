@@ -30,6 +30,12 @@ export const Login = () => {
       password: Yup.string().required(),
     }),
     onSubmit: async (values) => {
+      toast({
+        title: "processing",
+        status: "loading",
+        isClosable: true,
+        duration: 1500,
+      });
       try {
         const res = await api.post("/users/auth", {
           ...values,
@@ -46,7 +52,12 @@ export const Login = () => {
         return nav("/home");
       } catch (err) {
         localStorage.removeItem("auth");
-        return err.response.data;
+        return toast({
+          title: err.response.data,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
       }
     },
   });

@@ -39,6 +39,7 @@ export const OffCanvasSearchPage = ({ formik, category, location }) => {
                 id="searchform"
                 name="searchform"
                 type="search"
+                value={formik.values.searchform}
                 placeholder="Search"
                 className="me-2 py-0 my-0"
                 aria-label="Search"

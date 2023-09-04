@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import api from "../json-server/api";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
 import HeaderNavbar from "../components/Header-navbar";
 import { OffCanvasSearchPage } from "../components/OffCanvasSearchPage";
@@ -9,17 +9,26 @@ import { EventCardOnSearchPage } from "../components/EventCardOnSearchPage";
 
 export const SearchPage = () => {
   const { searchkey } = useParams();
+  const [search, setSearch] = useSearchParams();
   const [filtered, setFiltered] = useState([]);
   const [location, setLocation] = useState([]);
   const [category, setCategory] = useState([]);
   const today = new Date().toISOString().split("T")[0];
-  const [value, setValue] = useState({});
+  const [value, setValue] = useState({
+    searchform: search.get("name"),
+    startdate: "",
+    completed_event: false,
+    enddate: "",
+    location: [],
+    category: [],
+    sorting: [],
+  });
   const [page, setPage] = useState(1);
   const [queryString, SetQueryString] = useState("");
 
   const formik = useFormik({
     initialValues: {
-      searchform: "",
+      searchform: search.get("name"),
       startdate: "",
       completed_event: false,
       enddate: "",
@@ -28,13 +37,11 @@ export const SearchPage = () => {
       sorting: [],
     },
     onSubmit: (values) => {
-      console.log(values.sorting);
       setValue(values);
     },
   });
 
   const updatefilter = async () => {
-    //untuk fetch events yang sudah difilter
     let queryString = "events/q?";
     if (value?.searchform) {
       queryString += `name=${value?.searchform}&`;
@@ -60,20 +67,28 @@ export const SearchPage = () => {
       SetQueryString(queryString);
       setFiltered(result.data.data);
       setPage(result.data.number_of_pages);
+      window.history.pushState(null, "", queryString.slice(7));
     });
   };
 
   async function fetchEvents() {
     if (searchkey) {
-      await api.get(`events/${searchkey}`).then((result) => {
-        setFiltered(result.data.data);
-        setPage(result.data.number_of_pages);
-      });
+      await api
+        .get(`events/${searchkey}?name=${search.get("name")}`)
+        .then((result) => {
+          console.log(`searchkey`, result.data);
+          setFiltered(result.data.data);
+          setPage(result.data.number_of_pages);
+        })
+        .catch((err) => console.log(`searchkey`, err));
     } else {
-      await api.get(`events/q?`).then((result) => {
-        setFiltered(result.data.data);
-        setPage(result.data.number_of_pages);
-      });
+      await api
+        .get(`events/q?`)
+        .then((result) => {
+          setFiltered(result.data.data);
+          setPage(result.data.number_of_pages);
+        })
+        .catch((err) => console.log(`no search key`, err));
     }
   }
   async function getLocationAndCategory() {
@@ -94,6 +109,7 @@ export const SearchPage = () => {
     await api.get(pageQueryString).then((result) => {
       setFiltered(result.data.data);
       setPage(result.data.number_of_pages);
+      window.history.pushState(null, "", pageQueryString.slice(7));
     });
     window.scrollTo(0, 0);
   };
@@ -147,8 +163,13 @@ export const SearchPage = () => {
                   />
                 ))
               ) : (
-                <span className="d-flex justify-content-center w-100">
-                  <h2>No match</h2>
+                <span className="d-flex flex-column align-items-center justify-content-center w-100">
+                  <h2 className="my-5">No match</h2>
+                  <Button className="my-3">
+                    <a href="/search/q?">Browse All Event</a>
+                  </Button>
+                  <h4>or</h4>
+                  <h4>Try the detailed search tool on the left</h4>
                 </span>
               )}
             </Row>
