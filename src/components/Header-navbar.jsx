@@ -59,23 +59,6 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Find Events
               </Nav.Link>
-              {/* <NavDropdown title="Profile" id="navbarScrollingDropdown">
-                <NavDropdown.Item>
-                  <Button variant="primary" onClick={handleShow}>
-                    Create new event
-                  </Button>
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Manage Your Event
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Contact sales
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Subscription
-                </NavDropdown.Item>
-              </NavDropdown> */}
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -93,39 +76,30 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Search
               </Button>
-              {userSelector?.id ? (
-                <>
-                  <NavDropdown title="Profile" id="navbarScrollingDropdown">
-                    <NavDropdown.Item>
-                      <Button
-                        variant="outline-danger"
-                        style={{ marginLeft: "20px" }}
-                        onClick={logout}
-                      >
-                        Logout
-                      </Button>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <Button
-                        variant="outline-success"
-                        style={{ marginLeft: "20px" }}
-                        onClick={profile}
-                      >
-                        Profile
-                      </Button>{" "}
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </>
-              ) : (
-                <Button
-                  variant="outline-success"
-                  style={{ marginLeft: "20px", width: "130px" }}
-                  onClick={signIn}
-                >
-                  Sign In
-                </Button>
-              )}
             </Form>
+            {userSelector?.id ? (
+              <>
+                <div
+                  className="d-flex justify-content-center align-item-center ml-3 "
+                  style={{ gap: "16px" }}
+                >
+                  <Button variant="outline-danger" onClick={logout}>
+                    Logout
+                  </Button>
+                  <Button variant="outline-success" onClick={profile}>
+                    Profile
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <Button
+                variant="outline-success"
+                style={{ marginLeft: "20px", width: "130px" }}
+                onClick={signIn}
+              >
+                Sign In
+              </Button>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

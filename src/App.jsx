@@ -11,7 +11,7 @@ import HeaderNavbar from "./components/Header-navbar";
 
 function App() {
   const dispatch = useDispatch();
-  //check local storage, kalo ada isinya, dispatch
+
   async function dispatcher() {
     try {
       const userid = JSON.parse(localStorage.getItem("auth")).id;
@@ -22,8 +22,6 @@ function App() {
       console.log(err);
     }
   }
-
-  
 
   useEffect(() => {
     dispatcher();
