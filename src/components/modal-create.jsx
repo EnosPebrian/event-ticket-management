@@ -13,6 +13,7 @@ import image from "../components/asserts/default-image.jpg";
 import { useSelector } from "react-redux";
 import { Image, Select } from "@chakra-ui/react";
 import { renderImage } from "../lib/renderimge";
+import { render } from "@testing-library/react";
 
 export const ModalCreate = ({
   isModalOpen,
@@ -93,6 +94,8 @@ export const ModalCreate = ({
     await api.get("/locations/").then((result) => setLocation(result.data));
   };
 
+  const [images, setImages] = useState([]);
+
   useEffect(() => {
     // console.log(formik.values.name);
     fetchLocationForSelectOption();
@@ -122,7 +125,7 @@ export const ModalCreate = ({
         >
           <Form onSubmit={formik.handleSubmit}>
             <Image
-              src={formik.values.url}
+              src={images}
               className="mb-8 object-fill"
               style={{ boxShadow: "1px 2px 4px black" }}
               cursor={"pointer"}
@@ -140,9 +143,15 @@ export const ModalCreate = ({
               placeholder="Image"
               mb={"20px"}
               onChange={async (e) => {
-                const url = await renderImage(e);
-                formik.setFieldValue("url", url);
-                formik.setFieldValue("image", e.target.files[0]);
+                // const url = await renderImage(e);
+                // formik.setFieldValue("url", url);
+                // formik.setFieldValue("image", e.target.files[0]);
+                const newImages = [...images];
+                for (const file of e.target.file) {
+                  const url = await renderImage(file);
+                  newImages.push({ url, file });
+                }
+                setImages(newImages);
               }}
               className="bg-gray-100 rounded-md p-2 w-28 text-gray-100 hidden"
               style={{ boxShadow: "1px 2px 4px black" }}
