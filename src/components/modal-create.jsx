@@ -4,14 +4,15 @@ import Modal from "react-bootstrap/Modal";
 import imageDefault from "../components/asserts/default-image.jpg";
 import "../components/style.css";
 import * as yup from "yup";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik/dist";
 import { Input } from "@chakra-ui/input";
 import { values } from "lodash";
 import api from "../json-server/api";
 import image from "../components/asserts/default-image.jpg";
 import { useSelector } from "react-redux";
-import { Select } from "@chakra-ui/react";
+import { Image, Select } from "@chakra-ui/react";
+import { renderImage } from "../lib/renderimge";
 
 export const ModalCreate = ({
   isModalOpen,
@@ -21,19 +22,8 @@ export const ModalCreate = ({
   fetchEven,
   fetchEvents,
 }) => {
-  // let userProfile;
-  // let userid;
-  // console.log("user profile", userid);
-
-  // try {
-  //   userProfile = JSON.parse(localStorage.getItem("auth"));
-  //   userid = userProfile.id;
-  // } catch (err) {
-  //   console.log(err);
-  // }
-
   const userSelector = useSelector((state) => state.auth);
-
+  console.log(userSelector.id, "ini id user");
   // Time input
   const now = new Date();
   const [time, setTime] = useState({
@@ -61,6 +51,7 @@ export const ModalCreate = ({
       event_creator_userid: userSelector.id,
       isfree: 1,
       is_sponsored: "",
+      image: null,
     },
     onSubmit: async (values) => {
       const temp = { ...values };
@@ -97,25 +88,12 @@ export const ModalCreate = ({
     // }),
   });
   const [location, setLocation] = useState([]);
-
+  const ref = useRef();
   const fetchLocationForSelectOption = async () => {
     await api.get("/locations/").then((result) => setLocation(result.data));
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        document.getElementById("img-default").src = reader.result;
-        formik.setFieldValue("url", reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   useEffect(() => {
-    // console.log(formik.values.category);
     // console.log(formik.values.name);
     fetchLocationForSelectOption();
   }, [isModalOpen]);
@@ -143,26 +121,32 @@ export const ModalCreate = ({
           }}
         >
           <Form onSubmit={formik.handleSubmit}>
-            <img
-              id="img-default"
-              src={imageDefault}
+            <Image
+              src={formik.values.url}
               className="mb-8 object-fill"
               style={{ boxShadow: "1px 2px 4px black" }}
               cursor={"pointer"}
-            ></img>
-            <div className="flex justify-center">
-              <input
-                type="file"
-                accept="image/*"
-                id="url"
-                placeholder="Image"
-                mb={"20px"}
-                onChange={handleImageChange}
-                required
-                className="bg-gray-100 rounded-md p-2 w-28 text-gray-100"
-                style={{ boxShadow: "1px 2px 4px black" }}
-              ></input>
-            </div>
+              onError={({ target }) => {
+                target.onerror = null;
+                target.src = imageDefault;
+              }}
+              onClick={() => ref.current.click()}
+            ></Image>
+
+            <input
+              ref={ref}
+              type="file"
+              accept="image/*"
+              placeholder="Image"
+              mb={"20px"}
+              onChange={async (e) => {
+                const url = await renderImage(e);
+                formik.setFieldValue("url", url);
+                formik.setFieldValue("image", e.target.files[0]);
+              }}
+              className="bg-gray-100 rounded-md p-2 w-28 text-gray-100 hidden"
+              style={{ boxShadow: "1px 2px 4px black" }}
+            ></input>
 
             <Input
               id="name"
