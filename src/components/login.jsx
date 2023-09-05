@@ -63,7 +63,7 @@ export const Login = () => {
   });
 
   useEffect(() => {
-    const localData = localStorage.getItem("auth");
+    if (localStorage.getItem("auth")) nav(`/home`);
   }, []);
 
   return (
