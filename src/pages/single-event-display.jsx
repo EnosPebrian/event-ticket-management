@@ -19,7 +19,7 @@ function SingleEventDisplay() {
   const [an_event, setAn_event] = useState({});
   const [modalShow, setModalShow] = useState(false);
   try {
-    const userId = JSON.parse(localStorage.getItem("auth")).id;
+    const token = localStorage.getItem("auth")
   } catch (err) {
     console.log(err);
   }

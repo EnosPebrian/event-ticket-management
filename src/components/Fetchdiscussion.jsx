@@ -3,35 +3,42 @@ import api from "../json-server/api";
 import { useEffect, useState } from "react";
 import { SVGPlus } from "./svgPlus";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function FetchDiscussion({ eventid }) {
   const [discussionscontainer, setDiscussionscontainer] = useState([]);
   const [discussionPage, setDiscussionPage] = useState(0);
   const navigate = useNavigate();
-  let userid;
-  try {
-    userid = JSON.parse(localStorage.getItem("auth")).id;
-  } catch (err) {
-    console.log(err);
-  }
+  const userSelector = useSelector((state) => state.auth);
 
-  const load_discussion = async () => {
-    let res_dis = await api.get(`/discussions/context/${eventid}`);
-    setDiscussionscontainer(res_dis.data.data);
-    setDiscussionPage(res_dis.data.number_of_pages);
+  const token = localStorage.getItem("auth");
+
+  const load_discussion = async (page = 1) => {
+    try {
+      let res_dis = await api.get(
+        `/discussions/context/${eventid}?page=${page}`
+      );
+      console.log(res_dis.data.data);
+      setDiscussionscontainer(res_dis.data.data);
+      setDiscussionPage(res_dis.data.number_of_pages);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   async function postadiscussion() {
-    if (!userid) return navigate(`/login`);
+    if (!token) return navigate(`/login`);
     if (document.getElementById("formaddnewquestion").value) {
       const new_discussion = {
         eventid: eventid,
-        userid: userid,
+        userid: userSelector?.id,
         question_text: document.getElementById("formaddnewquestion").value,
       };
       await api
         .post(`/discussions`, new_discussion)
-        .then(() => load_discussion());
+        .then(() => load_discussion())
+        .catch((err) => console.log(err));
+      document.getElementById("formaddnewquestion").value = "";
     }
   }
 
@@ -39,16 +46,20 @@ function FetchDiscussion({ eventid }) {
     async function postreply(ev) {
       const temp = {
         eventid: eventid,
-        userid: userid,
+        userid: userSelector?.id,
         discussion_id: e.target.id.slice(9),
         reply_text: document.getElementById(`form-${e.target.id.slice(9)}`)
           .value,
       };
-      console.log(`temp`, temp);
-      await api.post(`/discussion_replies`, temp).then(() => {
-        load_discussion();
-        document.getElementById(`form-reply-${e.target.id.slice(9)}`).remove();
-      });
+      await api
+        .post(`/discussion_replies`, temp)
+        .then(() => {
+          load_discussion();
+          document
+            .getElementById(`form-reply-${e.target.id.slice(9)}`)
+            .remove();
+        })
+        .catch((err) => console.log(err));
     }
 
     const disc_container = document.getElementById(
@@ -75,11 +86,19 @@ function FetchDiscussion({ eventid }) {
       postreply(e);
     };
     let document_frag = document.createDocumentFragment();
-    document_frag.appendChild(div);
-    div.appendChild(input);
-    div.appendChild(button);
-    disc_container.appendChild(document_frag);
+    try {
+      document_frag.appendChild(div);
+      div.appendChild(input);
+      div.appendChild(button);
+      disc_container.appendChild(document_frag);
+    } catch (err) {
+      console.log(err);
+    }
   }
+
+  const handlePagination = (page) => {
+    load_discussion(page);
+  };
 
   useEffect(() => {
     load_discussion();
@@ -152,7 +171,12 @@ function FetchDiscussion({ eventid }) {
               <Card.Header>
                 Page:{" "}
                 {[...Array(discussionPage)].map((value, index) => (
-                  <Button variant="secondary">{index + 1}</Button>
+                  <Button
+                    variant="secondary"
+                    onClick={() => handlePagination(index + 1)}
+                  >
+                    {index + 1}
+                  </Button>
                 ))}
               </Card.Header>
             </Card>
