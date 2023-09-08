@@ -13,8 +13,7 @@ function App() {
   async function dispatcher() {
     try {
       const token = localStorage.getItem("auth");
-      const res = await api.post(`/users/token/${token}`);
-      console.log(`res`, res);
+      const res = await api.post(`/users/token`);
       const user = res.data.user;
       localStorage.setItem("auth", res.data.token);
       dispatch({ type: types.login, payload: { ...user } });
