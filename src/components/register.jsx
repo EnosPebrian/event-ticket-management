@@ -37,7 +37,6 @@ const Register = () => {
     }),
     onSubmit: async (values) => {
       try {
-        console.log(new Date(), timeRegister);
         if (new Date() - timeRegister < 5000)
           throw new Error("too many attempt");
         else setTimeRegister(new Date());
