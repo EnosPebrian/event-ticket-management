@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:2444",
+  baseURL: "https://fomophobia-api.crystalux.site",
   headers: {
     Authorization: `Bearer ${localStorage.getItem("auth")}`,
-    api_key: "fomophobic",
+    "api-key": "fomophobic",
   },
 });
 
