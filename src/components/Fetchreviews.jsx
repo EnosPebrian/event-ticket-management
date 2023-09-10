@@ -31,7 +31,12 @@ function FetchReviews({ eventid }) {
       <Card.Body style={{ overflowY: "scroll", maxHeight: "100vh" }}>
         {allComment.length ? (
           allComment.map((comment, index) => (
-            <Review_comment_card comment={comment} index={index} />
+            <Review_comment_card
+              comment={comment}
+              index={index}
+              load_review={load_review}
+              page={ref.current}
+            />
           ))
         ) : (
           <span>This event has no review / comment</span>

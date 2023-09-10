@@ -94,6 +94,8 @@ function FetchDiscussion({ eventid }) {
     }
   }
 
+  const editReply = () => {};
+
   const handlePagination = (page) => {
     load_discussion(page);
   };
@@ -150,7 +152,7 @@ function FetchDiscussion({ eventid }) {
                                     }}
                                   />
                                 </span>
-                                <span>{val.User.username}</span>
+                                <span>{val.User?.username}</span>
 
                                 <small className="w-100 text-end">
                                   {timeDisplayer(val?.timediff, val?.createdAt)}

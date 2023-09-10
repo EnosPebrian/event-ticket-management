@@ -3,10 +3,40 @@ import timeDisplayer from "../lib/time-displayer";
 import { SVGthreeDots } from "./SVG";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import api from "../json-server/api";
+import { useToast } from "@chakra-ui/react";
 
-export const Review_comment_card = ({ comment, index }) => {
+export const Review_comment_card = ({ comment, index, load_review, page }) => {
   const userSelector = useSelector((state) => state.auth);
   const [menu, setMenu] = useState(false);
+  const toast = useToast();
+
+  const deleteReview = async () => {
+    await api
+      .delete(`/reviews/${comment.id}`, { data: { userid: userSelector.id } })
+      .then((result) => {
+        toast({
+          title: "success",
+          duration: 2000,
+          status: "success",
+          isClosable: true,
+          position: "top",
+          description: result?.data?.message,
+        });
+      })
+      .catch((err) =>
+        toast({
+          title: "error",
+          duration: 2000,
+          status: "error",
+          isClosable: true,
+          position: "top",
+          description: err?.response?.data,
+        })
+      );
+    load_review(page);
+    setMenu(!menu);
+  };
 
   return (
     <Card key={`cardReview-` + index} style={{ position: "relative" }}>
@@ -21,7 +51,12 @@ export const Review_comment_card = ({ comment, index }) => {
           >
             <SVGthreeDots />
           </div>
-          <Button className={menu ? "d-inline" : "d-none"}>delete</Button>
+          <Button
+            className={menu ? "d-inline" : "d-none"}
+            onClick={deleteReview}
+          >
+            delete
+          </Button>
         </span>
       ) : null}
       <div className="px-3">
