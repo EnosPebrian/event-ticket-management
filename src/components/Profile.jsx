@@ -50,7 +50,7 @@ export const Profile = () => {
   const fetchPostedEvents = async () => {
     try {
       const res = await api.get(
-        `/events/q?event_creator_userid=${userSelector.id}`
+        `/events/q?event_creator_userid=${userSelector?.id}`
       );
       setNumberOfEvenPosted(res.data.data.length);
       setEvenPosted(res.data.data);
@@ -62,7 +62,7 @@ export const Profile = () => {
 
   const getTicket = async () => {
     try {
-      const resTicket = await api.get(`/tickets/q?userid=${""}}`);
+      const resTicket = await api.get(`/tickets/q?userid=${userSelector?.id}}`);
       setTickets(resTicket.data.data);
       setTicketPage(resTicket.data.number_of_pages);
     } catch (error) {
@@ -70,7 +70,6 @@ export const Profile = () => {
     }
   };
 
-  console.log(evenPosted, "ini eventpost");
   useEffect(() => {
     fetchPostedEvents();
     getTicket();

@@ -63,12 +63,15 @@ export const SearchPage = () => {
     if (value?.sorting?.length) {
       value?.sorting.forEach((val) => (queryString += `order_by=${val}&`));
     }
-    await api.get(queryString).then((result) => {
-      SetQueryString(queryString);
-      setFiltered(result.data.data);
-      setPage(result.data.number_of_pages);
-      window.history.pushState(null, "", queryString.slice(7));
-    });
+    await api
+      .get(queryString)
+      .then((result) => {
+        SetQueryString(queryString);
+        setFiltered(result.data.data);
+        setPage(result.data.number_of_pages);
+        window.history.pushState(null, "", queryString.slice(7));
+      })
+      .catch((err) => console.log(err));
   };
 
   async function fetchEvents() {
@@ -98,19 +101,26 @@ export const SearchPage = () => {
       queryStringLocation += "?completed_event=1";
       queryStringEventCategory += "?completed_event=1";
     }
-    const resLoc = await api.get(queryStringLocation);
-    const resEventCat = await api.get(queryStringEventCategory);
-    setLocation(resLoc.data);
-    setCategory(resEventCat.data);
+    const resLoc = await api
+      .get(queryStringLocation)
+      .catch((err) => console.log(err));
+    const resEventCat = await api
+      .get(queryStringEventCategory)
+      .catch((err) => console.log(err));
+    setLocation(resLoc?.data);
+    setCategory(resEventCat?.data);
   }
 
   const handlePagination = async (e) => {
     let pageQueryString = queryString + `page=${e.target.id.slice(11)}`;
-    await api.get(pageQueryString).then((result) => {
-      setFiltered(result.data.data);
-      setPage(result.data.number_of_pages);
-      window.history.pushState(null, "", pageQueryString.slice(7));
-    });
+    await api
+      .get(pageQueryString)
+      .then((result) => {
+        setFiltered(result.data.data);
+        setPage(result.data.number_of_pages);
+        window.history.pushState(null, "", pageQueryString.slice(7));
+      })
+      .catch((err) => console.log(err));
     window.scrollTo(0, 0);
   };
 

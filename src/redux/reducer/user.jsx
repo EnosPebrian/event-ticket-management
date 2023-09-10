@@ -21,6 +21,7 @@ export const userReducer = (state = init_state, action) => {
       points: action.payload.points,
       referralcode: action.payload.referralcode,
       events: action.payload.events,
+      role: action.payload.role,
     };
   } else if (action.type === types.logout) {
     return init_state;

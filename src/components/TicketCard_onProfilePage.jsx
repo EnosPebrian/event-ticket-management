@@ -51,9 +51,9 @@ export const TicketCardProfilePage = ({ eve, index, fetchPostedEvents }) => {
   }
   return (
     <Col
-      sm={6}
-      md={4}
-      lg={3}
+      sm={12}
+      md={6}
+      lg={4}
       className="d-flex justify-content-center bg-white p-4"
       style={{
         borderRadius: "14px",

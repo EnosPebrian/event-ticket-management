@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { SVGPlus } from "./svgPlus";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import timeDisplayer from "../lib/time-displayer";
 
 function FetchDiscussion({ eventid }) {
   const [discussionscontainer, setDiscussionscontainer] = useState([]);
@@ -15,10 +16,7 @@ function FetchDiscussion({ eventid }) {
 
   const load_discussion = async (page = 1) => {
     try {
-      let res_dis = await api.get(
-        `/discussions/context/${eventid}?page=${page}`
-      );
-      console.log(res_dis.data.data);
+      let res_dis = await api.get(`/discussions/event/${eventid}?page=${page}`);
       setDiscussionscontainer(res_dis.data.data);
       setDiscussionPage(res_dis.data.number_of_pages);
     } catch (err) {
@@ -120,6 +118,9 @@ function FetchDiscussion({ eventid }) {
                         />
                       </span>
                       {disc.User.username}
+                      <small className="w-100 text-end">
+                        {timeDisplayer(disc?.timediff, disc?.createdAt)}
+                      </small>
                     </span>
                   </div>
                   <Card.Body className="bg-light px-3">
@@ -135,28 +136,30 @@ function FetchDiscussion({ eventid }) {
                     <div className="ml-3 px-3 pt-1">
                       {disc?.Discussion_reply.length
                         ? disc.Discussion_reply.map((val, idx) => (
-                            <>
-                              <Card className="mb-2">
-                                <div
-                                  className="d-flex flex-row px-3"
-                                  style={{ gap: "5px" }}
-                                >
-                                  <span className="pt-1">
-                                    <Card.Img
-                                      src="https://static.thenounproject.com/png/5034901-200.png"
-                                      style={{
-                                        maxWidth: "20px",
-                                        maxHeight: "20px",
-                                      }}
-                                    />
-                                  </span>
-                                  <span>{val.User.username}</span>
-                                </div>
-                                <Card.Body className="bg-light pl-3 py-0">
-                                  {val.reply_text}
-                                </Card.Body>
-                              </Card>
-                            </>
+                            <Card className="mb-2" key={idx}>
+                              <div
+                                className="d-flex flex-row px-3"
+                                style={{ gap: "5px" }}
+                              >
+                                <span className="pt-1">
+                                  <Card.Img
+                                    src="https://static.thenounproject.com/png/5034901-200.png"
+                                    style={{
+                                      maxWidth: "20px",
+                                      maxHeight: "20px",
+                                    }}
+                                  />
+                                </span>
+                                <span>{val.User.username}</span>
+
+                                <small className="w-100 text-end">
+                                  {timeDisplayer(val?.timediff, val?.createdAt)}
+                                </small>
+                              </div>
+                              <Card.Body className="bg-light pl-3 py-0">
+                                {val.reply_text}
+                              </Card.Body>
+                            </Card>
                           ))
                         : null}
                     </div>
@@ -173,6 +176,7 @@ function FetchDiscussion({ eventid }) {
                 {[...Array(discussionPage)].map((value, index) => (
                   <Button
                     variant="secondary"
+                    key={index}
                     onClick={() => handlePagination(index + 1)}
                   >
                     {index + 1}

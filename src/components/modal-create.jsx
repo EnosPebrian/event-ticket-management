@@ -24,7 +24,6 @@ export const ModalCreate = ({
   fetchEvents,
 }) => {
   const userSelector = useSelector((state) => state.auth);
-  console.log(userSelector.id, "ini id user");
   // Time input
   const now = new Date();
   const [time, setTime] = useState({
@@ -61,8 +60,7 @@ export const ModalCreate = ({
       // if (temp["vip-ticket-price"] && temp["presale-ticket-price"]) {
       //   temp["isfree"] = 0;
       // }
-      console.log("terkirim dongggggg");
-      await api.post("/events/create", temp);
+      await api.post("/events/create", temp).catch((err) => console.log(err));
       // closeModal();
       // fetchEvents();
 
@@ -91,7 +89,10 @@ export const ModalCreate = ({
   const [location, setLocation] = useState([]);
   const ref = useRef();
   const fetchLocationForSelectOption = async () => {
-    await api.get("/locations/").then((result) => setLocation(result.data));
+    await api
+      .get("/locations/")
+      .then((result) => setLocation(result.data))
+      .catch((err) => console.log(err));
   };
 
   const [images, setImages] = useState([]);
@@ -177,10 +178,10 @@ export const ModalCreate = ({
               value={formik.values.location}
               onChange={(e) => formik.setFieldValue("location", e.target.value)}
             >
-              {location.map((name) => (
-                <>
-                  <option value={name?.id}>{name?.location_name}</option>
-                </>
+              {location.map((name, index) => (
+                <option value={name?.id} key={`location-` + index}>
+                  {name?.location_name}
+                </option>
               ))}
             </Select>
 

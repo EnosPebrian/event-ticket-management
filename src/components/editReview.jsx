@@ -4,8 +4,10 @@ import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import api from "../json-server/api";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
-export const ReviewAnEvent = ({
+export const EditReviewAnEvent = ({
   show,
   handleClose,
   ticket,
@@ -13,7 +15,7 @@ export const ReviewAnEvent = ({
   getTicket,
 }) => {
   const toast = useToast();
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(ticket?.Review?.ratings);
   const [hover, setHover] = useState(0);
   function StarRating() {
     return (
@@ -44,36 +46,44 @@ export const ReviewAnEvent = ({
       </span>
     );
   }
-  const postReview = async () => {
-    const data = {
-      eventid: ticket.eventid,
-      userid: ticket.userid,
-      ticketcode: ticket.ticketcode,
-      ratings: rating,
-      comments: document.getElementById(`addcomment-${index}`).value,
-      show_name: document.getElementsByName(`show_name`)[0].checked,
-    };
-    if (data.ratings === 0 || data.comments === "") {
-      return toast({
-        status: "error",
-        title: "Submission failed",
-        description: "You must fill rating and comment text",
-        isClosable: "true",
-      });
-    }
-    try {
-      await api.post(`/reviews`, data);
-      setRating(0);
-      setHover(0);
-      getTicket();
-      handleClose();
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const formik = useFormik({
+    initialValues: {
+      eventid: ticket?.eventid,
+      userid: ticket?.userid,
+      ticketcode: ticket?.ticketcode,
+      ratings: ticket?.Review?.ratings,
+      comments: ticket?.Review?.comments,
+      show_name: ticket?.Review?.show_name,
+    },
+    validationSchema: Yup.object().shape({
+      comments: Yup.string().required(),
+      show_name: Yup.boolean(),
+    }),
+    onSubmit: async (values) => {
+      values.ratings = rating;
+      if (values.ratings === 0 || values.comments === "") {
+        return toast({
+          status: "error",
+          title: "Submission failed",
+          description: "You must fill rating and comment text",
+          isClosable: "true",
+        });
+      }
+      await api
+        .patch(`/reviews/${ticket?.Review?.id}`, values)
+        .then(() => {
+          setRating(0);
+          setHover(0);
+          getTicket();
+          handleClose();
+        })
+        .catch((err) => console.log(err));
+    },
+  });
+
   return (
     <>
-      <Modal show={show === "modalReview"} onHide={handleClose}>
+      <Modal show={show === "modalEdit"} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -85,7 +95,9 @@ export const ReviewAnEvent = ({
               </Form.Label>
               <Form.Control
                 id={`addcomment-${index}`}
-                name="addcomment"
+                name="comments"
+                onChange={formik.handleChange}
+                value={formik.values.comments}
                 as="textarea"
                 placeholder="Write your comments"
               />
@@ -93,14 +105,20 @@ export const ReviewAnEvent = ({
                 Rating: <StarRating /> 0-Very Bad --- 5-Excellent
               </Form.Text>
               <Form.Text className="mt-3">
-                <input type="checkbox" name="show_name" className="mr-2" />
+                <input
+                  type="checkbox"
+                  name="show_name"
+                  value={formik.values.show_name}
+                  className="mr-2"
+                  onChange={formik.handleChange}
+                />
                 Show your name?
               </Form.Text>
               <Button
                 className="mt-3"
                 style={{ float: "right" }}
                 variant="secondary"
-                onClick={postReview}
+                onClick={formik.handleSubmit}
               >
                 Submit
               </Button>

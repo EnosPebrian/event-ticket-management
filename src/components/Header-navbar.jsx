@@ -40,10 +40,6 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
     nav("/login");
   };
 
-  const profile = () => {
-    nav("/dashboardprofile");
-  };
-
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
@@ -92,8 +88,8 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
                   <Button variant="outline-danger" onClick={logout}>
                     Logout
                   </Button>
-                  <Button variant="outline-success" onClick={profile}>
-                    Profile
+                  <Button variant="outline-success">
+                    <a href="/dashboardprofile">Profile</a>
                   </Button>
                 </div>
               </>

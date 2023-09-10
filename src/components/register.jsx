@@ -44,7 +44,6 @@ const Register = () => {
         if (values.confirmPassword == values.password) {
           const tmp = { ...values };
           tmp.email = tmp.email.toLowerCase();
-          delete tmp.confirmPassword;
           toast({
             title: "processing",
             status: "info",

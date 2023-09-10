@@ -1,19 +1,20 @@
 import { MDBCardText, MDBCardBody } from "mdb-react-ui-kit";
-import uuid from "react-uuid";
 import { Button, Col } from "react-bootstrap";
 import { ReviewAnEvent } from "../pages/EventReview";
 import { useState } from "react";
 import Barcode from "react-barcode";
+import { EditReviewAnEvent } from "./editReview";
 
 export const Ticket = ({ ticket, index, getTicket }) => {
   const [show, setShow] = useState("");
   const handleClose = () => setShow("");
   const handleShow = () => setShow("modalReview");
+  const handleShowEdit = () => setShow("modalEdit");
   return (
     <Col
-      sm={6}
-      md={4}
-      lg={3}
+      sm={12}
+      md={6}
+      lg={4}
       style={{
         borderRadius: "14px",
         border: "1px solid black",
@@ -79,11 +80,22 @@ export const Ticket = ({ ticket, index, getTicket }) => {
               See Event Page
             </a>
           </Button>
-          {ticket?.Review ? null : (
+          {ticket?.Review ? (
+            ticket?.Review?.timediff < "00:30:00" ? (
+              <Button onClick={handleShowEdit}>Edit review</Button>
+            ) : null
+          ) : (
             <Button onClick={handleShow}>Review this event</Button>
           )}
         </div>
         <ReviewAnEvent
+          ticket={ticket}
+          show={show}
+          handleClose={handleClose}
+          index={index}
+          getTicket={getTicket}
+        />
+        <EditReviewAnEvent
           ticket={ticket}
           show={show}
           handleClose={handleClose}

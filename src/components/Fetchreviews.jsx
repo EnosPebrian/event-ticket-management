@@ -9,10 +9,13 @@ function FetchReviews({ eventid }) {
   const ref = useRef(1);
 
   const load_review = async (page) => {
-    await api.get(`/reviews/context/${eventid}?page=${page}`).then((result) => {
-      setAllComment(result.data.data);
-      setReviewPage(result.data.number_of_pages);
-    });
+    await api
+      .get(`/reviews/event/${eventid}?page=${page}`)
+      .then((result) => {
+        setAllComment(result?.data?.data);
+        setReviewPage(result?.data?.number_of_pages);
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -42,7 +45,7 @@ function FetchReviews({ eventid }) {
               {[...Array(reviewPage)].map((value, index) => (
                 <Button
                   variant="secondary"
-                  key={index}
+                  key={`button-review-` + index}
                   onClick={() => handlePagination(index + 1)}
                 >
                   {index + 1}

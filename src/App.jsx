@@ -29,8 +29,8 @@ function App() {
   return (
     <>
       <Routes>
-        {routes.map((route) => (
-          <Route {...route} />
+        {routes.map((route, index) => (
+          <Route {...route} key={`route-` + index} />
         ))}
       </Routes>
     </>
