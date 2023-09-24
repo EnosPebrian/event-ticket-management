@@ -31,6 +31,7 @@ export const Profile = () => {
   const [tickets, setTickets] = useState([]);
   const [ticketPage, setTicketPage] = useState(0);
   const [evenPostedPage, setEvenPostedPage] = useState(0);
+  const [totalTransaction, setTotalTransaction] = useState(0);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -65,6 +66,7 @@ export const Profile = () => {
       const resTicket = await api.get(`/tickets/q?userid=${userSelector?.id}}`);
       setTickets(resTicket.data.data);
       setTicketPage(resTicket.data.number_of_pages);
+      setTotalTransaction(resTicket.data.data.length);
     } catch (error) {
       console.log(error);
     }
@@ -141,7 +143,9 @@ export const Profile = () => {
                     </MDBCardText>
                   </div>
                   <div>
-                    <MDBCardText className="mb-1 h5">4751</MDBCardText>
+                    <MDBCardText className="mb-1 h5">
+                      {totalTransaction}
+                    </MDBCardText>
                     <MDBCardText className="small text-muted mb-0">
                       Total Transactions
                     </MDBCardText>

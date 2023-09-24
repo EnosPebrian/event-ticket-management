@@ -7,19 +7,21 @@ import { useNavigate, useParams } from "react-router-dom";
 import { type } from "@testing-library/user-event/dist/type";
 import { types } from "../redux/types";
 import uuid from "react-uuid";
+import { useToast } from "@chakra-ui/react";
 
 export const ModalBuy = (props) => {
   const userSelector = useSelector((state) => state.auth);
   const [events_map, setEvents_map] = useState(new Map());
   const dispatch = useDispatch();
   const nav = useNavigate();
-  // console.log(userSelector);
+  const toast = useToast();
 
   const { eventid, eventname } = useParams();
 
   const fetchEventsMap = async () => {
     try {
       const res_events = await api.get("/events");
+      // console.log(props.an_event);
       const temp_events_map = new Map();
       res_events.data.map((an_event) =>
         temp_events_map.set(an_event.id, an_event)
@@ -29,6 +31,8 @@ export const ModalBuy = (props) => {
       console.log(err);
     }
   };
+
+  const vipPrice = props.an_event?.vip_ticket_price;
 
   useEffect(() => {
     fetchEventsMap();
@@ -40,52 +44,69 @@ export const ModalBuy = (props) => {
   const event_id = Number(eventid);
   const thisevent = events_map.get(event_id);
 
-  // console.log(thisevent["vip-ticket-stock"]);
-
   const buy = async () => {
-    const idUserLokal = localStorage.getItem("auth");
-    console.log(idUserLokal);
-
-    //proteksi user tidak login tapi mau beli
-    if (!idUserLokal && userSelector.points == 0) return nav("/login");
-    // saldo(points) berkurang
-    const sisaSaldo = userSelector.points - thisevent["vip-ticket-price"];
-    if (sisaSaldo <= 0) return alert("saldo anda tidak cukup");
-
     try {
-      await api.patch(`/users/${userSelector.id}`, {
-        points: sisaSaldo,
-      });
+      const updatedVIPStock = thisevent.vip_ticket_stock - 1;
+      const isUserLogin = localStorage.getItem("auth");
 
-      await dispatch({
-        type: types.update_saldo,
-        payload: { ["points"]: sisaSaldo },
-      });
+      //cek apakah user sudah login
+      if (!isUserLogin)
+        return toast({
+          title: "anda belum login",
+          description: "anda harus login terlebih dahulu",
+          status: "error",
+          duration: 3000,
+        });
+      // kalo sudah login cek apakah saldo cukup
+      if (userSelector.points < thisevent.vip_ticket_price)
+        return toast({
+          title: "saldo anda tidak cukup",
+          description: "silahkan isi saldo",
+          status: "error",
+          duration: 3000,
+        });
+      //update sisa saldo user setelah beli
+      try {
+        const sisaSaldo = userSelector.points - thisevent["vip_ticket_price"];
+        await api.patch(`/users/${userSelector.id}`, {
+          points: sisaSaldo,
+        });
+        await dispatch({
+          type: types.update_saldo,
+          payload: { ["points"]: sisaSaldo },
+        });
+
+        // vip_ticket > 0 ? stok vip event berkurang : return taost ticket habis
+        if (thisevent.vip_ticket_stock <= 0)
+          return toast({
+            title: "stok VIP habis",
+            description: "tiket yang anda pilih habis",
+            status: "error",
+            duration: 3000,
+          });
+        const response = await api.patch(`/events/${eventid}`, {
+          vip_ticket_stock: updatedVIPStock,
+        });
+        if (response.status === 200) {
+          dispatch({
+            type: types.update_vip_ticket_stock,
+            payload: { eventid, vip_ticket_stock: updatedVIPStock },
+          });
+          toast({
+            title: "berhasil membeli VIP tiket",
+            status: "success",
+            duration: 3000,
+          });
+          props.onHide();
+        } else {
+          console.error("Failed to update ticket stock");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     } catch (err) {
       console.log(err);
     }
-
-    // stock berkurang
-    const stock = thisevent["vip-ticket-stock"];
-
-    //apabila stok nya udah 0 maka gabisa dibeli
-    if (stock <= 0) return alert("stok habis");
-    await api.patch(`/events/${event_id}`, {
-      ["vip-ticket-stock"]: stock - 1,
-    });
-    props.fetchThisEvent();
-
-    //push ticket ke db
-
-    const pushTicket = await api.post("/tickets", {
-      userid: userSelector.id,
-      eventid: event_id,
-      ticketCode: uuid(),
-      ticketCategory: "VIP",
-      ticketPrice: thisevent["vip-ticket-price"],
-    });
-
-    return props.onHide();
   };
 
   return (
@@ -103,9 +124,7 @@ export const ModalBuy = (props) => {
       <Modal.Body>
         <div>
           Price of this ticket: Rp
-          {thisevent &&
-            thisevent &&
-            Number(thisevent["vip-ticket-price"]).toLocaleString(`id-ID`)}
+          {vipPrice.toLocaleString(`id-ID`)}
           ,00
         </div>
         <div>

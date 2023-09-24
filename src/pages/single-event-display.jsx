@@ -17,7 +17,8 @@ import uuid from "react-uuid";
 function SingleEventDisplay() {
   const { eventid, eventname } = useParams();
   const [an_event, setAn_event] = useState({});
-  const [modalShow, setModalShow] = useState(false);
+  const [modalVIPShow, setModalVIPShow] = useState(false);
+  const [modalPresaleShow, setModalPresaleShow] = useState(false);
   try {
     const token = localStorage.getItem("auth")
   } catch (err) {
@@ -27,6 +28,7 @@ function SingleEventDisplay() {
     try {
       const res = await api.get(`/events/q?id=${eventid}`);
       setAn_event(res.data.data[0]);
+      console.log(an_event);
     } catch (err) {
       console.log(err);
     }
@@ -52,7 +54,7 @@ function SingleEventDisplay() {
 
   useEffect(() => {
     fetchThisEvent();
-  }, []);
+  }, [modalVIPShow, modalPresaleShow]);
 
   return (
     <>
@@ -157,7 +159,6 @@ function SingleEventDisplay() {
                         </>
                       ) : (
                         <>
-                          {" "}
                           {an_event?.vip_ticket_price ? (
                             <>
                               <Card.Title>VIP TICKET</Card.Title>
@@ -169,19 +170,23 @@ function SingleEventDisplay() {
                                 ,00
                               </Card.Text>
                               <Card.Text>
-                                Stock: {an_event?.vip_ticket_stock}
+                                Stock:
+                                {an_event?.vip_ticket_stock >=  1
+                                  ? an_event.vip_ticket_stock
+                                  : "0"}
                               </Card.Text>
                               <Button
                                 className="mb-3"
-                                onClick={() => setModalShow(true)}
+                                onClick={() => setModalVIPShow(true)}
                               >
                                 Buy VIP ticket
                               </Button>
                               <ModalBuy
-                                show={modalShow}
-                                onHide={() => setModalShow(false)}
+                                show={modalVIPShow}
+                                onHide={() => setModalVIPShow(false)}
                                 eventid={eventid}
                                 fetchThisEvent={fetchThisEvent}
+                                an_event={an_event}
                               />
                             </>
                           ) : null}
@@ -198,14 +203,15 @@ function SingleEventDisplay() {
                               <Card.Text>
                                 Stock: {an_event?.presale_ticket_stock}
                               </Card.Text>
-                              <Button onClick={() => setModalShow(true)}>
+                              <Button onClick={() => setModalPresaleShow(true)}>
                                 Buy Presale ticket
                               </Button>
                               <ModalBuyPresale
-                                show={modalShow}
-                                onHide={() => setModalShow(false)}
+                                show={modalPresaleShow}
+                                onHide={() => setModalPresaleShow(false)}
                                 eventid={eventid}
                                 fetchThisEvent={fetchThisEvent}
+                                an_event={an_event}
                               />
                             </>
                           ) : null}
