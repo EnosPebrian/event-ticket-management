@@ -44,83 +44,107 @@ export const ModalBuyPresale = (props) => {
   // console.log(thisevent["vip-ticket-stock"]);
 
   const buy = async () => {
+    const token = localStorage.getItem("auth");
     try {
-      const updatedPresaleStock = thisevent.presale_ticket_stock - 1;
-      const isUserLogin = localStorage.getItem("auth");
-
-      //cek apakah user sudah login
-      if (!isUserLogin)
-        return toast({
-          title: "anda belum login",
-          description: "anda harus login terlebih dahulu",
-          status: "error",
-          duration: 3000,
-        });
-      // kalo sudah login cek apakah saldo cukup
-      if (userSelector.points < thisevent.presale_ticket_price)
-        return toast({
-          title: "saldo anda tidak cukup",
-          description: "silahkan isi saldo",
-          status: "error",
-          duration: 3000,
-        });
-      //update sisa saldo user setelah beli
-      try {
-        const sisaSaldo =
-          userSelector.points - thisevent["presale_ticket_price"];
-        await api.patch(`/users/${userSelector.id}`, {
-          points: sisaSaldo,
-        });
-        await dispatch({
-          type: types.update_saldo,
-          payload: { ["points"]: sisaSaldo },
-        });
-      } catch (err) {
-        console.log(err);
-      }
-
-      // presale_ticket > 0 ? stok presale event berkurang : return taost ticket habis
-      if (thisevent.presale_ticket_stock <= 0)
-        return toast({
-          title: "stok Presale habis",
-          description: "tiket yang anda pilih habis",
-          status: "error",
-          duration: 3000,
-        });
-      const response = await api.patch(`/events/${eventid}`, {
-        presale_ticket_stock: updatedPresaleStock,
-      });
-      if (response.status === 200) {
-        dispatch({
-          type: types.update_presale_ticket_stock,
-          payload: { eventid, presale_ticket_stock: updatedPresaleStock },
-        });
-        toast({
-          title: "berhasil membeli VIP tiket",
-          status: "success",
-          duration: 3000,
-        });
-
-        /* Close the modal or perform any other actions as needed
-        For example, you can navigate to a success page */
-        props.onHide();
-      } else {
-        /* Handle the case when the update request fails */
-        console.error("Failed to update ticket stock");
-      }
-
-      //proteksi apabila user tidak login tapi mau beli
-      /*   if (!isUserLogin)
-        return toast({
-          title: "anda belum login",
-          description: "anda harus login terlebih dahulu",
-          status: "error",
-          duration: 3000,
-        }); */
+      const response = await api.post(
+        "/transactions",
+        {
+          event_id: thisevent.id,
+          vip_ticket: false,
+          normal_ticket: false,
+          presale_ticket: true,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // console.log("response", response.data);
+      props.onHide();
     } catch (err) {
       console.log(err);
     }
   };
+
+  // const buy = async () => {
+  //   try {
+  //     const updatedPresaleStock = thisevent.presale_ticket_stock - 1;
+  //     const isUserLogin = localStorage.getItem("auth");
+
+  //     //cek apakah user sudah login
+  //     if (!isUserLogin)
+  //       return toast({
+  //         title: "anda belum login",
+  //         description: "anda harus login terlebih dahulu",
+  //         status: "error",
+  //         duration: 3000,
+  //       });
+  //     // kalo sudah login cek apakah saldo cukup
+  //     if (userSelector.points < thisevent.presale_ticket_price)
+  //       return toast({
+  //         title: "saldo anda tidak cukup",
+  //         description: "silahkan isi saldo",
+  //         status: "error",
+  //         duration: 3000,
+  //       });
+  //     //update sisa saldo user setelah beli
+  //     try {
+  //       const sisaSaldo =
+  //         userSelector.points - thisevent["presale_ticket_price"];
+  //       await api.patch(`/users/${userSelector.id}`, {
+  //         points: sisaSaldo,
+  //       });
+  //       await dispatch({
+  //         type: types.update_saldo,
+  //         payload: { ["points"]: sisaSaldo },
+  //       });
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+
+  //     // presale_ticket > 0 ? stok presale event berkurang : return taost ticket habis
+  //     if (thisevent.presale_ticket_stock <= 0)
+  //       return toast({
+  //         title: "stok Presale habis",
+  //         description: "tiket yang anda pilih habis",
+  //         status: "error",
+  //         duration: 3000,
+  //       });
+  //     const response = await api.patch(`/events/${eventid}`, {
+  //       presale_ticket_stock: updatedPresaleStock,
+  //     });
+  //     if (response.status === 200) {
+  //       dispatch({
+  //         type: types.update_presale_ticket_stock,
+  //         payload: { eventid, presale_ticket_stock: updatedPresaleStock },
+  //       });
+  //       toast({
+  //         title: "berhasil membeli VIP tiket",
+  //         status: "success",
+  //         duration: 3000,
+  //       });
+
+  //       /* Close the modal or perform any other actions as needed
+  //       For example, you can navigate to a success page */
+  //       props.onHide();
+  //     } else {
+  //       /* Handle the case when the update request fails */
+  //       console.error("Failed to update ticket stock");
+  //     }
+
+  //     //proteksi apabila user tidak login tapi mau beli
+  //     /*   if (!isUserLogin)
+  //       return toast({
+  //         title: "anda belum login",
+  //         description: "anda harus login terlebih dahulu",
+  //         status: "error",
+  //         duration: 3000,
+  //       }); */
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const PresalePrice = props.an_event?.presale_ticket_price;
 

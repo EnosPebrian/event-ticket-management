@@ -45,69 +45,93 @@ export const ModalBuy = (props) => {
   const thisevent = events_map.get(event_id);
 
   const buy = async () => {
+    const token = localStorage.getItem("auth");
     try {
-      const updatedVIPStock = thisevent.vip_ticket_stock - 1;
-      const isUserLogin = localStorage.getItem("auth");
-
-      //cek apakah user sudah login
-      if (!isUserLogin)
-        return toast({
-          title: "anda belum login",
-          description: "anda harus login terlebih dahulu",
-          status: "error",
-          duration: 3000,
-        });
-      // kalo sudah login cek apakah saldo cukup
-      if (userSelector.points < thisevent.vip_ticket_price)
-        return toast({
-          title: "saldo anda tidak cukup",
-          description: "silahkan isi saldo",
-          status: "error",
-          duration: 3000,
-        });
-      //update sisa saldo user setelah beli
-      try {
-        const sisaSaldo = userSelector.points - thisevent["vip_ticket_price"];
-        await api.patch(`/users/${userSelector.id}`, {
-          points: sisaSaldo,
-        });
-        await dispatch({
-          type: types.update_saldo,
-          payload: { ["points"]: sisaSaldo },
-        });
-
-        // vip_ticket > 0 ? stok vip event berkurang : return taost ticket habis
-        if (thisevent.vip_ticket_stock <= 0)
-          return toast({
-            title: "stok VIP habis",
-            description: "tiket yang anda pilih habis",
-            status: "error",
-            duration: 3000,
-          });
-        const response = await api.patch(`/events/${eventid}`, {
-          vip_ticket_stock: updatedVIPStock,
-        });
-        if (response.status === 200) {
-          dispatch({
-            type: types.update_vip_ticket_stock,
-            payload: { eventid, vip_ticket_stock: updatedVIPStock },
-          });
-          toast({
-            title: "berhasil membeli VIP tiket",
-            status: "success",
-            duration: 3000,
-          });
-          props.onHide();
-        } else {
-          console.error("Failed to update ticket stock");
+      const response = await api.post(
+        "/transactions",
+        {
+          event_id: thisevent.id,
+          vip_ticket: true,
+          normal_ticket: false,
+          presale_ticket: false,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      } catch (err) {
-        console.log(err);
-      }
+      );
+      // console.log("response", response.data);
+      props.onHide();
     } catch (err) {
       console.log(err);
     }
   };
+
+  // const buy = async () => {
+  //   try {
+  //     const updatedVIPStock = thisevent.vip_ticket_stock - 1;
+  //     const isUserLogin = localStorage.getItem("auth");
+
+  //     //cek apakah user sudah login
+  //     if (!isUserLogin)
+  //       return toast({
+  //         title: "anda belum login",
+  //         description: "anda harus login terlebih dahulu",
+  //         status: "error",
+  //         duration: 3000,
+  //       });
+  //     // kalo sudah login cek apakah saldo cukup
+  //     if (userSelector.points < thisevent.vip_ticket_price)
+  //       return toast({
+  //         title: "saldo anda tidak cukup",
+  //         description: "silahkan isi saldo",
+  //         status: "error",
+  //         duration: 3000,
+  //       });
+  //     //update sisa saldo user setelah beli
+  //     try {
+  //       const sisaSaldo = userSelector.points - thisevent["vip_ticket_price"];
+  //       await api.patch(`/users/${userSelector.id}`, {
+  //         points: sisaSaldo,
+  //       });
+  //       await dispatch({
+  //         type: types.update_saldo,
+  //         payload: { ["points"]: sisaSaldo },
+  //       });
+
+  //       // vip_ticket > 0 ? stok vip event berkurang : return taost ticket habis
+  //       if (thisevent.vip_ticket_stock <= 0)
+  //         return toast({
+  //           title: "stok VIP habis",
+  //           description: "tiket yang anda pilih habis",
+  //           status: "error",
+  //           duration: 3000,
+  //         });
+  //       const response = await api.patch(`/events/${eventid}`, {
+  //         vip_ticket_stock: updatedVIPStock,
+  //       });
+  //       if (response.status === 200) {
+  //         dispatch({
+  //           type: types.update_vip_ticket_stock,
+  //           payload: { eventid, vip_ticket_stock: updatedVIPStock },
+  //         });
+  //         toast({
+  //           title: "berhasil membeli VIP tiket",
+  //           status: "success",
+  //           duration: 3000,
+  //         });
+  //         props.onHide();
+  //       } else {
+  //         console.error("Failed to update ticket stock");
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <Modal

@@ -20,7 +20,7 @@ function SingleEventDisplay() {
   const [modalVIPShow, setModalVIPShow] = useState(false);
   const [modalPresaleShow, setModalPresaleShow] = useState(false);
   try {
-    const token = localStorage.getItem("auth")
+    const token = localStorage.getItem("auth");
   } catch (err) {
     console.log(err);
   }
@@ -28,7 +28,7 @@ function SingleEventDisplay() {
     try {
       const res = await api.get(`/events/q?id=${eventid}`);
       setAn_event(res.data.data[0]);
-      console.log(an_event);
+      // console.log(an_event);
     } catch (err) {
       console.log(err);
     }
@@ -171,7 +171,7 @@ function SingleEventDisplay() {
                               </Card.Text>
                               <Card.Text>
                                 Stock:
-                                {an_event?.vip_ticket_stock >=  1
+                                {an_event?.vip_ticket_stock >= 1
                                   ? an_event.vip_ticket_stock
                                   : "0"}
                               </Card.Text>
