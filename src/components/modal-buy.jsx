@@ -61,7 +61,16 @@ export const ModalBuy = (props) => {
           },
         }
       );
-      // console.log("response", response.data);
+
+      const pushTicket = await api.post("/tickets", {
+        userid: userSelector.id,
+        eventid: thisevent.id,
+        ticketcode: uuid(),
+        category: 1,
+        ticket_price: response.data.total_price,
+      });
+
+      // console.log("response", response);
       props.onHide();
     } catch (err) {
       console.log(err);

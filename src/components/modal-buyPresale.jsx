@@ -60,7 +60,14 @@ export const ModalBuyPresale = (props) => {
           },
         }
       );
-      // console.log("response", response.data);
+
+      const pushTicket = await api.post("/tickets", {
+        userid: userSelector.id,
+        eventid: thisevent.id,
+        ticketcode: uuid(),
+        category: 2,
+        ticket_price: response.data.total_price,
+      });
       props.onHide();
     } catch (err) {
       console.log(err);
