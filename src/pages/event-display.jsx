@@ -52,7 +52,7 @@ function Eventdisplay() {
         <Carousel id="carousel-container" className="mt-2">
           <Carousel.Item>
             <img
-              src="https://api.yesplis.com/images/slider/8044935f5ad212cb8c3d74cb8d8fefdb158025d6.png.webp"
+              src="https://t3.ftcdn.net/jpg/00/66/57/00/360_F_66570044_uOKC8lOpv8PxHWYBBeFmu1iKD3IGCLhw.jpg"
               referrerPolicy="no-referrer"
               className="img-carousel"
               alt=""

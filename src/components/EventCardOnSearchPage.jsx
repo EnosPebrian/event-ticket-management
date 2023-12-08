@@ -14,13 +14,13 @@ export const EventCardOnSearchPage = ({ this_event, index }) => {
       onClick={() => navigate(`/${this_event?.id}/${this_event?.name}`)}
     >
       <Card style={{ width: '18rem' }}>
-        {/* <Card.Img
+        <Card.Img
           variant="top"
           referrerPolicy="no-referrer"
           src={this_event?.Photo_event[0].url}
           alt={this_event?.name}
           className="image-event"
-        /> */}
+        />
         <Card.Body>
           <Card.Title
             className="event-name"

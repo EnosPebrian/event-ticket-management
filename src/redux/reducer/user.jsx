@@ -1,12 +1,12 @@
-import { types } from "../types";
+import { types } from '../types';
 
 const init_state = {
-  username: "",
-  email: "",
-  password: "",
+  username: '',
+  email: '',
+  password: '',
   id: 0,
   points: 0,
-  referralcode: "",
+  referralcode: '',
   events: [],
 };
 

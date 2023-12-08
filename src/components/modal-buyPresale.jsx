@@ -68,6 +68,7 @@ export const ModalBuyPresale = (props) => {
         category: 2,
         ticket_price: response.data.total_price,
       });
+      console.log(userSelector?.points, response.data.total_price);
       await dispatch({
         type: types.update_saldo,
         payload: { points: userSelector?.points - response.data.total_price },
