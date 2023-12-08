@@ -22,9 +22,11 @@ import { Link, useNavigate } from "react-router-dom";
 import uuid from "react-uuid";
 import { Ticket } from "./ticket";
 import { TicketCardProfilePage } from "./TicketCard_onProfilePage";
+import { Flex, useToast } from "@chakra-ui/react";
 
 export const Profile = () => {
   const nav = useNavigate();
+  const toast = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [numberOfEvenPosted, setNumberOfEvenPosted] = useState([]);
   const [evenPosted, setEvenPosted] = useState([]);
@@ -70,6 +72,46 @@ export const Profile = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  async function deleteEvent(ev) {
+    const today = new Date().toISOString().split("T")[0];
+
+    if (
+      window.confirm(`are you sure want to delete this event and its record?`)
+    ) {
+      if (ev["date-start"] > today) {
+        if (window.confirm(`there might be several people buy tickets`)) {
+          const res = await api.get(`tickets?eventid=${ev.id}`);
+          const all_ticket = [...res.data];
+          if (all_ticket.length) {
+            for (let item of all_ticket) {
+              const res_user = await api.get(`users/${item.userid}`);
+              const this_user = res_user.data;
+              // console.log(`this_user 1`, this_user);
+              const temp_points = this_user.points;
+              this_user.points = temp_points + item.ticketPrice;
+              // console.log(`this_user 2`, this_user);
+              await api.patch(`users/${item.userid}`, this_user);
+              const a = await api.delete(`tickets/${item.id}`);
+              alert(
+                `successfully retrieving ${this_user.name} credits from ${temp_points} to ${this_user.points}`
+              );
+            }
+          }
+          await api.delete(`events/${ev.id}`);
+          fetctEvents();
+        }
+      } else {
+        await api.delete(`events/${ev.id}`);
+        fetctEvents();
+      }
+    }
+    fetctEven();
+  }
+
+  const ticketDetail = () => {
+    nav("/ticket");
   };
 
   useEffect(() => {

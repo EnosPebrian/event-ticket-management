@@ -24,6 +24,7 @@ function SingleEventDisplay() {
   } catch (err) {
     console.log(err);
   }
+  
   const fetchThisEvent = async () => {
     try {
       const res = await api.get(`/events/q?id=${eventid}`);

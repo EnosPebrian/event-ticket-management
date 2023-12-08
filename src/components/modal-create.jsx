@@ -55,37 +55,10 @@ export const ModalCreate = ({
     },
     onSubmit: async (values) => {
       const temp = { ...values };
-
-      // console.log("ghalo", values["description"], values["category"]);
-      // if (temp["vip-ticket-price"] && temp["presale-ticket-price"]) {
-      //   temp["isfree"] = 0;
-      // }
       await api.post("/events/create", temp).catch((err) => console.log(err));
-      // closeModal();
-      // fetchEvents();
-
-      // const res_this_event = await api.get(
-      //   `/events?name=${temp.name}&location=${temp.location}&venue=${temp.venue}`
-      // );
-      // console.log(`1`, res_this_event);
-      // const eventid = res_this_event.data[0].id;
-      // const res_user = await api.get(`users/${userSelector.id}`);
-      // const datauser = res_user.data;
-      // datauser.events.push(eventid);
-      // await api.patch(`users/${datauser.id}`, datauser);
-      // fetchEven();
-      // fetchEvents();
-      // closeModal();
     },
-
-    // validationSchema: yup.object().shape({
-    //   name: yup.string().required(),
-    //   date_start: yup.string().required(),
-    //   date_end: yup.string().required(),
-    //   time_start: yup.string().required(),
-    //   time_end: yup.string().required(),
-    // }),
   });
+
   const [location, setLocation] = useState([]);
   const ref = useRef();
   const fetchLocationForSelectOption = async () => {
@@ -157,7 +130,6 @@ export const ModalCreate = ({
               className="bg-gray-100 rounded-md p-2 w-28 text-gray-100 hidden"
               style={{ boxShadow: "1px 2px 4px black" }}
             ></input>
-
             <Input
               id="name"
               placeholder="Name event"
@@ -184,7 +156,6 @@ export const ModalCreate = ({
                 </option>
               ))}
             </Select>
-
             <Input
               id="venue"
               placeholder="Venue event"

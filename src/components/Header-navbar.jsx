@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { ModalCreate } from "./modal-create";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useToast } from "@chakra-ui/react";
 
 function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const [show, setShow] = useState(false);
@@ -18,6 +19,7 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const handleShow = () => setShow(true);
 
   const userSelector = useSelector((state) => state.auth);
+  const toast = useToast();
 
   const nav = useNavigate();
   const inputHandler = (e) => {
@@ -37,19 +39,26 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
   const logout = () => {
     localStorage.removeItem("auth");
     nav("/login");
+    toast({
+      title: "you have been logged out!",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
   };
 
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary w-100" id="nav-container">
-        <Container fluid id="top">
-          <Navbar.Brand href="#">
+        <Container fluid>
+          <Navbar.Brand href="/home">
             <span id="logo-text">FOMOPHOBIA</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              <Nav.Link href="/home">Home</Nav.Link>
+              {/* <Nav.Link href="/home">Home</Nav.Link> */}
               <Nav.Link
                 className="bg-primary"
                 style={{ borderRadius: "10px" }}
@@ -57,6 +66,26 @@ function HeaderNavbar({ events, setEvents, fetchEvents }) {
               >
                 Find Events
               </Nav.Link>
+              {/* <NavDropdown title="Action" id="navbarScrollingDropdown">
+                <NavDropdown.Item>
+                  <Button variant="primary" onClick={handleShow}>
+                    Create new event
+                  </Button>
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action4">
+                  Manage Your Event
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action4">
+                  Contact sales
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">
+                  Subscription
+                </NavDropdown.Item>
+              </NavDropdown> */}
+              {/* <Nav.Link href="#" disabled>
+              Link
+            </Nav.Link> */}
             </Nav>
             {isSearchPage === "search" ? null : (
               <Form className="d-flex">
