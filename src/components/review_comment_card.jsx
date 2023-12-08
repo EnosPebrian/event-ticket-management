@@ -1,10 +1,10 @@
-import { Button, Card, Spinner } from "react-bootstrap";
-import timeDisplayer from "../lib/time-displayer";
-import { SVGthreeDots } from "./SVG";
-import { useSelector } from "react-redux";
-import { useState } from "react";
-import api from "../json-server/api";
-import { useToast } from "@chakra-ui/react";
+import { Button, Card, Spinner } from 'react-bootstrap';
+import timeDisplayer from '../lib/time-displayer';
+import { SVGthreeDots } from './SVG';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import api from '../json-server/api';
+import { useToast } from '@chakra-ui/react';
 
 export const Review_comment_card = ({ comment, index, load_review, page }) => {
   const userSelector = useSelector((state) => state.auth);
@@ -16,21 +16,21 @@ export const Review_comment_card = ({ comment, index, load_review, page }) => {
       .delete(`/reviews/${comment.id}`, { data: { userid: userSelector.id } })
       .then((result) => {
         toast({
-          title: "success",
+          title: 'success',
           duration: 2000,
-          status: "success",
+          status: 'success',
           isClosable: true,
-          position: "top",
+          position: 'top',
           description: result?.data?.message,
         });
       })
       .catch((err) =>
         toast({
-          title: "error",
+          title: 'error',
           duration: 2000,
-          status: "error",
+          status: 'error',
           isClosable: true,
-          position: "top",
+          position: 'top',
           description: err?.response?.data,
         })
       );
@@ -39,11 +39,11 @@ export const Review_comment_card = ({ comment, index, load_review, page }) => {
   };
 
   return (
-    <Card key={`cardReview-` + index} style={{ position: "relative" }}>
+    <Card key={`cardReview-` + index} style={{ position: 'relative' }}>
       {userSelector?.role === 1 ? (
         <span
           type="button"
-          style={{ position: "absolute", right: "5px", top: "5px" }}
+          style={{ position: 'absolute', right: '5px', top: '5px' }}
         >
           <div
             onClick={() => setMenu(!menu)}
@@ -52,7 +52,7 @@ export const Review_comment_card = ({ comment, index, load_review, page }) => {
             <SVGthreeDots />
           </div>
           <Button
-            className={menu ? "d-inline" : "d-none"}
+            className={menu ? 'd-inline' : 'd-none'}
             onClick={deleteReview}
           >
             delete
@@ -63,11 +63,11 @@ export const Review_comment_card = ({ comment, index, load_review, page }) => {
         <span>
           Ratings: <Stars value={comment?.ratings} />
         </span>
-        <span className="d-flex flex-row" style={{ gap: "5px" }}>
+        <span className="d-flex flex-row" style={{ gap: '5px' }}>
           <span className="pt-1">
             <Card.Img
               src="https://static.thenounproject.com/png/5034901-200.png"
-              style={{ maxWidth: "20px", maxHeight: "20px" }}
+              style={{ maxWidth: '20px', maxHeight: '20px' }}
             />
           </span>
           {comment?.User.username ? comment?.User.username : <Spinner />}
@@ -85,11 +85,14 @@ function Stars({ value }) {
   const temp = [];
   for (let i = 0; i < value; i++) {
     temp.push(
-      <span key={`fafastarchecked-${i}`} class="fa fa-star star-checked"></span>
+      <span
+        key={`fafastarchecked-${i}`}
+        className="fa fa-star star-checked"
+      ></span>
     );
   }
   for (let i = 0; i < 5 - value; i++) {
-    temp.push(<span key={`fafastar-${i}`} class="fa fa-star"></span>);
+    temp.push(<span key={`fafastar-${i}`} className="fa fa-star"></span>);
   }
   return temp;
 }

@@ -7,7 +7,7 @@ function SVGthreeDots() {
       width="16"
       height="16"
       fill="currentColor"
-      class="bi bi-three-dots"
+      className="bi bi-three-dots"
       viewBox="0 0 16 16"
     >
       <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
@@ -22,7 +22,7 @@ function SVGcalendar() {
       width="16"
       height="16"
       fill="currentColor"
-      class="bi bi-calendar"
+      className="bi bi-calendar"
       viewBox="0 0 16 16"
     >
       <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
@@ -37,7 +37,7 @@ function SVGclock() {
       width="16"
       height="16"
       fill="currentColor"
-      class="bi bi-alarm"
+      className="bi bi-alarm"
       viewBox="0 0 16 16"
     >
       <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
@@ -53,7 +53,7 @@ function SVGlocation() {
       width="16"
       height="16"
       fill="currentColor"
-      class="bi bi-geo-alt-fill"
+      className="bi bi-geo-alt-fill"
       viewBox="0 0 16 16"
     >
       <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />

@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
-import api from "../json-server/api";
-import { useParams, useSearchParams } from "react-router-dom";
-import { useFormik } from "formik";
-import HeaderNavbar from "../components/Header-navbar";
-import { OffCanvasSearchPage } from "../components/OffCanvasSearchPage";
-import { EventCardOnSearchPage } from "../components/EventCardOnSearchPage";
+import { useEffect, useState } from 'react';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import api from '../json-server/api';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { useFormik } from 'formik';
+import HeaderNavbar from '../components/Header-navbar';
+import { OffCanvasSearchPage } from '../components/OffCanvasSearchPage';
+import { EventCardOnSearchPage } from '../components/EventCardOnSearchPage';
 
 export const SearchPage = () => {
   const { searchkey } = useParams();
@@ -13,25 +13,25 @@ export const SearchPage = () => {
   const [filtered, setFiltered] = useState([]);
   const [location, setLocation] = useState([]);
   const [category, setCategory] = useState([]);
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString().split('T')[0];
   const [value, setValue] = useState({
-    searchform: search.get("name"),
-    startdate: "",
+    searchform: search.get('name'),
+    startdate: '',
     completed_event: false,
-    enddate: "",
+    enddate: '',
     location: [],
     category: [],
     sorting: [],
   });
   const [page, setPage] = useState(1);
-  const [queryString, SetQueryString] = useState("");
+  const [queryString, SetQueryString] = useState('');
 
   const formik = useFormik({
     initialValues: {
-      searchform: search.get("name"),
-      startdate: "",
+      searchform: search.get('name') || '',
+      startdate: '',
       completed_event: false,
-      enddate: "",
+      enddate: '',
       location: [],
       category: [],
       sorting: [],
@@ -42,7 +42,7 @@ export const SearchPage = () => {
   });
 
   const updatefilter = async () => {
-    let queryString = "events/q?";
+    let queryString = 'events/q?';
     if (value?.searchform) {
       queryString += `name=${value?.searchform}&`;
     }
@@ -69,7 +69,7 @@ export const SearchPage = () => {
         SetQueryString(queryString);
         setFiltered(result.data.data);
         setPage(result.data.number_of_pages);
-        window.history.pushState(null, "", queryString.slice(7));
+        window.history.pushState(null, '', queryString.slice(7));
       })
       .catch((err) => console.log(err));
   };
@@ -77,9 +77,8 @@ export const SearchPage = () => {
   async function fetchEvents() {
     if (searchkey) {
       await api
-        .get(`events/${searchkey}?name=${search.get("name")}`)
+        .get(`events/${searchkey}?name=${search.get('name')}`)
         .then((result) => {
-          console.log(`searchkey`, result.data);
           setFiltered(result.data.data);
           setPage(result.data.number_of_pages);
         })
@@ -95,11 +94,11 @@ export const SearchPage = () => {
     }
   }
   async function getLocationAndCategory() {
-    let queryStringLocation = "/locations/allEvent";
-    let queryStringEventCategory = "/event_categories/allEvent";
+    let queryStringLocation = '/locations/allEvent';
+    let queryStringEventCategory = '/event_categories/allEvent';
     if (value?.completed_event) {
-      queryStringLocation += "?completed_event=1";
-      queryStringEventCategory += "?completed_event=1";
+      queryStringLocation += '?completed_event=1';
+      queryStringEventCategory += '?completed_event=1';
     }
     const resLoc = await api
       .get(queryStringLocation)
@@ -118,7 +117,7 @@ export const SearchPage = () => {
       .then((result) => {
         setFiltered(result.data.data);
         setPage(result.data.number_of_pages);
-        window.history.pushState(null, "", pageQueryString.slice(7));
+        window.history.pushState(null, '', pageQueryString.slice(7));
       })
       .catch((err) => console.log(err));
     window.scrollTo(0, 0);
@@ -154,7 +153,7 @@ export const SearchPage = () => {
           md={4}
           className="vh-100 mt-2"
           id="side-bar"
-          style={{ position: "sticky", top: "70px" }}
+          style={{ position: 'sticky', top: '70px' }}
         >
           <OffCanvasSearchPage
             formik={formik}
@@ -170,6 +169,7 @@ export const SearchPage = () => {
                   <EventCardOnSearchPage
                     this_event={this_event}
                     index={index}
+                    key={this_event.id}
                   />
                 ))
               ) : (

@@ -1,13 +1,13 @@
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { useDispatch, useSelector } from "react-redux";
-import api from "../json-server/api";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { type } from "@testing-library/user-event/dist/type";
-import { types } from "../redux/types";
-import uuid from "react-uuid";
-import { useToast } from "@chakra-ui/react";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import api from '../json-server/api';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { type } from '@testing-library/user-event/dist/type';
+import { types } from '../redux/types';
+import uuid from 'react-uuid';
+import { useToast } from '@chakra-ui/react';
 
 export const ModalBuyPresale = (props) => {
   const userSelector = useSelector((state) => state.auth);
@@ -20,7 +20,7 @@ export const ModalBuyPresale = (props) => {
 
   const fetchEventsMap = async () => {
     try {
-      const res_events = await api.get("/events");
+      const res_events = await api.get('/events');
       const temp_events_map = new Map();
       res_events.data.map((an_event) =>
         temp_events_map.set(an_event.id, an_event)
@@ -44,10 +44,10 @@ export const ModalBuyPresale = (props) => {
   // console.log(thisevent["vip-ticket-stock"]);
 
   const buy = async () => {
-    const token = localStorage.getItem("auth");
+    const token = localStorage.getItem('auth');
     try {
       const response = await api.post(
-        "/transactions",
+        '/transactions',
         {
           event_id: thisevent.id,
           vip_ticket: false,
@@ -61,12 +61,16 @@ export const ModalBuyPresale = (props) => {
         }
       );
 
-      const pushTicket = await api.post("/tickets", {
+      const pushTicket = await api.post('/tickets', {
         userid: userSelector.id,
         eventid: thisevent.id,
         ticketcode: uuid(),
         category: 2,
         ticket_price: response.data.total_price,
+      });
+      await dispatch({
+        type: types.update_saldo,
+        payload: { points: userSelector?.points - response.data.total_price },
       });
       props.onHide();
     } catch (err) {

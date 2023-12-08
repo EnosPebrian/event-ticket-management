@@ -1,7 +1,7 @@
-import { Button, Card } from "react-bootstrap";
-import api from "../json-server/api";
-import { useEffect, useRef, useState } from "react";
-import { Review_comment_card } from "./review_comment_card";
+import { Button, Card } from 'react-bootstrap';
+import api from '../json-server/api';
+import { useEffect, useRef, useState } from 'react';
+import { Review_comment_card } from './review_comment_card';
 
 function FetchReviews({ eventid }) {
   const [allComment, setAllComment] = useState([]);
@@ -28,7 +28,7 @@ function FetchReviews({ eventid }) {
 
   return (
     <>
-      <Card.Body style={{ overflowY: "scroll", maxHeight: "100vh" }}>
+      <Card.Body style={{ overflowY: 'scroll', maxHeight: '100vh' }}>
         {allComment.length ? (
           allComment.map((comment, index) => (
             <Review_comment_card
@@ -36,6 +36,7 @@ function FetchReviews({ eventid }) {
               index={index}
               load_review={load_review}
               page={ref.current}
+              key={index}
             />
           ))
         ) : (
@@ -46,7 +47,7 @@ function FetchReviews({ eventid }) {
         <Card.Body>
           <Card className="p-3">
             <Card.Header>
-              Page:{" "}
+              Page:{' '}
               {[...Array(reviewPage)].map((value, index) => (
                 <Button
                   variant="secondary"

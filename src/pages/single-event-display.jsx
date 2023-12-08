@@ -1,18 +1,18 @@
-import { Carousel, Col, Container, Form, Modal, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { useParams } from "react-router-dom";
-import api from "../json-server/api";
-import { useEffect, useState } from "react";
-import SpinnerLoading from "../components/SpinnerLoading";
-import FetchReviews from "../components/Fetchreviews";
-import FetchDiscussion from "../components/Fetchdiscussion";
-import "../components/style.css";
-import { SVGcalendar, SVGclock, SVGlocation } from "../components/SVG";
-import { ModalBuy } from "../components/modal-buy";
-import HeaderNavbar from "../components/Header-navbar";
-import { ModalBuyPresale } from "../components/modal-buyPresale";
-import uuid from "react-uuid";
+import { Carousel, Col, Container, Form, Modal, Row } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { useParams } from 'react-router-dom';
+import api from '../json-server/api';
+import { useEffect, useState } from 'react';
+import SpinnerLoading from '../components/SpinnerLoading';
+import FetchReviews from '../components/Fetchreviews';
+import FetchDiscussion from '../components/Fetchdiscussion';
+import '../components/style.css';
+import { SVGcalendar, SVGclock, SVGlocation } from '../components/SVG';
+import { ModalBuy } from '../components/modal-buy';
+import HeaderNavbar from '../components/Header-navbar';
+import { ModalBuyPresale } from '../components/modal-buyPresale';
+import uuid from 'react-uuid';
 
 function SingleEventDisplay() {
   const { eventid, eventname } = useParams();
@@ -20,7 +20,7 @@ function SingleEventDisplay() {
   const [modalVIPShow, setModalVIPShow] = useState(false);
   const [modalPresaleShow, setModalPresaleShow] = useState(false);
   try {
-    const token = localStorage.getItem("auth");
+    const token = localStorage.getItem('auth');
   } catch (err) {
     console.log(err);
   }
@@ -39,14 +39,14 @@ function SingleEventDisplay() {
       const res = await api.get(`/events/${eventid}`);
       //push ticket ke db
       if (res.data.isfree == 1) {
-        const userSelectorLocal = JSON.parse(localStorage.getItem("auth"));
-        const pushTicket = await api.post("/tickets", {
+        const userSelectorLocal = JSON.parse(localStorage.getItem('auth'));
+        const pushTicket = await api.post('/tickets', {
           userid: userSelectorLocal.id,
           eventid: eventid,
           ticketCode: uuid(),
-          ticketCategory: "FREE",
+          ticketCategory: 'FREE',
         });
-      } else alert("event ini tidak gratis");
+      } else alert('event ini tidak gratis');
     } catch (err) {
       console.log(err);
     }
@@ -86,8 +86,8 @@ function SingleEventDisplay() {
                   <Card.Text>
                     <span>
                       <span
-                        class="fa fa-star star-checked"
-                        style={{ marginRight: "4px" }}
+                        className="fa fa-star star-checked"
+                        style={{ marginRight: '4px' }}
                       ></span>
                       <b>
                         {an_event?.Average_ratings &&
@@ -105,7 +105,7 @@ function SingleEventDisplay() {
                   <Card.Text>
                     <span
                       className="d-flex align-items-center"
-                      style={{ gap: "5px" }}
+                      style={{ gap: '5px' }}
                     >
                       <span>
                         <SVGcalendar />
@@ -119,7 +119,7 @@ function SingleEventDisplay() {
                   <Card.Text>
                     <span
                       className="d-flex align-items-center"
-                      style={{ gap: "5px" }}
+                      style={{ gap: '5px' }}
                     >
                       <span>
                         <SVGclock />
@@ -133,7 +133,7 @@ function SingleEventDisplay() {
                   <Card.Text>
                     <span
                       className="d-flex align-items-center"
-                      style={{ gap: "5px" }}
+                      style={{ gap: '5px' }}
                     >
                       <span>
                         <SVGlocation />
@@ -173,7 +173,7 @@ function SingleEventDisplay() {
                                 Stock:
                                 {an_event?.vip_ticket_stock >= 1
                                   ? an_event.vip_ticket_stock
-                                  : "0"}
+                                  : '0'}
                               </Card.Text>
                               <Button
                                 className="mb-3"

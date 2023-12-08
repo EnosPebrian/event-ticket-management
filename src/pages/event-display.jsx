@@ -1,13 +1,13 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Carousel from "react-bootstrap/Carousel";
-import Card from "react-bootstrap/Card";
-import api from "../json-server/api";
-import { useEffect, useState } from "react";
-import "../components/style.css";
-import HeaderNavbar from "../components/Header-navbar";
-import { EventCardOnSearchPage } from "../components/EventCardOnSearchPage";
-import { useNavigate } from "react-router-dom/dist";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Carousel from 'react-bootstrap/Carousel';
+import Card from 'react-bootstrap/Card';
+import api from '../json-server/api';
+import { useEffect, useState } from 'react';
+import '../components/style.css';
+import HeaderNavbar from '../components/Header-navbar';
+import { EventCardOnSearchPage } from '../components/EventCardOnSearchPage';
+import { useNavigate } from 'react-router-dom/dist';
 
 function Eventdisplay() {
   const nav = useNavigate();
@@ -16,7 +16,7 @@ function Eventdisplay() {
   const [bestRating, setBestRating] = useState([]);
   const fetchRecommendation = async () => {
     await api
-      .get("/events/q?is_sponsored=1")
+      .get('/events/q?is_sponsored=1')
       .then((result) => setRecommendation(result.data.data))
       .catch((err) => {
         console.log(err);
@@ -24,15 +24,16 @@ function Eventdisplay() {
   };
   const fetchMostPopular = async () => {
     await api
-      .get("/events/q?order_by=MostPopular")
+      .get('/events/q?order_by=MostPopular')
       .then((result) => setMostPopular(result.data.data))
       .catch((err) => {
         console.log(err);
       });
   };
   const fetchBestRating = async () => {
+    console.log('executed');
     await api
-      .get("/events/q?order_by=HighestRating")
+      .get('/events/q?order_by=HighestRating')
       .then((result) => setBestRating(result.data.data))
       .catch((err) => {
         console.log(err);
@@ -91,35 +92,47 @@ function Eventdisplay() {
       </Container>
       <Container className="mt-5">
         <h2 className="pl-2">RECOMMENDATION</h2>
-        <Card style={{ maxHeight: "650px" }}>
+        <Card style={{ maxHeight: '650px' }}>
           <Row
             className="d-flex flex-row flex-nowrap"
-            style={{ overflowX: "scroll" }}
+            style={{ overflowX: 'scroll' }}
           >
             {recommendation.map((ev, index) => (
-              <EventCardOnSearchPage this_event={ev} index={index} />
+              <EventCardOnSearchPage
+                this_event={ev}
+                index={index}
+                key={ev.id}
+              />
             ))}
           </Row>
         </Card>
         <h2 className="pl-2 mt-3">MOST POPULAR</h2>
-        <Card style={{ maxHeight: "650px" }}>
+        <Card style={{ maxHeight: '650px' }}>
           <Row
             className="d-flex flex-row flex-nowrap"
-            style={{ overflowX: "scroll" }}
+            style={{ overflowX: 'scroll' }}
           >
             {mostPopular.map((ev, index) => (
-              <EventCardOnSearchPage this_event={ev} index={index} />
+              <EventCardOnSearchPage
+                this_event={ev}
+                index={index}
+                key={ev.id}
+              />
             ))}
           </Row>
         </Card>
         <h2 className="pl-2 mt-3">BEST RATING</h2>
-        <Card style={{ maxHeight: "650px" }}>
+        <Card style={{ maxHeight: '650px' }}>
           <Row
             className="d-flex flex-row flex-nowrap"
-            style={{ overflowX: "scroll" }}
+            style={{ overflowX: 'scroll' }}
           >
             {bestRating.map((ev, index) => (
-              <EventCardOnSearchPage this_event={ev} index={index} />
+              <EventCardOnSearchPage
+                this_event={ev}
+                index={index}
+                key={ev.id}
+              />
             ))}
           </Row>
         </Card>

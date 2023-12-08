@@ -4,9 +4,9 @@ export const SVGPlus = ({ identifier, index }) => (
     width="16"
     height="16"
     fill="currentColor"
-    class="bi bi-plus"
+    className="bi bi-plus"
     viewBox="0 0 16 16"
-    style={{ float: "right" }}
+    style={{ float: 'right' }}
     id={`svg-plus-${identifier}`}
     name={index}
   >
