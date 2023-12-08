@@ -1,8 +1,8 @@
-import { Row, Tab, Tabs } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import api from "../json-server/api";
-import HeaderNavbar from "../components/Header-navbar";
-import SpinnerLoading from "../components/SpinnerLoading";
+import { Row, Tab, Tabs } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import api from '../json-server/api';
+import HeaderNavbar from '../components/Header-navbar';
+import SpinnerLoading from '../components/SpinnerLoading';
 import {
   MDBContainer,
   MDBRow,
@@ -11,22 +11,18 @@ import {
   MDBCardBody,
   MDBCardImage,
   MDBTypography,
-} from "mdb-react-ui-kit";
-import "./style.css";
-import { ModalCreate } from "./modal-create";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Button } from "react-bootstrap";
-import { Formik, useFormik } from "formik";
-import { Link, useNavigate } from "react-router-dom";
-import uuid from "react-uuid";
-import { Ticket } from "./ticket";
-import { TicketCardProfilePage } from "./TicketCard_onProfilePage";
-import { Flex, useToast } from "@chakra-ui/react";
+} from 'mdb-react-ui-kit';
+import './style.css';
+import { ModalCreate } from './modal-create';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Ticket } from './ticket';
+import { TicketCardProfilePage } from './TicketCard_onProfilePage';
 
 export const Profile = () => {
   const nav = useNavigate();
-  const toast = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [numberOfEvenPosted, setNumberOfEvenPosted] = useState([]);
   const [evenPosted, setEvenPosted] = useState([]);
@@ -45,7 +41,7 @@ export const Profile = () => {
 
   // FOR TOP UP
   const topup = () => {
-    nav("/dashboardprofile/topup");
+    nav('/dashboardprofile/topup');
   };
 
   const userSelector = useSelector((state) => state.auth);
@@ -74,46 +70,6 @@ export const Profile = () => {
     }
   };
 
-  async function deleteEvent(ev) {
-    const today = new Date().toISOString().split("T")[0];
-
-    if (
-      window.confirm(`are you sure want to delete this event and its record?`)
-    ) {
-      if (ev["date-start"] > today) {
-        if (window.confirm(`there might be several people buy tickets`)) {
-          const res = await api.get(`tickets?eventid=${ev.id}`);
-          const all_ticket = [...res.data];
-          if (all_ticket.length) {
-            for (let item of all_ticket) {
-              const res_user = await api.get(`users/${item.userid}`);
-              const this_user = res_user.data;
-              // console.log(`this_user 1`, this_user);
-              const temp_points = this_user.points;
-              this_user.points = temp_points + item.ticketPrice;
-              // console.log(`this_user 2`, this_user);
-              await api.patch(`users/${item.userid}`, this_user);
-              const a = await api.delete(`tickets/${item.id}`);
-              alert(
-                `successfully retrieving ${this_user.name} credits from ${temp_points} to ${this_user.points}`
-              );
-            }
-          }
-          await api.delete(`events/${ev.id}`);
-          fetctEvents();
-        }
-      } else {
-        await api.delete(`events/${ev.id}`);
-        fetctEvents();
-      }
-    }
-    fetctEven();
-  }
-
-  const ticketDetail = () => {
-    nav("/ticket");
-  };
-
   useEffect(() => {
     fetchPostedEvents();
     getTicket();
@@ -121,7 +77,7 @@ export const Profile = () => {
 
   return (
     <>
-      {" "}
+      {' '}
       <ModalCreate
         openModal={openModal}
         setIsModalOpen={setIsModalOpen}
@@ -131,22 +87,22 @@ export const Profile = () => {
       />
       <div
         style={{
-          backgroundColor: "#eee",
-          display: "flex",
-          justifyContent: "space-between  ",
+          backgroundColor: '#eee',
+          display: 'flex',
+          justifyContent: 'space-between  ',
         }}
       >
         <MDBContainer className=" py-5">
           <MDBRow
             className="space-x-0"
-            style={{ display: "flex", justifyContent: "center" }}
+            style={{ display: 'flex', justifyContent: 'center' }}
           >
             <MDBCard
               style={{
-                borderRadius: "15px",
-                maxWidth: "600px",
-                boxShadow: "2px 3px 5px black",
-                marginBottom: "8px",
+                borderRadius: '15px',
+                maxWidth: '600px',
+                boxShadow: '2px 3px 5px black',
+                marginBottom: '8px',
               }}
             >
               <MDBCardBody className="text-center">
@@ -155,7 +111,7 @@ export const Profile = () => {
                     src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
                     className="rounded-circle"
                     fluid
-                    style={{ width: "100px" }}
+                    style={{ width: '100px' }}
                   />
                 </div>
                 <MDBTypography tag="h4">
