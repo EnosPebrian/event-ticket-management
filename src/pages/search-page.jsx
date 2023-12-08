@@ -1,89 +1,40 @@
-import { useEffect, useState } from "react";
-import {
-  Card,
-  Col,
-  Container,
-  Dropdown,
-  Form,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
-import api from "../json-server/api";
-import { useNavigate, useParams } from "react-router-dom";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import SpinnerLoading from "../components/SpinnerLoading";
-import { useFormik } from "formik";
-import HeaderNavbar from "../components/Header-navbar";
+import { useEffect, useState } from 'react';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import api from '../json-server/api';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { useFormik } from 'formik';
+import HeaderNavbar from '../components/Header-navbar';
+import { OffCanvasSearchPage } from '../components/OffCanvasSearchPage';
+import { EventCardOnSearchPage } from '../components/EventCardOnSearchPage';
 
 export const SearchPage = () => {
-  const navigate = useNavigate();
   const { searchkey } = useParams();
+  const [search, setSearch] = useSearchParams();
   const [filtered, setFiltered] = useState([]);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const [location, setLocation] = useState([]);
   const [category, setCategory] = useState([]);
-  const today = new Date().toISOString().split("T")[0];
-  const [value, setValue] = useState({});
-  const [events, setEvents] = useState([]);
-  const [users_map, setUsers_map] = useState(new Map());
-  const [events_map, setEvents_map] = useState(new Map());
-
-  const fetchEventsMap = async () => {
-    try {
-      const res_events = await api.get("/events");
-      const temp_events_map = new Map();
-      res_events.data.map((an_event) =>
-        temp_events_map.set(an_event.id, an_event)
-      );
-      setEvents_map(temp_events_map);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const fetchUsersMap = async () => {
-    try {
-      const res_users = await api.get("/users");
-      const temp_users_map = new Map();
-      res_users.data.map((user) => temp_users_map.set(user.id, user));
-      setUsers_map(temp_users_map);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  //update Events dan Users pertama kali setelah document terload
-  useEffect(() => {
-    fetchEventsMap();
-    fetchUsersMap();
-  }, []);
-
-  const fetchAllEvents = async () => {
-    try {
-      const res_events = await api.get("/events");
-      setEvents([...res_events.data]);
-      console.log(events);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    fetchAllEvents();
-    fetchRating();
-  }, []);
+  const today = new Date().toISOString().split('T')[0];
+  const [value, setValue] = useState({
+    searchform: search.get('name'),
+    startdate: '',
+    completed_event: false,
+    enddate: '',
+    location: [],
+    category: [],
+    sorting: [],
+  });
+  const [page, setPage] = useState(1);
+  const [queryString, SetQueryString] = useState('');
 
   const formik = useFormik({
     initialValues: {
-      searchform: "",
-      startdate: "",
+      searchform: search.get('name') || '',
+      startdate: '',
       completed_event: false,
-      enddate: "",
+      enddate: '',
       location: [],
       category: [],
+      sorting: [],
     },
     onSubmit: (values) => {
       setValue(values);
@@ -91,379 +42,164 @@ export const SearchPage = () => {
   });
 
   const updatefilter = async () => {
-    const filter_hashmap = new Set();
-    const new_filtered = [];
-    let temp = [...filtered];
-
-    if (value.searchform) {
-      const res = await api.get(`events?q=${value.searchform}`);
-      temp = [...res.data];
-    } else {
-      const res = await api.get(`events`);
-      temp = [...res.data];
+    let queryString = 'events/q?';
+    if (value?.searchform) {
+      queryString += `name=${value?.searchform}&`;
     }
-
-    if (value.startdate && !value.completed_event) {
-      value["date-start"] = today;
+    if (value?.startdate) {
+      queryString += `date_start=${value?.startdate}&`;
+    } else if (!value?.startdate && value?.completed_event) {
+      queryString += `completed_event=1&`;
     }
-    if (value.startdate) {
-      temp = temp.filter((val) => val["date-start"] > value.startdate);
+    if (value?.enddate) {
+      queryString += `date_end=${value?.enddate}&`;
     }
-
-    if (value.enddate) {
-      temp = temp.filter((val) => val["date-end"] <= value.enddate);
+    if (value?.location?.length) {
+      value?.location.forEach((val) => (queryString += `location=${val}&`));
     }
-
-    try {
-      if (value.location.length && value.category.length) {
-        const temp_set = new Set();
-        let a = [];
-        for (let i of value?.location) {
-          for (let item of temp) {
-            if (item.location == i) temp_set.add(item.id);
-          }
-        }
-        for (let i of value?.category) {
-          for (let item of temp) {
-            if (item.category == i && temp_set.has(item.id)) {
-              filter_hashmap.add(item.id);
-            }
-          }
-        }
-      } else if (!value?.location.length && !value?.category.length) {
-        for (let item of temp) filter_hashmap.add(item.id);
-      } else {
-        if (value?.location.length) {
-          for (let i of value.location) {
-            for (let item of temp) {
-              if (item.location == i) {
-                filter_hashmap.add(item.id);
-              }
-            }
-          }
-        }
-
-        if (value?.category.length) {
-          for (let i of value.category) {
-            for (let item of temp) {
-              if (item.category == i) {
-                filter_hashmap.add(item.id);
-              }
-            }
-          }
-        }
-      }
-
-      for (let id of filter_hashmap) {
-        new_filtered.push(events_map.get(id));
-      }
-
-      setFiltered(new_filtered);
-    } catch (err) {
-      console.log(err);
+    if (value?.category?.length) {
+      value?.category.forEach((val) => (queryString += `category=${val}&`));
     }
+    if (value?.sorting?.length) {
+      value?.sorting.forEach((val) => (queryString += `order_by=${val}&`));
+    }
+    await api
+      .get(queryString)
+      .then((result) => {
+        SetQueryString(queryString);
+        setFiltered(result.data.data);
+        setPage(result.data.number_of_pages);
+        window.history.pushState(null, '', queryString.slice(7));
+      })
+      .catch((err) => console.log(err));
   };
 
   async function fetchEvents() {
-    const temp_location = new Set();
-    const temp_category = new Set();
-    events.forEach((any_event) => {
-      temp_location.add(any_event.location);
-      temp_category.add(any_event.category);
-    });
-    setLocation(Array.from(temp_location));
-    setCategory(Array.from(temp_category));
     if (searchkey) {
-      const res = await api.get(`events?${searchkey}`);
-      const temp_filter = res.data.filter(
-        (thisevent) => thisevent["date-start"] > today
-      );
-      setFiltered([...temp_filter]);
+      await api
+        .get(`events/${searchkey}?name=${search.get('name')}`)
+        .then((result) => {
+          setFiltered(result.data.data);
+          setPage(result.data.number_of_pages);
+        })
+        .catch((err) => console.log(`searchkey`, err));
     } else {
-      const res = await api.get(`events`);
-      const temp_filter = res.data.filter(
-        (thisevent) => thisevent["date-start"] > today
-      );
-      setFiltered([...temp_filter]);
+      await api
+        .get(`events/q?`)
+        .then((result) => {
+          setFiltered(result.data.data);
+          setPage(result.data.number_of_pages);
+        })
+        .catch((err) => console.log(`no search key`, err));
     }
   }
-
-  const [rating_map, setRating_map] = useState({});
-  const [rating_length, setRating_length] = useState({});
-  async function fetchRating() {
-    const res = await api.get("/reviews");
-    const data = res.data;
-    // console.log(`tass`, data);
-    const temp_obj = new Object();
-    const temp_total_reviews = {};
-    let avg_rating;
-    let total_reviews;
-    data?.forEach((element) => {
-      avg_rating =
-        element.ratings.reduce((acc, currentVal) => acc + currentVal, 0) /
-        element.ratings.length;
-      total_reviews = element.ratings.length;
-      if (isNaN(avg_rating)) {
-        avg_rating = "";
-      }
-      temp_obj[element.id] = avg_rating;
-      temp_total_reviews[element.id] = total_reviews;
-      // console.log(temp_obj);
-    });
-    setRating_map(temp_obj);
-    setRating_length(temp_total_reviews);
+  async function getLocationAndCategory() {
+    let queryStringLocation = '/locations/allEvent';
+    let queryStringEventCategory = '/event_categories/allEvent';
+    if (value?.completed_event) {
+      queryStringLocation += '?completed_event=1';
+      queryStringEventCategory += '?completed_event=1';
+    }
+    const resLoc = await api
+      .get(queryStringLocation)
+      .catch((err) => console.log(err));
+    const resEventCat = await api
+      .get(queryStringEventCategory)
+      .catch((err) => console.log(err));
+    setLocation(resLoc?.data);
+    setCategory(resEventCat?.data);
   }
 
-  useEffect(() => {
-    fetchEvents();
-  }, [events]);
+  const handlePagination = async (e) => {
+    let pageQueryString = queryString + `page=${e.target.id.slice(11)}`;
+    await api
+      .get(pageQueryString)
+      .then((result) => {
+        setFiltered(result.data.data);
+        setPage(result.data.number_of_pages);
+        window.history.pushState(null, '', pageQueryString.slice(7));
+      })
+      .catch((err) => console.log(err));
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     fetchEvents();
-    fetchRating();
-  }, [searchkey]);
+    getLocationAndCategory();
+  }, []);
+
+  useEffect(() => {
+    getLocationAndCategory();
+  }, [value?.completed_event]);
+
+  useEffect(() => {
+    const executeFilter = setTimeout(() => {
+      formik.handleSubmit();
+    }, 500);
+    return () => clearTimeout(executeFilter);
+  }, [formik.values]);
 
   useEffect(() => {
     updatefilter();
   }, [value]);
-
-  useEffect(() => {
-    formik.handleSubmit();
-  }, [formik.values]);
 
   return (
     <>
       <HeaderNavbar />
       <Row>
         <Col
-          lg={2}
+          xl={2}
+          lg={3}
+          md={4}
           className="vh-100 mt-2"
           id="side-bar"
-          style={{ position: "sticky", top: "70px" }}
+          style={{ position: 'sticky', top: '70px' }}
         >
-          <Row>
-            <Button
-              variant="primary"
-              className="d-lg-none"
-              onClick={handleShow}
-            >
-              Detailed Search Menu
-            </Button>
-          </Row>
-
-          <Offcanvas
-            show={show}
-            onHide={handleClose}
-            responsive="lg"
-            className="bg-secondary p-2"
-            style={{ borderRadius: "15px" }}
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Detailed Search</Offcanvas.Title>
-            </Offcanvas.Header>
-
-            <Offcanvas.Body
-              className="d-flex flex-column justify-content-between"
-              style={{ gap: "10px", minWidth: "132px" }}
-            >
-              <Row>
-                <h5>Detailed Search</h5>
-              </Row>
-              <Row>
-                <Form className="d-flex">
-                  <Form.Control
-                    id="searchform"
-                    name="searchform"
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    onKeyPress={(e) => {
-                      if (e.key === "Enter") {
-                        e.preventDefault();
-                        document
-                          .getElementById("detailed-search-button")
-                          .click();
-                      }
-                    }}
-                    onChange={(e) =>
-                      formik.setFieldValue(
-                        e.target.name,
-                        document.getElementById("searchform").value
-                      )
-                    }
-                  />
-                  <Button
-                    xl={1}
-                    id="detailed-search-button"
-                    variant="primary"
-                    onClick={formik.handleSubmit}
-                  >
-                    Find
-                  </Button>
-                </Form>
-              </Row>
-              <Row>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="completed_event"
-                    value="completed_event"
-                    onChange={formik.handleChange}
-                  />
-                  Include previous events?
-                </label>
-              </Row>
-              <Row>
-                <h6>Date start</h6>
-                <Form.Group controlId="startdate">
-                  <Form.Control
-                    type="date"
-                    name="startdate"
-                    placeholder="Start date"
-                    onChange={formik.handleChange}
-                  />
-                </Form.Group>
-              </Row>
-              <Row>
-                <h6>Date end</h6>
-                <Form.Group controlId="enddate">
-                  <Form.Control
-                    type="date"
-                    name="enddate"
-                    placeholder="End date"
-                    onChange={formik.handleChange}
-                  />
-                </Form.Group>
-              </Row>
-
-              <Row
-                className="d-flex flex-column flex-nowrap"
-                style={{
-                  maxHeight: "25vh",
-                  maxWidth: "100%",
-                  overflowY: "scroll !important",
-                  overflowX: "hidden",
-                }}
-              >
-                <h6>Location</h6>
-                {location?.length ? (
-                  location.map((any_location, index) => (
-                    <label key={index}>
-                      <input
-                        type="checkbox"
-                        name="location"
-                        value={any_location}
-                        onChange={formik.handleChange}
-                      />
-                      {any_location}
-                    </label>
-                  ))
-                ) : (
-                  <SpinnerLoading />
-                )}
-              </Row>
-              <Row
-                className="d-flex flex-column flex-nowrap"
-                style={{
-                  maxHeight: "25vh",
-                  maxWidth: "100%",
-                  overflowY: "scroll !important",
-                  overflowX: "hidden",
-                }}
-              >
-                <h6>Categories</h6>
-                {category?.length ? (
-                  category.map((any_category, index) => (
-                    <label key={index}>
-                      <input
-                        type="checkbox"
-                        name="category"
-                        value={any_category}
-                        onChange={formik.handleChange}
-                      />
-                      {any_category}
-                    </label>
-                  ))
-                ) : (
-                  <SpinnerLoading />
-                )}
-              </Row>
-            </Offcanvas.Body>
-          </Offcanvas>
+          <OffCanvasSearchPage
+            formik={formik}
+            location={location}
+            category={category}
+          />
         </Col>
         <Col>
           <Container>
             <Row>
-              {filtered[0] &&
+              {filtered[0] ? (
                 filtered.map((this_event, index) => (
-                  <Col
-                    md={6}
-                    lg={4}
-                    xl={3}
-                    className="my-2 d-flex justify-content-center col-card"
-                    key={index}
-                    type="button"
-                    onClick={() =>
-                      navigate(`/${this_event.id}/${this_event.name}`)
-                    }
-                  >
-                    <Card style={{ width: "18rem" }}>
-                      <Card.Img
-                        variant="top"
-                        referrerPolicy="no-referrer"
-                        src={this_event.photo[0]}
-                        alt={this_event.name}
-                        className="image-event"
-                      />
-                      <Card.Body>
-                        <Card.Title className="event-name">
-                          {this_event.name}{" "}
-                          {this_event.isfree ? (
-                            <>
-                              <img
-                                src="https://media.istockphoto.com/id/807772812/photo/free-price-tag-label.jpg?s=612x612&w=0&k=20&c=1Dq0FHOKP2UbhglZajMe5In_48U8k4qrI1Y4l_h9NrY="
-                                width={"50px"}
-                                style={{ float: "right" }}
-                              />
-                            </>
-                          ) : null}
-                        </Card.Title>
-                        <Card.Text className="location">
-                          {this_event.location}
-                        </Card.Text>
-                        <Card.Text className="date">
-                          {new Date(this_event["date-start"])
-                            .toString()
-                            .slice(0, 15)}
-                        </Card.Text>
-                        <Card.Text className="description">
-                          {this_event.description}
-                        </Card.Text>
-                        <Card.Text>
-                          <span>
-                            <span
-                              class="fa fa-star star-checked"
-                              style={{ marginRight: "4px" }}
-                            ></span>
-                            <b>
-                              {rating_map[this_event.id] &&
-                                Number(rating_map[this_event.id]).toFixed(2)}
-                            </b>
-                            {rating_map[this_event.id] && `/5 `}
-                          </span>
-                          <span>
-                            {rating_length[this_event.id]
-                              ? `(${rating_length[this_event.id]})`
-                              : `No ratings`}
-                          </span>
-                        </Card.Text>
-                        <Button variant="primary">Reserve Ticket</Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
+                  <EventCardOnSearchPage
+                    this_event={this_event}
+                    index={index}
+                    key={this_event.id}
+                  />
+                ))
+              ) : (
+                <span className="d-flex flex-column align-items-center justify-content-center w-100">
+                  <h2 className="my-5">No match</h2>
+                  <Button className="my-3">
+                    <a href="/search/q?">Browse All Event</a>
+                  </Button>
+                  <h4>or</h4>
+                  <h4>Try the detailed search tool on the left</h4>
+                </span>
+              )}
             </Row>
+            {page > 1 ? (
+              <div className="w-100 d-flex flex-row justify-content-center align-items-center">
+                {filtered[0] && <span className="mr-3">Page:</span>}
+                {[...new Array(page)].map((val, index) => (
+                  <span key={index} className="d-flex mr-1">
+                    <Button
+                      variant="light color-secondary"
+                      page={index + 1}
+                      onClick={(e) => handlePagination(e)}
+                      id={`buttonPage-${index + 1}`}
+                    >
+                      {index + 1}
+                    </Button>
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </Container>
         </Col>
       </Row>

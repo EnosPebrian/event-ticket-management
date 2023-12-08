@@ -1,75 +1,65 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Carousel from "react-bootstrap/Carousel";
-import { useNavigate } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import api from "../json-server/api";
-import { useEffect, useState } from "react";
-import "../components/style.css";
-import HeaderNavbar from "../components/Header-navbar";
-// import ExampleCarouselImage from "components/ExampleCarouselImage";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Carousel from 'react-bootstrap/Carousel';
+import Card from 'react-bootstrap/Card';
+import api from '../json-server/api';
+import { useEffect, useState } from 'react';
+import '../components/style.css';
+import HeaderNavbar from '../components/Header-navbar';
+import { EventCardOnSearchPage } from '../components/EventCardOnSearchPage';
+import { useNavigate } from 'react-router-dom/dist';
 
 function Eventdisplay() {
-  const [events, setEvents] = useState([]);
-  const navigate = useNavigate();
-  const fetchEvents = async () => {
-    try {
-      const res_events = await api.get("/events");
-      setEvents([...res_events.data]);
-      console.log(res_events);
-    } catch (err) {
-      console.log(err);
-    }
+  const nav = useNavigate();
+  const [recommendation, setRecommendation] = useState([]);
+  const [mostPopular, setMostPopular] = useState([]);
+  const [bestRating, setBestRating] = useState([]);
+  const fetchRecommendation = async () => {
+    await api
+      .get('/events/q?is_sponsored=1')
+      .then((result) => setRecommendation(result.data.data))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const fetchMostPopular = async () => {
+    await api
+      .get('/events/q?order_by=MostPopular')
+      .then((result) => setMostPopular(result.data.data))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const fetchBestRating = async () => {
+    console.log('executed');
+    await api
+      .get('/events/q?order_by=HighestRating')
+      .then((result) => setBestRating(result.data.data))
+      .catch((err) => {
+        console.log(err);
+      });
   };
   useEffect(() => {
-    fetchEvents();
-    fetchRating();
+    fetchRecommendation();
+    fetchMostPopular();
+    fetchBestRating();
   }, []);
-
-  const [rating_map, setRating_map] = useState({});
-  const [rating_length, setRating_length] = useState({});
-  async function fetchRating() {
-    const res = await api.get("/reviews");
-    const data = res.data;
-    // console.log(`tass`, data);
-    const temp_obj = new Object();
-    const temp_total_reviews = {};
-    let avg_rating;
-    let total_reviews;
-    data?.forEach((element) => {
-      avg_rating =
-        element.ratings.reduce((acc, currentVal) => acc + currentVal, 0) /
-        element.ratings.length;
-      total_reviews = element.ratings.length;
-      if (isNaN(avg_rating)) {
-        avg_rating = "";
-      }
-      temp_obj[element.id] = avg_rating;
-      temp_total_reviews[element.id] = total_reviews;
-      // console.log(temp_obj);
-    });
-    setRating_map(temp_obj);
-    setRating_length(temp_total_reviews);
-  }
-
-  // console.log(`obj`, rating_map);
 
   return (
     <>
       <HeaderNavbar />
       <Container>
-        <Carousel id="carousel-container">
+        <Carousel id="carousel-container" className="mt-2">
           <Carousel.Item>
             <img
-              src="https://api.yesplis.com/images/slider/8044935f5ad212cb8c3d74cb8d8fefdb158025d6.png.webp"
+              src="https://t3.ftcdn.net/jpg/00/66/57/00/360_F_66570044_uOKC8lOpv8PxHWYBBeFmu1iKD3IGCLhw.jpg"
               referrerPolicy="no-referrer"
               className="img-carousel"
+              alt=""
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              {/* <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -77,91 +67,75 @@ function Eventdisplay() {
               src="https://api.yesplis.com/images/slider/3baeaeeb8b92bdc3e02940d91dd4b68a204b7d52.png.webp"
               referrerPolicy="no-referrer"
               className="img-carousel"
+              alt=""
             />
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              {/* <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
-              src="https://api.yesplis.com/images/slider/521ccf964196249b8b09a63819dad8db5f0b4d5b.png.webp"
+              src="https://www.adeogroup.co.uk/wp-content/uploads/2020/03/Advertise-Your-Events-Through-These-Techniques-Using-Paid-Search-and-Social-Ads-2-1-1.jpg"
               referrerPolicy="no-referrer"
               className="img-carousel"
+              alt=""
             />
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              {/* <h3>Third slide label</h3>
               <p>
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              </p> */}
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </Container>
       <Container className="mt-5">
-        <Row>
-          {events.map((ev, index) => (
-            <Col
-              xs={12}
-              sm={12}
-              md={6}
-              lg={4}
-              xl={3}
-              className="my-2 d-flex justify-content-center col-card"
-              key={index}
-              type="button"
-              onClick={() => navigate(`/${ev.id}/${ev.name}`)}
-            >
-              <Card style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  referrerPolicy="no-referrer"
-                  src={ev.photo[0]}
-                  alt={ev.name}
-                  className="image-event"
-                />
-                <Card.Body>
-                  <Card.Title className="event-name">
-                    {ev.name}
-                    {ev.isfree ? (
-                      <>
-                        <img
-                          src="https://media.istockphoto.com/id/807772812/photo/free-price-tag-label.jpg?s=612x612&w=0&k=20&c=1Dq0FHOKP2UbhglZajMe5In_48U8k4qrI1Y4l_h9NrY="
-                          width={"50px"}
-                          style={{ float: "right" }}
-                        />
-                      </>
-                    ) : null}
-                  </Card.Title>
-                  <Card.Text className="location">{ev.location}</Card.Text>
-                  <Card.Text className="date">{ev.date}</Card.Text>
-                  <Card.Text className="description">
-                    {ev.description}
-                  </Card.Text>
-                  <Card.Text className="rating">
-                    <span>
-                      <span
-                        class="fa fa-star star-checked"
-                        style={{ marginRight: "4px" }}
-                      ></span>
-                      <b>
-                        {rating_map[ev.id] &&
-                          Number(rating_map[ev.id]).toFixed(2)}
-                      </b>
-                      {rating_map[ev.id] && `/5 `}
-                    </span>
-                    <span>
-                      {rating_length[ev.id]
-                        ? `(${rating_length[ev.id]})`
-                        : `No ratings`}
-                    </span>
-                  </Card.Text>
-                  <Button variant="primary">Reserve Ticket</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        <h2 className="pl-2">RECOMMENDATION</h2>
+        <Card style={{ maxHeight: '650px' }}>
+          <Row
+            className="d-flex flex-row flex-nowrap"
+            style={{ overflowX: 'scroll' }}
+          >
+            {recommendation.map((ev, index) => (
+              <EventCardOnSearchPage
+                this_event={ev}
+                index={index}
+                key={ev.id}
+              />
+            ))}
+          </Row>
+        </Card>
+        <h2 className="pl-2 mt-3">MOST POPULAR</h2>
+        <Card style={{ maxHeight: '650px' }}>
+          <Row
+            className="d-flex flex-row flex-nowrap"
+            style={{ overflowX: 'scroll' }}
+          >
+            {mostPopular.map((ev, index) => (
+              <EventCardOnSearchPage
+                this_event={ev}
+                index={index}
+                key={ev.id}
+              />
+            ))}
+          </Row>
+        </Card>
+        <h2 className="pl-2 mt-3">BEST RATING</h2>
+        <Card style={{ maxHeight: '650px' }}>
+          <Row
+            className="d-flex flex-row flex-nowrap"
+            style={{ overflowX: 'scroll' }}
+          >
+            {bestRating.map((ev, index) => (
+              <EventCardOnSearchPage
+                this_event={ev}
+                index={index}
+                key={ev.id}
+              />
+            ))}
+          </Row>
+        </Card>
       </Container>
     </>
   );

@@ -7,10 +7,11 @@ import SingleEventDisplay from "../pages/single-event-display";
 import { ProtectedPage } from "./protectedpage";
 import { DashboardProfile } from "../pages/dashboardprofile";
 import TopUp from "../pages/TopUp";
-import ToastExample, { Toast } from "../components/toast";
+import ToastExample from "../components/toast";
 import { ModalBuy } from "../components/modal-buy";
 import EditEvent from "../pages/edit-event";
 import { Ticket } from "../components/ticket";
+import { Verification_Email } from "../pages/verification";
 class RouteClass {
   constructor(path, element) {
     this.path = path;
@@ -25,15 +26,6 @@ export const routes = [
     (
       <ProtectedPage guestOnly={true}>
         <Eventdisplay />
-      </ProtectedPage>
-    )
-  ),
-
-  new RouteClass(
-    "/:eventid/:eventname",
-    (
-      <ProtectedPage guestOnly={true}>
-        <SingleEventDisplay />
       </ProtectedPage>
     )
   ),
@@ -86,14 +78,6 @@ export const routes = [
     )
   ),
   new RouteClass(
-    "/:eventid/edit_event/:eventname",
-    (
-      <ProtectedPage guestOnly={false} needLogin={true}>
-        <EditEvent />
-      </ProtectedPage>
-    )
-  ),
-  new RouteClass(
     "/ticket",
     (
       <ProtectedPage guestOnly={false} needLogin={true}>
@@ -106,6 +90,37 @@ export const routes = [
     (
       <ProtectedPage guestOnly={false} needLogin={false}>
         <ToastExample />
+      </ProtectedPage>
+    )
+  ),
+  // new RouteClass(
+  //   `/review/event/:eventid/:eventname`(
+  //     <ProtectedPage guestOnly={false} needLogin={true}>
+  //       <ReviewAnEvent />
+  //     </ProtectedPage>
+  //   )
+  // ),
+  new RouteClass(
+    "/verify/:id/:token",
+    (
+      <ProtectedPage guestOnly={true} needLogin={false}>
+        <Verification_Email />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "/:eventid/edit_event/:eventname",
+    (
+      <ProtectedPage guestOnly={false} needLogin={true}>
+        <EditEvent />
+      </ProtectedPage>
+    )
+  ),
+  new RouteClass(
+    "/:eventid/:eventname",
+    (
+      <ProtectedPage guestOnly={true}>
+        <SingleEventDisplay />
       </ProtectedPage>
     )
   ),

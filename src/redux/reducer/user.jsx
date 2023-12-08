@@ -1,12 +1,12 @@
-import { types } from "../types";
+import { types } from '../types';
 
 const init_state = {
-  username: "",
-  email: "",
-  password: "",
+  username: '',
+  email: '',
+  password: '',
   id: 0,
   points: 0,
-  referralcode: "",
+  referralcode: '',
   events: [],
 };
 
@@ -21,6 +21,7 @@ export const userReducer = (state = init_state, action) => {
       points: action.payload.points,
       referralcode: action.payload.referralcode,
       events: action.payload.events,
+      role: action.payload.role,
     };
   } else if (action.type === types.logout) {
     return init_state;

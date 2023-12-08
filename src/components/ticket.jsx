@@ -1,118 +1,108 @@
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBBtn,
-  MDBTypography,
-  MDBIcon,
-} from "mdb-react-ui-kit";
-import uuid from "react-uuid";
-import api from "../json-server/api";
-import { useEffect, useState } from "react";
-import { Height } from "@mui/icons-material";
+import { MDBCardText, MDBCardBody } from "mdb-react-ui-kit";
+import { Button, Col } from "react-bootstrap";
+import { ReviewAnEvent } from "../pages/EventReview";
+import { useState } from "react";
+import Barcode from "react-barcode";
+import { EditReviewAnEvent } from "./editReview";
 
-export const Ticket = ({ ticket }) => {
-  const ticketNumber = uuid();
-  const [events_map, setEvents_map] = useState(new Map());
-  const [an_event, setAn_event] = useState([]);
-  const [ini, setIni] = useState(false);
-
-  const fetchEventsMap = async () => {
-    try {
-      const res_events = await api.get("/events");
-      const temp_events_map = new Map();
-      res_events.data.map((an_event) =>
-        temp_events_map.set(an_event.id, an_event)
-      );
-      setEvents_map(temp_events_map);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  console.log(events_map);
-
-  const getEvent = async () => {
-    const eventData = await api.get("/events");
-    // console.log(eventData.data);
-  };
-  const this_event = events_map.get(ticket?.eventid);
-
-  //date start
-  let datestart;
-  if (this_event?.name) {
-    datestart = this_event["date-start"];
-  }
-  //   console.log(`1`, this_event?.name);
-  //   console.log(this_event);
-
-  //photo
-  let photo;
-  if (this_event?.photo) {
-    photo = this_event.photo;
-  }
-  //   console.log(this_event.photo);
-
-  useEffect(() => {
-    getEvent();
-    fetchEventsMap();
-  }, []);
-
-  useEffect(() => {
-    getEvent();
-  }, [ini]);
-
+export const Ticket = ({ ticket, index, getTicket }) => {
+  const [show, setShow] = useState("");
+  const handleClose = () => setShow("");
+  const handleShow = () => setShow("modalReview");
+  const handleShowEdit = () => setShow("modalEdit");
   return (
-    <>
-      <div
-        className="text-center"
+    <Col
+      sm={12}
+      md={6}
+      lg={4}
+      style={{
+        borderRadius: "14px",
+        border: "1px solid black",
+        boxShadow: "2px 3px 6px black",
+      }}
+      className="bg-white p-4"
+    >
+      <MDBCardBody
+        className="text-center p-2"
         id="card bawah"
-        style={{
-          boxShadow: "1px 2px 5px black",
-          maxWidth: "160px",
-          maxHeight: "360px",
-          marginBottom: "4px",
-        }}
+        style={{ border: "1px solid", boxShadow: "2px 3px 6px black" }}
       >
-        <div className="font-bold border-b-2" style={{ fontSize: "19px" }}>
-          Your Tickets:
-        </div>
-        <div className="mb-4 pb-2 border-2 w-30 h-32">
-          <img
-            src={photo}
-            alt="img ticket"
-            style={{ width: "550px", height: "125px", objectFit: "cover" }}
+        <MDBCardText
+          className="mb-1 h5"
+          style={{ textTransform: "capitalize" }}
+        >
+          <a
+            href={`/${ticket?.eventid}/${ticket?.Event?.name.replace(
+              " ",
+              "%20"
+            )}`}
+          >
+            {ticket?.Event.name}
+          </a>
+        </MDBCardText>
+        <div className="mb-4 pb-2 border-2 d-flex justify-content-center">
+          <Barcode
+            value={ticket?.ticketcode}
+            width={0.6}
+            displayValue={false}
           />
         </div>
-        <div className="col-auto">
-          <div>
-            <div className="small text-muted mb-0">{}</div>
-            <div
-              className="mb-1"
-              style={{ fontWeight: "700", fontSize: "16px" }}
+        <div className="d-flex m-2 align-items-center">
+          <MDBCardText
+            className="small text-muted m-0"
+            style={{ maxWidth: "70px" }}
+          >
+            Event Date:
+          </MDBCardText>
+          <MDBCardText className="mb-1 h5 ml-2">
+            {ticket?.Event?.date_start}
+          </MDBCardText>
+        </div>
+        <div className="d-flex m-2 align-items-center">
+          <MDBCardText
+            className="small text-muted m-0"
+            style={{ maxWidth: "70px" }}
+          >
+            Your Ticket Number:
+          </MDBCardText>
+          <MDBCardText className="mb-1 h5 ml-2">
+            {ticket?.ticketcode}
+          </MDBCardText>
+        </div>
+        <div className="d-flex" style={{ gap: "5px" }}>
+          <Button>
+            <a
+              href={`/${ticket?.eventid}/${ticket?.Event?.name.replace(
+                " ",
+                "%20"
+              )}`}
             >
-              {this_event ? this_event.name : null}
-            </div>
-          </div>
-          <div style={{ display: "col" }}>
-            <MDBCardText className=" mb-0" style={{ fontWeight: "500" }}>
-              Event Date:
-            </MDBCardText>
-            <div className="h-7">{datestart}</div>
-          </div>
+              See Event Page
+            </a>
+          </Button>
+          {ticket?.Review ? (
+            ticket?.Review?.timediff < "00:30:00" ? (
+              <Button onClick={handleShowEdit}>Edit review</Button>
+            ) : null
+          ) : (
+            <Button onClick={handleShow}>Review this event</Button>
+          )}
         </div>
-        <div
-          className="d-flex text-center "
-          style={{ fontWeight: "500", justifyContent: "center" }}
-        >
-          Your Ticket Number:
-        </div>
-        <div>{ticketNumber}</div>
-      </div>
-    </>
+        <ReviewAnEvent
+          ticket={ticket}
+          show={show}
+          handleClose={handleClose}
+          index={index}
+          getTicket={getTicket}
+        />
+        <EditReviewAnEvent
+          ticket={ticket}
+          show={show}
+          handleClose={handleClose}
+          index={index}
+          getTicket={getTicket}
+        />
+      </MDBCardBody>
+    </Col>
   );
 };

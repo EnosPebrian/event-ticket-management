@@ -3,97 +3,88 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import api from "../json-server/api";
 import uuid from "react-uuid";
 import { useToast } from "@chakra-ui/react";
 import NavbarLogin from "./navbarLogin";
+import * as Yup from "yup";
+import YupPassword from "yup-password";
+import { useFormik } from "formik";
+import { useState } from "react";
 
 const Register = () => {
   const nav = useNavigate();
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    points: 0,
-    referralcode: uuid(),
-    reference: "",
-    events: [],
-  });
   const toast = useToast();
-
-  const register = async (e) => {
-    e.preventDefault();
-    console.log("input Handler", user);
-
-    const check = await api.get("/users", {
-      params: {
-        email: user.email,
-      },
-    });
-    // console.log(check);
-
-    if (check.data.length) {
-      return toast({
-        title: "Email sudah terdaftar",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-    if (user.confirmPassword == user.password) {
-      const tmp = { ...user };
-      delete tmp.confirmPassword;
-      const res = await api.get(`users?referralcode=${tmp.reference}`);
-      const ref = res.data[0];
-      if (ref) {
-        ref.points = ref.points + 20000;
-        tmp.points = 20000;
-        await api
-          .patch(`users/${ref.id}`, ref)
-          .then(() => delete tmp.reference);
+  const [timeRegister, setTimeRegister] = useState(new Date());
+  YupPassword(Yup);
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      role: 3,
+      points: 0,
+      is_verified: 0,
+      referralcode: uuid(),
+      reference: "",
+    },
+    validationSchema: Yup.object().shape({
+      username: Yup.string().required(),
+      email: Yup.string().email().required(),
+      password: Yup.string().password().required(),
+      confirmPassword: Yup.string().password().required(),
+    }),
+    onSubmit: async (values) => {
+      try {
+        if (new Date() - timeRegister < 5000)
+          throw new Error("too many attempt");
+        else setTimeRegister(new Date());
+        if (values.confirmPassword == values.password) {
+          const tmp = { ...values };
+          tmp.email = tmp.email.toLowerCase();
+          toast({
+            title: "processing",
+            status: "info",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+          await api
+            .post("/users/new_account", tmp)
+            .then((result) => {
+              toast({
+                title: "Your account has been created!",
+                status: "success",
+                duration: 3000,
+                isClosable: true,
+                position: "top",
+              });
+              nav("/login");
+            })
+            .catch((err) => {
+              toast({
+                title: "Failed to register",
+                status: "error",
+                description: err?.response?.data,
+                duration: 3000,
+                isClosable: true,
+                position: "top",
+              });
+            });
+        }
+      } catch (err) {
+        console.log(err);
       }
-
-      await api.post("/users", tmp).then(() => {
-        toast({
-          title: "Berhasil Register!",
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-          position: "top",
-        });
-        nav("/login");
-      });
-    } else {
-      toast({
-        title: "password & confirm password tidak sesuai!",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-  };
-
-  const inputHandler = (key, value) => {
-    setUser({ ...user, [key]: value });
-    console.log(user);
-  };
-
-  useEffect(() => {
-    const localData = localStorage.getItem("auth");
-    if (localData) nav("/home");
-    inputHandler();
-  }, []);
+    },
+  });
 
   return (
     <>
       <NavbarLogin />
       <center>
-        <form onSubmit={register}>
-          <div className="register-box">
+        <form>
+          <div className="register-box" style={{ borderRadius: "50px" }}>
             <div className="judul-register">
               <span style={{ fontWeight: "bold", fontSize: "18px" }}>
                 Sign Up
@@ -110,65 +101,76 @@ const Register = () => {
             </div>
             {/* -------------------INPUT---------------------- */}
             <div style={{ marginBottom: "20px" }}>
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Full Name"
-                className="mb-1"
-              >
+              <FloatingLabel label="Full Name" className="mb-1">
                 <Form.Control
                   type="text"
                   placeholder="username"
-                  required
-                  onChange={(e) => inputHandler("username", e.target.value)}
+                  name="username"
+                  onChange={formik.handleChange}
+                  style={{ borderRadius: "20px" }}
                 />
+                <span className="text-danger">{formik.errors.username}</span>
               </FloatingLabel>
 
               <FloatingLabel
-                controlId="floatingInput"
+                controlId="floatingInputemail"
                 label="Email address"
                 className="mb-1"
               >
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
-                  required
-                  onChange={(e) => inputHandler("email", e.target.value)}
+                  name="email"
+                  onChange={formik.handleChange}
+                  style={{ borderRadius: "20px" }}
                 />
+                <span className="text-danger">{formik.errors.email}</span>
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingPassword" label="Password">
                 <Form.Control
                   type="password"
                   placeholder="Password"
-                  style={{ marginBottom: "5px" }}
-                  required
-                  onChange={(e) => inputHandler("password", e.target.value)}
+                  style={{ marginBottom: "5px", borderRadius: "20px" }}
+                  name="password"
+                  onChange={formik.handleChange}
                 />
+                <span className="text-danger">{formik.errors.password}</span>
               </FloatingLabel>
-
               <FloatingLabel
-                controlId="floatingPassword"
+                controlId="floatingconfirmPassword"
                 label="Confirm Password"
               >
                 <Form.Control
                   type="password"
                   placeholder="Confirm Password"
-                  required
-                  onChange={(e) =>
-                    inputHandler("confirmPassword", e.target.value)
-                  }
+                  name="confirmPassword"
+                  onChange={formik.handleChange}
+                  style={{ borderRadius: "20px" }}
                 />
+                <span className="text-danger">
+                  {formik.values.password === formik.values.confirmPassword
+                    ? null
+                    : "Your password and confirmation password does not match"}
+                </span>
               </FloatingLabel>
               <FloatingLabel controlId="reference" label="Referral code">
                 <Form.Control
                   type="text"
                   placeholder="Referral code"
-                  onChange={(e) => inputHandler("reference", e.target.value)}
+                  name="reference"
+                  onChange={formik.handleChange}
+                  style={{ borderRadius: "20px" }}
                 />
               </FloatingLabel>
             </div>
 
-            <Button variant="primary" size="lg" type="submit">
+            <Button
+              variant="primary"
+              size="lg"
+              style={{ borderRadius: "20px" }}
+              onClick={formik.handleSubmit}
+            >
               Sign Up
             </Button>
           </div>
